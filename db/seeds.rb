@@ -24,13 +24,14 @@ routeburn_checks = {
 }
 
 routeburn_checks.each do |key, value|
-  checkpoint = Checkpoint.create!(
+  checkpoint = Checkpoint.new(
     name: value[0],
     latitude: value[1],
     longitude: value[2],
     elevation: value[3]
   )
   checkpoint.trail = routeburn
+  checkpoint.save
 end
 
 puts "Routeburn done ✅"
@@ -57,13 +58,14 @@ mueller_checks = {
 }
 
 mueller_checks.each do |key, value|
-  checkpoint = Checkpoint.create!(
+  checkpoint = Checkpoint.new(
     name: value[0],
     latitude: value[1],
     longitude: value[2],
     elevation: value[3]
   )
   checkpoint.trail = mueller
+  checkpoint.save
 end
 
 puts "Mueller done ✅"
