@@ -1,0 +1,32 @@
+<div class="parallax_wrapper">
+  <%# <div class="parallax_group intro_screen" id="intro">
+    Restaurants Parallax Test
+  </div> %>
+
+  <div class="parallax_group" id="group-1">
+    <div class="parallax_layer base_layer" style="background-image: url('<%= image_path "Sky.png", crop: :fill %>')"></div>
+    <div class="parallax_layer mid_layer" style="background-image: url('<%= image_path "mountain.png", crop: :fill %>')"></div>
+    <div class="parallax_layer mid_top_layer text-white" style="background-image: url('<%= image_path "Person.png", crop: :fill %>')">
+      <div>Go out exploring, get home safe</div>
+      <div>Tell us where you want to hike next and we will take care of the details</div>
+      <div>
+        <%= simple_form_for @trails do |f| %>
+        <%= f.input :username %>
+        <%= f.input :password %>
+        <%= f.input :description, as: :text %>
+        <%= f.input :accepts,     as: :radio_buttons %>
+        <%= f.button :submit %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="parallax_group" id="group-2">
+    <div class="parallax_layer mid_top_layer">Mid Layer Page</div>
+    <div class="parallax_layer top_layer">Top Layer Page</div>
+  </div>
+
+  <div class="parallax_group outro_screen" id="outro">
+    The end
+  </div>
+</div>
