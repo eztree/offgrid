@@ -1,7 +1,13 @@
 class TrailsController < ApplicationController
-  before_action :authenticate_user!, except: [ :index, :show ]
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
+  skip_after_action :verify_policy_scoped, only: [:index]
 
   def index
-    authorize @trail
+    @trails = Trail.all
+    @markers = []
+  end
+
+  def show
+    @trail = Trail.find(params[:id])
   end
 end
