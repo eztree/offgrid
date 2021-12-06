@@ -1,6 +1,7 @@
 require 'nokogiri'
 require 'json'
 
+# Methods for json extraction
 def seeding_trails
   filepath = File.join(__dir__, 'data/trails.json')
   serialized_locations = File.read(filepath)
@@ -30,21 +31,36 @@ def seeding_trails
   end
   return locations
 end
+# End of methods section
 
+# Start of seeding
 puts "Seeding database.."
+
+# Removing old data
 puts "Deleting existing database.."
 User.destroy_all
 Trail.destroy_all
 Checkpoint.destroy_all
 puts "Deleted!"
 
+#extracting from json files
 puts "extracting information from json files.."
 trail_seed = seeding_trails
 
 puts "infomation extracted!"
 
+#Creating instance models here
 puts "creating trails.."
-
+trail_seed.each do |trail|
+  Trail.create!(
+    name: trail[:name],
+    description: trail[:description],
+    location: trail[:location],
+    time_needed: trail[:time_needed],
+    distance: trail[:distance]
+  )
+end
 puts "Trails created!"
 
 puts "Seeding complete!"
+# End of seeding
