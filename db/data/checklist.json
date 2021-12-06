@@ -13,6 +13,7 @@
     "clothes_footwear": {
       "required": ["Moisture-wicking undergarments", "Moisture-wicking t-shirt (Merino wool or polyester)", "Quick-drying pants/shorts", "Long-sleeve shirt (for sun, bugs)","Lightweight fleece or jacket", "Boots or shoes", "Socks (synthetic or wool)"],
       "cold_weather": ["Rainwear (jacket and pants)", "Long underwear", "Insulated jacket/vest (puffy)", "Fleece pants", "Gloves or mittens", "Warm hat"],
+      "snow_weather": ["Crampons", "Ice axe"],
       "optional": ["Sandals (camp shoes)", "Gaiters", "Bandana or buff"]
     },
     "navigation": {
