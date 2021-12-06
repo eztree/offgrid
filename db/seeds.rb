@@ -38,6 +38,7 @@ puts "Seeding database.."
 
 # Removing old data
 puts "Deleting existing database.."
+Trip.destroy_all
 User.destroy_all
 Checkpoint.destroy_all
 Trail.destroy_all
@@ -123,19 +124,20 @@ User.create!(
     password: "password"
   )
 puts "Standard user Geetha created! ✅"
-
 # Creating the first trip for first user
 puts "Booking a trip for our first user"
+STATUS = ["upcoming", "ongoing", "return"]
 Trip.create!(
-  name: Trail.first.name,
-  description: Trail.first.description,
-  location: Trail.first.location,
-  time_needed: Trail.first.time_needed,
-  distance: Trail.first.distance,
-  start_lat: Trail.first.start_lat,
-  start_lon: Trail.first.start_lon,
-  end_lat: Trail.first.end_lat,
-  end_lon: Trail.first.end_lon
+  trail: Trail.first,
+  user: User.first,
+  start_date: Date.today,
+  end_date: Date.today + 2,
+  no_of_people: 1,
+  status: STATUS[0],
+  cooking: true,
+  camping: true,
+  last_seen_photo: "",
+  release_date_time: DateTime.new(Date.today.year, Date.today.month, Date.today.day + 2, 9)
 )
 
 puts "Trip has been booked!"
