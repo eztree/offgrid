@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon opacity-hidden fixed-top">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
   <%= link_to "#", class: "navbar-brand" do %>
     <%= image_tag "offgrid_logo.svg", class:"position-absolute", style:"width:120px; top:-8px;" %>
   <% end %>
@@ -28,8 +28,8 @@
       <% else %>
         <li class="nav-item">
         <div class="d-flex justify-content-between align-items-center mr-3" style="width:280px">
-          <%= link_to "About us", new_user_session_path, class:"text-white", style:"width:5rem;" %>
-          <%= link_to "Sign up", new_user_session_path, class:"text-white",style:"width:5rem;" %>
+          <%= link_to "About us", new_user_session_path, class:"text-nav-color", style:"width:5rem;" %>
+          <%= link_to "Sign up", new_user_session_path, class:"text-nav-color",style:"width:5rem;" %>
           <%= link_to "Login", new_user_session_path, class: "nav-link btn btn-success text-white", style:"width:5rem;" %>
         </div>
         </li>

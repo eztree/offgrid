@@ -1,5 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
+  background-color: white;
+  color: black;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -10,6 +12,6 @@
   width: 40px;
 }
 
-.opacity-hidden {
-  background-color: rgb(255, 255, 255);
+.text-nav-color {
+  color: black;
 }
