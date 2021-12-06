@@ -1,0 +1,15 @@
+{
+  "meals": {
+    "not_cooking": {
+      "breakfast": ["Overnight oats (1 cup)","Trailtopia instant oatmeal mix - Cinammon Apple","Nutella sandwich","PB&J sandwich","Granola with powdered milk"],
+      "lunch_dinner": ["Pita bread and tuna wrap", "Smoked sausage and cheese", "SPAM sandwich", "Dry salami, cheese and crackers", "Nut butter honey tortillas", "Dried hummus with olive oil and pretzel chips", "Herbed tomato cous cous salad", "Near East Roasted Garlic and Olive Oil Cous Cous with mayo and salmon", "Instant mashed potatoes with jerky and cheese"],
+      "dessert": ["Chocolate bar", "Dried fruit", "Instant cold brew"]
+    },
+    "cooking": {
+      "breakfast": ["Patagonia Provisions Hot Cereal - Raspberry","Peak Refuel Mountain - Berry Granola", "Coconut chia oatmeal", "Fruit and cream porridge", "Oatmeal pancakes"],
+      "lunch_dinner": ["Tacos with instant beans and seasoning", "Instant rice", "Curry", "Backpacker's Pantry - Pad Thai", "Backpacker's Pantry - Three Cheese Mac & Cheese", "Fernweh - Mushroom Pot Pie", "Peak ReFuel - Chicken Rice", "Instant ramen", "GOOD-TO-GO - Dehydrated risotto"],
+      "dessert": ["Coffee", "Tea", "Hot chocolate"]
+    },
+    "snacks": ["Bagel", "Crackers", "Beef jerky", "Energy gummies", "M&Ms"]
+  }
+}

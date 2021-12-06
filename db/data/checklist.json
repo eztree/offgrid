@@ -1,0 +1,30 @@
+{
+  "checklist" :{
+    "backpack_gear": {
+      "required": ["40-60L Backpack with raincover", "Backpacking tent", "Sleeping bag", "Headlamp / Flashlight (with extra batteries)"],
+      "optional": ["Sleeping pad", "Hiking poles"]
+    },
+    "kitchen_tools": {
+      "required": ["Backpacking stove", "Fuel", "Cookset (at least 1 pot)", "Mug/Cup", "Dish/Bowl", "Utensils", "Biodegradable soap", "Small quick-dry towel", "Collapsible water container"]
+    },
+    "food_water": {
+      "required": ["Water bottle or hydration bladder","Water filter/purifier or chemical treatment", "Energy food and drinks, trail mix","Extra day's supply of food"]
+    },
+    "clothes_footwear": {
+      "required": ["Moisture-wicking undergarments", "Moisture-wicking t-shirt (Merino wool or polyester)", "Quick-drying pants/shorts", "Long-sleeve shirt (for sun, bugs)","Lightweight fleece or jacket", "Boots or shoes", "Socks (synthetic or wool)"],
+      "cold_weather": ["Rainwear (jacket and pants)", "Long underwear", "Insulated jacket/vest (puffy)", "Fleece pants", "Gloves or mittens", "Warm hat"],
+      "snow_weather": ["Crampons", "Ice axe"],
+      "optional": ["Sandals (camp shoes)", "Gaiters", "Bandana or buff"]
+    },
+    "navigation": {
+      "required": ["compass","watch","map"]
+    },
+    "first_aid": {
+      "required": ["Whistle","Lighter/matches (in waterproof container)","Emergency shelter","Fire starter","First-aid kit/supplies"]
+    },
+    "hygiene": {
+      "required": ["Toothbrush and toothpaste", "Sanitation towel", "Toilet paper/wipes and sealable bag", "Sunglasses", "Sunscreen", "Lip balm", "Sun hat"],
+      "optional": ["Insect repellent"]
+    }
+  }
+}
