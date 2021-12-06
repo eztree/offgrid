@@ -38,10 +38,9 @@ puts "Seeding database.."
 
 # Removing old data
 puts "Deleting existing database.."
-Trip.destroy_all
-User.destroy_all
-Checkpoint.destroy_all
 Trail.destroy_all
+User.destroy_all
+
 puts "Deleted!"
 
 # static data
