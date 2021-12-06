@@ -39,8 +39,8 @@ puts "Seeding database.."
 # Removing old data
 puts "Deleting existing database.."
 User.destroy_all
-Trail.destroy_all
 Checkpoint.destroy_all
+Trail.destroy_all
 puts "Deleted!"
 
 puts "Creating the manual trails 🛤"
