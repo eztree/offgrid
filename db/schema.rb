@@ -68,6 +68,23 @@ ActiveRecord::Schema.define(version: 2021_12_06_102923) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "trips", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "no_of_people"
+    t.bigint "trail_id", null: false
+    t.string "status"
+    t.boolean "cooking"
+    t.boolean "camping"
+    t.string "last_seen_photo"
+    t.datetime "release_date_time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["trail_id"], name: "index_trips_on_trail_id"
+    t.index ["user_id"], name: "index_trips_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -86,4 +103,6 @@ ActiveRecord::Schema.define(version: 2021_12_06_102923) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "checkpoints", "trails"
+  add_foreign_key "trips", "trails"
+  add_foreign_key "trips", "users"
 end
