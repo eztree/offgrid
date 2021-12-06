@@ -1,3 +1,6 @@
 class TripsController < ApplicationController
-  before_action :authenticate_user!, except: [ :index, :show ]
+  def index
+    @trips = policy_scope(Trip)
+    authorize @trips
+  end
 end
