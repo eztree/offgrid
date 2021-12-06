@@ -1,7 +1,50 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'nokogiri'
+require 'json'
+
+def seeding_trails
+  filepath = File.join(__dir__, 'data/trails.json')
+  serialized_locations = File.read(filepath)
+
+  locations = []
+
+  trails_loc_json = JSON.parse(serialized_locations)
+  trails_loc = trails_loc_json['div']['div'][1]['div']
+  trails_loc.each_with_index do |trail, index|
+    trail_hash = {
+      id: index + 1,
+      name: trail['div']['div'][0]['@title'],
+      location: trail['div']['a']['@title'],
+      distance: trail['div']['div'][2]['span'][0]['#text'],
+      description: trail['div']['div'][3]['#text'],
+      time_needed: trail['div']['div'][2]['span'][2]['#text']
+    }
+    if trail['div']['div'][2]['span'][2]['#text'].instance_of?(NilClass)
+      trail_hash[:time_needed] = trail['div']['div'][2]['span'][2]
+    end
+    unless trail['a'][1]['figure']['div']['div'][0]['div']['div'][1]['div']['div']['img'].instance_of?(NilClass)
+      trail_hash[:photo] = trail['a'][1]['figure']['div']['div'][0]['div']['div'][1]['div']['div']['img']['@src']
+    end
+    trail_hash[:distance] = trail_hash[:distance].split('Length: ')[1]
+    trail_hash[:time_needed] = trail_hash[:time_needed].split('Est. ')[1]
+    locations << trail_hash
+  end
+  return locations
+end
+
+puts "Seeding database.."
+puts "Deleting existing database.."
+User.destroy_all
+Trail.destroy_all
+Checkpoint.destroy_all
+puts "Deleted!"
+
+puts "extracting information from json files.."
+trail_seed = seeding_trails
+
+puts "infomation extracted!"
+
+puts "creating trails.."
+
+puts "Trails created!"
+
+puts "Seeding complete!"
