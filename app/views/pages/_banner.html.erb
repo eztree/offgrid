@@ -1,32 +1,35 @@
-<div class="parallax_wrapper">
-  <%# <div class="parallax_group intro_screen" id="intro">
-    Restaurants Parallax Test
-  </div> %>
-
-  <div class="parallax_group" id="group-1">
-    <div class="parallax_layer base_layer" style="background-image: url('<%= image_path "Sky.png", crop: :fill %>')"></div>
-    <div class="parallax_layer mid_layer" style="background-image: url('<%= image_path "mountain.png", crop: :fill %>')"></div>
-    <div class="parallax_layer mid_top_layer text-white" style="background-image: url('<%= image_path "Person.png", crop: :fill %>')">
-      <div>Go out exploring, get home safe</div>
-      <div>Tell us where you want to hike next and we will take care of the details</div>
-      <div>
-        <%= simple_form_for @trails do |f| %>
-        <%= f.input :username %>
-        <%= f.input :password %>
-        <%= f.input :description, as: :text %>
-        <%= f.input :accepts,     as: :radio_buttons %>
-        <%= f.button :submit %>
+<div class="position-absolute banner-text">
+    <div class="head text-white text-center mb-3">Go out exploring, get home safe</div>
+      <div class="content text-white text-center mb-4">Tell us where you want to hike next and we will take care of the details</div>
+      <div class="d-flex justify-content-center my-3">
+        <%= form_tag root_path, method: :get do %>
+          <div class="form-group">
+          <%= text_field_tag :location,
+            params[:location],
+            class: "form-control",
+            placeholder: "Location"
+          %>
+          </div>
+          <div class="form-inline d-flex justify-content-between">
+            <%= date_field_tag :date,
+              params[:date],
+              class: "form-control",
+              style:"width:50%;"
+            %>
+            <%= number_field_tag :no_of_people,
+              params[:no_of_people],
+              class: "form-control",
+              placeholder: "1 Adult",
+              style:"width:30%;"
+            %>
+            <%= submit_tag "Submit", class: "btn btn-success text-white" %>
+          </div>
         <% end %>
       </div>
-    </div>
   </div>
 
-  <div class="parallax_group" id="group-2">
-    <div class="parallax_layer mid_top_layer">Mid Layer Page</div>
-    <div class="parallax_layer top_layer">Top Layer Page</div>
-  </div>
-
-  <div class="parallax_group outro_screen" id="outro">
-    The end
-  </div>
+<div class="parallax_group" id="group-1">
+  <div class="parallax_layer base_layer" style="background-image: url('<%= image_path "Sky.png", crop: :fill %>')"></div>
+  <div class="parallax_layer mid_layer" style="background-image: url('<%= image_path "mountain.png", crop: :fill %>')"></div>
+  <div class="parallax_layer mid_top_layer text-white" style="background-image: url('<%= image_path "Person.png", crop: :fill %>')"></div>
 </div>

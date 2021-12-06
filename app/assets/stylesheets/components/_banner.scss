@@ -4,6 +4,20 @@
   align-items: center;
 }
 
+.banner-text {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  .head {
+    font-size: 3rem;
+  }
+
+  .content {
+    font-size: 1rem;
+  }
+}
+
 body {
   // font-family: "Raleway", sans-serif;
   // font-size: 4em;
@@ -54,7 +68,7 @@ body {
       }
 
       .top_layer {
-        transform: translateZ(210px) scale(0.3);
+        transform: translateZ(90px) scale(0.7);
       }
     }
 
@@ -84,7 +98,7 @@ body {
     }
 
     #group-2 > .mid_top_layer {
-      background-color: yellowgreen;
+      background-color: rgb(39, 39, 39);
     }
 
     #outro {
