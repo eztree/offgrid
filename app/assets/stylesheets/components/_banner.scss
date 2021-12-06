@@ -94,11 +94,35 @@ body {
     // }
 
     #group-2 {
-      // z-index: -2;
+      z-index: 0;
+      // overflow: hidden;
     }
 
     #group-2 > .mid_top_layer {
-      background-color: rgb(39, 39, 39);
+      animation: changebgcolor 20s ease-in-out infinite;
+      background: radial-gradient(
+        circle at 0%,
+        rgba(0, 0, 0, 0.1),
+        rgba(39, 39, 39, 0.6)
+      );
+    }
+
+    @keyframes changebgcolor {
+      0%,
+      100% {
+        background-color: #000;
+      }
+      50% {
+        background-color: rgb(104, 50, 0);
+      }
+    }
+
+    #group-2 > .top_layer {
+      z-index: -1;
+    }
+
+    #group-3 {
+      z-index: -3;
     }
 
     #outro {

@@ -1,39 +1,39 @@
+<style>
+  .navbar-lewagon {
+    background-color: rgba(255, 255, 255,0);
+  }
+
+  .text-nav-color {
+    color: white;
+  }
+</style>
+
 <div class="parallax_wrapper">
 <%= render "banner" %>
-  <div class="parallax_group" id="group-2">
+  <section class="parallax_group" id="group-2">
     <div class="parallax_layer mid_top_layer text-white">
-      <div class="d-flex flex-column justify-content-center align-items-center" style="width:80%; height:480px;">
-        <div class="h1 mb-4">Mother Nature Awaits</div>
-        <div class="d-flex flex-row flex-wrap justify-content-between" style="width:100%;">
-          <div>
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-              Plan your trip
-            </div>
-            <div class="card-text">Overwhelmed? Don't be. We cut the noise and give you the itinerary you need.</div>
-          </div>
-
-          <div>
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-              Find your next adventure
-            </div>
-            <div class="card-text">Don't sweat even before the trip begins. Discover where to go next.</div>
-          </div>
-          <div>
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-              Get lost and found
-            </div>
-            <div class="card-text">Lose yourself in nature's beauty knowing you'll come home safe - all with our safety notification feature.</div>
-          </div>
-        </div>
-      </div>
+      <%= image_tag "birds_black.svg", class:"position-absolute grayscale", style:"bottom:0"; %>
+      <%= image_tag "midground_black.svg", class:"position-absolute grayscale", style:"bottom:0;" %>
     </div>
-    <div class="parallax_layer top_layer text-white"></div>
-  </div>
+    <div class="parallax_layer top_layer" , style:" transform: translateY(200px);"><%= render "section_intro" %></div>
+  </section>
 
-  <div class="parallax_group outro_screen" id="outro">
-    The end
+<div class="parallax_group" id="group-1" style="overflow:hidden">
+  <div class="parallax_layer base_layer"><%= image_tag "background.svg", style:" transform: translateY(-10px);" %></div>
+  <div class="parallax_layer mid_layer"><%= image_tag "midground.svg", style:" transform: translateY(-10px);" %></div>
+  <div class="parallax_layer mid_top_layer text-white" ><%= image_tag "foreground.svg", style:"transform: translateY(120px);" %></div>
+  <div class="parallax_layer mid_top_layer text-white d-flex flex-column" >
+    <%# <div class="position-absolute text-center"> %>
+      <div class="h1 text-white mb-4">Explore new routes</div>
+      <div class="text-white mb-4">You don't want to miss these exciting routes. Get inspired for your next trip with these trail guides.</div>
+      <%= render "section_end",trails: @trails %>
+    <%# </div> %>
   </div>
 </div>
+
+  <%# <div class="parallax_group_short outro_screen" id="outro">
+    The end
+  </div> %>
 
 
 </div>
