@@ -38,11 +38,13 @@ puts "Seeding database.."
 
 # Removing old data
 puts "Deleting existing database.."
+Trip.destroy_all
 User.destroy_all
 Checkpoint.destroy_all
 Trail.destroy_all
 puts "Deleted!"
 
+# static data
 puts "Creating the manual trails 🛤"
 puts "Routeburn Track 1️⃣"
 routeburn = Trail.create!(
@@ -113,6 +115,33 @@ puts "Mueller done ✅"
 
 puts "End of manual trails 👌"
 
+# Creating a static user instance
+puts "Creating our first user.."
+User.create!(
+    first_name: "Geetha",
+    last_name: "Bheema",
+    email: "geebee@gmail.com",
+    password: "password"
+  )
+puts "Standard user Geetha created! ✅"
+# Creating the first trip for first user
+puts "Booking a trip for our first user"
+STATUS = ["upcoming", "ongoing", "return"]
+Trip.create!(
+  trail: Trail.first,
+  user: User.first,
+  start_date: Date.today,
+  end_date: Date.today + 2,
+  no_of_people: 1,
+  status: STATUS[0],
+  cooking: true,
+  camping: true,
+  last_seen_photo: "",
+  release_date_time: DateTime.new(Date.today.year, Date.today.month, Date.today.day + 2, 9)
+)
+
+puts "Trip has been booked!"
+
 #extracting from json files
 puts "extracting information from json files.."
 trail_seed = seeding_trails
@@ -134,4 +163,3 @@ puts "Trails created!"
 
 puts "Seeding complete!"
 # End of seeding
-
