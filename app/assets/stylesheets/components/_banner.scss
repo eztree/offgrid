@@ -19,10 +19,6 @@
 }
 
 body {
-  // font-family: "Raleway", sans-serif;
-  // font-size: 4em;
-  // color: white;
-
   .parallax_wrapper {
     height: 100vh;
     overflow-x: hidden;
@@ -37,7 +33,7 @@ body {
 
     .outro_screen {
       height: 100vh;
-      background-color: teal;
+      background-color: black;
       @include align-center();
     }
 
@@ -54,12 +50,10 @@ body {
 
       .base_layer {
         // scale calculation: 1 + (Z transform value * -1) / perspective)
-        // transform: translateZ(-300px) scale(2);
         transform: translateZ(-300px) scale(2.01);
       }
 
       .mid_layer {
-        // transform: translateZ(-150px) scale(1.5);
         transform: translateZ(-150px) scale(1.51);
       }
 
@@ -85,36 +79,13 @@ body {
       background-color: White;
     }
 
-    // #group-1 > .mid_layer {
-    //   background-color: crimson;
-    // }
-
-    // #group-1 > .mid_top_layer {
-    //   background-color: crimson;
-    // }
-
     #group-2 {
       z-index: 0;
       // overflow: hidden;
     }
 
     #group-2 > .mid_top_layer {
-      animation: changebgcolor 10s ease-in-out infinite;
-      background: radial-gradient(
-        circle at 0%,
-        rgba(0, 0, 0, 0.1),
-        rgba(39, 39, 39, 0.6)
-      );
-    }
-
-    @keyframes changebgcolor {
-      0%,
-      100% {
-        background-color: #000;
-      }
-      50% {
-        background-color: rgb(104, 50, 0);
-      }
+      background-color: black;
     }
 
     #group-2 > .top_layer {
@@ -123,10 +94,6 @@ body {
 
     #group-3 {
       z-index: -3;
-    }
-
-    #outro {
-      // z-index: -3;
     }
   }
 }
