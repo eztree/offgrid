@@ -5,6 +5,12 @@ class TrailsController < ApplicationController
   def index
     @trails = Trail.all
     @markers = []
+    @trails.each do |trail|
+      @markers << {
+        lat: trail.start_lat,
+        lng: trail.start_lon
+      }
+    end
   end
 
   def show
