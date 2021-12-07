@@ -40,6 +40,7 @@ puts "Seeding database.."
 puts "Deleting existing database.."
 Trail.destroy_all
 User.destroy_all
+Item.destroy_all
 
 puts "Deleted!"
 
@@ -159,6 +160,54 @@ trail_seed.each do |trail|
   )
 end
 puts "Trails created!"
-
 puts "Seeding complete!"
+
+
+# method for Item seeding
+
+
+def seeding_items
+puts "********************"
+puts "Start of Item seeding"
+puts "********************"
+
+filepath = File.join(__dir__, 'data/checklist.json')
+serialized_locations = File.read(filepath)
+items_json = JSON.parse(serialized_locations)
+
+# puts items_json
+puts "*** items Json parsed ***"
+
+  items_json["checklist"].each do |category, category_item|
+    # category.each do |required, required_item|
+    #   puts "#{required}: #{required_item}"
+    # end
+    category_item.each do |required, required_array|
+      # puts required_item
+      required_array.each do |item_name|
+
+        item = Item.create!(name: item_name)
+        puts "Item: #{item.name} is created"
+        item.tag_list.add(category)
+
+        puts "tag category: #{category} added to item: #{item.name}"
+
+        case required
+        when "cold_weather" || "snow_weather"
+          item.tag_list.add("required")
+          item.tag_list.add(required)
+          puts "tag: #{required} and 'required' added to item: #{item.name}"
+
+        else
+          item.tag_list.add(required)
+          puts "tag: 'required' added to item: #{item.name}"
+        end
+        item.save
+      end
+    end
+  end
+end
+
+seeding_items
+
 # End of seeding
