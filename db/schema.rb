@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_06_102923) do
+ActiveRecord::Schema.define(version: 2021_12_07_030822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,16 @@ ActiveRecord::Schema.define(version: 2021_12_06_102923) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "checklists", force: :cascade do |t|
+    t.boolean "checked"
+    t.bigint "trip_id", null: false
+    t.bigint "item_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_checklists_on_item_id"
+    t.index ["trip_id"], name: "index_checklists_on_trip_id"
+  end
+
   create_table "checkpoints", force: :cascade do |t|
     t.float "latitude"
     t.float "longitude"
@@ -52,6 +62,12 @@ ActiveRecord::Schema.define(version: 2021_12_06_102923) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.index ["trail_id"], name: "index_checkpoints_on_trail_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "trails", force: :cascade do |t|
@@ -102,6 +118,8 @@ ActiveRecord::Schema.define(version: 2021_12_06_102923) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "checklists", "items"
+  add_foreign_key "checklists", "trips"
   add_foreign_key "checkpoints", "trails"
   add_foreign_key "trips", "trails"
   add_foreign_key "trips", "users"
