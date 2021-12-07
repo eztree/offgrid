@@ -1,0 +1,28 @@
+<div class="d-flex flex-row align-items-center justify-content-end my-3">
+  <%= form_tag root_path, class: "form-inline pt-2 pr-2", method: :get do %>
+  <div class="form-group">
+    <%= text_field_tag :location,
+        params[:location],
+        class: "form-control",
+        placeholder: "Search for another location"
+    %>
+  <%= submit_tag "Submit", class: "btn btn-success text-white" %>
+  </div>
+  <% end %>
+</div>
+
+<div class="card mb-3">
+  <div class="rounded card-img" style="background-image: url('https://media.timeout.com/images/105666541/750/562/image.jpg'); background-position: center; height: 40vh; width:100%;">
+  </div>
+  <div class="d-flex flex-column justify-content-end card-img-overlay mx-2">
+    <h3 class="card-title text-white"><strong><%= @trail.name %></strong></h3>
+    <p class="card-title text-white" style="font-variant: small-caps;"><%= @trail.location %></p>
+    <div class="ratings">
+      <i class="fa fa-star rating-color"></i>
+      <i class="fa fa-star rating-color"></i>
+      <i class="fa fa-star rating-color"></i>
+      <i class="fa fa-star rating-color"></i>
+      <i class="fa fa-star"></i>
+    </div>
+  </div>
+</div>
