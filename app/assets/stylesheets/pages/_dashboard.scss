@@ -16,3 +16,29 @@
   padding: 4rem;
   text-align: center;
 }
+
+.circle-card {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 12px 24px;
+  font-size: 1.5rem;
+  padding: 16px;
+}
+
+.status {
+  width: 120px;
+  height: 48px;
+  top: 20%;
+  right: 4%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background-color: $green;
+  color: white;
+}
