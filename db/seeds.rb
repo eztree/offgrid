@@ -31,6 +31,52 @@ def seeding_trails
   end
   return locations
 end
+
+def seeding_items
+  filepath = File.join(__dir__, 'data/checklist.json')
+  serialized_locations = File.read(filepath)
+  items_json = JSON.parse(serialized_locations)
+
+  # puts items_json
+  puts "*** items Json parsed ***"
+
+    items_json["checklist"].each do |category, category_item|
+      # category.each do |required, required_item|
+      #   puts "#{required}: #{required_item}"
+      # end
+      category_item.each do |required, required_array|
+        # puts required_item
+        required_array.each do |item_name|
+
+          item = Item.create!(name: item_name)
+          puts "Item: #{item.name} is created"
+          item.tag_list.add(category)
+
+          puts "tag category: #{category} added to item: #{item.name}"
+
+          case required
+          when "cold_weather" || "snow_weather"
+            item.tag_list.add("required")
+            item.tag_list.add(required)
+            puts "tag: #{required} and 'required' added to item: #{item.name}"
+
+          else
+            item.tag_list.add(required)
+            puts "tag: 'required' added to item: #{item.name}"
+          end
+          item.save
+        end
+      end
+    end
+end
+
+def seeding_checklists
+  trip = Trip.first
+  items = Item.tagged_with("required")
+  items.each do |item|
+    checklist = Checklist.create(trip: trip, checked:false, item: item)
+  end
+end
 # End of methods section
 
 # Start of seeding
@@ -121,9 +167,19 @@ User.create!(
     first_name: "Geetha",
     last_name: "Bheema",
     email: "geebee@gmail.com",
-    password: "password"
+    password: "password",
+    active: "true"
   )
 puts "Standard user Geetha created! ✅"
+
+puts "Creating a temp user.."
+User.create!(
+    email: "placeholder@email.com",
+    password: "placeholder",
+    active: "false"
+  )
+puts "Temp user created! ✅"
+
 # Creating the first trip for first user
 puts "Booking a trip for our first user"
 STATUS = ["upcoming", "ongoing", "return"]
@@ -142,13 +198,13 @@ Trip.create!(
 
 puts "Trip has been booked!"
 
-#extracting from json files
+# extracting from json files
 puts "extracting information from json files.."
 trail_seed = seeding_trails
 
 puts "infomation extracted!"
 
-#Creating instance models here
+# Creating instance models here
 puts "creating trails.."
 trail_seed.each do |trail|
   Trail.create!(
@@ -162,68 +218,17 @@ end
 puts "Trails created!"
 puts "Seeding complete!"
 
-
 # method for Item seeding
 
-
-def seeding_items
 puts "********************"
 puts "Start of Item seeding"
 puts "********************"
-
-filepath = File.join(__dir__, 'data/checklist.json')
-serialized_locations = File.read(filepath)
-items_json = JSON.parse(serialized_locations)
-
-# puts items_json
-puts "*** items Json parsed ***"
-
-  items_json["checklist"].each do |category, category_item|
-    # category.each do |required, required_item|
-    #   puts "#{required}: #{required_item}"
-    # end
-    category_item.each do |required, required_array|
-      # puts required_item
-      required_array.each do |item_name|
-
-        item = Item.create!(name: item_name)
-        puts "Item: #{item.name} is created"
-        item.tag_list.add(category)
-
-        puts "tag category: #{category} added to item: #{item.name}"
-
-        case required
-        when "cold_weather" || "snow_weather"
-          item.tag_list.add("required")
-          item.tag_list.add(required)
-          puts "tag: #{required} and 'required' added to item: #{item.name}"
-
-        else
-          item.tag_list.add(required)
-          puts "tag: 'required' added to item: #{item.name}"
-        end
-        item.save
-      end
-    end
-  end
-end
-
 seeding_items
-
 puts "********END: Seeding items*************"
 
 puts "********************************************"
 puts "********START: Seeding Checklist************"
 puts "********************************************"
-
-def seeding_checklists
-  trip = Trip.first
-  items = Item.tagged_with("required")
-  items.each do |item|
-    checklist = Checklist.create(trip: trip, checked:false, item: item)
-  end
-end
-
 seeding_checklists
 puts "********END: Seeding checklist*************"
 
