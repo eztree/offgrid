@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :trails, only: [ :index, :show ]
 
+  get "/pages", to: "pages#dashboard"
 end
