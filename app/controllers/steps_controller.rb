@@ -1,29 +1,32 @@
 class StepsController < ApplicationController
   skip_before_action :authenticate_user!
   skip_after_action :verify_authorized
+  before_action :assign_trip, only: [:show, :update]
 
   include Wicked::Wizard
-  steps :add_date_and_people, :add_num_of_ppl, :add_options
+  steps :add_date_and_people, :add_options, :add_emergency_contact
 
   def show
-    @trip = Trip.find(params[:trip_id])
     @user = @trip.user
     render_wizard
   end
 
   def update
-    render_wizard
+    @user = @trip.user
+    raise
+
+    render_wizard @user
   end
 
-  def add_date_and_people
-    raise
+  private
+
+  def assign_trip
+    @trip = Trip.find(params[:trip_id])
   end
 
-  def add_emergency_contact
-    raise
+  def trips_params
+    params.require(:user)
+          .permit(:email, :current_password)
   end
 
-  def add_options
-    raise
-  end
 end
