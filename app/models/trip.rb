@@ -1,6 +1,7 @@
 class Trip < ApplicationRecord
   belongs_to :user
   belongs_to :trail
+  has_many :checklists
 
   validates :start_date, presence: false
   validates :end_date, presence: false

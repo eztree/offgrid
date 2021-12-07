@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :trips, only: [ :new, :create ] do
     resources :steps
   end
+ get "/pages", to: "pages#dashboard"
+
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_06_113830) do
+ActiveRecord::Schema.define(version: 2021_12_07_072453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,16 @@ ActiveRecord::Schema.define(version: 2021_12_06_113830) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "checklists", force: :cascade do |t|
+    t.boolean "checked"
+    t.bigint "trip_id", null: false
+    t.bigint "item_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_checklists_on_item_id"
+    t.index ["trip_id"], name: "index_checklists_on_trip_id"
+  end
+
   create_table "checkpoints", force: :cascade do |t|
     t.float "latitude"
     t.float "longitude"
@@ -60,12 +70,41 @@ ActiveRecord::Schema.define(version: 2021_12_06_113830) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "taggings", id: :serial, force: :cascade do |t|
+    t.integer "tag_id"
+    t.string "taggable_type"
+    t.integer "taggable_id"
+    t.string "tagger_type"
+    t.integer "tagger_id"
+    t.string "context", limit: 128
+    t.datetime "created_at"
+    t.string "tenant", limit: 128
+    t.index ["context"], name: "index_taggings_on_context"
+    t.index ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
+    t.index ["tag_id"], name: "index_taggings_on_tag_id"
+    t.index ["taggable_id", "taggable_type", "context"], name: "taggings_taggable_context_idx"
+    t.index ["taggable_id", "taggable_type", "tagger_id", "context"], name: "taggings_idy"
+    t.index ["taggable_id"], name: "index_taggings_on_taggable_id"
+    t.index ["taggable_type"], name: "index_taggings_on_taggable_type"
+    t.index ["tagger_id", "tagger_type"], name: "index_taggings_on_tagger_id_and_tagger_type"
+    t.index ["tagger_id"], name: "index_taggings_on_tagger_id"
+    t.index ["tenant"], name: "index_taggings_on_tenant"
+  end
+
+  create_table "tags", id: :serial, force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer "taggings_count", default: 0
+    t.index ["name"], name: "index_tags_on_name", unique: true
+  end
+
   create_table "trails", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.string "location"
     t.string "time_needed"
-    t.string "distance"
+    t.string "route_distance"
     t.float "start_lat"
     t.float "start_lon"
     t.float "end_lat"
@@ -108,7 +147,10 @@ ActiveRecord::Schema.define(version: 2021_12_06_113830) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "checklists", "items"
+  add_foreign_key "checklists", "trips"
   add_foreign_key "checkpoints", "trails"
+  add_foreign_key "taggings", "tags"
   add_foreign_key "trips", "trails"
   add_foreign_key "trips", "users"
 end
