@@ -7,7 +7,7 @@ class TripsController < ApplicationController
   end
 
   def new
-    @trail = Trail.find(params['trail'])
+    @trail = Trail.find(params['trail_id'])
 
     @user = current_user.nil? ? create_tmp_user : current_user
 
