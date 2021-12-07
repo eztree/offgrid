@@ -1,2 +1,37 @@
-<p>emergency contact</p>
-<%= raise %>
+<div class="pt-2 mt-5 col-12">
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <h2>Set your emergency contact</h2>
+        <p>Assign a person who will receive your trip details in the event at a preset date and time if you don’t report back as safe by the end of your hike.</p>
+        <p>Learn more about emergency contacts <%= link_to 'here', '#' %></p>
+      </div>
+      <div class="col-6">
+        <%= form_with(model: @user, url: wizard_path, method: :put, local: true) do |form| %>
+          <div class="d-flex" id="form-name">
+            <%= form.label :name, "Name" %>
+            <%= form.text_field :name %>
+          </div>
+          <div class="d-flex" id="form-email">
+            <%= form.label :email, "Email" %>
+            <%= form.text_field :email %>
+          </div>
+          <div class="d-flex" id="form-contact">
+            <%= form.label :contact, "Contact" %>
+            <%= form.text_field :contact %>
+          </div>
+          <div class="d-flex" id="form-Date">
+            <%= form.label :End_date, "Date" %>
+            <%= form.text_field :End_date %>
+          </div>
+          <div class="d-flex" id="form-Time">
+            <%= form.label :Time, "Time" %>
+            <%= form.text_field :Time %>
+          </div>
+          <%= link_to "back", previous_wizard_path, class: "btn btn-info" %>
+          <%= link_to 'next', next_wizard_path, class: "btn btn-success" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

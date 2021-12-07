@@ -1,2 +1,24 @@
-<p>add date and people</p>
-<%= raise %>
+<div class="pt-2 mt-5 col-12">
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <h2>When do you want to go?</h2>
+        <h2>How many of you are there?</h2>
+      </div>
+      <div class="col-6">
+        <%= form_with(model: @user, url: wizard_path, method: :put, local: true) do |form| %>
+          <div class="d-flex">
+            <%= form.label :date, "Start date" %>
+            <%= form.date_field :date %>
+          </div>
+          <div class="d-flex">
+            <%= form.label :no_of_ppl, "People" %>
+            <%= form.number_field :no_of_ppl, in: 1..100 %>
+          </div>
+          <%= link_to "back", trails_path, class: "btn btn-info" %>
+          <%= link_to 'next', next_wizard_path, class: "btn btn-success" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
