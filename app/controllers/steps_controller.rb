@@ -7,16 +7,23 @@ class StepsController < ApplicationController
   steps :add_date_and_people, :add_options, :add_emergency_contact
 
   def show
-    @user = find_user
-
     render_wizard
   end
 
   def update
     @user = find_user
-    raise
-    @trip.update_attributes(params[:date])
-    @trip.update_attributes(params[:no_of_people])
+    case step
+    when :add_date_and_people
+      if trips_params
+        @trip.start_date = trips_params[:start_date]
+        @trip.no_of_people = trips_params[:no_of_people]
+      end
+    when :add_options
+      if trips_params
+        @trip.camping = trips_params[:camping]
+        @trip.cooking = trips_params[:cooking]
+      end
+    end
     render_wizard @trip
   end
 
