@@ -9,10 +9,6 @@ class TripPolicy < ApplicationPolicy
     record.user == user
   end
 
-  def create?
-    record.user == user
-  end
-
   def cancel?
     record.user == user
   end
