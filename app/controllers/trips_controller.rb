@@ -8,9 +8,21 @@ class TripsController < ApplicationController
 
   def new
     @trail = Trail.find(params['trail'])
-    @trip = Trip.new
+
+    @user = current_user.nil? ? create_tmp_user : current_user
+
+    @trip = Trip.create!(
+      user: @user,
+      trail: @trail
+    )
 
     authorize @trip
-    authorize @trail
+    redirect_to trip_steps_path(@trip)
+  end
+
+  private
+
+  def create_tmp_user
+    User.where(email: "placeholder@email.com").first
   end
 end
