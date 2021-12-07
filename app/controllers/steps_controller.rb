@@ -7,15 +7,17 @@ class StepsController < ApplicationController
   steps :add_date_and_people, :add_options, :add_emergency_contact
 
   def show
-    @user = @trip.user
+    @user = find_user
+
     render_wizard
   end
 
   def update
-    @user = @trip.user
+    @user = find_user
     raise
-
-    render_wizard @user
+    @trip.update_attributes(params[:date])
+    @trip.update_attributes(params[:no_of_people])
+    render_wizard @trip
   end
 
   private
@@ -25,8 +27,12 @@ class StepsController < ApplicationController
   end
 
   def trips_params
-    params.require(:user)
-          .permit(:email, :current_password)
+    params.require(:trip)
+          .permit(:start_date, :no_of_people, :camping, :cooking, :release_date_time, :end_date, :status)
+  end
+
+  def find_user
+    @user = current_user.nil? ? @trip.user : current_user
   end
 
 end
