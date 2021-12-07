@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_07_030822) do
+ActiveRecord::Schema.define(version: 2021_12_07_072453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 2021_12_07_030822) do
     t.text "description"
     t.string "location"
     t.string "time_needed"
-    t.string "distance"
+    t.string "route_distance"
     t.float "start_lat"
     t.float "start_lon"
     t.float "end_lat"

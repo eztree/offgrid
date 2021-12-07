@@ -15,7 +15,7 @@ def seeding_trails
       id: index + 1,
       name: trail['div']['div'][0]['@title'],
       location: trail['div']['a']['@title'],
-      distance: trail['div']['div'][2]['span'][0]['#text'],
+      route_distance: trail['div']['div'][2]['span'][0]['#text'],
       description: trail['div']['div'][3]['#text'],
       time_needed: trail['div']['div'][2]['span'][2]['#text']
     }
@@ -25,7 +25,7 @@ def seeding_trails
     unless trail['a'][1]['figure']['div']['div'][0]['div']['div'][1]['div']['div']['img'].instance_of?(NilClass)
       trail_hash[:photo] = trail['a'][1]['figure']['div']['div'][0]['div']['div'][1]['div']['div']['img']['@src']
     end
-    trail_hash[:distance] = trail_hash[:distance].split('Length: ')[1]
+    trail_hash[:route_distance] = trail_hash[:route_distance].split('route_distance: ')[1]
     trail_hash[:time_needed] = trail_hash[:time_needed].split('Est. ')[1]
     locations << trail_hash
   end
@@ -52,7 +52,7 @@ routeburn = Trail.create!(
   description: "Routeburn Track is a 32.2 kilometer heavily trafficked point-to-point trail located near Glenorchy, Otago, New Zealand that features a lake and is rated as difficult. The trail offers a number of activity options and is best used from October until May.",
   location: "Fiordland National Park",
   time_needed: "4D3N",
-  distance: "33km",
+  route_distance: "33km",
   start_lat: -44.718018,
   start_lon: 168.274247,
   end_lat: -44.824875,
@@ -85,7 +85,7 @@ mueller = Trail.create!(
   description: "Mount Ollivier Summit via Mueller Hut Route is a 11.6 kilometer moderately trafficked out and back trail located near Mount Cook Village, Canterbury, New Zealand that features a great forest setting and is only recommended for very experienced adventurers. The trail offers a number of activity options.",
   location: "Aoraki/Mount Cook National Park",
   time_needed: "2D1N",
-  distance: "11.6km",
+  route_distance: "11.6km",
   start_lat: -43.71875,
   start_lon: 170.0926,
   end_lat: -43.71875,
@@ -156,7 +156,7 @@ trail_seed.each do |trail|
     description: trail[:description],
     location: trail[:location],
     time_needed: trail[:time_needed],
-    distance: trail[:distance]
+    route_distance: trail[:route_distance]
   )
 end
 puts "Trails created!"
