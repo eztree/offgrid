@@ -1,0 +1,75 @@
+<div class="row" style="background: #f8f7f8">
+  <div class="col-8">
+    <section class="mb-2">
+      <h4 class="section-header pl-2 py-2"><strong>About</strong></h4>
+      <p class="px-3 py-2"><%= @trail.description %></p>
+    </section>
+
+    <section class="mb-2">
+      <h4 class="section-header pl-2 py-2"><strong>Route Details</strong></h4>
+      <div class="d-flex justify-content-around px-3 py-2">
+        <div class="text-center">
+          <i class="fas fa-hiking"></i>
+          <p><%= @trail.distance %></p>
+        </div>
+        <div class="text-center">
+          <i class="far fa-clock"></i>
+          <p><%= @trail.time_needed %></p>
+        </div>
+        <div class="text-center">
+          <i class="fas fa-level-up-alt"></i>
+          <p>(Elevation gain)</p>
+        </div>
+        <div class="text-center">
+          <i class="fas fa-level-down-alt"></i>
+          <p>(Elevation loss)</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-2">
+      <h4 class="section-header pl-2 py-2 mb-2"><strong>Leave a review</strong></h4>
+      <div class="row">
+        <div class="col-4">
+          <div class="pl-5">
+            <h2>4.9</h2>
+            <p>out of 5 stars</p>
+              <i class="fa fa-star rating-color"></i>
+              <i class="fa fa-star rating-color"></i>
+              <i class="fa fa-star rating-color"></i>
+              <i class="fa fa-star rating-color"></i>
+              <i class="fa fa-star"></i>
+          </div>
+        </div>
+        <div class="col-8">
+          <div class="form-group">
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Log your trip details here."></textarea>
+            <button class="btn btn-success mt-2 align-content-end" type="submit">Submit</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr>
+
+    <section>
+      <div>
+        <p>All the reviews will be populated here</p>
+      </div>
+    </section>
+  </div>
+
+  <hr>
+ 
+  <div class="col-4">
+    <h4><strong>Map</strong></h4>
+    <div>
+      <p>Map goes here</p>
+    </div>
+    <hr>
+    <h4><strong>Nearby Trails</strong></h4>
+    <div>
+      <p>All the nearby trails go here</p>
+    </div>
+  </div>
+</div>

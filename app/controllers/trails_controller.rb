@@ -16,5 +16,6 @@ class TrailsController < ApplicationController
 
   def show
     @trail = Trail.find(params[:id])
+    authorize @trail
   end
 end
