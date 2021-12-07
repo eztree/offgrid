@@ -210,4 +210,21 @@ end
 
 seeding_items
 
+puts "********END: Seeding items*************"
+
+puts "********************************************"
+puts "********START: Seeding Checklist************"
+puts "********************************************"
+
+def seeding_checklists
+  trip = Trip.first
+  items = Item.tagged_with("required")
+  items.each do |item|
+    checklist = Checklist.create(trip: trip, checked:false, item: item)
+  end
+end
+
+seeding_checklists
+puts "********END: Seeding checklist*************"
+
 # End of seeding
