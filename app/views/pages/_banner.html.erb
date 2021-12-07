@@ -2,25 +2,13 @@
     <div class="head text-white text-center mb-3">Go out exploring, get home safe</div>
       <div class="content text-white text-center mb-4">Tell us where you want to hike next and we will take care of the details</div>
       <div class="d-flex justify-content-center my-3">
-        <%= form_tag root_path, method: :get do %>
-          <div class="form-group">
-          <%= text_field_tag :location,
-            params[:location],
-            class: "form-control",
-            placeholder: "Location"
-          %>
-          </div>
+        <%= form_tag trails_path, method: :get do %>
           <div class="form-inline d-flex justify-content-between">
-            <%= date_field_tag :date,
-              params[:date],
+            <%= text_field_tag :location,
+              params[:location],
               class: "form-control",
-              style:"width:50%;"
-            %>
-            <%= number_field_tag :no_of_people,
-              params[:no_of_people],
-              class: "form-control",
-              placeholder: "1 Adult",
-              style:"width:30%;"
+              placeholder: "Location",
+              size: "69"
             %>
             <%= submit_tag "Submit", class: "btn btn-success text-white" %>
           </div>
@@ -28,8 +16,11 @@
       </div>
   </div>
 
+
+
 <div class="parallax_group" id="group-1">
   <div class="parallax_layer base_layer"><%= image_tag "Sky.png", style:" transform: translateY(-10px);" %></div>
   <div class="parallax_layer mid_layer"><%= image_tag "mountain2.png", style:" transform: translateY(-10px);" %></div>
   <div class="parallax_layer mid_top_layer text-white" ><%= image_tag "Person.png", style:" transform: translateY(-10px);" %></div>
+  <div class="parallax_layer mid_top_layer" style="background: linear-gradient(rgba(0,0,0,0) 85%, rgba(0,0,0,1) 100%);" ></div>
 </div>

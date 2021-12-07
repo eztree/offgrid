@@ -12,28 +12,15 @@
 <%= render "banner" %>
   <section class="parallax_group" id="group-2">
     <div class="parallax_layer mid_top_layer text-white">
-      <%= image_tag "birds_black.svg", class:"position-absolute grayscale", style:"bottom:0"; %>
-      <%= image_tag "midground_black.svg", class:"position-absolute grayscale", style:"bottom:0;" %>
     </div>
     <div class="parallax_layer top_layer" , style:" transform: translateY(200px);"><%= render "section_intro" %></div>
   </section>
 
-<div class="parallax_group" id="group-3">
-  <div class="parallax_layer base_layer"><%= image_tag "background.svg", style:" transform: translateY(-10px);" %></div>
-  <div class="parallax_layer mid_layer"><%= image_tag "midground.svg", style:" transform: translateY(-10px);" %></div>
-  <div class="parallax_layer mid_top_layer text-white" ><%= image_tag "foreground.svg", style:"transform: translateY(120px);" %></div>
-  <div class="parallax_layer mid_top_layer text-white d-flex flex-column" >
-    <%# <div class="position-absolute text-center"> %>
+  <div class="parallax_group_short outro_screen" id="outro">
+
+    <div>
       <div class="h1 text-white mb-4">Explore new routes</div>
       <div class="text-white mb-4">You don't want to miss these exciting routes. Get inspired for your next trip with these trail guides.</div>
       <%= render "section_end",trails: @trails %>
-    <%# </div> %>
-  </div>
-</div>
-
-  <div class="parallax_group_short outro_screen" id="outro">
-    The end
-  </div>
-
-
-</div>
+    </div>
+ </div>

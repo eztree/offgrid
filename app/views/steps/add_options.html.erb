@@ -1,0 +1,24 @@
+<div class="pt-2 mt-5 col-12">
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <h2>Choose Your campsite experience</h2>
+        <p>Click 'Next' if you are not cooking or camping</p>
+      </div>
+      <div class="col-6">
+        <%= form_for @trip, url: wizard_path, method: :put, local: true do |form| %>
+          <div class="d-flex">
+            <%= form.label :cooking, "I am cooking" %>
+            <%= form.check_box :cooking %>
+          </div>
+          <div class="d-flex">
+            <%= form.label :camping, "I am camping" %>
+            <%= form.check_box :camping %>
+          </div>
+          <%= link_to "back", trails_path, class: "btn btn-info" %>
+          <%= form.submit "next", class: "btn btn-success" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

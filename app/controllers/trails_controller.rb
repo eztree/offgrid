@@ -3,7 +3,12 @@ class TrailsController < ApplicationController
   skip_after_action :verify_policy_scoped, only: [:index]
 
   def index
-    @trails = Trail.all
+    if params[:location]
+      @trails = Trail.near(params[:location], 1000, order: :distance).to_a
+    else
+      @trails = Trail.all
+    end
+
     @markers = []
     @trails.each do |trail|
       @markers << {
@@ -17,5 +22,6 @@ class TrailsController < ApplicationController
   def show
     @trail = Trail.find(params[:id])
     authorize @trail
+    @trip = Trip.new
   end
 end
