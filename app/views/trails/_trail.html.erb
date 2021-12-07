@@ -1,14 +1,12 @@
-<%= link_to trail_path(trail), style:"color: black; text-decoration: none;" do %>
-  <div class="d-flex card container-fluid p-3">
-    <div class="row">
-      <div class="col-4">
-        <div class="rounded" style="background-image: url('https://media.timeout.com/images/105666541/750/562/image.jpg'); background-position: center; height:100%">
-        </div>
-      </div>
-      <div class="card-body col-8">
-        <h5 class="card-title"><%= trail.name %></h5>
-        <p><small><%= trail.description.truncate_words(30) %></small></p>
-      </div>
+<input type="radio" class="btn-check" style="appearance: none;" name="trail_id" id="trail_<%= trail.id %>" value="<%= trail.id %>" autocomplete="off" required>
+<label class="btn btn-light" for="trail_<%= trail.id %>">
+  <div class="card container-fluid p-0 my-2">
+    <div class="rounded" style="background-image: url('https://media.timeout.com/images/105666541/750/562/image.jpg'); background-position: center; height: 200px; width:100%;">
+    </div>
+    <div class="card-body">
+      <h5 class=""><%= trail.name %></h5>
+      <p class="text-left"><small><%= trail.description.truncate_words(30) %></small></p>
+      <p class="text-left"><small>Length: <%= trail.distance %> • Est: <%= trail.time_needed %></small></p>
     </div>
   </div>
-<% end %>
+</label>

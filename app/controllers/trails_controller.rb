@@ -11,6 +11,7 @@ class TrailsController < ApplicationController
         lng: trail.start_lon
       }
     end
+    @trip = Trip.new
   end
 
   def show
