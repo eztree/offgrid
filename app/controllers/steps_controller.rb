@@ -1,45 +1,46 @@
 class StepsController < ApplicationController
   skip_before_action :authenticate_user!
   skip_after_action :verify_authorized
-  before_action :assign_trip, only: [:show, :update]
+  before_action :find_trail
+  before_action :assign_trip, only: [:show]
   before_action :assign_emergency_contact, only: [:show, :update]
 
   include Wicked::Wizard
   steps :date_people, :options, :emergency_contact
 
   def show
+    raise
     render_wizard
   end
 
   def update
-    @user = find_user
     case step
     when :date_people
-      if trips_params
-        @trip.start_date = trips_params[:start_date]
-        @trip.no_of_people = trips_params[:no_of_people]
-      end
+      session[:trip][:start_date] = trips_params[:start_date]
+      session[:trip][:no_of_people] = trips_params[:no_of_people]
     when :options
-      if trips_params
-        @trip.camping = trips_params[:camping]
-        @trip.cooking = trips_params[:cooking]
-        @trip.save
-      end
+      session[:trip][:camping] = trips_params[:camping]
+      session[:trip][:cooking] = trips_params[:cooking]
     when :emergency_contact
       raise
     end
-    render_wizard @trip
+    render_wizard @user
   end
 
   private
 
   def assign_trip
-    @trip = Trip.find(params[:trip_id])
+    session[:trip] = Trip.new
+    @trip = Trip.new
   end
 
   def trips_params
     params.require(:trip)
           .permit(:start_date, :no_of_people, :camping, :cooking, :release_date_time, :end_date, :status)
+  end
+
+  def find_trail
+    @trail = Trail.find(params[:trail_id])
   end
 
   def find_user
@@ -49,6 +50,10 @@ class StepsController < ApplicationController
   def assign_emergency_contact
     find_user
     @emergency_contact = @user.emergency_contacts.present? ? @user.emergency_contacts : EmergencyContact.new
+  end
+
+  def assign_safety_record
+
   end
 
 end
