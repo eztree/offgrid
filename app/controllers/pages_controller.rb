@@ -9,5 +9,7 @@ class PagesController < ApplicationController
   def dashboard
     @trails = Trail.all
     @trips = current_user.trips
+    @current_trip = @trips.first
+    @trip_dates =  @current_trip.checkpoints.map { |point| point.trip_date(@current_trip) }
   end
 end
