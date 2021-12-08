@@ -9,4 +9,7 @@ class User < ApplicationRecord
   has_many :checklists, through: :trips
   has_many :safety_records, through: :emergency_contacts
 
+  def active?
+    active == true
+  end
 end
