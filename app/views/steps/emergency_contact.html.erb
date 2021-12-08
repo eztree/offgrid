@@ -16,7 +16,7 @@
             <%= form.label :no_of_people, "People" %>
             <%= form.number_field :no_of_people, in: 1..100 %>
           </div>
-          <%= link_to "back", trails_path, class: "btn btn-info" %>
+          <%= link_to "back", previous_wizard_path, class: "btn btn-info" %>
           <%= form.submit "next", class: "btn btn-success" %>
         <% end %>
       </div>
