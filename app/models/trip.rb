@@ -2,6 +2,7 @@ class Trip < ApplicationRecord
   belongs_to :user
   belongs_to :trail
   has_many :checklists, dependent: :destroy
+  has_many :safety_records, dependent: :destroy
 
   validates :start_date, presence: true, on: :update
   validates :end_date, presence: false
