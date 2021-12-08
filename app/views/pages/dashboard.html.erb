@@ -22,7 +22,7 @@
     <div class="rounded-lg p-3 position-relative" style="height: 360px; width:60%; background:white;">
 
       <div class="position-absolute status"><%= @current_trip.status %></div>
-      <h2><%= @current_trip.trail.name %></h2>
+      <h2><%= link_to @current_trip.trail.name, trip_path(@current_trip), class:"text-black",style:"text-decoration:none;" %></h2>
 
       <div style="width:100%; min-height:70%; outline:1px solid red;">map here</div>
       <div>
