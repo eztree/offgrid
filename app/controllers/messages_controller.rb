@@ -30,7 +30,6 @@ class MessagesController < ApplicationController
     else
       return "Command Not Recognized"
     end
-    end
   end
 
   def start_trip(params)
