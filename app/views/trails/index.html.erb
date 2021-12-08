@@ -1,14 +1,14 @@
-<div class="container-fluid" style="background-color: white;">
+<div class="container-fluid p-0" style="background-color: white;">
   <div class="row" style="background-color: white;">
-        <form class="col-sm-12 col-lg-4 p-3" action="<%= new_trip_path(@trip) %>">
-          <div class="p-3 m-2" style="background-color: white; position: sticky; top: 6vh; z-index: 1;">
-            <h2 class="text-center"><%= @trails.count %> Trails in The World</h2>
-            <div class="d-flex flex-row-reverse p-0">
-              <button class="btn btn-primary" href="#">Go Back</button>
+        <form class="col-sm-12 col-lg-4 py-3" action="<%= new_trip_path(@trip) %>">
+          <div class="py-4" style="background-color: white; position: sticky; top: 5vh; z-index: 1; width:100%">
+            <h2 class="text-center"><%= @trails.count %> Trails <%= @trails.count > 0 ? params[:location] && params[:location] != "" ? "in " + params[:location] : "in the World" : "Found" %></h2>
+            <div class="d-flex flex-row justify-content-end px-3">
+              <%= link_to "Go Back", root_path, class: "btn btn-primary" %>
               <button class="btn btn-success mx-2" type="submit">Select</button>
             </div>
           </div>
-          <div style="padding: 0; z-index: -1">
+          <div class="text-center" style="margin-top: 5vh; padding: 0; z-index: -1">
             <%= render @trails %>
           </div>
         </form>

@@ -20,8 +20,10 @@
   <h2 class="h1">Upcoming</h2>
   <div class="d-flex p-4 rounded-lg justify-content-between" style="background:#e1e4d5;">
     <div class="rounded-lg p-3 position-relative" style="height: 360px; width:60%; background:white;">
+
       <div class="position-absolute status"><%= @current_trip.status %></div>
       <h2><%= @current_trip.trail.name %></h2>
+
       <div style="width:100%; min-height:70%; outline:1px solid red;">map here</div>
       <div>
         <div class="h5 mt-1"><%= @current_trip.start_date.strftime("%e %b, %Y") %> - <%= @current_trip.end_date.strftime("%e %b, %Y") %></div>

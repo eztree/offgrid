@@ -3,7 +3,7 @@ class TrailsController < ApplicationController
   skip_after_action :verify_policy_scoped, only: [:index]
 
   def index
-    if params[:location]
+    if params[:location] && params[:location] != ""
       @trails = Trail.near(params[:location], 1000, order: :distance).to_a
     else
       @trails = Trail.all
