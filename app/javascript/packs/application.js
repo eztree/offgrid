@@ -7,11 +7,11 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import AerisWeather from '@aerisweather/javascript-sdk';
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-
 
 // ----------------------------------------------------
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
@@ -24,7 +24,9 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initMapbox } from '../plugins/init_mapbox';
+import { initAerisWeather } from '../plugins/init_aerisweather';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  initAerisWeather();
 })

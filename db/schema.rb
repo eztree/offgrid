@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2021_12_08_065158) do
+ActiveRecord::Schema.define(version: 2021_12_08_080311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +61,8 @@ ActiveRecord::Schema.define(version: 2021_12_08_065158) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
+    t.bigint "previous_checkpoint_id"
+    t.index ["previous_checkpoint_id"], name: "index_checkpoints_on_previous_checkpoint_id"
     t.index ["trail_id"], name: "index_checkpoints_on_trail_id"
   end
 
@@ -126,10 +127,6 @@ ActiveRecord::Schema.define(version: 2021_12_08_065158) do
     t.string "location"
     t.string "time_needed"
     t.string "route_distance"
-    t.float "start_lat"
-    t.float "start_lon"
-    t.float "end_lat"
-    t.float "end_lon"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -174,6 +171,7 @@ ActiveRecord::Schema.define(version: 2021_12_08_065158) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "checklists", "items"
   add_foreign_key "checklists", "trips"
+  add_foreign_key "checkpoints", "checkpoints", column: "previous_checkpoint_id"
   add_foreign_key "checkpoints", "trails"
   add_foreign_key "emergency_contacts", "users"
   add_foreign_key "taggings", "tags"
