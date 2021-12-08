@@ -1,6 +1,6 @@
 require "test_helper"
 
-class SafetyRecordTest < ActiveSupport::TestCase
+class EmergencyContactsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

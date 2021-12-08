@@ -12,4 +12,5 @@ class User < ApplicationRecord
   def active?
     active == true
   end
+
 end

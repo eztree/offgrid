@@ -9,13 +9,14 @@ class TripsController < ApplicationController
   def new
     @trail = Trail.find(params['trail_id'])
     @user = current_user.nil? ? create_tmp_user : current_user
-    @trip = Trip.create!(
+
+    @trip = Trip.new(
       user: @user,
       trail: @trail
     )
 
     authorize @trip
-    redirect_to trip_steps_path(@trip)
+    redirect_to steps_path(trail_id: @trail.id)
   end
 
   def show

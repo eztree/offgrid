@@ -83,14 +83,9 @@ end
 
 def seeding_emergency_contacts
   EmergencyContact.create!(name: "Bheemuscles", email: "bhee_muscles@hero.com", phone_no:"+65 9999 9999", user: User.first )
-  puts "First emergency contact created ✅"
+  puts "First emergency contact created :white_check_mark:"
   EmergencyContact.create!(name: "Bestie Ng", email: "bestie_2010@friendster.com", phone_no:"+65 9109 9678", user: User.first )
-  puts "Second emergency contact created ✅"
-end
-
-def seeding_safety_records
-  SafetyRecord.create!(emergency_contact: EmergencyContact.first, trip: Trip.first, contacted: false)
-  puts "First trip safety record created ✅"
+  puts "Second emergency contact created :white_check_mark:"
 end
 # End of methods section
 
@@ -202,6 +197,8 @@ User.create!(
   )
 puts "Temp user created! ✅"
 
+seeding_emergency_contacts
+
 # Creating the first trip for first user
 puts "Booking a trip for our first user"
 STATUS = ["upcoming", "ongoing", "return"]
@@ -215,6 +212,7 @@ Trip.create!(
   cooking: true,
   camping: true,
   last_seen_photo: "",
+  emergency_contact: EmergencyContact.first,
   release_date_time: DateTime.new(Date.today.year, Date.today.month, Date.today.day + 2, 9)
 )
 puts "Trip has been booked!"

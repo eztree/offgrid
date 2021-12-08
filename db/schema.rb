@@ -144,6 +144,9 @@ ActiveRecord::Schema.define(version: 2021_12_08_080311) do
     t.datetime "release_date_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "emergency_contact_id"
+    t.boolean "contacted"
+    t.index ["emergency_contact_id"], name: "index_trips_on_emergency_contact_id"
     t.index ["trail_id"], name: "index_trips_on_trail_id"
     t.index ["user_id"], name: "index_trips_on_user_id"
   end
@@ -171,9 +174,8 @@ ActiveRecord::Schema.define(version: 2021_12_08_080311) do
   add_foreign_key "checkpoints", "checkpoints", column: "previous_checkpoint_id"
   add_foreign_key "checkpoints", "trails"
   add_foreign_key "emergency_contacts", "users"
-  add_foreign_key "safety_records", "emergency_contacts"
-  add_foreign_key "safety_records", "trips"
   add_foreign_key "taggings", "tags"
+  add_foreign_key "trips", "emergency_contacts"
   add_foreign_key "trips", "trails"
   add_foreign_key "trips", "users"
 end
