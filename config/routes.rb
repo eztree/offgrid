@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :steps
   end
 
-  get "/pages", to: "pages#dashboard"
+  get "/dashboard", to: "pages#dashboard"
 
   post "/receive_sms", to: "messages#receive_sms"
 end

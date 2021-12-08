@@ -1,10 +1,11 @@
-<div class="d-flex flex-row align-items-center justify-content-end my-3">
+<div class="d-flex flex-row align-items-center justify-content-end py-3">
   <%= form_tag root_path, class: "form-inline pt-2 pr-2", method: :get do %>
   <div class="form-group">
     <%= text_field_tag :location,
         params[:location],
         class: "form-control",
-        placeholder: "Search for another location"
+        placeholder: "Search for another location",
+        size: 27
     %>
   <%= submit_tag "Submit", class: "btn btn-success text-white" %>
   </div>
