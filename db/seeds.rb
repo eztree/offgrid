@@ -2,6 +2,7 @@ require 'rubygems'
 require 'nokogiri'
 require 'json'
 require 'open-uri'
+require 'pry-byebug'
 
 # Methods for json extraction
 def seeding_trails
@@ -112,15 +113,21 @@ routeburn_checks = {
   point_4: ["Routeburn Flats Hut & Camp: End", -44.824875, 168.117152, "477m"],
 }
 
+previous_checkpoint = nil
 routeburn_checks.each do |key, value|
   checkpoint = Checkpoint.new(
     name: value[0],
     latitude: value[1],
     longitude: value[2],
-    elevation: value[3]
+    elevation: value[3],
   )
+  
+  checkpoint.previous_checkpoint = previous_checkpoint unless previous_checkpoint.nil?
+
   checkpoint.trail = routeburn
-  checkpoint.save
+  checkpoint.save!
+
+  previous_checkpoint = checkpoint
 end
 
 puts "Routeburn done ✅"
@@ -144,6 +151,7 @@ mueller_checks = {
   point_5: ["Sealy Tarns: End", -43.71875, 170.0926, "1,298m"],
 }
 
+previous_checkpoint = nil
 mueller_checks.each do |key, value|
   checkpoint = Checkpoint.new(
     name: value[0],
@@ -151,8 +159,13 @@ mueller_checks.each do |key, value|
     longitude: value[2],
     elevation: value[3]
   )
+
+  checkpoint.previous_checkpoint = previous_checkpoint unless previous_checkpoint.nil?
+
   checkpoint.trail = mueller
-  checkpoint.save
+  checkpoint.save!
+
+  previous_checkpoint = checkpoint
 end
 
 puts "Mueller done ✅"

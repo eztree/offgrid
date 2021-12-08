@@ -20,19 +20,21 @@
   <h2 class="h1">Upcoming</h2>
   <div class="d-flex p-4 rounded-lg justify-content-between" style="background:#e1e4d5;">
     <div class="rounded-lg p-3 position-relative" style="height: 360px; width:60%; background:white;">
-      <div class="position-absolute status"><%= @trips.first.status %></div>
-      <h2><%= @trips.first.trail.name %></h2>
+      <div class="position-absolute status"><%= @current_trip.status %></div>
+      <h2><%= @current_trip.trail.name %></h2>
       <div style="width:100%; min-height:70%; outline:1px solid red;">map here</div>
       <div>
-        <div class="h5 mt-1"><%= @trips.first.start_date.strftime("%e %b, %Y") %> - <%= @trips.first.end_date.strftime("%e %b, %Y") %></div>
-        <div>Time needed: <%= @trips.first.trail.time_needed %></div>
+        <div class="h5 mt-1"><%= @current_trip.start_date.strftime("%e %b, %Y") %> - <%= @current_trip.end_date.strftime("%e %b, %Y") %></div>
+        <div>Time needed: <%= @current_trip.trail.time_needed %></div>
       </div>
     </div>
     <div style="height: 360px; width:39%;">
       <div class="p-3" style="margin-bottom:10px; height: 175px; width:100%; background:white;">
         <h3>Weather</h3>
         <div class="d-flex flex-row justify-content-around">
-          <%= render "weather_card" %>
+          <%= render "weather_card", trip: @current_trip, trip_dates: @trip_dates %>
+          <%#= render "weather_card", lat: @current_trip.trail.checkpoints.second.latitude, lon: @current_trip.trail.checkpoints.second.longitude, date: (@current_trip.start_date + 1) %>
+          <%#= render "weather_card", lat: @current_trip.trail.checkpoints.third.latitude, lon: @current_trip.trail.checkpoints.third.longitude, date: (@current_trip.start_date + 2) %>
         </div>
       </div>
       <div class="p-3" style="height: 175px; width:100%; background:white;">
