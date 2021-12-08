@@ -27,6 +27,9 @@ class MessagesController < ApplicationController
       start_trip(params)
     when "return"
       return_trip(params)
+    else
+      return "Command Not Recognized"
+    end
     end
   end
 
