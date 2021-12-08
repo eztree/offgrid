@@ -3,12 +3,12 @@ class Trip < ApplicationRecord
   belongs_to :trail
   has_many :checklists, dependent: :destroy
 
-  validates :start_date, presence: false
+  validates :start_date, presence: true, on: :update
   validates :end_date, presence: false
-  validates :no_of_people, presence: false
+  validates :no_of_people, presence: false, on: :update
   validates :status, presence: false
-  validates :cooking, presence: false
-  validates :camping, presence: false
+  validates :cooking, presence: false, on: :update
+  validates :camping, presence: false, on: :update
   validates :last_seen_photo, presence: false
   validates :release_date_time, presence: false
 
