@@ -6,4 +6,8 @@ class User < ApplicationRecord
 
   has_many :trips, dependent: :destroy
   has_many :checklists, through: :trips
+
+  def active?
+    active
+  end
 end
