@@ -1,0 +1,127 @@
+<div class="pt-5 mt-4"></div>
+  <div class="d-flex justify-content-between px-5">
+    <h1><%= @trip.trail.name %></h1>
+    <div class="d-flex justify-content-end">
+      <div><%= link_to "Edit", root_path, class:"btn btn-primary mr-3" %></div>
+      <div><%= link_to "Share", root_path, class:"btn btn-success mr-3" %></div>
+      <div><%= link_to "Delete", root_path, class:"btn btn-danger" %></div>
+    </div>
+  </div>
+  <div class="row p-5 mx-5" style="background-color:#e1e4d5;">
+    <section class="col-7">
+      <div class="bg-white shadow-sm p-3 my-3">
+        <div class="h4"><%= @trip.start_date.strftime("%e %b, %Y") %> - <%= @trip.end_date.strftime("%e %b, %Y") %></div>
+        <div class="mb-3"><%= @trip.trail.time_needed %> TRIP FOR <%= @trip.no_of_people %> ADULTS IN CONNECTICUT IN SUMMER.</div>
+        <div class="row">
+          <div class="col-6">
+            <div class="d-flex align-items-center mb-2 h5">
+              <div class="mr-3">
+                <% if @trip.cooking %>
+                  <i class="fas fa-check-circle" style="color:darkcyan;"></i>
+                <% else %>
+                  <i class="fas fa-times-circle" style="color:tomato;"></i>
+                <% end %>
+              </div>
+              <div>
+                I will be sleeping in a tent
+              </div>
+            </div>
+            <div class="d-flex align-items-center h5">
+              <div class="mr-3">
+                <% if @trip.camping %>
+                  <i class="fas fa-check-circle" style="color:darkcyan;"></i>
+                <% else %>
+                  <i class="fas fa-times-circle" style="color:tomato;"></i>
+                <% end %>
+              </div>
+              <div>
+                I will be cooking my own food
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="warning p-2 rounded-lg">
+              <div class="h5 mt-2"><i class="fas fa-exclamation-circle"></i> Emergency contact</div>
+              <div class="pl-2"><%= @trip.user.emergency_contacts.first.name %></div>
+              <div class="pl-2"><%= @trip.user.emergency_contacts.first.email %></div>
+              <div class="pl-2"><%= @trip.user.emergency_contacts.first.phone_no %></div>
+              <div class="pl-2 mt-2"> <em>Alert will be sent on </em><strong><%= @trip.end_date.strftime("%e %b, %I %P") %></strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white shadow-sm p-3 my-3">
+        <div class="h4">Day Plan and Conditions</div>
+        <div class="accordion" id="accordionDay">
+          <% count = 0 %>
+          <% @trip_days.times do %>
+            <% count += 1 %>
+              <div class="card">
+                <div class="card-header" id="heading<%=count%>">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left text-black" type="button" data-toggle="collapse" data-target="#collapse<%=count%>" aria-expanded="true" aria-controls="collapse<%=count%>">
+                      Day <%= count %>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapse<%=count%>" class="collapse <% if count===1%>show<% end %>" aria-labelledby="heading<%=count%>" data-parent="#accordionDay">
+                  <div class="card-body">
+                    Weather and food stuff here
+                  </div>
+                </div>
+              </div>
+            <% end %>
+        </div>
+      </div>
+      <div class="bg-white shadow-sm p-3 my-3">
+        <div class="h4">Checklist</div>
+        <div class="accordion" id="accordionChecklist">
+          <% @category_items.each_with_index do |item, index| %>
+            <div class="card">
+              <div class="card-header" id="heading<%=item%>">
+                <h2 class="mb-0">
+                  <button class="btn btn-link btn-block text-left text-black" type="button" data-toggle="collapse" data-target="#collapse<%=item%>" aria-expanded="true" aria-controls="collapse<%=count%>">
+                    <%= item %>
+                  </button>
+                </h2>
+              </div>
+              <div id="collapse<%=item%>" class="collapse <% if index===0%>show<% end %>" aria-labelledby="heading<%=item%>" data-parent="#accordionChecklist">
+                <div class="card-body">
+                  <% item_arr = Item.all.tagged_with(item) %>
+                  <% item_arr.each do |item_tagged|%>
+                    <div class="pl-5">
+                      <% if @trip.items.include?(item_tagged) %>
+                        <input type="checkbox" name="<%= item_tagged.name %>" value="<%= item_tagged.name %>" checked>
+                      <% else %>
+                        <input type="checkbox" name="<%= item_tagged.name %>" value="<%= item_tagged.name %>">
+                      <% end %>
+                      <span class="mr-3"><%= item_tagged.name %></span>
+                      <% item_tagged.tag_list[1..].each do |tag| %>
+                        <% if tag != "required" %>
+                          <span class="badge badge-pill <% if tag === "optional"%> badge-secondary <% else %> badge-primary <% end %>"><%= tag %></span>
+                        <% end %>
+                      <% end %>
+                      </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </section>
+    <div class="col-5">
+      <div class="bg-white shadow-sm p-3 my-3">
+        <div class="h4">Map</div>
+      </div>
+      <div class="bg-white shadow-sm p-3 my-3">
+        <div class="h4">Route Details</div>
+      </div>
+      <div class="bg-white shadow-sm p-3 my-3">
+        <div class="h4">
+          <div class="h4">Last seen</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
