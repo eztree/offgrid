@@ -220,9 +220,6 @@ puts "Creating emergency contact for our first user"
 seeding_emergency_contacts
 puts "emergency contact created! ✅"
 
-puts "Creating safety record from our first user"
-seeding_safety_records
-puts "emergency contact created! ✅"
 # extracting from json files
 puts "extracting information from json files.."
 trail_seed = seeding_trails
@@ -254,19 +251,5 @@ puts "********END: Seeding items***************"
 puts "********START: Seeding checklist************"
 seeding_checklists
 puts "********END: Seeding checklist*************"
-
-# Weather API test
-weather_url = "https://api.aerisapi.com/conditions/summary/-43.72091834,170.065166961?client_id=#{ENV['AERIS_CLIENT_ID']}&client_secret=cMYABZI74d4JPVrvBBBBauoSpqILF3YRVambv2kM"
-buffer = open(weather_url, "UserAgent" => "Ruby-Wget").read
-
-#convert JSON data into a hash
-response = JSON.parse(buffer)
-ob = response['response'][0]
-temps = ob['periods'][0]['temp']
-elevation = ob['profile']
-
-puts "The current weather in Mueller Hut (elevation: #{elevation['elevM'].to_s}m) is #{temps['maxC'].to_s}C (max) / #{temps['minC'].to_s} + C (min)."
-
-# Note: The elevation data seems to be off
 
 # End of seeding
