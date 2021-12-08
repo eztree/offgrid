@@ -8,9 +8,7 @@ class TripsController < ApplicationController
 
   def new
     @trail = Trail.find(params['trail_id'])
-
     @user = current_user.nil? ? create_tmp_user : current_user
-
     @trip = Trip.create!(
       user: @user,
       trail: @trail
@@ -18,6 +16,13 @@ class TripsController < ApplicationController
 
     authorize @trip
     redirect_to trip_steps_path(@trip)
+  end
+
+  def show
+    @trip = Trip.find(params[:id])
+    @trip_days = (@trip.end_date - @trip.start_date).to_i + 1
+    @category_items = %w[backpack_gear kitchen_tools food_water clothes_footwear navigation first_aid hygiene]
+    authorize @trip
   end
 
   private
