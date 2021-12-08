@@ -16,12 +16,63 @@ class MessagesController < ApplicationController
   private
 
   def generate_response(params)
-    message_words = params["Body"].split
     sender_number = params["From"]
-    if User.exists?(phone_no: sender_number)
-      return "User in DB, Received: #{params["Body"]}"
-    else
-      return "Phone Number not in Offgrid Database. Received: #{params["Body"]}"
+    User.exists?(phone_no: sender_number) ? process_sms(params) : "Phone Number not in Offgrid Database"
+  end
+
+  def process_sms(params)
+    message_words = params["Body"].split
+    case message_words.first.downcase
+    when "start"
+      start_trip(params)
+    when "return"
+      return_trip(params)
     end
+  end
+
+  def start_trip(params)
+    sender = User.find_by(phone_no: params["From"])
+    trip = Trip.find_by(start_date: Date.today, user: sender, status: "upcoming")
+    unless trip.nil?
+      trip.status = "ongoing"
+      if trip.save!
+        notify_start_to_emergency_contact(sender, trip)
+        return "Your trip at #{trip.trail.location} has successfully started! Take care!"
+      else
+        return "There was an error starting your trip."
+      end
+    else
+      return "You have no trips to start today."
+    end
+  end
+
+  def return_trip(params)
+    sender = User.find_by(phone_no: params["From"])
+    trip = Trip.find_by(start_date: Date.today, user: sender, status: "ongoing")
+    unless trip.nil?
+    trip.status = "return"
+      if trip.save
+        notify_return_to_emergency_contact(sender, trip)
+        return "Welcome back! Hope your trip at #{trip.trail.location} was great!"
+      else
+        return "There was an error returning from your trip."
+      end
+    else
+      return "You have no trips to return from."
+    end
+  end
+
+  def notify_start_to_emergency_contact(sender, trip)
+    TwilioTextMessenger.new(
+      message: "#{sender.first_name} #{sender.last_name} has started his/her trip at #{trip.trail.location}.",
+      receiver: "+6581149852"
+    ).call
+  end
+
+  def notify_return_to_emergency_contact(sender, trip)
+    TwilioTextMessenger.new(
+      message: "#{sender.first_name} #{sender.last_name} has returned safely from his/her trip at #{trip.trail.location}." ,
+      receiver: "+6581149852"
+    ).call
   end
 end
