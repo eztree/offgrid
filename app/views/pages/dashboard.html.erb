@@ -33,8 +33,6 @@
         <h3>Weather</h3>
         <div class="d-flex flex-row justify-content-around">
           <%= render "weather_card", trip: @current_trip, trip_dates: @trip_dates %>
-          <%#= render "weather_card", lat: @current_trip.trail.checkpoints.second.latitude, lon: @current_trip.trail.checkpoints.second.longitude, date: (@current_trip.start_date + 1) %>
-          <%#= render "weather_card", lat: @current_trip.trail.checkpoints.third.latitude, lon: @current_trip.trail.checkpoints.third.longitude, date: (@current_trip.start_date + 2) %>
         </div>
       </div>
       <div class="p-3" style="height: 175px; width:100%; background:white;">
