@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :users, only: [ :show ] do
-    resources :emergency_contact, only: [ :new, :create ]
-  end
   root to: 'pages#home'
-  resources :trails, only: [ :index, :show ]
-  resources :trips, only: [ :new, :create ] do
-    resources :steps
+  get "/pages", to: "pages#dashboard"
+  resources :users, only: [:show] do
+    resources :emergency_contacts, only: [:create]
   end
- get "/pages", to: "pages#dashboard"
-
+  resources :safety_records, only: [:new, :create]
+  resources :trails, only: [:index, :show]
+  resources :trips, only: [:new, :create, :show]
+  resources :steps
 end
