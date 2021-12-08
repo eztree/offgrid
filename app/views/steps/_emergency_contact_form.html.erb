@@ -1,0 +1,16 @@
+<%= form_for @emergency_contact.first, url: new_user_emergency_contact_path(@user), method: :get, local: true do |form| %>
+          <div class="d-flex">
+            <%= form.label :name, "Start date" %>
+            <%= form.text_field :name %>
+          </div>
+          <div class="d-flex">
+            <%= form.label :email, "People" %>
+            <%= form.text_field :email, in: 1..100 %>
+          </div>
+          <div class="d-flex">
+            <%= form.label :phone_no, "People" %>
+            <%= form.text_field :phone_no, in: 1..100 %>
+          </div>
+          <%= link_to "back", previous_wizard_path, class: "btn btn-info" %>
+          <%= form.submit "next", class: "btn btn-success" %>
+        <% end %>
