@@ -3,19 +3,20 @@ class Trail < ApplicationRecord
   has_many :trips, dependent: :destroy
   geocoded_by :location
 
-  def latitude
-    if checkpoints.count > 0
-     return checkpoints.first.latitude
+  def coordinates
+    checkpoints_array = checkpoints.to_a
+    if checkpoints_array.count.positive?
+      { lat: checkpoints_array.first.latitude, lng: checkpoints_array.first.longitude }
     else
-      return 0
+      { lat: 0, lng: 0 }
     end
   end
 
+  def latitude
+    coordinates[:lat]
+  end
+
   def longitude
-    if checkpoints.count > 0
-     return checkpoints.first.longitude
-    else
-      return 0
-    end
+    coordinates[:lng]
   end
 end

@@ -4,16 +4,22 @@ class TrailsController < ApplicationController
 
   def index
     if params[:location] && params[:location] != ""
-      @trails = Trail.near(params[:location], 1000, order: :distance).to_a
+      @trails = Trail.joins(:checkpoints).near(params[:location], 1000,
+        order: :distance,
+        latitude: "checkpoints.latitude",
+        longitude: "checkpoints.longitude")
+        .uniq { |trail| trail.id }
     else
-      @trails = Trail.all
+      @trails = Trail.includes(:checkpoints)
     end
 
     @markers = []
     @trails.each do |trail|
+      coordinates = trail.coordinates
       @markers << {
-        lat: trail.latitude,
-        lng: trail.longitude
+        lat: coordinates[:lat],
+        lng: coordinates[:lng],
+        info_window: render_to_string(partial: "info_window", locals: { trail: trail })
       }
     end
     @trip = Trip.new
