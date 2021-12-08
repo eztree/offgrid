@@ -1,2 +1,0 @@
-class SafetyRecordsController < ApplicationController
-end
