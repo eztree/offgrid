@@ -49,20 +49,20 @@ def seeding_items
         required_array.each do |item_name|
 
           item = Item.create!(name: item_name)
-          puts "Item: #{item.name} is created"
+          # puts "Item: #{item.name} is created"
           item.tag_list.add(category)
 
-          puts "tag category: #{category} added to item: #{item.name}"
+          # puts "tag category: #{category} added to item: #{item.name}"
 
           case required
           when "cold_weather" || "snow_weather"
             item.tag_list.add("required")
             item.tag_list.add(required)
-            puts "tag: #{required} and 'required' added to item: #{item.name}"
+            # puts "tag: #{required} and 'required' added to item: #{item.name}"
 
           else
             item.tag_list.add(required)
-            puts "tag: 'required' added to item: #{item.name}"
+            # puts "tag: 'required' added to item: #{item.name}"
           end
           item.save
         end
@@ -76,6 +76,18 @@ def seeding_checklists
   items.each do |item|
     checklist = Checklist.create(trip: trip, checked:false, item: item)
   end
+end
+
+def seeding_emergency_contacts
+  EmergencyContact.create!(name: "Bheemuscles", email: "bhee_muscles@hero.com", phone_no:"+65 9999 9999", user: User.first )
+  puts "First emergency contact created ✅"
+  EmergencyContact.create!(name: "Bestie Ng", email: "bestie_2010@friendster.com", phone_no:"+65 9109 9678", user: User.first )
+  puts "Second emergency contact created ✅"
+end
+
+def seeding_safety_records
+  SafetyRecord.create!(emergency_contact: EmergencyContact.first, trip: Trip.first, contacted: false)
+  puts "First trip safety record created ✅"
 end
 # End of methods section
 
@@ -112,7 +124,7 @@ routeburn_checks = {
   point_3: ["Lake Mackenzie Hut", -44.767611, 168.173198, "891m"]
 }
 
-routeburn_checks.each do |key, value|
+routeburn_checks.each do |_key, value|
   checkpoint = Checkpoint.new(
     name: value[0],
     latitude: value[1],
@@ -158,7 +170,6 @@ mueller_checks.each do |key, value|
 end
 
 puts "Mueller done ✅"
-
 puts "End of manual trails 👌"
 
 # Creating a static user instance
@@ -195,9 +206,14 @@ Trip.create!(
   last_seen_photo: "",
   release_date_time: DateTime.new(Date.today.year, Date.today.month, Date.today.day + 2, 9)
 )
-
 puts "Trip has been booked!"
+puts "Creating emergency contact for our first user"
+seeding_emergency_contacts
+puts "emergency contact created! ✅"
 
+puts "Creating safety record from our first user"
+seeding_safety_records
+puts "emergency contact created! ✅"
 # extracting from json files
 puts "extracting information from json files.."
 trail_seed = seeding_trails
@@ -220,15 +236,13 @@ puts "Seeding complete!"
 
 # method for Item seeding
 
-puts "********************"
-puts "Start of Item seeding"
-puts "********************"
-seeding_items
-puts "********END: Seeding items*************"
 
-puts "********************************************"
-puts "********START: Seeding Checklist************"
-puts "********************************************"
+puts "********START: Seeding items*************"
+seeding_items
+puts "********END: Seeding items***************"
+
+
+puts "********START: Seeding checklist************"
 seeding_checklists
 puts "********END: Seeding checklist*************"
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_07_094658) do
+ActiveRecord::Schema.define(version: 2021_12_08_020316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,10 +64,30 @@ ActiveRecord::Schema.define(version: 2021_12_07_094658) do
     t.index ["trail_id"], name: "index_checkpoints_on_trail_id"
   end
 
+  create_table "emergency_contacts", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "phone_no"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_emergency_contacts_on_user_id"
+  end
+
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "safety_records", force: :cascade do |t|
+    t.bigint "emergency_contact_id", null: false
+    t.bigint "trip_id", null: false
+    t.boolean "contacted"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["emergency_contact_id"], name: "index_safety_records_on_emergency_contact_id"
+    t.index ["trip_id"], name: "index_safety_records_on_trip_id"
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
@@ -151,6 +171,9 @@ ActiveRecord::Schema.define(version: 2021_12_07_094658) do
   add_foreign_key "checklists", "items"
   add_foreign_key "checklists", "trips"
   add_foreign_key "checkpoints", "trails"
+  add_foreign_key "emergency_contacts", "users"
+  add_foreign_key "safety_records", "emergency_contacts"
+  add_foreign_key "safety_records", "trips"
   add_foreign_key "taggings", "tags"
   add_foreign_key "trips", "trails"
   add_foreign_key "trips", "users"
