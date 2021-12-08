@@ -82,16 +82,6 @@ ActiveRecord::Schema.define(version: 2021_12_08_080311) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "safety_records", force: :cascade do |t|
-    t.bigint "emergency_contact_id", null: false
-    t.bigint "trip_id", null: false
-    t.boolean "contacted"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["emergency_contact_id"], name: "index_safety_records_on_emergency_contact_id"
-    t.index ["trip_id"], name: "index_safety_records_on_trip_id"
-  end
-
   create_table "taggings", id: :serial, force: :cascade do |t|
     t.integer "tag_id"
     t.string "taggable_type"
