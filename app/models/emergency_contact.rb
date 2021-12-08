@@ -1,6 +1,6 @@
 class EmergencyContact < ApplicationRecord
   belongs_to :user
-  has_many :safety_records, dependent: :destroy
+  has_many :trips
 
   validates :name, presence: true
   validates :email, presence: true
