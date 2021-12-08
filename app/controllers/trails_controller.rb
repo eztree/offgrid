@@ -12,8 +12,8 @@ class TrailsController < ApplicationController
     @markers = []
     @trails.each do |trail|
       @markers << {
-        lat: trail.start_lat,
-        lng: trail.start_lon
+        lat: trail.latitude,
+        lng: trail.longitude
       }
     end
     @trip = Trip.new
