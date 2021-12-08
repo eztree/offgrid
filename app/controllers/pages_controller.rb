@@ -9,5 +9,6 @@ class PagesController < ApplicationController
   def dashboard
     @trails = Trail.all
     @trips = current_user.trips
+    @current_trip = @trips.first
   end
 end
