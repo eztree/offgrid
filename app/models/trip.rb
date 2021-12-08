@@ -12,5 +12,5 @@ class Trip < ApplicationRecord
   validates :camping, presence: false
   validates :last_seen_photo, presence: false
   validates :release_date_time, presence: false
-
+  
 end
