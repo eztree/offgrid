@@ -8,6 +8,6 @@ class User < ApplicationRecord
   has_many :checklists, through: :trips
 
   def active?
-    active
+    active == true
   end
 end
