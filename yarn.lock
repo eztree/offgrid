@@ -2,6 +2,15 @@
 # yarn lockfile v1
 
 
+"@aerisweather/javascript-sdk@^1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@aerisweather/javascript-sdk/-/javascript-sdk-1.6.0.tgz#b52fc141b57826d237a7c79530655a04b5c679cb"
+  integrity sha512-1hy0nTE4ZKJt+95Hs7wDFSp/Y4CPwYOn/Gr0wxvYl/o8fCxbFCZNc1aJigGRZmLk89NZEjNFb/AFxNc00UpM6g==
+  dependencies:
+    axios "^0.21.0"
+    date-fns "^2.10.0"
+    domtastic "^0.15.9"
+
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.16.0":
   version "7.16.0"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.16.0.tgz#0dfc80309beec8411e65e706461c408b0bb9b431"
@@ -1523,6 +1532,13 @@ autoprefixer@^9.6.1:
     postcss "^7.0.32"
     postcss-value-parser "^4.1.0"
 
+axios@^0.21.0:
+  version "0.21.4"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.4.tgz#c67b90dc0568e5c1cf2b0b858c43ba28e2eda575"
+  integrity sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==
+  dependencies:
+    follow-redirects "^1.14.0"
+
 babel-loader@^8.2.2:
   version "8.2.3"
   resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-8.2.3.tgz#8986b40f1a64cacfcb4b8429320085ef68b1342d"
@@ -2539,6 +2555,11 @@ cyclist@^1.0.1:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
   integrity sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=
 
+date-fns@^2.10.0:
+  version "2.27.0"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.27.0.tgz#e1ff3c3ddbbab8a2eaadbb6106be2929a5a2d92b"
+  integrity sha512-sj+J0Mo2p2X1e306MHq282WS4/A8Pz/95GIFcsPNMPMZVI3EUrAdSv90al1k+p74WGLCruMXk23bfEDZa71X9Q==
+
 debug@2.6.9, debug@^2.2.0, debug@^2.3.3:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
@@ -2736,6 +2757,11 @@ domelementtype@^2.0.1:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/domelementtype/-/domelementtype-2.2.0.tgz#9a0b6c2782ed6a1c7323d42267183df9bd8b1d57"
   integrity sha512-DtBMo82pv1dFtUmHyr48beiuq792Sxohr+8Hm9zoxklYPfa6n0Z3Byjj2IV7bmr2IyqClnqEQhfgHJJ5QF0R5A==
+
+domtastic@^0.15.9:
+  version "0.15.12"
+  resolved "https://registry.yarnpkg.com/domtastic/-/domtastic-0.15.12.tgz#3f7af442c863343e74b156ab69ed0d9e5042c1d6"
+  integrity sha512-znCwbb9ihRcIglgOgTmgsJIXkzVwEMdOC9AutZX2XjZz+rtW631BlDDd3BnmLY2aI5YCDzgwVak5i1ud25MIfw==
 
 domutils@^1.7.0:
   version "1.7.0"
@@ -3189,7 +3215,7 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
 
-follow-redirects@^1.0.0:
+follow-redirects@^1.0.0, follow-redirects@^1.14.0:
   version "1.14.5"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.5.tgz#f09a5848981d3c772b5392309778523f8d85c381"
   integrity sha512-wtphSXy7d4/OR+MvIFbCVBDzZ5520qV8XfPklSN5QtxuMUJZ+b0Wnst1e1lCDocfzuCkHqj8k0FpZqO+UIaKNA==

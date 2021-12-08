@@ -1,5 +1,7 @@
+require 'rubygems'
 require 'nokogiri'
 require 'json'
+require 'open-uri'
 
 # Methods for json extraction
 def seeding_trails
@@ -231,5 +233,19 @@ puts "********START: Seeding Checklist************"
 puts "********************************************"
 seeding_checklists
 puts "********END: Seeding checklist*************"
+
+# Weather API test
+weather_url = 'https://api.aerisapi.com/conditions/summary/-43.72091834,170.065166961?client_id=ytDT8G1WiJCpzUmYEPqFW&client_secret=cMYABZI74d4JPVrvBBBBauoSpqILF3YRVambv2kM'
+buffer = open(weather_url, "UserAgent" => "Ruby-Wget").read
+
+#convert JSON data into a hash
+response = JSON.parse(buffer)
+ob = response['response'][0]
+temps = ob['periods'][0]['temp']
+elevation = ob['profile']
+
+puts "The current weather in Mueller Hut (elevation: #{elevation['elevM'].to_s}m) is #{temps['maxC'].to_s}C (max) / #{temps['minC'].to_s} + C (min)."
+
+# Note: The elevation data seems to be off
 
 # End of seeding
