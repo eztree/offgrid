@@ -117,7 +117,7 @@
             style="width: 100%; height: 50vh; position: sticky; top: 8vh;"
             data-markers="<%= @markers.to_json %>"
             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-        </div>
+          </div>
         </div>
       </div>
       <div class="bg-white shadow-sm p-3 my-3">
@@ -133,7 +133,7 @@
         </div>
         <div class="text-center">
           <i class="fas fa-level-up-alt"></i>
-          <p>(Elevation gain)</p>
+        <p>(Elevation gain)</p>
         </div>
         <div class="text-center">
           <i class="fas fa-level-down-alt"></i>
@@ -142,8 +142,22 @@
       </div>
       </div>
       <div class="bg-white shadow-sm p-3 my-3">
-        <div class="h4">
+        <div>
           <div class="h4">Last seen</div>
+          <div class="d-flex justify-content-between">
+            <% if @trip.photo.present? %>
+              <div class="shadow-sm" style="width:45%;" >
+                <%= cl_image_tag (@trip.photo.key), class:"rounded-lg", style: "width:100%;object-fit:contain;", crop: :fill %>
+              </div>
+              <div class="p-2 rounded shadow" style="width:50%; font-size:1rem;background-color:#f8ffe2;">
+                <div class="mb-2 h5">Looking good!</div>
+                <div>This photo was taken on: </div>
+                <div><%= @trip.last_photo.strftime("%e %b, %Y") %> at <%= @trip.last_photo.strftime("%l:%M %P") %></div>
+              </div>
+            <% else %>
+              <h2>Please attach photo</h2>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

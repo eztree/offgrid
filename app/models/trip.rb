@@ -5,6 +5,7 @@ class Trip < ApplicationRecord
   has_many :checklists, dependent: :destroy
   has_many :checkpoints, through: :trail
   has_many :items, through: :checklists
+  has_one_attached :photo
 
   validates :start_date, presence: true, on: :update
   validates :end_date, presence: false
