@@ -10,6 +10,6 @@ class PagesController < ApplicationController
     @trails = Trail.all
     @trips = current_user.trips
     @current_trip = @trips.first
-    @trip_dates =  @current_trip.checkpoints.map { |point| point.trip_date(@current_trip) }
+    @trip_dates = @current_trip.checkpoints.map { |point| point.trip_date(@current_trip) } unless @current_trip.nil?
   end
 end
