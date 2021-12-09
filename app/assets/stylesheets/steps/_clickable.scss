@@ -1,0 +1,39 @@
+.clickable {
+  padding: 40px;
+  width: 180px;
+  font-size: 16px;
+  border: 1px solid #dedede;
+  border-radius: 10px;
+  color: #a0a0a0;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.clickable i {
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+}
+
+.clickable:hover {
+  color: #586249;
+  border: 1px solid #586249;
+}
+
+.clickable.active {
+  color: #096432;
+  background-color: #f7f7f7;
+  border: 2px solid #096432;
+}
+
+.clickable.active i {
+  color: #096432;
+}
+
+.iconbox {
+ position: absolute;
+ transform: scale(0);
+}
