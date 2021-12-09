@@ -1,10 +1,7 @@
 import AerisWeather from '@aerisweather/javascript-sdk';
 import '@aerisweather/javascript-sdk/dist/styles/sass/styles.scss';
 
-const AERIS_CLIENT_ID = 'ytDT8G1WiJCpzUmYEPqFW';
-const AERIS_CLIENT_SECRET = 'cMYABZI74d4JPVrvBBBBauoSpqILF3YRVambv2kM';
-
-const aeris = new AerisWeather(AERIS_CLIENT_ID, AERIS_CLIENT_SECRET);
+const aeris = new AerisWeather(process.env.AERIS_CLIENT_ID, process.env.AERIS_CLIENT_SECRET);
 
 const initAerisWeather = async () => {
   const target = document.getElementById('forecast');
@@ -40,7 +37,7 @@ const initAerisWeather = async () => {
             </div>
           </div>
         `);
-        target.insertAdjacentHTML('afterbegin', html);
+        target.insertAdjacentHTML('beforeend', html);
       })
   }
 }
