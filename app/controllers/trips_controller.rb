@@ -22,6 +22,7 @@ class TripsController < ApplicationController
   def show
     # condition to check if export button was pressed
     @trip = Trip.find(params[:id])
+    
     if params[:format].present?
         export_pdf(@trip)
     else
@@ -56,11 +57,24 @@ class TripsController < ApplicationController
     authorize @trip
   end
 
+  def update
+    @trip = Trip.find(params[:id])
+    @trip.update(last_photo: Date.today)
+    @trip.update!(trip_params)
+    authorize @trip
+
+    redirect_to user_trip_path(current_user, @trip)
+  end
+
   private
 
   def create_tmp_user
     User.where(email: "placeholder@email.com").first
   end
+
+
+  def trip_params
+    params.require(:trip).permit(:photo)
 
   def export_pdf(trip)
     pdf = WickedPdf.new.pdf_from_string(
