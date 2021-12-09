@@ -14,9 +14,9 @@ class TripsController < ApplicationController
       user: @user,
       trail: @trail
     )
-
+    session[:trail_id] = @trail.id
     authorize @trip
-    redirect_to steps_path(trail_id: @trail.id)
+    redirect_to steps_path
   end
 
   def show
