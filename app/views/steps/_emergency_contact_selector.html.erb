@@ -1,13 +1,10 @@
-<%= form_for @emergency_contact, url: wizard_path, method: :put, local: true do |form| %>
+<%= form_for @trip, url: wizard_path, method: :put, local: true do |form| %>
+        <% @emergency_contact.each do |contact| %>
           <div class="d-flex">
-            <%= form.label :cooking, "I am cooking" %>
-            <%= form.check_box :cooking %>
+            <%= form.label :emergency_contact, contact.name %>
+            <%= form.radio_button :emergency_contact, contact.id %>
           </div>
-          <div class="d-flex">
-            <%= form.label :camping, "I am camping" %>
-            <%= form.check_box :camping %>
-          </div>
+        <% end %>
           <%= link_to "back", previous_wizard_path, class: "btn btn-info" %>
           <%= form.submit "next", class: "btn btn-success" %>
         <% end %>
-<%= raise %>
