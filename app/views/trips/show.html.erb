@@ -54,23 +54,23 @@
         <div class="h4">Day Plan and Conditions</div>
         <div class="accordion" id="accordionDay">
           <% count = 0 %>
-          <% @trip_days.times do %>
+          <% @trip_dates.first(@trip_days).each do |trip_date| %>
             <% count += 1 %>
-              <div class="card">
-                <div class="card-header" id="heading<%=count%>">
-                  <h2 class="mb-0">
-                    <button class="btn btn-link btn-block text-left text-black" type="button" data-toggle="collapse" data-target="#collapse<%=count%>" aria-expanded="true" aria-controls="collapse<%=count%>">
-                      Day <%= count %>
-                    </button>
-                  </h2>
-                </div>
-                <div id="collapse<%=count%>" class="collapse <% if count===1%>show<% end %>" aria-labelledby="heading<%=count%>" data-parent="#accordionDay">
-                  <div class="card-body">
-                    <%= render "pages/weather_card", trip: @trip, trip_dates: @trip_dates %>
-                  </div>
+            <div class="card">
+              <div class="card-header" id="heading<%=count%>">
+                <h2 class="mb-0">
+                  <button class="btn btn-link btn-block text-left text-black" type="button" data-toggle="collapse" data-target="#collapse<%=count%>" aria-expanded="true" aria-controls="collapse<%=count%>">
+                    Day <%= count %> - <%= trip_date.strftime("%e %b, %Y") %>
+                  </button>
+                </h2>
+              </div>
+              <div id="collapse<%=count%>" class="collapse <% if count===1%>show<% end %>" aria-labelledby="heading<%=count%>" data-parent="#accordionDay">
+                <div class="card-body">
+                  <%= render "pages/weather_card", trip: @trip, trip_dates: @trip_dates %>
                 </div>
               </div>
-            <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
       <div class="bg-white shadow-sm p-3 my-3">
@@ -122,24 +122,27 @@
       </div>
       <div class="bg-white shadow-sm p-3 my-3">
         <div class="h4">Route Details</div>
+        <div>
+          <%= line_chart @elevation_arr, colors: ["#337ab7", "#ffffff"],  ytitle: "Elevation",min: @min_no.to_s, max: @max_no;%>
+        </div>
         <div class="d-flex justify-content-around px-3 py-2">
-        <div class="text-center">
-          <i class="fas fa-hiking"></i>
-          <p><%= @trip.trail.route_distance %></p>
+          <div class="text-center">
+            <i class="fas fa-hiking"></i>
+            <p><%= @trip.trail.route_distance %></p>
+          </div>
+          <div class="text-center">
+            <i class="far fa-clock"></i>
+            <p><%= @trip.trail.time_needed %></p>
+          </div>
+          <div class="text-center">
+            <i class="fas fa-level-up-alt"></i>
+          <p>(Elevation gain)</p>
+          </div>
+          <div class="text-center">
+            <i class="fas fa-level-down-alt"></i>
+            <p>(Elevation loss)</p>
+          </div>
         </div>
-        <div class="text-center">
-          <i class="far fa-clock"></i>
-          <p><%= @trip.trail.time_needed %></p>
-        </div>
-        <div class="text-center">
-          <i class="fas fa-level-up-alt"></i>
-        <p>(Elevation gain)</p>
-        </div>
-        <div class="text-center">
-          <i class="fas fa-level-down-alt"></i>
-          <p>(Elevation loss)</p>
-        </div>
-      </div>
       </div>
       <div class="bg-white shadow-sm p-3 my-3">
         <div>

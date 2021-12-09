@@ -10,7 +10,6 @@ class StepsController < ApplicationController
   def show
     case step
     when :date_people
-      @trail = Trail.find(params[:trail_id])
       @trip = Trip.new(trail: @trail)
       session[:trip] = nil
     else
@@ -22,7 +21,12 @@ class StepsController < ApplicationController
   def update
     case step
     when :date_people
-      trail = Trail.find(params[:trip][:trail_id])
+      if params[:trip][:start_date].empty? || params[:trip][:no_of_people].empty?
+        flash[:notice] = "Please fill in all fields"
+        redirect_to wizard_path
+        return
+      end
+      trail = Trail.find(session[:trail_id])
       @trip = Trip.new(trip_params)
       @trip.trail = trail
       session[:trip] = @trip.attributes
@@ -34,6 +38,11 @@ class StepsController < ApplicationController
       redirect_to next_wizard_path
       return
     when :emergency_contact
+      unless params[:trip].present?
+        flash[:notice] = "Please pick an emergency contact"
+        redirect_to wizard_path
+        return
+      end
       @trip = Trip.new(session[:trip])
       if current_user.emergency_contacts.present?
         @emergency_contact = EmergencyContact.find(params[:trip][:emergency_contact])
@@ -44,12 +53,14 @@ class StepsController < ApplicationController
       end
       @trip.emergency_contact = @emergency_contact
       end_time = parse_end_time(@trip)
+      @trip.status = "upcoming"
       @trip.end_date = end_time
       @trip.user = @user
       if @trip.save
         redirect_to user_trip_path(id: @trip.id, user_id: @user)
+        session.delete(:trip)
+        session.delete(:trail_id)
       end
-      # session.delete(:trip)
     end
   end
 
