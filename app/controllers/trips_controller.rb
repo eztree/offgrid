@@ -20,22 +20,27 @@ class TripsController < ApplicationController
   end
 
   def show
+    # condition to check if export button was pressed
     @trip = Trip.find(params[:id])
-    @trip_days = (@trip.end_date - @trip.start_date).to_i + 1
-    @trip_dates = @trip.checkpoints.map { |point| point.trip_date(@trip) }
-    @category_items = %w[backpack_gear kitchen_tools food_water clothes_footwear navigation first_aid hygiene]
 
-    @markers = []
-    coordinates = @trip.trail.checkpoints
+    if params[:format].present?
+      export_pdf(@trip)
+    else
+      @trip_days = (@trip.end_date - @trip.start_date).to_i + 1
+      @trip_dates = @trip.checkpoints.map { |point| point.trip_date(@trip) }
+      @category_items = %w[backpack_gear kitchen_tools food_water clothes_footwear navigation first_aid hygiene]
 
-    coordinates.each do |coordinate|
-      @markers << {
-        lat: coordinate.latitude,
-        lng: coordinate.longitude,
-        info_window: render_to_string(partial: "trails/info_window", locals: { trail: @trip.trail })
-      }
+      @markers = []
+      coordinates = @trip.trail.checkpoints
+
+      coordinates.each do |coordinate|
+        @markers << {
+          lat: coordinate.latitude,
+          lng: coordinate.longitude,
+          info_window: render_to_string(partial: "trails/info_window", locals: { trail: @trip.trail })
+        }
+      end
     end
-
     authorize @trip
   end
 
@@ -43,5 +48,17 @@ class TripsController < ApplicationController
 
   def create_tmp_user
     User.where(email: "placeholder@email.com").first
+  end
+
+  def export_pdf(trip)
+    pdf = WickedPdf.new.pdf_from_string(
+      render_to_string(
+        template: 'trips/trip.html.erb',
+        layout: 'layouts/pdf.html.erb')
+      )
+    send_data(pdf,
+      filename: "#{trip.trail.name}_#{trip.start_date}.pdf",
+      type: 'application/pdf',
+      disposition: 'attachment')
   end
 end
