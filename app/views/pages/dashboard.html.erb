@@ -15,7 +15,7 @@
   </div>
 </section>
 
-
+<% unless @current_trip.nil? %>
 <section id="upcoming">
   <h2 class="h1">Upcoming</h2>
   <div class="d-flex p-4 rounded-lg justify-content-between" style="background:#e1e4d5;">
@@ -43,7 +43,7 @@
     </div>
   </div>
 </section>
-
+<% end %>
 
 <section id="recommended">
   <h2 class="h1">Recommended for you</h2>
