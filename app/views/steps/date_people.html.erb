@@ -15,6 +15,7 @@
             <%= form.label :no_of_people, "People" %>
             <%= form.number_field :no_of_people, in: 1..100 %>
           </div>
+          <%= form.hidden_field :trail_id, value: params[:trail_id] %>
           <%= link_to "back", trails_path, class: "btn btn-info" %>
           <%= form.submit "next", class: "btn btn-success" %>
         <% end %>
