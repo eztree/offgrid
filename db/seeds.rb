@@ -58,7 +58,7 @@ end
 def seeding_checkpoints
   Trail.all.each do |trail|
     coords = Geocoder.search(trail.location)
-    unless coords.empty?
+    if trail.coordinates == { lat: 0, lng: 0 } && !coords.empty?
       name = coords.first.data['display_name']
 
       previous_checkpoint = nil
@@ -192,8 +192,8 @@ mueller = Trail.create!(
 puts "Creating checkpoints for Mueller 🚩"
 mueller_checks = {
   point_0: ["Kea Point Trailhead", -43.71875, 170.0926, 773],
-  point_1: ["Mueller Hut", -43.72091834, 170.065166961, 1805],
-  point_3: ["Mount Ollivier", -43.7333, 170.0667, 1883],
+  point_1: ["Mueller Hut", -43.721064, 170.064537, 1805],
+  point_3: ["Mount Ollivier", -43.725504, 170.064457, 1883],
   point_5: ["Kea Point Trailhead", -43.71875, 170.0926, 773],
 }
 

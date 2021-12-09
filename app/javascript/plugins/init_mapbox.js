@@ -60,12 +60,14 @@ const displayTrail = (trail, map) => {
   });
   coordinatesString = coordinatesString.slice(0, -1)
   removeRouteLine(map);
-  if (checkpoints.length > 0) {
+  if (checkpoints.length > 1) {
     fetch(
       `https://api.mapbox.com/directions/v5/mapbox/walking/${coordinatesString}?geometries=geojson&access_token=${mapboxgl.accessToken}`
     )
       .then((response) => response.json())
       .then((data) => drawRoute(data, map));
+    }
+  if (checkpoints.length > 0) {
     fitMapToMarkers(map, checkpoints);
   }
 }
