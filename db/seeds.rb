@@ -83,9 +83,9 @@ end
 
 def seeding_emergency_contacts
   EmergencyContact.create!(name: "Bheemuscles", email: "bhee_muscles@hero.com", phone_no:"+65 9999 9999", user: User.first )
-  puts "First emergency contact created :white_check_mark:"
+  puts "First emergency contact created ☑"
   EmergencyContact.create!(name: "Bestie Ng", email: "bestie_2010@friendster.com", phone_no:"+65 9109 9678", user: User.first )
-  puts "Second emergency contact created :white_check_mark:"
+  puts "Second emergency contact created ☑"
 end
 # End of methods section
 
@@ -93,7 +93,7 @@ end
 puts "Seeding database.."
 
 # Removing old data
-puts "Deleting existing database.."
+puts "Deleting existing database.. 💣"
 Trail.destroy_all
 User.destroy_all
 Item.destroy_all
@@ -102,7 +102,7 @@ puts "Deleted!"
 
 # static data
 puts "Creating the manual trails 🛤"
-puts "Routeburn Track 1️⃣"
+puts "Routeburn Track 🥾"
 routeburn = Trail.create!(
   name: "Routeburn Track",
   description: "Routeburn Track is a 32.2 kilometer heavily trafficked point-to-point trail located near Glenorchy, Otago, New Zealand that features a lake and is rated as difficult. The trail offers a number of activity options and is best used from October until May.",
@@ -111,13 +111,13 @@ routeburn = Trail.create!(
   route_distance: "33km"
 )
 
-puts "Creating checkpoints for Routeburn"
+puts "Creating checkpoints for Routeburn 🚩"
 routeburn_checks = {
-  point_0: ["Routeburn Flats Hut & Camp: Start", -44.718018, 168.274247, "477m"],
-  point_1: ["Routeburn Flats Hut & Camp", -44.725466, 168.214794, "477m"],
-  point_2: ["Routeburn Falls Hut", -44.725819, 168.198392, "972m"],
-  point_3: ["Lake Mackenzie Hut", -44.767611, 168.173198, "891m"],
-  point_4: ["Routeburn Flats Hut & Camp: End", -44.824875, 168.117152, "477m"],
+  point_0: ["Routeburn Shelter", -44.718018, 168.274247, "483m"],
+  point_1: ["Routeburn Flats Hut & Camp", -44.725466, 168.214794, "705m"],
+  point_2: ["Routeburn Falls Hut", -44.725819, 168.198392, "993m"],
+  point_3: ["Lake Mackenzie Hut", -44.767611, 168.173198, "909m"],
+  point_4: ["The Divide Shelter & Car Park", -44.824875, 168.117152, "528m"],
 }
 
 previous_checkpoint = nil
@@ -139,23 +139,21 @@ end
 
 puts "Routeburn done ✅"
 
-puts "Mount Ollivier Summit via Mueller Hut 2️⃣"
+puts "Mount Ollivier Summit via Mueller Hut 🥾"
 mueller = Trail.create!(
   name: "Mount Ollivier Summit via Mueller Hut Route",
   description: "Mount Ollivier Summit via Mueller Hut Route is a 11.6 kilometer moderately trafficked out and back trail located near Mount Cook Village, Canterbury, New Zealand that features a great forest setting and is only recommended for very experienced adventurers. The trail offers a number of activity options.",
   location: "Aoraki/Mount Cook National Park",
-  time_needed: "2D1N",
+  time_needed: "3D2N",
   route_distance: "11.6km"
 )
 
-puts "Creating checkpoints for Mueller"
+puts "Creating checkpoints for Mueller 🚩"
 mueller_checks = {
-  point_0: ["Sealy Tarns: Start", -43.71875, 170.0926, "1,298m"],
-  point_1: ["Sealy Tarns", -43.71391808, 170.07001560, "1,298m"],
-  point_2: ["Mueller Hut", -43.72091834, 170.065166961, "1,805m"],
-  point_3: ["Mount Ollivier", -43.7333, 170.0667, "1,933m"],
-  point_4: ["Sealy Tarns", -43.71391808, 170.07001560, "1,298m"],
-  point_5: ["Sealy Tarns: End", -43.71875, 170.0926, "1,298m"],
+  point_0: ["Kea Point Trailhead", -43.71875, 170.0926, "773m"],
+  point_1: ["Mueller Hut", -43.72091834, 170.065166961, "1,805m"],
+  point_3: ["Mount Ollivier", -43.7333, 170.0667, "1,883m"],
+  point_5: ["Kea Point Trailhead", -43.71875, 170.0926, "773m"],
 }
 
 previous_checkpoint = nil
@@ -179,7 +177,7 @@ puts "Mueller done ✅"
 puts "End of manual trails 👌"
 
 # Creating a static user instance
-puts "Creating our first user.."
+puts "Creating our first user.. 🧔"
 User.create!(
     first_name: "Geetha",
     last_name: "Bheema",
@@ -189,7 +187,7 @@ User.create!(
   )
 puts "Standard user Geetha created! ✅"
 
-puts "Creating a temp user.."
+puts "Creating a temp user... 😬"
 User.create!(
     email: "placeholder@email.com",
     password: "placeholder",
@@ -200,7 +198,7 @@ puts "Temp user created! ✅"
 seeding_emergency_contacts
 
 # Creating the first trip for first user
-puts "Booking a trip for our first user"
+puts "Booking a trip for our first user 📑"
 STATUS = ["upcoming", "ongoing", "return"]
 Trip.create!(
   trail: Trail.first,
