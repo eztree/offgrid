@@ -24,7 +24,6 @@ class TripsController < ApplicationController
     @trip_days = (@trip.end_date - @trip.start_date).to_i + 1
     @trip_dates = @trip.checkpoints.map { |point| point.trip_date(@trip) }
     @category_items = %w[backpack_gear kitchen_tools food_water clothes_footwear navigation first_aid hygiene]
-
     @markers = []
     @elevation_arr = []
     coordinates = @trip.trail.checkpoints
@@ -48,13 +47,29 @@ class TripsController < ApplicationController
       min = @elevation_arr.min { |a, b| a[1] <=> b[1] }
       @min_no = min[1].to_s
     end
+    @trip_days.times do
+      # @food_hash_arr << {breakfast: , lunch: , dinner: }
 
     authorize @trip
+
+  end
+
+  def update
+    @trip = Trip.find(params[:id])
+    @trip.update(last_photo: Date.today)
+    @trip.update!(trip_params)
+    authorize @trip
+
+    redirect_to user_trip_path(current_user, @trip)
   end
 
   private
 
   def create_tmp_user
     User.where(email: "placeholder@email.com").first
+  end
+
+  def trip_params
+    params.require(:trip).permit(:photo)
   end
 end

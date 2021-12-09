@@ -12,4 +12,8 @@ class TripPolicy < ApplicationPolicy
   def cancel?
     record.user == user
   end
+
+  def update?
+    record.user == user
+  end
 end
