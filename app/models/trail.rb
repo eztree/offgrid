@@ -19,4 +19,13 @@ class Trail < ApplicationRecord
   def longitude
     coordinates[:lng]
   end
+
+  def checkpoints_coordinates
+    checkpoints_array = checkpoints.to_a
+    checkpoints_array.map do |checkpoint|
+      { lat: checkpoint.latitude,
+        lng: checkpoint.longitude,
+        name: checkpoint.name }
+    end
+  end
 end
