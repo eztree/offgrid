@@ -1,23 +1,34 @@
-<div class="pt-2 mt-5 col-12">
-  <div class="container">
+<div class="row">
+  <div class="col-6 text-white d-flex flex-column justify-content-center" id="sidebar-bg">
+    <h2 class="side-text text-left font-weight-bold">Choose your campsite experience</h2>
+    <h4 class="side-text-sub text-left font-weight-italic">Click 'Next' if you're not cooking or camping</h2>
+  </div>
+
+  <div class="col-6 container d-flex justify-content-center align-items-center" id="form-field">
     <div class="row">
-      <div class="col-6">
-        <h2>Choose Your campsite experience</h2>
-        <p>Click 'Next' if you are not cooking or camping</p>
-      </div>
-      <div class="col-6">
-        <%= form_for @trip, url: wizard_path, method: :put, local: true do |form| %>
-          <div class="d-flex">
-            <%= form.label :cooking, "I am cooking" %>
-            <%= form.check_box :cooking %>
-          </div>
-          <div class="d-flex">
-            <%= form.label :camping, "I am camping" %>
-            <%= form.check_box :camping %>
-          </div>
-          <%= link_to "back", previous_wizard_path, class: "btn btn-info" %>
-          <%= form.submit "next", class: "btn btn-success" %>
-        <% end %>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+          <%= form_for @trip, url: wizard_path, method: :put, local: true do |form| %>
+            <%= form.check_box :cooking, id: "trip_cooking", class: "iconbox" %>
+            <%= form.label :cooking do %>
+              <div class="clickable">
+                <i class="fab fa-gripfire"></i>
+                <p class>I'm cooking</p>
+              </div>
+            <% end %>
+
+            <%= form.check_box :camping, id: "trip_camping", class: "iconbox" %>
+            <%= form.label :camping do %>
+              <div class="clickable">
+                <i class="fas fa-campground"></i>
+                <p>I'm camping</p>
+              </div>
+            <% end %>
+              
+            <div class="d-flex justify-content-end">
+              <%= link_to "Go back", previous_wizard_path, class: "btn btn-dark mr-2" %>
+              <%= form.submit "Next", class: "btn btn-success ml-1" %>
+            </div>
+          <% end %>
       </div>
     </div>
   </div>

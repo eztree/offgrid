@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :trails, only: [:index, :show]
-  resources :trips, only: [:new, :create, :update]
+  resources :trips, only: [:new, :create, :show, :update]
   resources :steps
 
   post "/receive_sms", to: "messages#receive_sms"
