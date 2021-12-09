@@ -37,7 +37,7 @@ const initAerisWeather = async () => {
             </div>
           </div>
         `);
-        target.insertAdjacentHTML('afterbegin', html);
+        target.insertAdjacentHTML('beforeend', html);
       })
   }
 }
