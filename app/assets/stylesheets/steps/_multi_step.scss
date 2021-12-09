@@ -17,5 +17,23 @@
 
 .side-text-sub {
   margin-left: 3rem;
+  font-size: 1.3rem;
+}
+
+.side-text-footer {
+  margin-left: 3rem;
   font-size: 1rem;
+  font-style: italic;
+  position: absolute;
+  bottom: 9px;
+}
+
+.link-style {
+  text-decoration: underline;
+  color: #ffffff;
+  background-color: #cfcbc8;
+}
+
+.link-style:hover {
+  color: rgb(110, 110, 110);
 }

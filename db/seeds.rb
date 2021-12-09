@@ -97,6 +97,7 @@ puts "Deleting existing database.. 💣"
 Trail.destroy_all
 User.destroy_all
 Item.destroy_all
+EmergencyContact.destroy_all
 
 puts "Deleted!"
 
