@@ -30,3 +30,13 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAerisWeather();
 })
+
+const clickables = document.querySelectorAll('.clickable');
+
+clickables.forEach((button) => {
+  button.addEventListener('click', (event) => {
+    event.currentTarget.classList.toggle('active');
+    console.log(event);
+  });
+});
+
