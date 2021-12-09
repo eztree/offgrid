@@ -8,9 +8,11 @@
       </div>
       <div class="col-6">
         <% if current_user.emergency_contacts.present? %>
-          <%= render "emergency_contact_form" %>
-        <% else %>
+          <% @emergency_contact = @user.emergency_contacts %>
           <%= render "emergency_contact_selector" %>
+        <% else %>
+          <% @emergency_contact = EmergencyContact.new(user: @user) %>
+          <%= render "emergency_contact_form" %>
         <% end %>
       </div>
     </div>

@@ -128,7 +128,7 @@ routeburn_checks.each do |key, value|
     longitude: value[2],
     elevation: value[3],
   )
-  
+
   checkpoint.previous_checkpoint = previous_checkpoint unless previous_checkpoint.nil?
 
   checkpoint.trail = routeburn
@@ -200,7 +200,7 @@ seeding_emergency_contacts
 # Creating the first trip for first user
 puts "Booking a trip for our first user 📑"
 STATUS = ["upcoming", "ongoing", "return"]
-Trip.create!(
+trip = Trip.create!(
   trail: Trail.first,
   user: User.first,
   start_date: Date.today,
@@ -210,9 +210,14 @@ Trip.create!(
   cooking: true,
   camping: true,
   last_seen_photo: "",
+  last_photo: Date.today,
   emergency_contact: EmergencyContact.first,
   release_date_time: DateTime.new(Date.today.year, Date.today.month, Date.today.day + 2, 9)
 )
+file = URI.open('https://source.unsplash.com/1920x1080/?avatar')
+puts "Attaching photo to trip"
+trip.photo.attach(io: file, filename: "#{trip.trail.name}_photo.jpg", content_type: "image/jpg")
+
 puts "Trip has been booked!"
 puts "Creating emergency contact for our first user"
 seeding_emergency_contacts

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show] do
     resources :emergency_contacts, only: [:create]
+    resources :trips, only: [:show]
   end
 
   resources :trails, only: [:index, :show]
