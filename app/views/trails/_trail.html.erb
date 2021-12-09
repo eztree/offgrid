@@ -1,22 +1,30 @@
-<input type="radio" class="btn-check" style="appearance: none;" name="trail_id" id="trail_<%= trail.id %>" value="<%= trail.id %>" autocomplete="off" required>
-<label class="btn btn-light" for="trail_<%= trail.id %>" style="width: 90%;">
-  <div class="card container-fluid p-0 my-2">
-    <div class="rounded" style="background-image: url('https://media.timeout.com/images/105666541/750/562/image.jpg'); background-position: center; height: 200px; width:100%;">
+<input type="radio"
+       class="btn-check trail-select"
+       style="appearance: none;"
+       data-checkpoints="<%= trail.checkpoints_coordinates.to_json %>"
+       name="trail_id"
+       id="trail_<%= trail.id %>"
+       value="<%= trail.id %>"
+       autocomplete="off"
+       required>
+<label class="btn btn-light my-2 py-2" for="trail_<%= trail.id %>" style="width: 90%;">
+  <div class="card container-fluid p-0 my-0">
+    <div class="rounded" style="background-image: url('https://media.timeout.com/images/105666541/750/562/image.jpg'); background-position: center; height: 144px; width:100%;">
     </div>
-    <div class="card-body text-left">
+    <div class="card-body text-left p-2">
       <h5 class="font-weight-bold mb-0"><%= trail.name %></h5>
       <p class="text-left m-0"><%= trail.location %></p>
+      <div class="stars">
+        <i class="fa fa-star rating-color"></i>
+        <i class="fa fa-star rating-color"></i>
+        <i class="fa fa-star rating-color"></i>
+        <i class="fa fa-star rating-color"></i>
+        <i class="fa fa-star"></i>
+      </div>
       <div class="d-flex justify-content-between align-items-center">
-        <div class="stars">
-          <i class="fa fa-star rating-color"></i>
-          <i class="fa fa-star rating-color"></i>
-          <i class="fa fa-star rating-color"></i>
-          <i class="fa fa-star rating-color"></i>
-          <i class="fa fa-star"></i>
-        </div>
+        <p class="mb-0"><small>Length: <%= trail.route_distance %> • Est: <%= trail.time_needed %></small></p>
         <%= link_to "View Details", trail_path(trail), class:"btn btn-success" %>
       </div>
-      <p><small>Length: <%= trail.route_distance %> • Est: <%= trail.time_needed %></small></p>
     </div>
   </div>
 </label>
