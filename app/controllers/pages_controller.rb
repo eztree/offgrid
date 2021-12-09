@@ -10,6 +10,18 @@ class PagesController < ApplicationController
     @trails = Trail.all
     @trips = current_user.trips
     @current_trip = @trips.first
-    @trip_dates =  @current_trip.checkpoints.map { |point| point.trip_date(@current_trip) }
+    @trip_dates = @current_trip.checkpoints.map { |point| point.trip_date(@current_trip) }
+
+    @markers = []
+    coordinates = @current_trip.trail.checkpoints
+
+    coordinates.each do |coordinate|
+      @markers << {
+        lat: coordinate.latitude,
+        lng: coordinate.longitude,
+        info_window: render_to_string(partial: "trails/info_window", locals: { trail: @current_trip.trail })
+      }
+    end
+
   end
 end

@@ -22,7 +22,20 @@ class TripsController < ApplicationController
   def show
     @trip = Trip.find(params[:id])
     @trip_days = (@trip.end_date - @trip.start_date).to_i + 1
+    @trip_dates = @trip.checkpoints.map { |point| point.trip_date(@trip) }
     @category_items = %w[backpack_gear kitchen_tools food_water clothes_footwear navigation first_aid hygiene]
+
+    @markers = []
+    coordinates = @trip.trail.checkpoints
+
+    coordinates.each do |coordinate|
+      @markers << {
+        lat: coordinate.latitude,
+        lng: coordinate.longitude,
+        info_window: render_to_string(partial: "trails/info_window", locals: { trail: @trip.trail })
+      }
+    end
+
     authorize @trip
   end
 
