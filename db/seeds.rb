@@ -113,11 +113,11 @@ routeburn = Trail.create!(
 
 puts "Creating checkpoints for Routeburn 🚩"
 routeburn_checks = {
-  point_0: ["Routeburn Shelter", -44.718018, 168.274247, "483m"],
-  point_1: ["Routeburn Flats Hut & Camp", -44.725466, 168.214794, "705m"],
-  point_2: ["Routeburn Falls Hut", -44.725819, 168.198392, "993m"],
-  point_3: ["Lake Mackenzie Hut", -44.767611, 168.173198, "909m"],
-  point_4: ["The Divide Shelter & Car Park", -44.824875, 168.117152, "528m"],
+  point_0: ["Routeburn Shelter", -44.718018, 168.274247, 483],
+  point_1: ["Routeburn Flats Hut & Camp", -44.725466, 168.214794, 705],
+  point_2: ["Routeburn Falls Hut", -44.725819, 168.198392, 993],
+  point_3: ["Lake Mackenzie Hut", -44.767611, 168.173198, 909],
+  point_4: ["The Divide Shelter & Car Park", -44.824875, 168.117152, 528],
 }
 
 previous_checkpoint = nil
@@ -150,10 +150,10 @@ mueller = Trail.create!(
 
 puts "Creating checkpoints for Mueller 🚩"
 mueller_checks = {
-  point_0: ["Kea Point Trailhead", -43.71875, 170.0926, "773m"],
-  point_1: ["Mueller Hut", -43.72091834, 170.065166961, "1,805m"],
-  point_3: ["Mount Ollivier", -43.7333, 170.0667, "1,883m"],
-  point_5: ["Kea Point Trailhead", -43.71875, 170.0926, "773m"],
+  point_0: ["Kea Point Trailhead", -43.71875, 170.0926, 773],
+  point_1: ["Mueller Hut", -43.72091834, 170.065166961, 1805],
+  point_3: ["Mount Ollivier", -43.7333, 170.0667, 1883],
+  point_5: ["Kea Point Trailhead", -43.71875, 170.0926, 773],
 }
 
 previous_checkpoint = nil
