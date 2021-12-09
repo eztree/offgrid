@@ -210,7 +210,7 @@ trip = Trip.create!(
   cooking: true,
   camping: true,
   last_seen_photo: "",
-  last_photo: Date.new(DateTime.now),
+  last_photo: Date.today,
   emergency_contact: EmergencyContact.first,
   release_date_time: DateTime.new(Date.today.year, Date.today.month, Date.today.day + 2, 9)
 )
