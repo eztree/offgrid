@@ -1,16 +1,16 @@
 <%= form_for @emergency_contact, url: wizard_path, method: :put, local: true do |form| %>
-          <div class="d-flex">
-            <%= form.label :name, "Name" %>
-            <%= form.text_field :name, placeholder: "Name" %>
-          </div>
-          <div class="d-flex">
-            <%= form.label :email, "Email" %>
-            <%= form.text_field :email, placeholder: "Email" %>
-          </div>
-          <div class="d-flex">
-            <%= form.label :phone_no, "Contact" %>
-            <%= form.text_field :phone_no, placeholder: "Phone number (optional)" %>
-          </div>
-          <%= link_to "back", previous_wizard_path, class: "btn btn-info" %>
-          <%= form.submit "next", class: "btn btn-success" %>
-        <% end %>
+  <div class="d-flex">
+    <%= form.label :name, "Name" %>
+    <%= form.text_field :name, placeholder: "Name" %>
+  </div>
+  <div class="d-flex">
+    <%= form.label :email, "Email" %>
+    <%= form.text_field :email, placeholder: "Email" %>
+  </div>
+  <div class="d-flex">
+    <%= form.label :phone_no, "Contact" %>
+    <%= form.text_field :phone_no, placeholder: "Phone number (optional)" %>
+  </div>
+  <%= link_to "back", previous_wizard_path, class: "btn btn-info" %>
+  <%= form.submit "next", class: "btn btn-success" %>
+<% end %>

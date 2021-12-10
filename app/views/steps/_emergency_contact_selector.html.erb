@@ -1,10 +1,27 @@
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Saved contacts
+  </button>
+  <%#= form_for @trip, url: wizard_path, method: :put, local: true do |form| %>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <% @emergency_contacts.each do |contact| %>
+      <%= link_to contact.name, "#", class: "dropdown-item" %>
+    <% end %>
+  </div>
+
+
 <%= form_for @trip, url: wizard_path, method: :put, local: true do |form| %>
-        <% @emergency_contact.each do |contact| %>
-          <div class="d-flex">
-            <%= form.label :emergency_contact, contact.name %>
-            <%= form.radio_button :emergency_contact, contact.id %>
-          </div>
-        <% end %>
-          <%= link_to "back", previous_wizard_path, class: "btn btn-info" %>
-          <%= form.submit "next", class: "btn btn-success" %>
-        <% end %>
+    <div class="d-flex">
+    <% @emergency_contacts.each do |contact| %>
+      <%= form.label :emergency_contact, contact.name %>
+      <%= form.radio_button :emergency_contact, contact.id %>
+    <% end %>
+
+    <div class="d-flex justify-content-end">
+      <%= link_to "Go back", previous_wizard_path, class: "btn btn-dark mr-2" %>
+      <%= form.submit "Submit", class: "btn btn-success ml-1" %>
+    </div>
+    
+  </div>
+<% end %>

@@ -72,9 +72,9 @@ class TripsController < ApplicationController
     User.where(email: "placeholder@email.com").first
   end
 
-
   def trip_params
     params.require(:trip).permit(:photo)
+  end
 
   def export_pdf(trip)
     pdf = WickedPdf.new.pdf_from_string(
