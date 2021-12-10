@@ -1,0 +1,8 @@
+<div id="forecast_trip"
+
+  data-checkpoints="<%= trip.checkpoints.first(trip_days).to_json %>"
+  data-trip-dates="<%= trip_dates[0].first(trip_days).to_json %>"
+  data-client-id="<%= ENV['AERIS_CLIENT_ID'] %>"
+  data-client-secret="<%= ENV['AERIS_CLIENT_SECRET'] %>">
+
+</div>

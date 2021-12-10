@@ -22,6 +22,7 @@ class TripsController < ApplicationController
   def show
     # condition to check if export button was pressed
     @trip = Trip.find(params[:id])
+    
     if params[:format].present?
         export_pdf(@trip)
     else
@@ -54,6 +55,15 @@ class TripsController < ApplicationController
       end
     end
     authorize @trip
+  end
+
+  def update
+    @trip = Trip.find(params[:id])
+    @trip.update(last_photo: Date.today)
+    @trip.update!(trip_params)
+    authorize @trip
+
+    redirect_to user_trip_path(current_user, @trip)
   end
 
   private

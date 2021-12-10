@@ -11,7 +11,7 @@
     <section class="col-7">
       <div class="bg-white shadow-sm p-3 my-3">
         <div class="h4"><%= @trip.start_date.strftime("%e %b, %Y") %> - <%= @trip.end_date.strftime("%e %b, %Y") %></div>
-        <div class="mb-3"><%= @trip.trail.time_needed %> TRIP FOR <%= @trip.no_of_people %> ADULTS IN CONNECTICUT IN SUMMER.</div>
+        <div class="mb-3"><%= @trip.trail.time_needed %> TRIP FOR <%= @trip.no_of_people %> <%= "adult".pluralize(@trip.no_of_people).upcase %> IN <%= @trip.trail.location.upcase %>.</div>
         <div class="row">
           <div class="col-6">
             <div class="d-flex align-items-center mb-2 h5">
@@ -53,24 +53,7 @@
       <div class="bg-white shadow-sm p-3 my-3">
         <div class="h4">Day Plan and Conditions</div>
         <div class="accordion" id="accordionDay">
-          <% count = 0 %>
-          <% @trip_dates.first(@trip_days).each do |trip_date| %>
-            <% count += 1 %>
-            <div class="card">
-              <div class="card-header" id="heading<%=count%>">
-                <h2 class="mb-0">
-                  <button class="btn btn-link btn-block text-left text-black" type="button" data-toggle="collapse" data-target="#collapse<%=count%>" aria-expanded="true" aria-controls="collapse<%=count%>">
-                    Day <%= count %> - <%= trip_date.strftime("%e %b, %Y") %>
-                  </button>
-                </h2>
-              </div>
-              <div id="collapse<%=count%>" class="collapse <% if count===1%>show<% end %>" aria-labelledby="heading<%=count%>" data-parent="#accordionDay">
-                <div class="card-body">
-                  <%= render "pages/weather_card", trip: @trip, trip_dates: @trip_dates %>
-                </div>
-              </div>
-            </div>
-          <% end %>
+          <%= render "trip_weather_card", trip: @trip, trip_dates: [@trip_dates], trip_days: @trip_days %>
         </div>
       </div>
       <div class="bg-white shadow-sm p-3 my-3">
@@ -80,7 +63,7 @@
             <div class="card">
               <div class="card-header" id="heading<%=item%>">
                 <h2 class="mb-0">
-                  <button class="btn btn-link btn-block text-left text-black" type="button" data-toggle="collapse" data-target="#collapse<%=item%>" aria-expanded="true" aria-controls="collapse<%=count%>">
+                  <button class="btn btn-link btn-block text-left text-black" type="button" data-toggle="collapse" data-target="#collapse<%=item%>" aria-expanded="true" aria-controls="collapse<%=index%>">
                     <%= item %>
                   </button>
                 </h2>
@@ -147,20 +130,29 @@
       <div class="bg-white shadow-sm p-3 my-3">
         <div>
           <div class="h4">Last seen</div>
-          <div class="d-flex justify-content-between">
+
             <% if @trip.photo.present? %>
-              <div class="shadow-sm" style="width:45%;" >
-                <%= cl_image_tag (@trip.photo.key), class:"rounded-lg", style: "width:100%;object-fit:contain;", crop: :fill %>
-              </div>
-              <div class="p-2 rounded shadow" style="width:50%; font-size:1rem;background-color:#f8ffe2;">
-                <div class="mb-2 h5">Looking good!</div>
-                <div>This photo was taken on: </div>
-                <div><%= @trip.last_photo.strftime("%e %b, %Y") %> at <%= @trip.last_photo.strftime("%l:%M %P") %></div>
+              <div class="d-flex justify-content-between">
+                <div class="shadow-sm" style="width:45%;" >
+                  <%= cl_image_tag (@trip.photo.key), class:"rounded-lg", style: "width:100%;object-fit:contain;", crop: :fill %>
+                </div>
+                <div class="p-2 rounded shadow" style="width:50%; font-size:1rem;background-color:#f8ffe2;">
+                  <div class="mb-2 h5">Looking good!</div>
+                  <div>This photo was taken on: </div>
+                  <div><%= @trip.last_photo.strftime("%e %b, %Y") %> at <%= @trip.last_photo.strftime("%l:%M %P") %></div>
+                </div>
               </div>
             <% else %>
-              <h2>Please attach photo</h2>
+              <div class="p-2 shadow" style="background:floralwhite;">
+                <div class = "h5">Please attach a photo</div>
+                <%= simple_form_for([current_user, @trip], method: :patch, url: trip_path(@trip)) do |f| %>
+                  <div class="border p-3 bg-white">
+                    <div><%= f.input :photo, as: :file, input_html: { multiple: false } %></div>
+                    <div><%= f.button :submit, "Upload Photo", class:"btn btn-success"%></div>
+                  </div>
+                <% end %>
+              </div>
             <% end %>
-          </div>
         </div>
       </div>
     </div>

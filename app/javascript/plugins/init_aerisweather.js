@@ -1,45 +1,88 @@
-import AerisWeather from '@aerisweather/javascript-sdk';
-import '@aerisweather/javascript-sdk/dist/styles/sass/styles.scss';
+import AerisWeather from "@aerisweather/javascript-sdk";
+import "@aerisweather/javascript-sdk/dist/styles/sass/styles.scss";
 
-const aeris = new AerisWeather(process.env.AERIS_CLIENT_ID, process.env.AERIS_CLIENT_SECRET);
+const aeris = new AerisWeather(
+  process.env.AERIS_CLIENT_ID,
+  process.env.AERIS_CLIENT_SECRET
+);
 
 const initAerisWeather = async () => {
-  const target = document.getElementById('forecast');
+  let target = "";
+  if (window.location.pathname.includes("dashboard")) {
+    target = document.getElementById("forecast");
+  } else {
+    target = document.getElementById("forecast_trip");
+  }
 
-  if (target) { // Puts in the weather data only if there's a div#forecast
+  if (target) {
+    // Puts in the weather data only if there's a div#forecast
     const checkpoints = JSON.parse(target.dataset.checkpoints);
     const tripDates = JSON.parse(target.dataset.tripDates);
 
     const requests = checkpoints.map((point, index) => {
       const tripDate = `${tripDates[index]}`;
-      return aeris.api().endpoint('forecasts').place(`${point.latitude},${point.longitude}`).from(tripDate).to(tripDate);
-    })
-    
-    const responses = await Promise.all(
-      requests.map(req => req.get())
-    )
+      return aeris
+        .api()
+        .endpoint("forecasts")
+        .place(`${point.latitude},${point.longitude}`)
+        .from(tripDate)
+        .to(tripDate);
+    });
 
-      responses.forEach((response) => {
-        let period = response.data[0].periods[0];
-        let date = new Date(period.dateTimeISO);
-        let icon = `https://cdn.aerisapi.com/wxblox/icons/${period.icon || 'na.png'}`;
-        let maxTempC = period.maxTempC || 'N/A';
-        let minTempC = period.minTempC || 'N/A';
-        let weather = period.weatherPrimary || 'N/A';
+    const responses = await Promise.all(requests.map((req) => req.get()));
+    let count = 0;
+    responses.forEach((response) => {
+      count += 1;
+      let period = response.data[0].periods[0];
+      let date = new Date(period.dateTimeISO);
+      let icon = `https://cdn.aerisapi.com/wxblox/icons/${
+        period.icon || "na.png"
+      }`;
+      let maxTempC = period.maxTempC || "N/A";
+      let minTempC = period.minTempC || "N/A";
+      let weather = period.weatherPrimary || "N/A";
 
-        const html = (`
+      let html = "";
+      if (window.location.pathname.includes("dashboard")) {
+        html = `
           <div class="card">
             <div class="card-body">
-              <p class="title">${aeris.utils.dates.format(date, 'eeee')}</p>
+              <p class="title">${aeris.utils.dates.format(date, "eeee")}</p>
               <p><img class="icon" src="${icon}"></p>
               <p class="wx">${weather}</p>
               <p class="temps"><span>High:</span>${maxTempC}°C <span>Low:</span>${minTempC}°C</p>
             </div>
           </div>
-        `);
-        target.insertAdjacentHTML('beforeend', html);
-      })
+        `;
+      } else {
+        html = `
+            <div class="card">
+              <div class="card-header" id="heading${count}">
+                <h2 class="mb-0">
+                  <button class="btn btn-link btn-block text-left text-black" type="button" data-toggle="collapse" data-target="#collapse${count}" aria-expanded="true" aria-controls="collapse${count}">
+                    Day ${count} - ${date.toDateString()}
+                  </button>
+                </h2>
+              </div>
+              <div id="collapse${count}" class="collapse" aria-labelledby="heading${count}" data-parent="#accordionDay">
+                <div class="d-flex">
+                  <div class="card rounded-lg p-2 d-flex flex-column justify-content-center align-items-center text-center">
+                    <div class="card-body">
+
+                      <p><img class="icon" src="${icon}" style="height:50px;"></p>
+                      <p class="wx">${weather}</p>
+                      <p class="temps"><span>High:</span>${maxTempC}°C <span>Low:</span>${minTempC}°C</p>
+                    </div>
+                  </div>
+                  <div>
+                  </div>
+                </div>
+              </div>
+            </div>`;
+      }
+      target.insertAdjacentHTML("beforeend", html);
+    });
   }
-}
+};
 
 export { initAerisWeather };

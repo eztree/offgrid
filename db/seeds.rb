@@ -2,37 +2,77 @@ require 'rubygems'
 require 'nokogiri'
 require 'json'
 require 'open-uri'
-require 'pry-byebug'
 
-# Methods for json extraction
+# =============== Methods for json extraction ===============
+
 def seeding_trails
-  filepath = File.join(__dir__, 'data/trails.json')
-  serialized_locations = File.read(filepath)
-
+  regions = ["japan", "new_zealand"]
   locations = []
 
-  trails_loc_json = JSON.parse(serialized_locations)
-  trails_loc = trails_loc_json['div']['div'][1]['div']
-  trails_loc.each_with_index do |trail, index|
-    trail_hash = {
-      id: index + 1,
-      name: trail['div']['div'][0]['@title'],
-      location: trail['div']['a']['@title'],
-      route_distance: trail['div']['div'][2]['span'][0]['#text'],
-      description: trail['div']['div'][3]['#text'],
-      time_needed: trail['div']['div'][2]['span'][2]['#text']
-    }
-    if trail['div']['div'][2]['span'][2]['#text'].instance_of?(NilClass)
-      trail_hash[:time_needed] = trail['div']['div'][2]['span'][2]
+  regions.each do |region|
+    filepath = File.join(__dir__, "data/#{region}.json")
+    serialized_locations = File.read(filepath)
+
+    trails_loc_json = JSON.parse(serialized_locations)
+    trails_loc = trails_loc_json['div']['div'][1]['div']
+
+    trails_loc.each do |trail|
+      trail_hash = {
+        id: locations.size + 1,
+        name: trail['div']['div'][0]['@title'].split(/#\d+ - /).last,
+        location: trail['div']['a']['@title']
+      }
+
+      if trail['div']['div'][3].nil?
+        trail_hash[:description] = 'no description'
+      else
+        trail_hash[:description] = trail['div']['div'][3]['#text']
+      end
+
+      if trail['div']['div'][2]['span'].instance_of?(Array)
+        trail_hash[:distance] = trail['div']['div'][2]['span'][0]['#text']
+      else
+        trail_hash[:distance] = trail['div']['div'][2]['span']['#text']
+      end
+
+      if trail['div']['div'][2]['span'].instance_of?(Array)
+        trail_hash[:time_needed] = trail['div']['div'][2]['span'][0]['#text']
+      elsif trail['div']['div'][2]['span'][2].instance_of?(NilClass)
+        trail_hash[:time_needed] = 'Multi-day'
+      end
+
+      unless trail['a'][1]['figure']['div']['div'][0]['div']['div'][1]['div']['div']['img'].instance_of?(NilClass)
+        trail_hash[:photo] = trail['a'][1]['figure']['div']['div'][0]['div']['div'][1]['div']['div']['img']['@src']
+      end
+
+      trail_hash[:distance] = trail_hash[:distance].split('Length: ')[1]
+      trail_hash[:time_needed] = trail_hash[:time_needed].split('Est. ')[1]
+
+      locations << trail_hash
     end
-    unless trail['a'][1]['figure']['div']['div'][0]['div']['div'][1]['div']['div']['img'].instance_of?(NilClass)
-      trail_hash[:photo] = trail['a'][1]['figure']['div']['div'][0]['div']['div'][1]['div']['div']['img']['@src']
-    end
-    trail_hash[:route_distance] = trail_hash[:route_distance].split('route_distance: ')[1]
-    trail_hash[:time_needed] = trail_hash[:time_needed].split('Est. ')[1]
-    locations << trail_hash
   end
   return locations
+end
+
+def seeding_checkpoints
+  Trail.all.each do |trail|
+    coords = Geocoder.search(trail.location)
+    if trail.coordinates == { lat: 0, lng: 0 } && !coords.empty?
+      name = coords.first.data['display_name']
+
+      previous_checkpoint = nil
+      checkpoint = Checkpoint.new(
+        name: name,
+        latitude: coords.first.latitude,
+        longitude: coords.first.longitude,
+        elevation: 0
+      )
+      checkpoint.previous_checkpoint = previous_checkpoint unless previous_checkpoint.nil?
+
+      checkpoint.trail = trail
+      checkpoint.save
+    end
+  end
 end
 
 def seeding_items
@@ -87,7 +127,7 @@ def seeding_emergency_contacts
   EmergencyContact.create!(name: "Bestie Ng", email: "bestie_2010@friendster.com", phone_no:"+65 9109 9678", user: User.first )
   puts "Second emergency contact created ☑"
 end
-# End of methods section
+# =============== End of methods section ===============
 
 # Start of seeding
 puts "Seeding database.."
@@ -101,7 +141,7 @@ EmergencyContact.destroy_all
 
 puts "Deleted!"
 
-# static data
+# =============== static data ===============
 puts "Creating the manual trails 🛤"
 puts "Routeburn Track 🥾"
 routeburn = Trail.create!(
@@ -127,7 +167,7 @@ routeburn_checks.each do |key, value|
     name: value[0],
     latitude: value[1],
     longitude: value[2],
-    elevation: value[3],
+    elevation: value[3]
   )
 
   checkpoint.previous_checkpoint = previous_checkpoint unless previous_checkpoint.nil?
@@ -152,8 +192,8 @@ mueller = Trail.create!(
 puts "Creating checkpoints for Mueller 🚩"
 mueller_checks = {
   point_0: ["Kea Point Trailhead", -43.71875, 170.0926, 773],
-  point_1: ["Mueller Hut", -43.72091834, 170.065166961, 1805],
-  point_3: ["Mount Ollivier", -43.7333, 170.0667, 1883],
+  point_1: ["Mueller Hut", -43.721064, 170.064537, 1805],
+  point_3: ["Mount Ollivier", -43.725504, 170.064457, 1883],
   point_5: ["Kea Point Trailhead", -43.71875, 170.0926, 773],
 }
 
@@ -196,18 +236,20 @@ User.create!(
   )
 puts "Temp user created! ✅"
 
+# =============== end of static data ===============
+
 seeding_emergency_contacts
 
 # Creating the first trip for first user
 puts "Booking a trip for our first user 📑"
-STATUS = ["upcoming", "ongoing", "return"]
+status = ["upcoming", "ongoing", "return"]
 trip = Trip.create!(
   trail: Trail.first,
   user: User.first,
   start_date: Date.today,
   end_date: Date.today + 2,
   no_of_people: 1,
-  status: STATUS[0],
+  status: status[0],
   cooking: true,
   camping: true,
   last_seen_photo: "",
@@ -241,19 +283,20 @@ trail_seed.each do |trail|
     route_distance: trail[:route_distance]
   )
 end
+puts "adding checkpoints to trails"
+seeding_checkpoints
 puts "Trails created!"
-puts "Seeding complete!"
 
 # method for Item seeding
-
 
 puts "********START: Seeding items*************"
 seeding_items
 puts "********END: Seeding items***************"
-
 
 puts "********START: Seeding checklist************"
 seeding_checklists
 puts "********END: Seeding checklist*************"
 
 # End of seeding
+
+puts "Seeding complete!"
