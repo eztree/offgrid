@@ -3,11 +3,11 @@
   <head>
     <meta charset='utf-8' />
     <%= wicked_pdf_stylesheet_link_tag "application" %>
-    <%= wicked_pdf_javascript_include_tag "application" %>
+    <%= wicked_pdf_javascript_include_tag "pdf" %>
   </head>
   <body>
     <div id="header">
-      <%= wicked_pdf_image_tag 'mysite.jpg' %>
+      <%= wicked_pdf_image_tag 'offgrid_logo.svg' %>
     </div>
     <div id="content">
       <%= yield %>

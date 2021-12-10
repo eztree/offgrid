@@ -10,8 +10,8 @@
 
 WickedPdf.config ||= {}
   WickedPdf.config.merge!(
-    {
-      template: 'trips/trip.html.erb',
-      layout: 'layouts/pdf.html.erb'
-    }
+  {
+    template: 'trip.html.erb',
+    layout: 'pdf.html.erb'
+  }
 )
