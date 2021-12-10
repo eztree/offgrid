@@ -7,16 +7,18 @@
   <div class="col-6 container d-flex justify-content-center align-items-center" id="form-field">
     <div class="row">
       <div class="d-flex flex-column justify-content-center align-items-center">
-          <%= form_for @trip, url: wizard_path, method: :put, local: true do |form| %>
-            <%= form.check_box :cooking, id: "trip_cooking", class: "iconbox" %>
+          <%= form_for @trip, url: wizard_path, method: :put do |form| %>
+            
+            <%= form.check_box :cooking, class: "iconbox", checked: false %>
             <%= form.label :cooking do %>
               <div class="clickable">
                 <i class="fab fa-gripfire"></i>
                 <p class>I'm cooking</p>
               </div>
             <% end %>
+            
 
-            <%= form.check_box :camping, id: "trip_camping", class: "iconbox" %>
+            <%= form.check_box :camping,  class: "iconbox" %>
             <%= form.label :camping do %>
               <div class="clickable">
                 <i class="fas fa-campground"></i>
