@@ -3,7 +3,7 @@
     <h1><%= @trip.trail.name %></h1>
     <div class="d-flex justify-content-end">
       <div><%= link_to "Edit", root_path, class:"btn btn-primary mr-3" %></div>
-      <div><%= link_to 'Share', user_trip_path(@trip, format: :pdf), class: "btn btn-success mr-3", target: :_blank %></div>
+      <div><%= link_to 'Share', trip_path(@trip, format: :pdf), class: "btn btn-success mr-3", target: :_blank %></div>
       <div><%= link_to "Delete", root_path, class:"btn btn-danger" %></div>
     </div>
   </div>
