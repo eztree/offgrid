@@ -27,8 +27,10 @@
       <div style="width:100%; min-height:70%;">
 
           <div id="map"
-            style="width: 100%; height: 50vh; position: sticky; top: 8vh;"
+            class="map-with-route"
+            style="width: 100%; height: 50vh;"
             data-markers="<%= @markers.to_json %>"
+            data-coordinate-string="<%= @coordinateString %>"
             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
           </div>
 
