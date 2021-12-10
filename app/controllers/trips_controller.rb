@@ -22,17 +22,18 @@ class TripsController < ApplicationController
   def show
     # condition to check if export button was pressed
     @trip = Trip.find(params[:id])
-    
+
     if params[:format].present?
         export_pdf(@trip)
     else
       @trip_days = (@trip.end_date - @trip.start_date).to_i + 1
       @trip_dates = @trip.checkpoints.map { |point| point.trip_date(@trip) }
-      @category_items = %w[backpack_gear kitchen_tools food_water clothes_footwear navigation first_aid hygiene]
+      @category_items = %w[backpack_gear kitchen_tools food water clothes_footwear navigation first_aid hygiene]
 
       @markers = []
       @elevation_arr = []
       coordinates = @trip.trail.checkpoints
+      @checklists = @trip.checklists
 
       coordinates.each_with_index do |coordinate, index|
         @markers << {

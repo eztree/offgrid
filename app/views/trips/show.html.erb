@@ -70,17 +70,21 @@
               </div>
               <div id="collapse<%=item%>" class="collapse <% if index===0%>show<% end %>" aria-labelledby="heading<%=item%>" data-parent="#accordionChecklist">
                 <div class="card-body">
-                  <% item_arr = Item.all.tagged_with(item) %>
-                  <% item_arr.each do |item_tagged|%>
+                <% checklist_arr = [] %>
+                  <% @checklists.each do |checklist| %>
+                    <% checklist_arr << checklist if checklist.item.tag_list.include?(item)  %>
+                  <% end %>
+                  <% checklist_arr.each do |checklist|%>
                     <div class="pl-5">
-                      <% if @trip.items.include?(item_tagged) %>
-                        <input type="checkbox" name="<%= item_tagged.name %>" value="<%= item_tagged.name %>" checked>
-                      <% else %>
-                        <input type="checkbox" name="<%= item_tagged.name %>" value="<%= item_tagged.name %>">
-                      <% end %>
-                      <span class="mr-3"><%= item_tagged.name %></span>
-                      <% item_tagged.tag_list[1..].each do |tag| %>
-                        <% if tag != "required" %>
+
+                        <input type="checkbox" name="<%= checklist.id %>" value="<%= checklist.item.name %>"
+                          <% if checklist.checked? %>
+                            checked
+                          <% end %>
+                          >
+                      <span class="mr-3"><%= checklist.item.name %></span>
+                      <% checklist.item.tag_list[1..].each do |tag| %>
+                        <% if tag != "required" && tag != "food" %>
                           <span class="badge badge-pill <% if tag === "optional"%> badge-secondary <% else %> badge-primary <% end %>"><%= tag %></span>
                         <% end %>
                       <% end %>
