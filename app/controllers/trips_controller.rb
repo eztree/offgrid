@@ -24,7 +24,7 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
 
     if params[:format].present?
-        export_pdf(@trip)
+      export_pdf(@trip)
     else
       @trip_days = (@trip.end_date - @trip.start_date).to_i + 1
       @trip_dates = @trip.checkpoints.map { |point| point.trip_date(@trip) }
