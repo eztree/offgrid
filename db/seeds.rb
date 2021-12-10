@@ -243,6 +243,8 @@ puts "Temp user created! ✅"
 
 # =============== end of static data ===============
 
+seeding_emergency_contacts
+
 # Creating the first trip for first user
 puts "Booking a trip for our first user 📑"
 status = ["upcoming", "ongoing", "return"]
@@ -265,9 +267,6 @@ puts "Attaching photo to trip"
 trip.photo.attach(io: file, filename: "#{trip.trail.name}_photo.jpg", content_type: "image/jpg")
 
 puts "Trip has been booked!"
-puts "Creating emergency contact for our first user"
-seeding_emergency_contacts
-puts "emergency contact created! ✅"
 
 # extracting from json files
 puts "extracting information from json files.."
