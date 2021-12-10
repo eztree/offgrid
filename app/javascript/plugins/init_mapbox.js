@@ -45,7 +45,7 @@ const drawRoute = (data, map) => {
   });
 };
 
-const displayTrail = (trail, map) => {
+const displayTrailSelect = (trail, map) => {
   const checkpoints = JSON.parse(trail.dataset.checkpoints);
   var coordinatesString = ""
   checkpoints.forEach((checkpoint) => {
@@ -88,7 +88,7 @@ const addMarkersToMap = (map, markers) => {
 const fitMapToMarkers = (map, markers) => {
 	const bounds = new mapboxgl.LngLatBounds();
 	markers.forEach((marker) => bounds.extend([marker.lng, marker.lat]));
-	map.fitBounds(bounds, { padding: 120, maxZoom: 15, duration: 2000 });
+	map.fitBounds(bounds, { padding: 80, maxZoom: 15, duration: 3000 });
 };
 
 const initTrailSelects = (map) => {
@@ -96,7 +96,7 @@ const initTrailSelects = (map) => {
   trailSelects.forEach ( trail => {
     trail.onclick = function() {
         removeAllMarkers();
-        displayTrail(trail, map);
+        displayTrailSelect(trail, map);
       }
   });
 };
@@ -116,6 +116,14 @@ const initMapbox = () => {
 		});
 
     initTrailSelects(map);
+
+    if (mapElement.classList.contains("map-with-route")) {
+      fetch(
+      `https://api.mapbox.com/directions/v5/mapbox/walking/${mapElement.dataset.coordinateString}?geometries=geojson&access_token=${mapboxgl.accessToken}`
+    )
+      .then((response) => response.json())
+      .then((data) => drawRoute(data, map));
+    }
 
     const markers = JSON.parse(mapElement.dataset.markers);
     addMarkersToMap(map, markers)

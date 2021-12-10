@@ -22,7 +22,7 @@ class TripsController < ApplicationController
   def show
     # condition to check if export button was pressed
     @trip = Trip.find(params[:id])
-    
+
     if params[:format].present?
         export_pdf(@trip)
     else
@@ -32,26 +32,33 @@ class TripsController < ApplicationController
 
       @markers = []
       @elevation_arr = []
-      coordinates = @trip.trail.checkpoints
 
-      coordinates.each_with_index do |coordinate, index|
+      checkpoints_data = @trip.trail.checkpoints_coordinates
+
+      @coordinateString = ""
+      checkpoints_data.each do |checkpoint|
         @markers << {
-          lat: coordinate.latitude,
-          lng: coordinate.longitude,
-          info_window: render_to_string(partial: "trails/info_window", locals: { trail: @trip.trail })
+          lat: checkpoint[:lat],
+          lng: checkpoint[:lng],
+          info_window: render_to_string(partial: "trails/checkpoint_info_window", locals: { checkpoint: checkpoint })
         }
+        @coordinateString += "#{checkpoint[:lng]},#{checkpoint[:lat]};"
+      end
+      @coordinateString = @coordinateString.chop
 
+      checkpoints = @trip.trail.checkpoints
+      checkpoints.each_with_index do |checkpoint, index|
         if index === 0
-          @elevation_arr << ["start", coordinate.elevation]
-        elsif index === coordinates.count - 1
-          @elevation_arr << ["end", coordinate.elevation]
+          @elevation_arr << ["start", checkpoint.elevation]
+        elsif index === checkpoints.count - 1
+          @elevation_arr << ["end", checkpoint.elevation]
         else
-          @elevation_arr << ["checkpoint#{index + 1}", coordinate.elevation]
+          @elevation_arr << ["checkpoint#{index}", checkpoint.elevation]
         end
         max = @elevation_arr.max { |a, b| a[1] <=> b[1] }
-        @max_no = (max[1] + 100).to_s
+        @max_no = (max[1] + 50).to_s
         min = @elevation_arr.min { |a, b| a[1] <=> b[1] }
-        @min_no = min[1].to_s
+        @min_no = (min[1] - 10 ).to_s
       end
     end
     authorize @trip
@@ -75,6 +82,7 @@ class TripsController < ApplicationController
 
   def trip_params
     params.require(:trip).permit(:photo)
+  end
 
   def export_pdf(trip)
     pdf = WickedPdf.new.pdf_from_string(

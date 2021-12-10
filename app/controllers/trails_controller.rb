@@ -1,6 +1,6 @@
 class TrailsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
-  skip_after_action :verify_policy_scoped, only: [:index]
+  skip_after_action :verify_policy_scoped, only: [:index, :show]
 
   def index
     if params[:location] && params[:location] != ""
@@ -27,7 +27,21 @@ class TrailsController < ApplicationController
 
   def show
     @trail = Trail.find(params[:id])
-    authorize @trail
     @trip = Trip.new
+
+    checkpoints_data = @trail.checkpoints_coordinates
+    @markers = []
+    @coordinateString = ""
+    checkpoints_data.each do |checkpoint|
+      @markers << {
+        lat: checkpoint[:lat],
+        lng: checkpoint[:lng],
+        info_window: render_to_string(partial: "trails/checkpoint_info_window", locals: { checkpoint: checkpoint })
+      }
+      @coordinateString += "#{checkpoint[:lng]},#{checkpoint[:lat]};"
+    end
+    @coordinateString = @coordinateString.chop
+
+    authorize @trail
   end
 end

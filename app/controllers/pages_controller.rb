@@ -14,15 +14,18 @@ class PagesController < ApplicationController
 
     @markers = []
     unless @current_trip.nil?
-      coordinates = @current_trip.trail.checkpoints
+      checkpoints_data = @current_trip.trail.checkpoints_coordinates
 
-      coordinates.each do |coordinate|
+      @coordinateString = ""
+      checkpoints_data.each do |checkpoint|
         @markers << {
-          lat: coordinate.latitude,
-          lng: coordinate.longitude,
-          info_window: render_to_string(partial: "trails/info_window", locals: { trail: @current_trip.trail })
+          lat: checkpoint[:lat],
+          lng: checkpoint[:lng],
+          info_window: render_to_string(partial: "trails/checkpoint_info_window", locals: { checkpoint: checkpoint })
         }
+        @coordinateString += "#{checkpoint[:lng]},#{checkpoint[:lat]};"
       end
+      @coordinateString = @coordinateString.chop
     end
   end
 end
