@@ -1,9 +1,12 @@
 import AerisWeather from "@aerisweather/javascript-sdk";
 import "@aerisweather/javascript-sdk/dist/styles/sass/styles.scss";
 
+const AERIS_CLIENT_ID = CJMrC5sBomVTjYPxx8dxG;
+const AERIS_CLIENT_SECRET = yWuh731VBcBGj5qorpnlaZaHZysa5XyC5nWhy5Zv;
+
 const aeris = new AerisWeather(
-  process.env.AERIS_CLIENT_ID,
-  process.env.AERIS_CLIENT_SECRET
+  AERIS_CLIENT_ID,
+  AERIS_CLIENT_SECRET
 );
 
 const initAerisWeather = async () => {
