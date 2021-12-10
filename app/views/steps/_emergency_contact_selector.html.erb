@@ -1,17 +1,23 @@
-<%= form_for @trip, url: wizard_path, method: :put, local: true do |form| %>
-    <div class="grid" style="--bs-gap: .25rem 1rem;">
-    <% @emergency_contacts.each do |contact| %>
-      <input type="radio" name="trip[emergency_contact_id]" id="<%= contact.id %>" value="<%= contact.id %>">
-      <label for="<%= contact.id %>">
-        <%= contact.name %>
-      </label>
+<div class="container">
+  <div class="row">
+    <%= form_for @trip, url: wizard_path, method: :put, local: true do |form| %>
+        <% @emergency_contacts.each do |contact| %>
+          <input type="radio" class="emergency iconbox" name="trip[emergency_contact_id]" id="<%= contact.id %>" value="<%= contact.id %>">
+          <label for="<%= contact.id %>">
+            <div class="clickable-radio align-items-center justify-content-center m-0 rounded">
+              <p class="contact-name"><%= contact.name %></p>
+              <%= image_tag "https://thispersondoesnotexist.com/image", class: "rounded-circle contact-img", alt: "Person" %>
+              <p class="pt-1"><%= contact.email %></p>
+              <p><%= contact.phone_no %></p>
+            </div>
+          </label>
 
+        <% end %>
+
+        <div class="d-flex justify-content-end">
+          <%= link_to "Go back", previous_wizard_path, class: "btn btn-dark mr-2" %>
+          <%= form.submit "Submit", class: "btn btn-success ml-1" %>
+        </div>
     <% end %>
-
-    <div class="d-flex justify-content-end">
-      <%= link_to "Go back", previous_wizard_path, class: "btn btn-dark mr-2" %>
-      <%= form.submit "Submit", class: "btn btn-success ml-1" %>
-    </div>
-
   </div>
-<% end %>
+</div>
