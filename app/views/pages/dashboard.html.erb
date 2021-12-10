@@ -1,12 +1,14 @@
-<section id="banner" class="d-flex justify-content-center align-items-center" style="height:50vh; background-image: url('<%=asset_url('japan_alps_bg.jpg')%>'); background-repeat: no-repeat; background-size:cover; background-position: center;">
-<%# insert the search bar here!!! %>
-  <div class="d-flex justify-content-center my-3">
+<section id="banner" class="d-flex justify-content-center align-items-center" style="height:50vh; background-image: url('<%=asset_url('japan_alps_bg.jpg')%>'); background-repeat: no-repeat; background-size:cover; background-position: center; box-shadow: inset 0 0 0 1000px rgba(0,0,0,.35);">
+
+<%# Search bar is here %>
+  <div class="d-flex flex-column justify-content-center my-3">
+  <h1 class="text-white text-center font-weight-bold mb-4">Welcome back, <%= @current_user.first_name? ? @current_user.first_name : "pal!" %></h1>
     <%= form_tag trails_path, method: :get do %>
       <div class="form-inline d-flex justify-content-between">
         <%= text_field_tag :location,
           params[:location],
           class: "form-control",
-          placeholder: "Location",
+          placeholder: "Search a location",
           size: "69"
         %>
         <%= submit_tag "Submit", class: "btn btn-success text-white" %>
