@@ -5,7 +5,7 @@
     <p class="side-text-footer text-left">Learn more about emergency contacts <%= link_to 'here', '#', class: "link-style px-1 rounded" %>.</p>
   </div>
     <% if current_user.emergency_contacts.present? %>
-    <div class="col-6 d-flex flex-column justify-content-center">
+    <div class="col-6 d-flex container align-items-center justify-content-center">
       <% @emergency_contacts = @user.emergency_contacts %>
       <%= render "emergency_contact_selector" %>
     </div>
