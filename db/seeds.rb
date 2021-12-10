@@ -243,8 +243,6 @@ puts "Temp user created! ✅"
 
 # =============== end of static data ===============
 
-seeding_emergency_contacts
-
 # Creating the first trip for first user
 puts "Booking a trip for our first user 📑"
 status = ["upcoming", "ongoing", "return"]
