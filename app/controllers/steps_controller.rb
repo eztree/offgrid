@@ -38,10 +38,18 @@ class StepsController < ApplicationController
       redirect_to next_wizard_path
       return
     when :emergency_contact
-      unless params[:trip].present?
-        flash[:notice] = "Please pick an emergency contact"
-        redirect_to wizard_path
-        return
+      if params[:emergency_contact].present?
+        unless params[:emergency_contact][:name] || params[:emergency_contact][:email] || params[:emergency_contact][:phone_no]
+          flash[:notice] = "Please fill in all fields"
+          redirect_to wizard_path
+          return
+        end
+      else
+        unless params[:trip][:emergency_contact_id].present?
+          flash[:notice] = "Please pick an emergency contact"
+          redirect_to wizard_path
+          return
+        end
       end
       @trip = Trip.new(session[:trip])
       if current_user.emergency_contacts.present?
