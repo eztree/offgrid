@@ -28,10 +28,11 @@ class TripsController < ApplicationController
     else
       @trip_days = (@trip.end_date - @trip.start_date).to_i + 1
       @trip_dates = @trip.checkpoints.map { |point| point.trip_date(@trip) }
-      @category_items = %w[backpack_gear kitchen_tools food_water clothes_footwear navigation first_aid hygiene]
+      @category_items = %w[backpack_gear kitchen_tools food water clothes_footwear navigation first_aid hygiene]
 
       @markers = []
       @elevation_arr = []
+      @checklists = @trip.checklists
 
       checkpoints_data = @trip.trail.checkpoints_coordinates
 
@@ -78,7 +79,6 @@ class TripsController < ApplicationController
   def create_tmp_user
     User.where(email: "placeholder@email.com").first
   end
-
 
   def trip_params
     params.require(:trip).permit(:photo)
