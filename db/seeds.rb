@@ -2,7 +2,6 @@ require 'rubygems'
 require 'nokogiri'
 require 'json'
 require 'open-uri'
-require 'pry-byebug'
 
 # =============== Methods for json extraction ===============
 
