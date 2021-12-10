@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :trails, only: [:index, :show]
   resources :trips, only: [:new, :create, :show, :update]
+  resources :checklists, only: [:update]
   resources :steps
 
   post "/receive_sms", to: "messages#receive_sms"

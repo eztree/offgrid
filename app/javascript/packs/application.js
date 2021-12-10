@@ -39,3 +39,5 @@ clickables.forEach((button) => {
     event.currentTarget.classList.toggle('active');
   });
 });
+
+import "controllers"

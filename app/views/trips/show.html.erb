@@ -69,15 +69,14 @@
                 </h2>
               </div>
               <div id="collapse<%=item%>" class="collapse <% if index===0%>show<% end %>" aria-labelledby="heading<%=item%>" data-parent="#accordionChecklist">
-                <div class="card-body">
+                <div class="card-body" data-controller="checklist">
                 <% checklist_arr = [] %>
                   <% @checklists.each do |checklist| %>
                     <% checklist_arr << checklist if checklist.item.tag_list.include?(item)  %>
                   <% end %>
-                  <% checklist_arr.each do |checklist|%>
-                    <div class="pl-5">
-
-                        <input type="checkbox" name="<%= checklist.id %>" value="<%= checklist.item.name %>"
+                  <% checklist_arr.sort.each do |checklist|%>
+                    <div class="pl-5" data-action="click->checklist#inputCheckbox" >
+                        <input  data-checklist-target="input" type="checkbox"  data-checklist-id="<%=checklist.id%>" name="<%= checklist.id %>" value="<%= checklist.item.name %>"
                           <% if checklist.checked? %>
                             checked
                           <% end %>
@@ -88,7 +87,7 @@
                           <span class="badge badge-pill <% if tag === "optional"%> badge-secondary <% else %> badge-primary <% end %>"><%= tag %></span>
                         <% end %>
                       <% end %>
-                      </div>
+                    </div>
                   <% end %>
                 </div>
               </div>
