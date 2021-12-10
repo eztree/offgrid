@@ -5,7 +5,7 @@
   <%#= form_for @trip, url: wizard_path, method: :put, local: true do |form| %>
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <% @emergency_contact.each do |contact| %>
+    <% @emergency_contacts.each do |contact| %>
       <%= link_to contact.name, "#", class: "dropdown-item" %>
     <% end %>
   </div>
@@ -13,7 +13,7 @@
 
 <%= form_for @trip, url: wizard_path, method: :put, local: true do |form| %>
     <div class="d-flex">
-    <% @emergency_contact.each do |contact| %>
+    <% @emergency_contacts.each do |contact| %>
       <%= form.label :emergency_contact, contact.name %>
       <%= form.radio_button :emergency_contact, contact.id %>
     <% end %>
