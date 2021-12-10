@@ -22,7 +22,6 @@ class TripsController < ApplicationController
   def show
     # condition to check if export button was pressed
     @trip = Trip.find(params[:id])
-
     if params[:format].present?
       export_pdf(@trip)
     else
@@ -88,8 +87,9 @@ class TripsController < ApplicationController
     pdf = WickedPdf.new.pdf_from_string(
       render_to_string(
         template: 'trips/trip.html.erb',
-        layout: 'pdf.html.erb')
+        layout: 'layouts/pdf.html.erb'
       )
+    )
     send_data(pdf,
       filename: "#{trip.trail.name}_#{trip.start_date}.pdf",
       type: 'application/pdf',

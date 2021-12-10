@@ -41,7 +41,7 @@ gem 'wicked'
 gem 'twilio-ruby'
 
 gem 'wicked_pdf'
-gem 'wkhtmltopdf-heroku', group: :production
+ gem 'wkhtmltopdf-heroku', '2.12.6.0', group: :production
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
