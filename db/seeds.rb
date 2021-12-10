@@ -80,45 +80,50 @@ def seeding_items
   filepath = File.join(__dir__, 'data/checklist.json')
   serialized_locations = File.read(filepath)
   items_json = JSON.parse(serialized_locations)
+  filepath_meals = File.join(__dir__, 'data/meals.json')
+  serialized_meals = File.read(filepath_meals)
+  meals_json = JSON.parse(serialized_meals)
 
   # puts items_json
   puts "*** items Json parsed ***"
 
-    items_json["checklist"].each do |category, category_item|
-      # category.each do |required, required_item|
-      #   puts "#{required}: #{required_item}"
-      # end
-      category_item.each do |required, required_array|
-        # puts required_item
-        required_array.each do |item_name|
+  items_json["checklist"].each do |category, category_item|
+    category_item.each do |required, required_array|
+      required_array.each do |item_name|
+        item = Item.create!(name: item_name)
+        item.tag_list.add(category)
+        case required
+        when "cold_weather" || "snow_weather"
+          item.tag_list.add("required")
+          item.tag_list.add(required)
+        else
+          item.tag_list.add(required)
+        end
+        item.save
+      end
+    end
+  end
 
+  meals_json["meals"].each do |meal_key, meal_hash|
+      meal_hash.each do |meal_item_key, meal_item_arr|
+        meal_item_arr.each do |item_name|
           item = Item.create!(name: item_name)
-          # puts "Item: #{item.name} is created"
-          item.tag_list.add(category)
-
-          # puts "tag category: #{category} added to item: #{item.name}"
-
-          case required
-          when "cold_weather" || "snow_weather"
-            item.tag_list.add("required")
-            item.tag_list.add(required)
-            # puts "tag: #{required} and 'required' added to item: #{item.name}"
-
-          else
-            item.tag_list.add(required)
-            # puts "tag: 'required' added to item: #{item.name}"
-          end
+          item.tag_list.add("required")
+          item.tag_list.add("food")
+          item.tag_list.add(meal_key)
+          item.tag_list.add(meal_item_key)
           item.save
         end
       end
-    end
+  end
+
 end
 
 def seeding_checklists
   trip = Trip.first
-  items = Item.tagged_with("required")
+  items = Item.all
   items.each do |item|
-    checklist = Checklist.create(trip: trip, checked:false, item: item)
+    checklist = Checklist.create(trip: trip, checked: false, item: item)
   end
 end
 
