@@ -65,9 +65,12 @@ const displayTrailSelect = (trail, map) => {
       `https://api.mapbox.com/directions/v5/mapbox/walking/${coordinatesString}?geometries=geojson&access_token=${mapboxgl.accessToken}`
     )
       .then((response) => response.json())
-      .then((data) => drawRoute(data, map));
+      .then((data) => {
+        drawRoute(data, map);
+        fitMapToCoordinatesArray(map, data.routes[0].geometry.coordinates);
+      });
     }
-  if (checkpoints.length > 0) {
+  else if (checkpoints.length > 0) {
     fitMapToMarkers(map, checkpoints);
   }
 }
@@ -88,6 +91,14 @@ const addMarkersToMap = (map, markers) => {
 const fitMapToMarkers = (map, markers) => {
 	const bounds = new mapboxgl.LngLatBounds();
 	markers.forEach((marker) => bounds.extend([marker.lng, marker.lat]));
+	map.fitBounds(bounds, { padding: 80, maxZoom: 15, duration: 3000 });
+};
+
+const fitMapToCoordinatesArray = (map, array) => {
+	const bounds = new mapboxgl.LngLatBounds();
+	array.forEach((coordinates) =>
+		bounds.extend([coordinates[0], coordinates[1]])
+	);
 	map.fitBounds(bounds, { padding: 80, maxZoom: 15, duration: 3000 });
 };
 
@@ -117,19 +128,23 @@ const initMapbox = () => {
 
     initTrailSelects(map);
 
+    const markers = JSON.parse(mapElement.dataset.markers);
+    addMarkersToMap(map, markers)
+    map.addControl(new mapboxgl.NavigationControl());
+
     if (mapElement.classList.contains("map-with-route")) {
       fetch(
       `https://api.mapbox.com/directions/v5/mapbox/walking/${mapElement.dataset.coordinateString}?geometries=geojson&access_token=${mapboxgl.accessToken}`
     )
       .then((response) => response.json())
-      .then((data) => drawRoute(data, map));
+      .then((data) => {
+        drawRoute(data, map);
+        fitMapToCoordinatesArray(map, data.routes[0].geometry.coordinates);
+      });
+    } else {
+        fitMapToMarkers(map, markers);
     }
-
-    const markers = JSON.parse(mapElement.dataset.markers);
-    addMarkersToMap(map, markers)
-    map.addControl(new mapboxgl.NavigationControl());
-    fitMapToMarkers(map, markers);
-    }
+  }
 };
 
 export { initMapbox };
