@@ -7,6 +7,8 @@ class Trip < ApplicationRecord
   has_many :items, through: :checklists
   has_one_attached :photo
 
+  has_many :emergency_contacts, through: :user
+
   validates :start_date, presence: true, on: :update
   validates :end_date, presence: true, on: :update
   validates :no_of_people, presence: true, on: :update
