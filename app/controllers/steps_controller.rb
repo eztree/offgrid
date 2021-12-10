@@ -45,7 +45,7 @@ class StepsController < ApplicationController
       end
       @trip = Trip.new(session[:trip])
       if current_user.emergency_contacts.present?
-        @emergency_contact = EmergencyContact.find(params[:trip][:emergency_contact])
+        @emergency_contact = EmergencyContact.find(params[:trip][:emergency_contact_id])
       else
         @emergency_contact = EmergencyContact.new(emergency_contact_params)
         @emergency_contact.user = @user
