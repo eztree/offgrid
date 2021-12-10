@@ -75,13 +75,13 @@
                     <% checklist_arr << checklist if checklist.item.tag_list.include?(item)  %>
                   <% end %>
                   <% checklist_arr.sort.each do |checklist|%>
-                    <div class="pl-5" data-action="click->checklist#inputCheckbox" >
-                        <input  data-checklist-target="input" type="checkbox"  data-checklist-id="<%=checklist.id%>" name="<%= checklist.id %>" value="<%= checklist.item.name %>"
+                    <div class="pl-5" >
+                        <input  data-action="change->checklist#inputCheckbox" data-checklist-target="input" type="checkbox" id="<%=checklist.id%>" data-checklist-id="<%=checklist.id%>" name="<%= checklist.id %>" value="<%= checklist.id %>"
                           <% if checklist.checked? %>
                             checked
                           <% end %>
                           >
-                      <span class="mr-3"><%= checklist.item.name %></span>
+                          <label for="<%=checklist.id%>"> <%=checklist.item.name%></label><br>
                       <% checklist.item.tag_list[1..].each do |tag| %>
                         <% if tag != "required" && tag != "food" %>
                           <span class="badge badge-pill <% if tag === "optional"%> badge-secondary <% else %> badge-primary <% end %>"><%= tag %></span>
