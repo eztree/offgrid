@@ -6,7 +6,7 @@ class CreateTrips < ActiveRecord::Migration[6.1]
       t.date :end_date
       t.integer :no_of_people
       t.references :trail, null: false, foreign_key: true
-      t.string :status
+      t.string :status, default: 'upcoming'
       t.boolean :cooking
       t.boolean :camping
       t.string :last_seen_photo

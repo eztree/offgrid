@@ -57,6 +57,7 @@ class StepsController < ApplicationController
       @trip.end_date = end_time
       @trip.user = @user
       if @trip.save
+        assign_checklist(@trip)
         redirect_to user_trip_path(id: @trip.id, user_id: @user)
         session.delete(:trip)
         session.delete(:trail_id)
@@ -85,5 +86,12 @@ class StepsController < ApplicationController
     time_req = trip.trail.time_needed
     time_req = time_req.split(/D/).first.to_i
     @end_date = start_date + time_req
+  end
+
+  def assign_checklist(trip)
+    items = Item.tagged_with("required")
+    items.each do |item|
+      Checklist.create(trip: trip, checked: false, item: item)
+    end
   end
 end
