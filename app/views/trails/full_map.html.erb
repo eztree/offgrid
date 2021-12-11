@@ -1,0 +1,9 @@
+<div class="container-fluid" style="padding-top: 7vh;">
+  <div id="map"
+       class="map-with-route map-exportable"
+       style="width: 100%; height: 93vh;"
+       data-markers="<%= @markers.to_json %>"
+       data-coordinate-string="<%= @coordinateString %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>

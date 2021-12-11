@@ -27,19 +27,20 @@
       <h2><%= link_to @current_trip.trail.name, user_trip_path(current_user, @current_trip), class:"text-black",style:"text-decoration:none;" %></h2>
 
       <div style="width:100%; min-height:70%;">
-
-          <div id="map"
-            class="map-with-route"
-            style="width: 100%; height: 50vh;"
-            data-markers="<%= @markers.to_json %>"
-            data-coordinate-string="<%= @coordinateString %>"
-            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-          </div>
-
+        <div id="map"
+          class="map-with-route"
+          style="width: 100%; height: 50vh;"
+          data-markers="<%= @markers.to_json %>"
+          data-coordinate-string="<%= @coordinateString %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
       </div>
+      <div class="d-flex justify-content-between align-items-center">
       <div>
         <div class="h5 mt-1"><%= @current_trip.start_date.strftime("%e %b, %Y") %> - <%= @current_trip.end_date.strftime("%e %b, %Y") %></div>
         <div>Time needed: <%= @current_trip.trail.time_needed %></div>
+      </div>
+      <%= link_to "View Full Map", full_map_path(@current_trip.trail), class:"btn btn-success my-2" %>
       </div>
     </div>
     <div style="min-height: 360px; width:39%;">
