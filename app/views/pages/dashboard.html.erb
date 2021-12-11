@@ -35,12 +35,9 @@
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
       </div>
-      <div class="d-flex justify-content-between align-items-center">
       <div>
         <div class="h5 mt-1"><%= @current_trip.start_date.strftime("%e %b, %Y") %> - <%= @current_trip.end_date.strftime("%e %b, %Y") %></div>
         <div>Time needed: <%= @current_trip.trail.time_needed %></div>
-      </div>
-      <%= link_to "View Full Map", full_map_path(@current_trip.trail), class:"btn btn-success my-2" %>
       </div>
     </div>
     <div style="min-height: 360px; width:39%;">

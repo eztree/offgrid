@@ -139,20 +139,19 @@ const initMapbox = () => {
     const markers = JSON.parse(mapElement.dataset.markers);
     addMarkersToMap(map, markers)
     map.addControl(new mapboxgl.NavigationControl());
-    if (mapElement.classList.contains("map-exportable")) {
-      map.addControl(
-        new MapboxExportControl({
-          accessToken: mapboxgl.accessToken,
-          PageSize: Size.A3,
-          PageOrientation: PageOrientation.Landscape,
-          Format: Format.PNG,
-          DPI: DPI[300],
-          Crosshair: true,
-          PrintableArea: true,
-        }),
-        "top-right"
-      );
-    };
+    map.addControl(new mapboxgl.FullscreenControl());
+    map.addControl(
+      new MapboxExportControl({
+        accessToken: mapboxgl.accessToken,
+        PageSize: Size.A4,
+        PageOrientation: PageOrientation.Landscape,
+        Format: Format.PNG,
+        DPI: DPI[300],
+        Crosshair: true,
+        PrintableArea: true,
+      }),
+      "top-right"
+    );
 
     if (mapElement.classList.contains("map-with-route")) {
       fetch(
