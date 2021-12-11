@@ -12,4 +12,8 @@ class TrailPolicy < ApplicationPolicy
   def show?
     return true
   end
+
+  def full_map?
+    return true
+  end
 end

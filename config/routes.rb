@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   resources :trips, only: [:new, :create, :show, :update]
   resources :steps
 
+  get "trails/:id/full_map", to: "trails#full_map", as: "full_map"
   post "/receive_sms", to: "messages#receive_sms"
 end

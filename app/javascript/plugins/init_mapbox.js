@@ -1,3 +1,11 @@
+import {
+	MapboxExportControl,
+	Size,
+	PageOrientation,
+	Format,
+	DPI,
+} from "@watergis/mapbox-gl-export";
+import "@watergis/mapbox-gl-export/css/styles.css";
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
@@ -131,6 +139,20 @@ const initMapbox = () => {
     const markers = JSON.parse(mapElement.dataset.markers);
     addMarkersToMap(map, markers)
     map.addControl(new mapboxgl.NavigationControl());
+    if (mapElement.classList.contains("map-exportable")) {
+      map.addControl(
+        new MapboxExportControl({
+          accessToken: mapboxgl.accessToken,
+          PageSize: Size.A3,
+          PageOrientation: PageOrientation.Landscape,
+          Format: Format.PNG,
+          DPI: DPI[300],
+          Crosshair: true,
+          PrintableArea: true,
+        }),
+        "top-right"
+      );
+    };
 
     if (mapElement.classList.contains("map-with-route")) {
       fetch(
