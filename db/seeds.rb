@@ -186,6 +186,18 @@ def seeding_manual_routes
       active: "false"
     )
   puts "Temp user created! ✅"
+
+  puts "Creating our admin user.. 🤓"
+  User.create!(
+      first_name: "Sufian",
+      last_name: "Suni",
+      email: "admin@gmail.com",
+      password: "password",
+      active: "true",
+      admin: "true"
+    )
+  puts "Admin user Sufian created! ✅"
+
 end
 
 def seeding_trail_difficulty
