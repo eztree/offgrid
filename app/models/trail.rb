@@ -3,6 +3,8 @@ class Trail < ApplicationRecord
   has_many :trips, dependent: :destroy
   geocoded_by :location
 
+  acts_as_taggable_on :tags
+
   def coordinates
     checkpoints_array = checkpoints.to_a
     if checkpoints_array.count.positive?
