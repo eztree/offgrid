@@ -25,14 +25,19 @@ def seeding_checkpoints
   checkpoints_json = JSON.parse(serialized_checkpoint)
 
   Trail.all.each_with_index do |trail, index|
-    key = "##{index + 1}"
-    previous_checkpoint = nil
-    checkpoint = Checkpoint.new(checkpoints_json[key.to_sym])
-    checkpoint[:elevation] = 0
-    checkpoint.previous_checkpoint = previous_checkpoint unless previous_checkpoint.nil?
-
-    checkpoint.trail = trail
-    checkpoint.save
+    if index > 1
+      key = "##{index - 1}"
+      previous_checkpoint = nil
+      checkpoint = Checkpoint.new(
+        name: checkpoints_json[key]["name"],
+        longitude: checkpoints_json[key]["longitude"],
+        latitude: checkpoints_json[key]["latitude"],
+        elevation: 0
+      )
+      checkpoint.previous_checkpoint = previous_checkpoint unless previous_checkpoint.nil?
+      checkpoint.trail = trail
+      checkpoint.save
+    end
   end
 end
 
