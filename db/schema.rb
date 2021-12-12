@@ -127,7 +127,7 @@ ActiveRecord::Schema.define(version: 2021_12_09_035816) do
     t.date "end_date"
     t.integer "no_of_people"
     t.bigint "trail_id", null: false
-    t.string "status"
+    t.string "status", default: "upcoming"
     t.boolean "cooking"
     t.boolean "camping"
     t.string "last_seen_photo"
