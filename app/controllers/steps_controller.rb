@@ -69,6 +69,10 @@ class StepsController < ApplicationController
         redirect_to user_trip_path(id: @trip.id, user_id: @user)
         session.delete(:trip)
         session.delete(:trail_id)
+        NotifyUserTripStartDayJob
+        .set(wait_until: @trip.start_date.to_datetime).perform_later(@trip.id)
+        NotifyEmergencyContactsTripLastDayJob
+        .set(wait_until: @trip.end_date.to_datetime).perform_later(@trip.id)
       end
     end
   end

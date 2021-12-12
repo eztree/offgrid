@@ -34,14 +34,21 @@ gem 'geocoder'
 gem 'cloudinary', '~> 1.16.0'
 gem 'chartkick'
 
+gem 'twilio-ruby'
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
+
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'
+
 gem 'wicked'
-gem 'twilio-ruby'
 
 gem 'wicked_pdf'
- gem 'wkhtmltopdf-heroku', '2.12.6.0', group: :production
+
+group :production do
+  gem 'wkhtmltopdf-heroku', '2.12.6.0'
+end
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
