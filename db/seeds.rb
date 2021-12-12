@@ -179,6 +179,8 @@ def seeding_manual_routes
 
   puts "Creating a temp user... 😬"
   User.create!(
+      first_name: "Alicia",
+      last_name: "Keys",
       email: "placeholder@email.com",
       password: "placeholder",
       active: "false"
