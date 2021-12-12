@@ -18,8 +18,6 @@ const initAerisWeather = async () => {
     // Puts in the weather data only if there's a div#forecast
     const checkpoints = JSON.parse(target.dataset.checkpoints);
     const tripDates = JSON.parse(target.dataset.tripDates);
-    const breakfast_arr = JSON.parse(target.dataset.breakfast);
-    const meal_arr = JSON.parse(target.dataset.meal);
 
     const requests = checkpoints.map((point, index) => {
       const tripDate = `${tripDates[index]}`;
@@ -57,6 +55,8 @@ const initAerisWeather = async () => {
           </div>
         `;
       } else {
+        const breakfast_arr = JSON.parse(target.dataset.breakfast);
+        const meal_arr = JSON.parse(target.dataset.meal);
         html = `
             <div class="card">
               <div class="card-header" id="heading${count}">
