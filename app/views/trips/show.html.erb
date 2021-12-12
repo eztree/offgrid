@@ -1,6 +1,6 @@
 <div class="pt-5 mt-4"></div>
   <div class="d-flex justify-content-between px-5">
-    <h1><%= @trip.trail.name %></h1>
+    <div class="h1"><%= @trip.trail.name %><span class="ml-3 badge badge-pill <% if @trip.trail.tag_list[0] === "easy"%>badge-success<% elsif @trip.trail.tag_list[0] === "medium"%>badge-warning<% else %>badge-danger<% end %> "><%= @trip.trail.tag_list[0] %></span></div>
     <div class="d-flex justify-content-end">
       <div><%= link_to "Edit", root_path, class:"btn btn-primary mr-3" %></div>
       <div><%= link_to 'Share', user_trip_path(@trip, format: :pdf), class: "btn btn-success mr-3", target: :_blank %></div>
@@ -81,8 +81,8 @@
                             checked
                           <% end %>
                           >
-                          <label for="<%=checklist.id%>"> <%=checklist.item.name%></label><br>
-                      <% checklist.item.tag_list[1..].each do |tag| %>
+                          <label for="<%=checklist.id%>"> <%=checklist.item.name%></label>
+                          <% checklist.item.tag_list[1..].each do |tag| %>
                         <% if tag != "required" && tag != "food" %>
                           <span class="badge badge-pill <% if tag === "optional"%> badge-secondary <% else %> badge-primary <% end %>"><%= tag %></span>
                         <% end %>
