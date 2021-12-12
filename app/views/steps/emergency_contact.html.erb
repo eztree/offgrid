@@ -1,18 +1,19 @@
 <div class="row w-100">
-  <div class="col-6 text-white d-flex flex-column justify-content-center mb-3" id="sidebar-bg">
-    <h2 class="mt-5 side-text text-left font-weight-bold">Set your emergency contact</h2>
-    <h4 class="side-text-sub text-left font-weight-italic">Assign a person who will receive your trip details in the event at a preset date and time if you don’t report back as safe by the end of your hike.</h2>
+  <div class="col-6 text-white d-flex flex-column justify-content-center" id="sidebar-bg">
+    <h2 class="side-text text-left font-weight-bold mt-5">Set your emergency contact</h2>
+    <h4 class="side-text-sub text-left font-weight-italic">Assign a person who will receive your trip details if you don’t report back as safe by the end of your hike.</h2>
     <p class="side-text-footer text-left">Learn more about emergency contacts <%= link_to 'here', '#', class: "link-style px-1 rounded" %>.</p>
   </div>
-    <% if current_user.emergency_contacts.present? %>
-    <div class="col-6 d-flex container align-items-center justify-content-center">
+
+  <% if current_user.emergency_contacts.present? %>
+    <div class="col-6 d-flex align-items-center justify-content-center" id="form-field">
       <% @emergency_contacts = @user.emergency_contacts %>
       <%= render "emergency_contact_selector" %>
     </div>
-    <% else %>
-  <div class="col-6 d-flex flex-column justify-content-center" id="form-field">
-      <% @emergency_contact = EmergencyContact.new(user: @user) %>
-      <%= render "emergency_contact_form" %>
-  </div>
-    <% end %>
+  <% else %>
+    <div class="col-6 d-flex flex-column justify-content-center" id="form-field">
+        <% @emergency_contact = EmergencyContact.new(user: @user) %>
+        <%= render "emergency_contact_form" %>
+    </div>
+  <% end %>
 </div>
