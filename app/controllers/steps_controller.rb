@@ -5,7 +5,7 @@ class StepsController < ApplicationController
   before_action :find_user, only: [:show, :update]
 
   include Wicked::Wizard
-  steps :date_people, :options, :emergency_contact
+  steps :date_people, :options, :signup, :emergency_contact
 
   def show
     case step
@@ -35,6 +35,26 @@ class StepsController < ApplicationController
     when :options
       session[:trip] = session[:trip].merge(trip_params)
       @trip = Trip.new(session[:trip])
+      if current_user.nil?
+        session[:next_path] = next_wizard_path
+        redirect_to next_wizard_path
+        return
+      end
+      redirect_to wizard_path(:emergency_contact)
+      return
+    when :signup
+      unless user_params_check(params[:user])
+        flash[:notice] = "Please fill in all fields"
+        redirect_to wizard_path
+        return
+      end
+      unless user_password_check(params[:user])
+        flash[:notice] = "Your passwords do not match"
+        redirect_to wizard_path
+        return
+      end
+      @user = User.create(user_params)
+      sign_in @user
       redirect_to next_wizard_path
       return
     when :emergency_contact
@@ -89,8 +109,24 @@ class StepsController < ApplicationController
           .permit(:name, :email, :phone_no)
   end
 
+  def user_params
+    params.require(:user)
+          .permit(:first_name, :last_name, :email, :password)
+  end
+
+  def user_password_check(user_params)
+    user_params[:password] == user_params[:password_confirmation]
+  end
+
+  def user_params_check(user_params)
+    user_params.each do |_key, value|
+      return false if value.empty?
+    end
+    return true
+  end
+
   def find_user
-    @user = current_user || @trip.user
+    @user = current_user || User.new
   end
 
   def parse_end_time(trip)
