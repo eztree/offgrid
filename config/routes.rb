@@ -14,5 +14,11 @@ Rails.application.routes.draw do
   resources :steps
 
   get "trails/:id/full_map", to: "trails#full_map", as: "full_map"
+
   post "/receive_sms", to: "messages#receive_sms"
+
+  require "sidekiq/web"
+  authenticate :user, ->(user) { user.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 end
