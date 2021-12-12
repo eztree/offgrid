@@ -4,10 +4,7 @@ import "@aerisweather/javascript-sdk/dist/styles/sass/styles.scss";
 const AERIS_CLIENT_ID = "CJMrC5sBomVTjYPxx8dxG";
 const AERIS_CLIENT_SECRET = "yWuh731VBcBGj5qorpnlaZaHZysa5XyC5nWhy5Zv";
 
-const aeris = new AerisWeather(
-  AERIS_CLIENT_ID,
-  AERIS_CLIENT_SECRET
-);
+const aeris = new AerisWeather(AERIS_CLIENT_ID, AERIS_CLIENT_SECRET);
 
 const initAerisWeather = async () => {
   let target = "";
@@ -21,6 +18,8 @@ const initAerisWeather = async () => {
     // Puts in the weather data only if there's a div#forecast
     const checkpoints = JSON.parse(target.dataset.checkpoints);
     const tripDates = JSON.parse(target.dataset.tripDates);
+    const breakfast_arr = JSON.parse(target.dataset.breakfast);
+    const meal_arr = JSON.parse(target.dataset.meal);
 
     const requests = checkpoints.map((point, index) => {
       const tripDate = `${tripDates[index]}`;
@@ -71,13 +70,46 @@ const initAerisWeather = async () => {
                 <div class="d-flex">
                   <div class="card rounded-lg p-2 d-flex flex-column justify-content-center align-items-center text-center">
                     <div class="card-body">
-
                       <p><img class="icon" src="${icon}" style="height:50px;"></p>
                       <p class="wx">${weather}</p>
                       <p class="temps"><span>High:</span>${maxTempC}°C <span>Low:</span>${minTempC}°C</p>
                     </div>
                   </div>
                   <div>
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">Meal</th>
+                          <th scope="col">Food</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">Breakfast</th>
+                          <td>${
+                            breakfast_arr[
+                              Math.floor(Math.random() * breakfast_arr.length)
+                            ]
+                          }</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Lunch</th>
+                          <td>${
+                            meal_arr[
+                              Math.floor(Math.random() * meal_arr.length)
+                            ]
+                          }</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Dinner</th>
+                          <td>${
+                            meal_arr[
+                              Math.floor(Math.random() * meal_arr.length)
+                            ]
+                          }</td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>

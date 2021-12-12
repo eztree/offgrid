@@ -60,9 +60,13 @@ class TripsController < ApplicationController
         min = @elevation_arr.min { |a, b| a[1] <=> b[1] }
         @min_no = (min[1] - 10 ).to_s
       end
+      @breakfast_arr = populate_meal_arr(@trip.items.tagged_with("breakfast"))
+      @meal_arr = populate_meal_arr(@trip.items.tagged_with("lunch_dinner"))
     end
     authorize @trip
   end
+
+
 
   def update
     @trip = Trip.find(params[:id])
@@ -74,6 +78,14 @@ class TripsController < ApplicationController
   end
 
   private
+
+  def populate_meal_arr(array)
+    arr = []
+    array.each do |item|
+      arr << item.name
+    end
+    arr
+  end
 
   def create_tmp_user
     User.where(email: "placeholder@email.com").first
