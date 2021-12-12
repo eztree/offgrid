@@ -5,7 +5,7 @@ class StepsController < ApplicationController
   before_action :find_user, only: [:show, :update]
 
   include Wicked::Wizard
-  steps :date_people, :options,:signup, :emergency_contact
+  steps :date_people, :options, :signup, :emergency_contact
 
   def show
     case step
@@ -111,7 +111,7 @@ class StepsController < ApplicationController
   end
 
   def user_password_check(user_params)
-    params[:password] == params[:password_confirmation]
+    user_params[:password] == user_params[:password_confirmation]
   end
 
   def user_params_check(user_params)
