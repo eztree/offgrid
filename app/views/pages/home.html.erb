@@ -11,16 +11,11 @@
 <div class="parallax_wrapper">
 <%= render "banner" %>
   <section class="parallax_group" id="group-2">
-    <div class="parallax_layer mid_top_layer text-white">
-    </div>
-    <div class="parallax_layer top_layer" , style:" transform: translateY(200px);"><%= render "section_intro" %></div>
+    <div class="parallax_layer mid_top_layer text-white"></div>
+    <div class="parallax_layer top_layer"><%= render "section_intro" %></div>
   </section>
 
   <div class="parallax_group_short outro_screen" id="outro">
-
-    <div>
-      <div class="h1 text-white mb-4">Explore new routes</div>
-      <div class="text-white mb-4">You don't want to miss these exciting routes. Get inspired for your next trip with these trail guides.</div>
-      <%= render "section_end",trails: @trails %>
-    </div>
- </div>
+    <%= render "section_end", trails: @trails %>
+  </div>
+</div>
