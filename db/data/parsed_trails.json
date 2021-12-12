@@ -1,0 +1,899 @@
+{
+  "#1": {
+    "id": 1,
+    "name": "Mount Yarigatake: Kamikochi Course",
+    "location": "Chubusangaku National Park",
+    "description": "槍ヶ岳: 上高地コース\r\n\r\nこのコースは、槍沢ロッジを経由して飛騨山脈である槍ヶ岳の山頂へ続きます。 尖った槍の形で有名な山です。日本で5番目に高い山で、シーズン中は多くの登山家で賑わいます。1日登山としても計画でき、槍沢ロッジに立ち寄って翌日2日目を続けることもできます。",
+    "route_distance": "38.5 km",
+    "time_needed": "Multi-day",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMjg2NjY2NTcvY2EyZjg2MjAyZGJjYWQyMGYyNjJlMjNhOGZmMjc5NmUuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#2": {
+    "id": 2,
+    "name": "Mount Akadake - Mount Yokodake - Mount Iodake",
+    "location": "Yatsugatake Chushin Kogen Quasi-National Park",
+    "description": "赤岳 - 横岳 - 硫黄岳\r\n\r\nこの登山コースでは、八ヶ岳連峰の赤岳、横岳、硫黄岳の3つの山を巡ります。八ヶ岳連峰の最高峰である赤岳の上部には、適度に鎖や梯子があり、登山初心者だけでなく、経験者にとっても魅力的な山です。ルートは山の稜線に沿って進むので、雄大な山岳風景を楽しむことができます。",
+    "route_distance": "18.7 km",
+    "time_needed": "7 h 58 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/17409830/large_72323302d9a3cb09b15329f065f1dbf2.jpg"
+  },
+  "#3": {
+    "id": 3,
+    "name": "Mt. Fuji: Yoshida Trail",
+    "location": "Fuji Hakone Izu National Park",
+    "description": "富士山: 吉田ルート\r\n\r\nこのルートでは、富士スバルライン五合目を出発し、6合目で六合目で吉田口登山道と合流します。富吉田ルートは、富士山の4つの主要ルートの中で最も人気のあるルートです。\r\n\r\n道中には、救護所、トイレ、山小屋などの施設が充実していることで知られていますか、下山道にはそのような施設がはほとんどありませんのでご注意ください。\r\n\r\n注）富士山の登山期間は、通常7月上旬から9月上旬です。それ以外の期間は冬期閉鎖となります。",
+    "route_distance": "18.7 km",
+    "time_needed": "8 h 1 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/23821870/large_b586b15af9b1a49ae52052bfcae1227d.jpg"
+  },
+  "#4": {
+    "id": 4,
+    "name": "Nikko World Heritage Shrines and Temples",
+    "location": "Nikko, Tochigi, Japan",
+    "description": "世界遺産日光の社寺巡りツアー\r\n\r\n日光東照宮をはじめとする、世界遺産の社寺を巡る散策ツアーです。一帯は、日光国立公園の一部でもあり自然が豊かで美しく、多くの人々を魅了しています。また周辺には、白糸の滝や、やしおの湯など様々な名所があります。",
+    "route_distance": "14.6 km",
+    "time_needed": "4 h 40 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/41384079/large_26d37320b02642b2c95b803d32841a64.jpg"
+  },
+  "#5": {
+    "id": 5,
+    "name": "Mt. Fuji: Subashiri Trail",
+    "location": "Fuji Hakone Izu National Park",
+    "description": "富士山: 須走ルート\r\n\r\n須走ルートは富士山の頂上に続く4つの主要な登山道の1つです。この登山道は八合目で吉田ルートと合流しているため、八合目から混雑が予想されます。\r\n\r\n注：富士山の登山期間は、7月上旬から9月上旬までです。それ以外の期間は、は冬季閉鎖となります。",
+    "route_distance": "11.7 km",
+    "time_needed": "6 h 49 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/30155086/large_2653395bc72c719afd9be3cdc69470fd.jpg"
+  },
+  "#6": {
+    "id": 6,
+    "name": "Fushimi Inari Walking Tour",
+    "location": "Kyoto, Kyoto, Japan",
+    "description": "稲荷山散策ルート\r\n\r\n日本で3万を超える神社の総本宮が伏見稲荷大社であり、またその稲荷信仰の原点が、稲荷山です。五穀豊穣、商売繁昌、家内安全、諸願成就の神として、日本全国で広く信仰されています。\r\n\r\nビジネスの安泰と成功を祈るめに、多くの企業や個人がここで毎年参拝することでも知られ、奉納者の名前は10,000ほどの朱色の鳥居にも刻まれています。\r\n\r\n神社は8世紀初頭から存在しますが、建物はすべて近年のものです。稲荷大社は、多くの小さな神社（お塚）が立ち並ぶ稲荷山のふもとに位置しています。\r\n\r\n初詣には毎年約250万人以上が伏見稲荷を訪れているそうです。この散策ルートでは、京都の名だたる名所の中でも国内外問わず多くの観光客に大人気の稲荷大社を巡ります。",
+    "route_distance": "4.5 km",
+    "time_needed": "1 h 30 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMjI2OTM1MDMvZThmZTBiMzBmOWI3YTg5NGM3NWM0NGFlYTkyM2ZlOTEuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#7": {
+    "id": 7,
+    "name": "Mount Yufu Loop",
+    "location": "Aso Kuju National Park",
+    "description": "由布岳ループ\r\n\r\n九州を代表する名峰・由布岳は、東峰と西峰の2つのピークが印象的な山で、霧氷の名所としても知られています。またそれぞれのピークからは、由布院盆地、鶴見岳、別府湾、九重連山などを一望することができます。\r\n\r\nこのルートは、岩稜や鎖場をこなせる経験豊富なハイカー向けです。由布岳の両ピークを目指すため、火口を一周します。火口はガレ場や足場の悪い難所もあり、注意が必要です。",
+    "route_distance": "7.7 km",
+    "time_needed": "3 h 50 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMzQ3ODc1MjAvYWIyODhmMjlhNjJmNmQzNmY0ZmQ0YWQ5OWY0OWMyZTEuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#8": {
+    "id": 8,
+    "name": "Hyakuhiro Falls - Mount Kawanori - Hatonosu Station",
+    "location": "Chichibu-Tama-Kai National Park",
+    "description": "百尋の滝 - 川苔山 - 鳩ノ巣駅\r\n\r\nこのコースは、川苔山のバス停から沢に沿って百尋の滝を目指し、川苔山に登ります。山からは、鳩ノ巣駅へ向かって下山します。\r\n\r\n百尋の滝は、奥多摩の名瀑の一つとして知られており、川苔山のハイキングコースの途中に位置しています。",
+    "route_distance": "12.4 km",
+    "time_needed": "5 h 16 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMTI3NjMwMDkvZGUzOWQ4YjQ3ODA3MjIwYjliZTNhMDEwNzdjMmFkOTUuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#9": {
+    "id": 9,
+    "name": "Mount Chogatake - Jonengoya Loop",
+    "location": "Chubusangaku National Park",
+    "description": "蝶ヶ岳 - 常念小屋ループ\r\n\r\n三股の登山口から常念岳を経由して常念小屋へ向かうループコースです。蝶ヶ岳や常念岳は、穂高連峰や槍ヶ岳などの雄大な景観で知られています。",
+    "route_distance": "20.0 km",
+    "time_needed": "10 h 17 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/12727603/large_47a733a089bcde41dd4cb11caedcb355.jpg"
+  },
+  "#10": {
+    "id": 10,
+    "name": "Hoo Sanzan Mountains - Aoki Kosen Loop",
+    "location": "Minami Alps National Park",
+    "description": "鳳凰三山 - 青木鉱泉ループ\r\n\r\n青木鉱泉を起点に、地蔵ヶ岳、観音岳、薬師岳からなる鳳凰三山を巡るループハイキングコース。稜線は、白っぽい花崗岩の岩と砂で覆われており、信仰と伝説の山として知られています。また、地蔵ヶ岳の山頂には、「地蔵ヶ岳オベリスク」と呼ばれる岩の巨大な尖塔があり、とても印象的です。稜線や山頂からは、雄大な山岳風景を楽しむことができます。",
+    "route_distance": "16.1 km",
+    "time_needed": "8 h 12 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/14679817/large_fb16e7092761246a37e1629b19346746.jpg"
+  },
+  "#11": {
+    "id": 11,
+    "name": "Mount Yufu: Main Trailhead Trail (West Peak)",
+    "location": "Aso Kuju National Park",
+    "description": "このコースは由布岳の西峰へと続く正面登山口ルートです。由布院と周辺の山々の美しい景色を楽しめます。\r\n西峰への道は岩が多くなっているため、準備をして登山に臨んでください。",
+    "route_distance": "7.1 km",
+    "time_needed": "3 h 25 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMjQ3NTEzOTEvMmU2MDdmN2QwMGE5OGU3MGI2YTk5MGNkOTZlOTYyNTAuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#12": {
+    "id": 12,
+    "name": "Mount Hirugatake - Mount Tanzawa - Mount Tonodake",
+    "location": "Tanzawa-Oyama Quasi-National Park",
+    "description": "蛭ヶ岳 - 丹沢山 - 塔ノ岳\r\n\r\n大倉から塔ノ岳、丹沢岳を経て、丹沢山地の最高峰である蛭ヶ岳を目指す登山ルートです。",
+    "route_distance": "25.3 km",
+    "time_needed": "11 h 4 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMTYyNTU0MTAvMTJlNmFhOTFiMjc0ZDJkYzkxNzYxZGVhMWNhY2I1ZWQuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#13": {
+    "id": 13,
+    "name": "Jyakuchikyo Five Falls Loop",
+    "location": "Iwakuni Shi, Yamaguchi, Japan",
+    "description": "犬戻峡と竜ヶ岳峡を総称して寂地峡と呼ばれています。寂地峡には５つの連なった滝があり、それらは日本の滝百選にも選ばれています。\r\n深い渓谷からの新鮮な空気と五滝の美しい景色を満喫できるコースです。",
+    "route_distance": "13.2 km",
+    "time_needed": "5 h 16 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMjI0NDk0NzcvNjNjNmJlZmNiOTRjMjAzZjRmZGFkODQ3ZDY5ODFkZmMuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#14": {
+    "id": 14,
+    "name": "Mt. Rokko Trail: Arima - Koza Falls",
+    "location": "Setonaikai National Park",
+    "description": "六甲山ハイキングコース: 有馬 - 高座の滝\r\n\r\n大阪や神戸を一望できる六甲山へと続く登山コース。高座の滝からスタートし、ロックガーデンを登って山頂へ。ここでは、手袋を使用する登山者も多いようです。山頂を過ぎると、温泉で有名な有馬へ下ります。",
+    "route_distance": "17.4 km",
+    "time_needed": "7 h 8 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMjI1Mzk5MzUvMDc4YzBmZTRlMTU0YmU2NzZkNjAxYTcxZWFiZTQ0ODQuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#15": {
+    "id": 15,
+    "name": "Mount Oyama Loop",
+    "location": "Tanzawa-Oyama Quasi-National Park",
+    "description": "大山ループコース\r\n\r\n東京からのアクセスも良く、登山シーズンには、たくさんの登山客で賑わう大山を登ります。登山道は、岩場と林道が入り混じっています。\r\n\r\n山���からの富士山や丹沢山塊の眺めはまさに絶景。大山や日向の周辺には、キャンプ場、また寺院や史跡もあります。",
+    "route_distance": "8.2 km",
+    "time_needed": "4 h 9 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/25511078/large_75fe42b92667dad67cde8bc6f317ac8b.jpg"
+  },
+  "#16": {
+    "id": 16,
+    "name": "Yamanobe No Michi",
+    "location": "Sakurai, Nara, Japan",
+    "description": "最古の古道、山辺の道\r\n\r\n奈良の桜井から天理まで、日本最古の山の辺の道を行く素晴らしいハイキングコースです。コースには道を示す標識が十分にあり、無数の寺院と展望台を巡ります。奈良の歴史と自然を満喫できるコースです。",
+    "route_distance": "16.3 km",
+    "time_needed": "4 h 49 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMjU1ODk1MDAvOWZhMThmMjIyMmUzM2Q4NmY1OTM3YjZlYmI4OTM1ZGMuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#17": {
+    "id": 17,
+    "name": "Mount Tonosu - Mount Tenran - Hanno Station",
+    "location": "Hanno, Saitama, Japan",
+    "description": "多峯主山 - 天覧山 - 飯能駅\r\n\r\nこのコースは、飯能駅から天覧山、多峯主山を目指します。天覧山を過ぎると、自然がより豊かになり、風景が変化していきます。多峯主山の山頂からは、伊豆ヶ岳などの奥武蔵の山々や、飯能の街並みを一望できます。",
+    "route_distance": "7.2 km",
+    "time_needed": "2 h 22 m"
+  },
+  "#18": {
+    "id": 18,
+    "name": "Mount Tsubakuro",
+    "location": "Azumino, Nagano, Japan",
+    "description": "燕岳\r\n\r\nその優雅で美しい山容から「アルプスの女王」と呼ばれる燕岳。北アルプスに初めて挑戦する山として、多くの登山者に親しまれています。\r\n\r\nコマクサなど色とりどりの高山植物が咲き乱れ、四季を通じて比較的安全に登ることができます。山の稜線と高山植物の緑が織り成す美しい景色を楽しむことができます。",
+    "route_distance": "9.7 km",
+    "time_needed": "5 h 17 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMjM4Mzk2NTYvNDQwNjc5ODkzZGI4YTY3NTJiODQ2ZjY5ZDBiNDFhYTYuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#19": {
+    "id": 19,
+    "name": "Mount Adatara",
+    "location": "Bandai-Asahi National Park",
+    "description": "このコースでは、美しい景色と高山植物を見ることができます。周辺には、温泉付きの山小屋がいくつかあります。",
+    "route_distance": "9.8 km",
+    "time_needed": "4 h 6 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/12744319/large_463b49048cf3d3bb83e369f38158f10a.jpg"
+  },
+  "#20": {
+    "id": 20,
+    "name": "Mount Ishikawa Loop",
+    "location": "Uruma Shiminnomori Park",
+    "description": "石川岳ループ\r\n\r\n太平洋と東シナ海の絶景を望む石川岳を巡るループコース。石川岳は、急斜面やぬかるみ、狭い道、そして岩場などのチャレンジングな登山要素を含む様々なハイキングコースがあることで知られています。\r\n\r\n登山口の近くにはコースのサイトマップがあり、その日の体調や気分に合わせてコースを調整することが可能です。また、雨天時や雨上がりには、コースが滑りやすくなりますのでご注意ください。",
+    "route_distance": "3.9 km",
+    "time_needed": "1 h 29 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMjQ2NTU1NTIvM2MwNzIxYWFjMjRjNGU0MDk1ODE1NDMxYmUxMzk2YmIuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#21": {
+    "id": 21,
+    "name": "Mount Mitsutoge: Mitsutouge Station - Kawaguchiko Station",
+    "location": "Fuji Hakone Izu National Park",
+    "description": "三ツ峠: 三つ峠駅 - 河口湖駅\r\n\r\n三ツ峠は、山頂から望む富士山と河口湖の素晴らしい眺望で知られています。このコースは富士急行線の三つ峠駅から出発し、三ツ峠の山頂を経て、河口湖駅に到着します",
+    "route_distance": "21.2 km",
+    "time_needed": "8 h 16 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/38550697/large_29745a0e2b1b70509aef9049239fde1a.jpg"
+  },
+  "#22": {
+    "id": 22,
+    "name": "Mount Amagatake - Obora",
+    "location": "Nabari, Mie, Japan",
+    "description": "このコースは大洞から始まり、尼ヶ岳の山頂に向かいます。山頂からの美しい眺望と、地域の自然を楽しめるコースです。",
+    "route_distance": "13.8 km",
+    "time_needed": "5 h 28 m"
+  },
+  "#23": {
+    "id": 23,
+    "name": "Nakasendo: Magome - Tsumago",
+    "location": "Nakatsugawa Shi, Gifu, Japan",
+    "description": "このコースは、かつて江戸時代に東京と京都がつながっていた旧中山道の馬籠 - 妻籠区間です。歩道はよく整備されており、ほぼ全ての標識が英語と日本語で表示されています。\r\n歩道は全体的に石畳で、街や森、そして畑を通り抜けます。途中道を通る人が鳴らすように推奨されている熊よけの鈴も多く見かけます。\r\nまた、馬籠観光案内所で、熊よけのベルを借りることもできます。(ベルの保証料金を一時的に支払う必要がありますが、返却時に返金されます。)",
+    "route_distance": "11.3 km",
+    "time_needed": "3 h 33 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMjM2MDExNjkvMWM5NjFhYWVlYTgxYThkODNjYWIwYTM4MTkwNTNhNzcuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#24": {
+    "id": 24,
+    "name": "Kanto Fureai no Michi Trail: No.2 The Bird Trail (Tori no michi)",
+    "location": "Meiji no Mori Takao Quasi-National Park",
+    "description": "関東ふれあいの道: No.2 鳥のみち\r\n\r\n関東ふれあいの道は、関東7県（東京都、埼玉県、群馬県、栃木県、茨城県、千葉県、神奈川県）を縦断する長距離ハイキングコースです。\r\n\r\n鳥の道は、高尾山口駅を起点に奥多摩の山々を巡り、陣馬高原下バス停を終点とするコースです。トレイルからは、富士山や山塊、奥多摩の山々などの絶景が楽しめます。また、バードウォッチングの場としても知られています。",
+    "route_distance": "18.7 km",
+    "time_needed": "7 h 2 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMjQ2MDM5MDAvNDBkMjhiMGZjOGMzMTQyZDM1YWViOGIwMzk5Y2EzY2EuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#25": {
+    "id": 25,
+    "name": "Jogasaki Nature Study Course",
+    "location": "Fuji Hakone Izu National Park",
+    "description": "城ヶ崎ピクニカルコース\r\n\r\nこのコースでは、城ヶ崎海岸沿いを巡ります。城ヶ崎の緑の森の中を、波の音を聞きながら歩くのはとても気持ちがいいです。ルートには、門脇埼灯台をはじめ、様々な展望ポイントもあります。灯台は混みますが、一見の価値ありです。",
+    "route_distance": "8.0 km",
+    "time_needed": "2 h 39 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMjIwNDQ0NzYvYjkyN2RkOWY2MDRlZWIzOGI3NzU2ZTU1MzQzNWE0OWIuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#26": {
+    "id": 26,
+    "name": "JR Fukuchiyama Line Haisenjiki Hiking Course",
+    "location": "Takarazuka, Hyōgo, Japan",
+    "description": "JR 福知山線 廃線敷ハイキングコース\r\n\r\n武田尾から旧福知山線の生瀬駅まで、旧福知山線の線路跡を利用したハイキングコースです。コースでは、武庫川渓谷や橋、6つのトンネルを巡ります（1つは約1kmの長さがあるので、懐中電灯をご用意ください）。春は桜、秋は紅葉の名所としても知られており、シーズン中は多くのハイカーが訪れます。",
+    "route_distance": "6.3 km",
+    "time_needed": "2 h 5 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMjI0NjIzODcvZGRlZDY3ZmZmYTdjZTUzNjY3ZDc4M2M3MGMwNWU4NzIuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#27": {
+    "id": 27,
+    "name": "Mount Ono",
+    "location": "Ashigarakami, Kanagawa, Japan",
+    "description": "大野山\r\n\r\nJR谷峨駅から大野山を登り、山北へ下るハイキングコース。大野山の山頂はかつて牧場としても使われた広々とした草原です。そのため山頂からは富士山や箱根山、そして丹沢山脈を眺めることができます。",
+    "route_distance": "10.6 km",
+    "time_needed": "4 h 3 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/26411723/large_affb3ed321de04324d5a630ce9fd0190.jpg"
+  },
+  "#28": {
+    "id": 28,
+    "name": "Jawbone Ridge Loop",
+    "location": "Yambaru National Park",
+    "description": "大宜味の石灰岩の山と森周回コース\r\n\r\nこのルートでは、登山者が道に迷うことを防ぐために、ロープでナビゲートされており、目印も道に多く残されています。登山道は急な傾斜が続き、ネクマチヂ岳へ続く道は全体的に木々や草が生い茂っています。ネクマチヂ岳を過ぎると帰りは舗装路になり、湾や海を見渡せるビューポイントがいくつかあります。",
+    "route_distance": "10.9 km",
+    "time_needed": "4 h 2 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMzQ3ODU2MjcvNGE0YzNkZmFmY2VmNTdmYzZmMzM0NGFkMWMyZmU0ODAuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#29": {
+    "id": 29,
+    "name": "Mount Awadake",
+    "location": "Nago, Okinawa, Japan",
+    "description": "安和岳\r\n\r\nこのルートはは、岩場や急斜面を経て安和岳の山頂へ続きます。山の稜線や頂上周辺からは日本唯一の円錐形のカルスト地形を楽しめ、また、登山道の各所からは、沖縄の美しい海や周辺の山々を見渡すことができ、息を呑むような景色が広がります。降雨後は、登山��がとても滑りやすく危険なため、避けた方がいいでしょう。",
+    "route_distance": "4.2 km",
+    "time_needed": "1 h 45 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/20223454/large_5c4d49bfac048b8aee8aa47e4f50d86d.jpg"
+  },
+  "#30": {
+    "id": 30,
+    "name": "Mount Takao: Trail 6",
+    "location": "Meiji no Mori Takao Quasi-National Park",
+    "description": "高尾山: 6号路\r\n\r\nこの6号路は、岩屋大師、琵琶滝、大山橋などの高尾山の名所を巡り、山頂を目指します。山頂では、富士山や丹沢の山々一望することができます。",
+    "route_distance": "7.1 km",
+    "time_needed": "2 h 39 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/22178693/large_1fbbd651c449cda91d8aacbc2bb81d58.jpg"
+  },
+  "#31": {
+    "id": 31,
+    "name": "Ta-taki Falls",
+    "location": "Yambaru National Park",
+    "description": "ター滝は、やんばる国立公園内の平南川の源流に位置しています。澄んだ水と亜熱帯の自然が織りなす絶景が楽しめる人気の滝です。滝までの道のりは、川沿いを進むため、濡れるので注意が必要です。",
+    "route_distance": "2.4 km",
+    "time_needed": "45 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/19364367/large_71ac3a906a5f11a608abf99ce759cd74.jpg"
+  },
+  "#32": {
+    "id": 32,
+    "name": "Koyasan Choishi-Michi Road",
+    "location": "Ito, Wakayama, Japan",
+    "description": "高野山の麓、慈尊院から高野山の大門を経て金剛峯寺の金堂へ続く長い歴史のある巡礼道です。\r\n\r\n高野山は日本では他に類を見ない有名な仏教の聖地で、100以上の寺院が集まっています。 また高野山町石道と金剛峯寺境内（6地区）がユネスコの世界遺産に登録されています。\r\n\r\n平安時代から続く高野山の深く壮大な歴史と貴重な自然を体験できる古道です。",
+    "route_distance": "21.2 km",
+    "time_needed": "8 h 16 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/17967910/large_82fa833fcf2eba48661cad7d89afe874.jpg"
+  },
+  "#33": {
+    "id": 33,
+    "name": "Minamidakegoya - Mount Kita-Hotaka - Hotakadake Sanso",
+    "location": "Chubusangaku National Park",
+    "description": "南岳小屋 - 北穂高岳 - 穂高岳山荘\r\n\r\n穂高岳山荘から南岳小屋まで、穂高連峰の雄大な稜線を辿ります。ルートには岩場の鎖場やはしご場など、体力と登山経験が必要とされる区間があります。日本を代表する山々の絶景を堪能できる登山コースです。",
+    "route_distance": "3.2 km",
+    "time_needed": "1 h 49 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMTYwNTk2ODQvMGViN2E1ZmZlZDQ2ZDdmNzU2ZDQyNDg4ZGNjNjVhODkuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#34": {
+    "id": 34,
+    "name": "Mount Katsuu",
+    "location": "Kunigami, Okinawa, Japan",
+    "description": "嘉津宇岳\r\n\r\n嘉津宇岳は、沖縄の青い海と緑を一望できる絶景スポットとして広く知られています。このルートでは、嘉津宇岳の山頂を目指します。岩場の道や、生い茂った木々、澄み切った青空など、この山ならではの自然を楽しむことができます。",
+    "route_distance": "1.4 km",
+    "time_needed": "41 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/20894288/large_90de14b195de4a08423c6f53ea0e1780.jpg"
+  },
+  "#35": {
+    "id": 35,
+    "name": "Asagaya Walk",
+    "location": "Tokyo, Tokyo, Japan",
+    "description": "懐かしい日本の街、阿佐ヶ谷を散策します。\r\n\r\nこの散策ツアーでは、まず東京メトロの南阿佐ケ谷駅を出発し、歴史ある阿佐谷パールセンター 商店街を巡ります。商店街を歩くと、色々なお店や素敵なカフェ、レストランが立ち並んでいます。エネルギッシュで昔懐かしい雰囲気は、昔の日本の生活を彷彿とさせてくれます。\r\n\r\n商店街を楽しんだ後は、JR阿佐ケ谷駅周辺を散策してみませんか。商店街同様、たくさんのお店もあります。ひと息つきたい方やお腹を満たしたい方は、駅のすぐそばに位置するカフェ、Gionに立ち寄ってみませんか？ユニークなカフェメニューで知られているお店です。\r\n\r\nさて次の目的地は由緒ある阿佐ヶ谷神明宮です。阿佐ヶ谷神明宮は、厄除・厄払いで知られておりいます。神社境内の見事な歴史的建造物や神聖な雰囲気も堪能してください。その後は周辺を散策し、このツアーの終点であるJR阿佐ヶ谷駅に戻ります。お疲れ様でした。",
+    "route_distance": "2.7 km",
+    "time_needed": "47 m"
+  },
+  "#36": {
+    "id": 36,
+    "name": "Mount Kintoki  - Otome Pass",
+    "location": "Fuji Hakone Izu National Park",
+    "description": "金時山 - 乙女峠\r\n\r\n乙女峠から金時山を登るルートです。登山道や山頂からは、箱根の山々と雄大な富士山の眺望を楽しめます。",
+    "route_distance": "5.1 km",
+    "time_needed": "2 h 16 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/16517362/large_9fedb51bf32be48003818216b3a75d42.jpg"
+  },
+  "#37": {
+    "id": 37,
+    "name": "Mount Kinpu - Kanayama",
+    "location": "Chichibu-Tama-Kai National Park",
+    "description": "このルートは富士見平小屋を経由して金山から金峰山へと続きます。金峰山の山頂には五丈岩と呼ばれる独特の形をした大きな花崗岩が集まっており、絶景スポットです。",
+    "route_distance": "15.4 km",
+    "time_needed": "6 h 49 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/14224110/large_869a5f0cd170ea18897ba1f4689453f3.jpg"
+  },
+  "#38": {
+    "id": 38,
+    "name": "Takamine Kogen - Mount Kurofu",
+    "location": "Joshin'etsukogen National Park",
+    "description": "高峰高原 - 黒斑山\r\n\r\n黒斑山は長野県と群馬県の間に位置する山で、花の百名山に選ばれています。このルートは、高峰高原から出発し、浅間山と佐久平を一望できる絶景が魅力の黒斑山へ向かいます。",
+    "route_distance": "5.3 km",
+    "time_needed": "2 h 17 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMTYwMDA1MjEvMTM2MDYzZGY4MzViMWM3MWE5Y2JmOGJlMTJjMWJmMWUuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#39": {
+    "id": 39,
+    "name": "Myojin Ike Pond Loop",
+    "location": "Chubusangaku National Park",
+    "description": "上高地は北アルプスと梓川の美しい景色で有名なエリアです。\r\nこのコースはよく整備されており、明神橋を通って梓川沿いを歩きます。",
+    "route_distance": "8.5 km",
+    "time_needed": "2 h 33 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/12776514/large_8c3db4f27de0feb3604e40ca65330a7e.jpg"
+  },
+  "#40": {
+    "id": 40,
+    "name": "Hiji Otaki Falls",
+    "location": "Yambaru National Park",
+    "description": "この比地大滝は沖縄本島最大の滝です。遊歩道はよく整備されており、急な傾斜と階段、橋が続きます。家族向けのトレイルで、亜熱帯の自然を楽しみたい方にお勧めです。",
+    "route_distance": "2.9 km",
+    "time_needed": "1 h 2 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/18003796/large_9bf2f317a76dbfb0df8135f2e8c02550.jpg"
+  },
+  "#41": {
+    "id": 41,
+    "name": "Mount Tanzawa - Nakatsu River",
+    "location": "Tanzawa-Oyama Quasi-National Park",
+    "description": "丹沢山 - 中津川\r\n\r\n東側の麓にある中津川から丹沢山を登っていく登山コースです。登山道では、丹沢の山々や富士山の絶景や、丹沢大山国定公園の豊かな植物を楽しむことができます。",
+    "route_distance": "13.4 km",
+    "time_needed": "6 h 1 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/16255017/large_31565174d250d35d075a830e2e00ff63.jpg"
+  },
+  "#42": {
+    "id": 42,
+    "name": "Okura - Mount Nabewari - Yabitsu Pass",
+    "location": "Tanzawa-Oyama Quasi-National Park",
+    "description": "大倉- 鍋割山- ヤビツ峠\r\n\r\nヤビツ峠から表尾根を鍋割山まで歩き、大倉へと下山します。晴れた日には富士山や周囲の山々がくっきりと見えます。",
+    "route_distance": "18.7 km",
+    "time_needed": "7 h",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/15015477/large_54e119d27ff1bd0b67fd72222a89202a.jpg"
+  },
+  "#43": {
+    "id": 43,
+    "name": "Shirode Otaki Falls - Mount Oku-Hotaka - Mount Nishi-Hotaka",
+    "location": "Chubusangaku National Park",
+    "description": "白出大滝 - 奥穂高岳 - 前穂高岳\r\n\r\n穂高連峰の雄大な稜線を巡り、白出大滝を目指す登山ツアーです。登山道は険しく、岩場の鎖場やはしご場をこなせる登山上級者向けのコースです。登山道からは、日本を代表する名峰の山岳景観を堪能できます。",
+    "route_distance": "18.8 km",
+    "time_needed": "7 h 26 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/16058704/large_06a3cb08af400334b2e8f042c4a3d7c1.jpg"
+  },
+  "#44": {
+    "id": 44,
+    "name": "Tokyo Cherry Blossom Walk",
+    "location": "Tokyo, Tokyo, Japan",
+    "description": "東京さくらウォーク\r\n\r\n東京の桜の名所を巡るウォーキングツアーです。大島小松川公園（風の広場）をスタートし、台東区を経て王子駅に向かいます。そこから皇居方面へ進み、スタート地点に戻ってきます。毎日のウォーキング・ランニングのコースとしても活用できます。",
+    "route_distance": "48.8 km",
+    "time_needed": "Multi-day",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/13224122/large_a17ea63b3a27ea8d892326323fd60a95.jpg"
+  },
+  "#45": {
+    "id": 45,
+    "name": "Nagatoro Alps - Mount Hodosan",
+    "location": "Chichibu, Saitama, Japan",
+    "description": "長瀞アルプス - 宝登山\r\n\r\nこのコースは、野上駅から緩やかな稜線の長瀞アルプスに沿って、宝登山まで歩きます。",
+    "route_distance": "7.9 km",
+    "time_needed": "1 h",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/32651916/large_ef87f4c15b6876c92fb1fb178500c6e2.jpg"
+  },
+  "#46": {
+    "id": 46,
+    "name": "Hakkoda Mountains Loop",
+    "location": "Towada-Hachimantai National Park",
+    "description": "八甲田山\r\n\r\n山々は古代の噴火活動から形づくられており、また現在も火山活動は続いています。最高峰の大岳の山頂は360度の眺望が開け東北の山々から北海道まで、北の大地の壮大な眺望を望めます。また周辺には美しい高層湿原もあるので、是非時間をとって散策してみてください。",
+    "route_distance": "11.6 km",
+    "time_needed": "4 h 44 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMTU5OTg4ODEvZjQ4YTdmNDI4ZGExOTY1MzhkM2IzZjRlMDg4MjZmZGEuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#47": {
+    "id": 47,
+    "name": "Fukugawa Falls",
+    "location": "Nago, Okinawa, Japan",
+    "description": "普久川滝、別名フンガー滝の美しい景色と名護の自然に出会えるルートです。ファミリー、キッズフレンドリーなルートです。",
+    "route_distance": "2.1 km",
+    "time_needed": "45 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/38817677/large_a92c164ead199558d71056c65a1e77b7.jpg"
+  },
+  "#48": {
+    "id": 48,
+    "name": "Kumano Kodo: Yunomine Onsen - Kumano Hongu Taisha Loop",
+    "location": "Yoshino-Kumano National Park",
+    "description": "注：2019年の台風の被害により、このルートの一部の区間が閉鎖されている可能性があります。市のウェブサイトで最新情報を確認してください。\r\n\r\n世界遺産の熊野古道、中辺路の一部を含む長い周回コースです。コースは所々に標識があり、よく整備されています。歴史ある熊野本宮大社や熊野の神聖な自然を散策できます。",
+    "route_distance": "19.0 km",
+    "time_needed": "6 h 48 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/20329662/large_27b399b74d0fade8aa37b4753f4714b0.jpg"
+  },
+  "#49": {
+    "id": 49,
+    "name": "Nishizawa Gorge Loop",
+    "location": "Chichibu-Tama-Kai National Park",
+    "description": "注：2020年8月の時点で、このルート内のいくつかの橋が損傷しているため、ルートが部分的に閉鎖しています。詳しくは市のウェブサイトで最新の情報を確認してください。\r\n\r\n日本で最も美しい渓谷の1つとして有名な景勝地です。秩父多摩甲斐国立公園内にあり、原生林の中を流れる清流によって形成された渓谷として知られています。",
+    "route_distance": "9.2 km",
+    "time_needed": "3 h 32 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMjQ1OTE1OTcvNWVmN2YyNDA5NmEwYjJhNmViMDU3ZGE2ZTE0NTA2NDYuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#50": {
+    "id": 50,
+    "name": "Mount Azegamaru - Nishitanzawa Visitor Center Loop",
+    "location": "Tanzawa-Oyama Quasi-National Park",
+    "description": "畦ヶ丸 - 西丹沢ビジターセンターループ\r\n\r\n西丹沢ビジターセンターから畦ヶ丸を目指すループコースです。ルートでは、沢に沿って歩いたり、苔むした森を進みます。",
+    "route_distance": "13.8 km",
+    "time_needed": "5 h 23 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMTI3NzEzMzAvOTI2MzI1NjdhY2IwMGRlNTg2N2RlNjU2Njg5YzA3ZGIuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#51": {
+    "id": 51,
+    "name": "Tongariro Alpine Crossing",
+    "location": "Tongariro National Park",
+    "description": "To experience what many people call the \"World's Greatest Day Hike\" you will need no permits, however, transportation arrangements must be made for both ends of the hike, so make sure you do some planning! You must also be mindful of shuttle pick-up times if you decide to summit Mt. Tongariro or Mt. Ngauruhoe (both cannot be done within the same day).  There are sections of the hike that are considered active volcano areas, and the trail has optional side trips to Mount Tongariro and Mount Ngauruhoe (famously known as 'Mt Doom' in the Lord of the Rings trilogy) as well as passing Mount Ruapehu.\r\n\r\nBe prepared for rapidly changing weather conditions on the route, and always have warm layers available as the peaks often have 10-15 degree cooler temperatures. Water, sun screen, and food for a whole day are also essential. The walking is generally straightforward but the extreme weather and potential for a full 7-10 hours to complete earn this track the \"hard\" rating.",
+    "route_distance": "20.4 km",
+    "time_needed": "6 h 59 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/33328535/large_72dba4db71b4c9a4ea549a335d231210.jpg"
+  },
+  "#52": {
+    "id": 52,
+    "name": "Roys Peak Track",
+    "location": "Wanaka, Otago, New Zealand",
+    "description": "The Roys Peak Track is one of the most popular day hikes in New Zealand and guarantees breathtaking views over Lake Wanaka, Mount Aspiring, and surrounded mountains. The views are getting prettier the higher you go.  Although the trail is wide with no steps/technical difficulties, it is very steep, giving it a hard rating. It takes you from the lake level through farmland, alpine meadows, grasslands to the summit.  \r\nThere is no shade on the track, bring plenty of water and sunscreen. During the winter season, it is recommended to have winter gear such as an ice axe and crampons. The car park is situated right at the trailhead and public transport options are available.2$ fee at the beginning of the track.\r\n\r\nNote: The area is closed from October 1st to November 10th every year for lambing season.",
+    "route_distance": "16.3 km",
+    "time_needed": "6 h 58 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/42724299/large_7b06cdbe80b43e03a6394a74abd406b7.jpg"
+  },
+  "#53": {
+    "id": 53,
+    "name": "Hooker Valley Track to Hooker Lake",
+    "location": "Aoraki/Mount Cook National Park",
+    "description": "The trail is easy to follow and has spectacular views. Doable for anyone with reasonable fitness. One of the best day hikes near Mount Cook Village. There is a breathtaking view over the Mueller Glacier, Hooker Lake, and up to Mount Cook at the end of the track. It’s mostly a flat well-maintained walkway (only a few inclines/steps but not technically difficult.) crossing three swing bridges along the way. There is a bench and a stone landing at the Muller Lake Lookout and picnic tables along the way. Make sure to come on a clear day for the best experience and go early to try to avoid crowds. The carpark at the end of Hooker Valley Road is usually packed after 9 am but there is enough space for 200 cars. Camping is also available and offers a separate car park. \r\n\r\nBe sure to get to the end where you find a real treat.",
+    "route_distance": "10.6 km",
+    "time_needed": "3 h 5 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/30492446/large_9d37d59084f463b00ccda5f867a0eee8.jpg"
+  },
+  "#54": {
+    "id": 54,
+    "name": "Muller Lake Lookout",
+    "location": "Aoraki/Mount Cook National Park",
+    "description": "This is a short and easy walk near Mount Cook Village excellent for any fitness level. It’s mostly flat and offers the most spectacular views per ounce of energy in all of New Zealand. There is a bench and a stone landing at the Muller Lake Lookout. Make sure to come on a clear day for the best experience and go early to try to avoid crowds. The carpark at the end of Hooker Valley Road is usually packed after 9 am but there is enough space for 200 cars. Camping is also available at offers a separate car park. \r\n\r\nYou can extend the walk by continuing up the Hooker Lake: https://www.alltrails.com/trail/new-zealand/canterbury/hooker-valley-track-to-hooker-lake",
+    "route_distance": "1.8 km",
+    "time_needed": "40 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/22468817/large_a3c63792d5d200666741aa042397f8d5.jpg"
+  },
+  "#55": {
+    "id": 55,
+    "name": "Ben Lomond Track via Skyline Road",
+    "location": "Queenstown, Otago, New Zealand",
+    "description": "This is a steep and challenging full-day hike with some of the best views in Queenstown. It's all uphill from the start to the summit, but it's totally worth it. When you get to the top, you see in full view what makes New Zealand special. The track begins near the Skyline Gondola base station at the top of Brecon Street and takes you via the Ben Lomond Saddle to the top of the Ben Lemond. The last hour to the summit is rocky and above the tree line with no shade. Be sure to take enough water and sunscreen. It's quite windy and chilly, even in the summer so go prepared. You might even get lucky and be visited by a Kea at the top. Please don't feed the Kea birds. The area is very popular and gets busy with hikers and mountain bikers. It's recommended to start early in the morning.\r\n\r\nThere are more hiking options for reaching the summit: \r\nBen Lomond Track via Tiki Trail (steeper, but shorter) \r\nhttps://www.alltrails.com/trail/new-zealand/otago/ben-lomond-track-via-tiki-trail\r\n\r\nBen Lomond Track via Skyline Gondola Queenstown (take a gondola ride to save some time and energy) \r\nhttps://www.alltrails.com/trail/new-zealand/otago/ben-lomond-track-via-skyline-gondola-queenstown",
+    "route_distance": "13.4 km",
+    "time_needed": "6 h 20 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMjAwOTUzMDYvNmJjYmRlYTcyNDMyMDkwY2E2ZmM4NGQ3YzEwYjIzZDAuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#56": {
+    "id": 56,
+    "name": "Queenstown Hill Walkway",
+    "location": "Queenstown Hill Reservation Preserve",
+    "description": "This is a very popular short hike in Queenstown with amazing views of the town and Lake Wakatipu. The first five minutes are pretty steep, but after that, it’s just a nice incline with great views along the way and from the Basket Statue. The hike is well maintained and has a lot of tall trees and shaded areas with plenty of spots to rest. The start of the Queenstown Hill Walkway begins from Belfast Street. Parking is very limited, but you can park on the street as well. \r\n\r\nNOTE: Land after the viewpoint is private property. Please respect the land owners.",
+    "route_distance": "4.8 km",
+    "time_needed": " 2 h 6 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/13817336/large_c970c288db849e278ac10bfecf9ff6a8.jpg"
+  },
+  "#57": {
+    "id": 57,
+    "name": "Sealy Tarns Track",
+    "location": "Aoraki/Mount Cook National Park",
+    "description": "This trail is often called ''Stairway to Heaven’’ with about 2200 stairs to climb until you reach the freshwater lakes of Sealy Tarns. The views of the Hooker Valley and Mount Cook from the top are epic.\r\n\r\nYou can continue climbing up to Mueller Hut:   \r\nhttps://www.alltrails.com/trail/new-zealand/canterbury/mueller-hut-route",
+    "route_distance": "5.1 km",
+    "time_needed": "2 h 30 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMTk5Mzg4NjEvZmU1OWIwOTlmYmIwZmE5NDM1MzM3MDM3MjQ3ZmY5ZjYuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#58": {
+    "id": 58,
+    "name": "Mueller Hut Route",
+    "location": "Aoraki/Mount Cook National Park",
+    "description": "Perhaps the best overnight hike in New Zealand, this 1000m climb takes you to watch and listen to avalanches tumbling off glaciers beneath the gaze of Mt Cook. It has about 2200 stairs to climb until you reach Sealy Tarns. After that's the track is more rugged. There is a lot of rock climbing,  not pro level but easy.  Once the stairs end, the trail can be followed by spotting the orange poles.  After you reach the top, there is less climbing with epic views of New Zealand’s highest peaks and surrounding glaciers. \r\n\r\nSeasonal restrictions for the Mueller Hut: \r\nNovember – April: Bookings are required. \r\nMay – November: Bookings are not required but fees still apply.\r\nhttps://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/aoraki-mount-cook-national-park/things-to-do/huts/mueller-hut/",
+    "route_distance": "9.3 km",
+    "time_needed": "4 h 38 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvNDIyOTg2OTMvYjQxZDZkMzY1YTJiOWQzNDBkYTA3ZDYxNGU0Yjg5ZWYuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#59": {
+    "id": 59,
+    "name": "Isthmus Peak Track",
+    "location": "Hāwea Conservation Park",
+    "description": "This is a challenging track with amazing vistas of Lake Wanaka and Lake Hawea. The track is constant uphill for anywhere between 2-4 hours (depending on fitness) but the views are stunning the whole way to the top. False peaks all the way and makes it worth it when you finally see the pole and know you’ve made it. You can mountain bike this trail but on many sections, you will have to push your bike (grade5).  Prepare for not much shade on the trail. \r\n\r\nA great alternative to Roy's Peak Track with less foot traffic.\r\n\r\nAccess from Stewart Creek carpark. \r\nClosed for fawning between 20 November and 20 December.",
+    "route_distance": "15.6 km",
+    "time_needed": "6 h 24 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvNDE2Mzk2NTIvZDc4NDFhNDc0MDM4YWQ2YWVjNTQ5ZmZkODhiMWYwNmMuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#60": {
+    "id": 60,
+    "name": "Kepler Track",
+    "location": "Fiordland National Park",
+    "description": "Alpine vistas and lake beaches define this approximately four day hike on the edge of the Fiordland Wilderness. The region receives high rainfall and changeable conditions. Rain, snow and cold snaps occur at almost any time of year. Pre-departure planning and preparation can be done in Te Anau at the Fiordland National Park Visitor Center on Lake Front Drive. \r\n\r\nThe hike can be done in other direction, but the more popular direction goes anti-clockwise. It is not recommended that you hike outside the Great Walks Season unless you have extensive experience and knowledge of the local weather.\r\n\r\nIn the Great Walks season (23 October - 30 April):\r\nBookings are required for huts and campsites, huts have gas cooking stoves and resident wardens\r\n\r\nOutside the Great Walks season (1 May - 22 October):\r\nFacilities are greatly reduced, avalanche risk exists, experience is required\r\nBookings are not required - huts and campsites are first come, first served \r\n$130 per International visitor per night for all ages (booking required)\r\n$65 per adult per night; 17 years and under free (booking required)\r\n\r\nThe Kepler Track also allows camping in designated campsites. Campsites have toilets, water, and picnic tables. \r\nNew Zealand rate is $20 per adult per night; 17 years and under free (booking required).\r\nInternational rate is $40 per person per night for all ages (booking required). \r\n\r\nFor a list of the hike broken into segments, see here: https://www.alltrails.com/lists/kepler-track",
+    "route_distance": "61.2 km",
+    "time_needed": "Multi-day",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/32937793/large_afbae1afd17c378276e8412b1e89a271.jpg"
+  },
+  "#61": {
+    "id": 61,
+    "name": "Key Summit and View of Lake Marian via Routeburn Track",
+    "location": "Fiordland National Park",
+    "description": "This is a beautiful half-day hike on the Routeburn Track with stunning views over the Humbolt and Darran Mountains in Fiordland National Park. Well maintained path with a steady gentle ascent takes you through the mossy green rainforest via the Key Summit to the View of Lake Marian. There are only a few sections with rocky steps and it’s suitable for families with children.",
+    "route_distance": "7.7 km",
+    "time_needed": "2 h 52 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMjQ2NjU3NzQvMzE4NzQ0ZjMyM2U5NTllYzIyNTgyMDBmZmQ4Y2MwM2QuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#62": {
+    "id": 62,
+    "name": "Devil's Punchbowl Lookout Trail",
+    "location": "Arthur's Pass National Park",
+    "description": "A popular short walk with a couple of climbs (150 m up a series of steps) to a viewing platform. Beautiful views of Arthur’s pass-along way and river at the end of stairs. The view from the lookout is amazing. Devil's Punchbowl Falls are 131 m high. Lots of parking and toilets at the trailhead. One of the best short walks in the Arthur's Pass National Park.",
+    "route_distance": "1.8 km",
+    "time_needed": "41 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/24973906/large_5aa61087843f03bb62eb998fe6e2b6f8.jpg"
+  },
+  "#63": {
+    "id": 63,
+    "name": "Tongariro Alpine Crossing with Mount Tongariro and Mount Ngauruhoe",
+    "location": "Tongariro National Park",
+    "description": "To experience what many people call the \"World's Greatest Day Hike\" you will need no permits, however, transportation arrangements must be made for both ends of the hike, so make sure you do some planning! You must also be mindful of shuttle pick-up times if you decide to summit Mt. Tongariro or Mt. Ngauruhoe (both cannot be done within the same day).  There are sections of the hike that are considered active volcano areas, and the trail has optional side trips to Mount Tongariro and Mount Ngauruhoe (famously known as 'Mt Doom' in the Lord of the Rings trilogy) as well as passing Mount Ruapehu.\r\n\r\nBe prepared for rapidly changing weather conditions on the route, and always have warm layers available as the peaks often have 10-15 degree cooler temperatures. Water, sun screen, and food for a whole day are also essential.\r\n\r\nTHIS IS THE SUMMIT TRACK SUITABLE ONLY FOR EXPERIENCED AND WELL-EQUIPPED HIKERS.For the version of this hike without summiting Mount Tongariro and Mount Ngauruhoe, see here: https://www.alltrails.com/trail/new-zealand/manawatu-wanganui-region/tongariro-alpine-crossing",
+    "route_distance": "28.2 km",
+    "time_needed": "10 h 38 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMTkzNDI1MTUvMzY4NTNkODg4ZjhhN2ZmYTk0NTU2NDJmNjg1YzY2YWUuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#64": {
+    "id": 64,
+    "name": "Mount Maunganui Track",
+    "location": "Mauao Historic Reserve",
+    "description": "A short climb to the top of Mount Maunganui’s iconic mountain. This trail is well maintained and offers amazing views along the way. The view of Tauranga at the top is worth the effort. Parking can be difficult and it’s better to park along the beach and just walk in. You can see some seals along the coast and there are multiple track options going up. The trail is close to the city therefore also a bit crowded. Going up to see the sunrise is highly recommended.",
+    "route_distance": "6.4 km",
+    "time_needed": "2 h 10 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/21137466/large_ad9506d9e84c6161ef2bed93c710db33.jpg"
+  },
+  "#65": {
+    "id": 65,
+    "name": "Wairere Falls Track",
+    "location": "Kaimai Mamaku Conservation Park ",
+    "description": "Stunning walk to the Wairere Falls with natural pools and cascading waterfalls. There's a new carpark with picnic facilities and toilets at the trailhead. This trail is well maintained, steep in parts, but views along the way are beautiful. Heaps of benches for resting and eating or spots for swimming. Wearing trail shoes for extra grip is recommended as parts of the track can be rocky and slippery.\r\n \r\nIf you're thinking of taking the old Maori path for the return trip there's a sign warning that it's steep and that the trail isn't maintained.",
+    "route_distance": "5.5 km",
+    "time_needed": "2 h 17 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/20114344/large_47119dfbf7f1746c6d35515d4b7a5df5.jpg"
+  },
+  "#66": {
+    "id": 66,
+    "name": "Diamond Lake and Rocky Mountain Track",
+    "location": "Mount Aspiring National Park",
+    "description": "This trail takes you to Diamond Lake and the Rocky Mountain summit. There are many lookout points along the way and the 360-degree view from the top overlooking Lake Wanaka is incredible. It’s steep, but technically easy including a couple of hundred steps, and can get quite muddy and slippery.  \r\nIt is highly recommendable to take the east track to Rocky Mountain on the way up and the west track on the way down. You can choose from several tracks including short, easier options suitable for kids.",
+    "route_distance": "7.1 km",
+    "time_needed": "2 h 52 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/25166397/large_257906de52a581f2df089d57bbce4dc1.jpg"
+  },
+  "#67": {
+    "id": 67,
+    "name": "Comans Track and Mercer Bay Loop via Watchmans Road",
+    "location": "Waitakere Ranges Regional Park",
+    "description": "This beautiful coastal walk above Karekare takes you to the popular Mercer Bay Track near Piha. Lots of steps/uphill to start off with but your efforts are rewarded by gorgeous views. The seaside part of the loop has amazing views and takes you to the Te Kawerau a Maki Pou (Maori marker sculpture). Good mix of sun and shade in the trees.\r\n\r\nYou can start in Karekare or at the car park at the end of Watchman Road. Return the same way or combine it with the Ahu Ahu Track to form another loop.\r\n\r\nPlease note most trails in the area are closed to protect kauri trees. This trail remains open, but the status may change. Please check list below for the most up-to-date information.\r\nhttps://www.aucklandcouncil.govt.nz/environment/plants-animals/pests-weeds/Pages/protect-our-kauri-trees.aspx",
+    "route_distance": "7.2 km",
+    "time_needed": "2 h 54 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/42191614/large_e0483209422c7df9733db5991c7f5d32.jpg"
+  },
+  "#68": {
+    "id": 68,
+    "name": "Rob Roy Glacier Track",
+    "location": "Mount Aspiring National Park",
+    "description": "This Track in the Mount Aspiring National Park has it all - a dramatic alpine landscape with awesome views, meadows, cliffs, waterfalls, rivers, and glaciers. There is a breathtaking view of the Rob Roy Glacier at the upper outlook and it's definitely worth the efforts. You need to drive 30-40min of gravel farm road to get to the trailhead and cross a lot of fords. SUV recommended, especially after heavy rain.",
+    "route_distance": "10.3 km",
+    "time_needed": " 3 h 35 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/41113996/large_5506b0e60ee11d2e3b4939287952e5fa.jpg"
+  },
+  "#69": {
+    "id": 69,
+    "name": "The Pinnacles Loop Track",
+    "location": "Coromandel Forest Park",
+    "description": "This is one of the most popular overnight walks with epic sunset and sunrises but can be also done as a day walk. It leads to the Pinnacles summit via the Pinnacles Hut ( the largest Doc hut in the country) and offers a stunning 360-degree view of the Coromandel Peninsula. There is a nice view of the Billygoat Falls (180m high) from the Billygoat Landing. Lots of stairs to get to the top and then climbing up metal ladders - take care when doing this rocky and slippery part. Access from Kauaeranga Road end (unsealed road). \r\n\r\nThe Pinnacles hut must be booked online in advance. https://www.doc.govt.nz/parks-and-recreation/places-to-go/coromandel/places/coromandel-forest-park/things-to-do/pinnacles-hut/\r\nCampsites located near the track.",
+    "route_distance": "17.2 km",
+    "time_needed": "6 h 28 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMzMwMTM1NjEvY2YzODBmNzQ3MmJiNGZmOWJlMGU1OGYwOTg5NTcxZGMuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#70": {
+    "id": 70,
+    "name": "Taranaki Falls Loop",
+    "location": "Tongariro National Park",
+    "description": "A great waterfall walk in Tongariro National Park that can easily be done in under two hours. Start your walk at the entrance, just before the car park. This trail is very well marked and mostly flat with just a couple of stairs. Great views of Mount Ruapehu and Ngauruhoe from the upper loop track. Highly recommended for family day walks.",
+    "route_distance": "6.0 km",
+    "time_needed": "1 h 49 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMzA1OTI5MzAvYzI0YjZlZTZmY2RiZjZjZTU0YmIxOTJmMzdlY2Q1ZDcuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#71": {
+    "id": 71,
+    "name": "Lake Marian Track",
+    "location": "Fiordland National Park",
+    "description": "A steady climb to beautiful alpine Lake Marian in the Hanging Valley. The trail can be rough at times, but the reward is worth it. The lake is surrounded by snow-capped peaks, with the shadows and the sunlight playing colorful games on the mountain sides. Wear good boots as it can get quite slippery and muddy in places.",
+    "route_distance": "6.0 km",
+    "time_needed": "2 h 24 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMzI4NjEzMTEvNzJhMTUyYWYyM2Q4NzIzNTZhYWI5NzFhYzgwOTVhYTkuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#72": {
+    "id": 72,
+    "name": "Mercer Bay Loop Track",
+    "location": "Waitakere Ranges Regional Park",
+    "description": "This is a beautiful coastal walk near Piha for all ages and skill levels. The seaside part of the loop has amazing views and takes you to the Te Kawerau a Maki Pou (Maori marker sculpture). Good mix of sun and shade in the trees. The track starts at the end of Te Ahua Road at the car park.\r\n\r\nPlease note most trails in the area are closed to protect kauri trees. This trail remains open, but the status may change. Please check list below for the most up-to-date information.\r\nhttps://www.aucklandcouncil.govt.nz/environment/plants-animals/pests-weeds/Pages/protect-our-kauri-trees.aspx",
+    "route_distance": "2.1 km",
+    "time_needed": "55 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/19606513/large_106d2b4ff6cc46d940d523406ce69403.jpg"
+  },
+  "#73": {
+    "id": 73,
+    "name": "Routeburn Track",
+    "location": "Mount Aspiring National Park",
+    "description": "''The ultimate alpine adventure track'' One of the most popular Great Walk in New Zealand. A moderately difficult high-mountain traverse that links Fiordland and Mount Aspiring national parks. Full of different scenarios. Lush forests, flat easy tracks in the shade, open paths uphill in direct sunlight. waterfalls, bridges, high altitudes, spectacular trees and lakes, the mischievous keas, and great places to camp. \r\n\r\nUsually a two to three-day trip - popular in summer and almost impassable during winter. There are 3 huts and 2 campsites - bookings are required in advance during the Great Walks season.\r\n\r\nDay 1: \r\nRouteburn Shelter to Routeburn Flats Hut and Campsite /  Routeburn Falls Hut\r\nDay 2: \r\nRouteburn Flats Hut and Campsite /  Routeburn Falls Hut to Lake Mackenzie Hut to Lake Mackenzie Campsite\r\nDay 3: \r\nLake Mackenzie Hut / Lake Mackenzie Campsite to The Divide on the Milford Highway\r\n\r\nMore information:\r\nhttps://www.doc.govt.nz/parks-and-recreation/places-to-go/fiordland/places/fiordland-national-park/things-to-do/tracks/routeburn-track/",
+    "route_distance": "32.2 km",
+    "time_needed": "11 h 39 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMTQ2NDIxODcvN2RjZGJhMTk0ZDI2Yjg4YTM0YWFlMmExZWRkZGQ1NTMuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#74": {
+    "id": 74,
+    "name": "Mount Taranaki Track",
+    "location": "Egmont National Park",
+    "description": "This is possibly New Zealand's toughest day hike, but it's well worth the view. Stairs, Scrambles, scree and steep concrete to begin the trail. The track is suitable only for experienced, well-equipped, and fit trampers. Please don't under estimate this hike. Weather systems can appear really quickly which can be difficult to escape. The mountain is covered in snow and ice from May to November.\r\nPlease respect local Māori beliefs as the top is holy for them.\r\n\r\nThe North Egmont Road end car park is very busy during summer and arranging a shuttle or starting from the Stratford Plateau car park is recommended. \r\n\r\nhttps://www.doc.govt.nz/parks-and-recreation/places-to-go/taranaki/places/egmont-national-park/things-to-do/tracks/mount-taranaki-summit-track/",
+    "route_distance": "11.7 km",
+    "time_needed": "5 h",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/22257306/large_1edde5557e92eb5672968614df09012d.jpg"
+  },
+  "#75": {
+    "id": 75,
+    "name": "Massey Cossey Loop Track",
+    "location": "Hunua Ranges Regional Park ",
+    "description": "The Massey Cossey Loop Track is one of the best walks in the Hunua Ranges Regional Park near Auckland. It’s a wonderful walk through the bush with lots of birds, shade, and amazing views. The track is well maintained with a decent amount of stairs. There’s a river crossing but water is usually very low when crossing. The track gets skinny at some places but manageable. Don’t forget to visit beautiful Hunua Falls.",
+    "route_distance": "8.0 km",
+    "time_needed": "2 h 51 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/38459465/large_d6c95b795c5f0e312e28f6f995b18229.jpg"
+  },
+  "#76": {
+    "id": 76,
+    "name": "Milford Track",
+    "location": "Fiordland National Park",
+    "description": "Ancient glaciers, rainforest, and waterfalls greet hikers that retrace the steps of early explorers by taking on the Milford Track Great Walk. The best time to hike is March, when the temperatures are warm and there may be less rainfall. The New Zealand Mountain Safety Council has created a video to help prepare walkers for the alpine section of the track over MacKinnon Pass which can be found here: https://www.youtube.com/watch?v=HRpgTXEncSk&t=231s\r\n\r\nIn the Great Walks season (23 October - 30 April) reservations are required for huts, which have gas cooking stoves and staff on site and cost $140 per night for International visitors and $70 per night for New Zealand residents.\r\n\r\nOutside the Great Walks season (1 May - 22 October) facilities, including bridges, are greatly reduced. Flood and avalanche risks exist and only experienced hikers with knowledge of the local weather should attempt the hike. Reservations are not required - huts are first come, first serve. Prices are steeply discounted.\r\n\r\nCamping is not allowed along this route, so you will need to stay in the three huts (fees apply and reservations are needed during Great Walk Season) Clinton Hunt, Mintaro Hut, and Dumpling Hut. There are also private lodges along the route you may want to research that provide luxury accommodation at higher prices.",
+    "route_distance": "59.9 km",
+    "time_needed": "Multi-day",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMjE4OTI0MDIvODdjOWM0ZTJjNDE5YzczMjljYWE1MzVlZDI1MGRhMWIuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#77": {
+    "id": 77,
+    "name": "Kitekite Falls Path",
+    "location": "Waitakere Ranges Regional Park",
+    "description": "Quick and easy trail to the base of the falls. Once at the bottom falls you can even hop in the pool which is very refreshing. A few steps up and a small river crossing to get to the top of falls if you want to add on to the walk, but not too difficult for most. Really well-maintained track with beautiful views - a must-do when you are in Piha.",
+    "route_distance": "2.7 km",
+    "time_needed": "52 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/20012247/large_c7d463353ab886989adf151472bbc03a.jpg"
+  },
+  "#78": {
+    "id": 78,
+    "name": "Duder Regional Park Loop",
+    "location": "Duder Regional Park",
+    "description": "This is a wonderful walk across farm land and out onto the peninsula with beautiful views of the Hauraki Gulf. This track is a great family adventure!  Don't forget to bring sun protections as there is little shade along the route.",
+    "route_distance": "6.3 km",
+    "time_needed": "1 h 58 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/21539348/large_54608af3b68c9df566549cbc7722bda7.jpg"
+  },
+  "#79": {
+    "id": 79,
+    "name": "Mount John Walkway",
+    "location": "Tekapo, Canterbury, New Zealand",
+    "description": "A stunning hike with great scenery all the way from the round of the milky-turquoise blue Lake Tekapo to the 360-degree panorama view on Mount John higher. The way up is shaded and a bit steep but only a half-hour. There is a cafe at the top of the hill with a popular place for picnics and photos. The views of the lake and the surrounding mountains are spectacular. Don’t forget sunscreen - It’s largely uncovered.",
+    "route_distance": "8.0 km",
+    "time_needed": "2 h 53 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/22558217/large_fcda010af7afeb9743737803ade28fcc.jpg"
+  },
+  "#80": {
+    "id": 80,
+    "name": "Cathedral Cove Walk",
+    "location": "Whitianga, Waikato, New Zealand",
+    "description": "This is a stunning coastal walk to the iconic rock archway of Cathedral Cove on the Coromandel Peninsula. The trail follows the rocky coastline and passes a few other beautiful bays and stunning lookouts. Very well maintained and almost all paved. Family-friendly but quite a bit of up and down with stairs at the very end. Low tide is best, allows you through the tunnel.",
+    "route_distance": "4.5 km",
+    "time_needed": "1 h 38 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/29500718/large_32600fb60b63feb48545c8fdafa903ab.jpg"
+  },
+  "#81": {
+    "id": 81,
+    "name": "Tiki Walking Track",
+    "location": "Queenstown, Otago, New Zealand",
+    "description": "This is a short, but steep track which is the first part of the popular Ben Lomond trail. It starts near the Skyline Gondola base station at the top of Brecon Street and it's completely covered by forest with very little sun exposure. Can be quite challenging in places, but the view from the gondola building is stunning. The trail crosses some mountain bike tracks, watch out for bikers. It's recommended to start early in the morning since it gets busy with hikers. \r\n\r\nIf you are tired catch the Gondola down the hill. You can extend the walk by continuing up the Ben Lomond trail to the peak. https://www.alltrails.com/trail/new-zealand/otago/ben-lomond-track-via-skyline-queenstown .",
+    "route_distance": "1.8 km",
+    "time_needed": "1 h 22 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMTk5MDEwOTMvZTk1NjUwMjA5YzcxODI5MGZmMmRmZWQ4N2IxYzM2M2IuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#82": {
+    "id": 82,
+    "name": "Upper Nihotupu Walk",
+    "location": "Waitakere Ranges Regional Park",
+    "description": "This is a great hike for the family. It is mostly covered so should be good even on hot sunny days. The change of scenery from thick tree cover to half covered trail, then along the water is nice. Without spoiling the surprises, there are plenty of features, stops, and views to kept it interesting and fun.",
+    "route_distance": "5.0 km",
+    "time_needed": "1 h 38 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/42287577/large_48bb69ecc60f9e695cd01ecba2cfdde1.jpg"
+  },
+  "#83": {
+    "id": 83,
+    "name": "Routeburn Track: Routeburn Shelter to Falls Hut",
+    "location": "Mount Aspiring National Park",
+    "description": "Good track with nice views and not too difficult. Even doing part of the trail is pretty enjoyable.\r\n\r\nhttps://www.doc.govt.nz/parks-and-recreation/places-to-go/fiordland/places/fiordland-national-park/things-to-do/tracks/routeburn-track/",
+    "route_distance": "9.2 km",
+    "time_needed": "3 h 44 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMTg4NzIxOTEvY2Y1OGZlOGExOTY0YTkzYzg1ZTRhZjRiZjgyOTc0NmYuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#84": {
+    "id": 84,
+    "name": "Punakaiki Pancake Rocks and Blowholes Loop",
+    "location": "Paparoa National Park",
+    "description": "A popular and easy loop walk along the pancake rocks, blowholes, and surge pools. Get there at high tide to get the best effect from the blowhole.\r\nThe track is high quality and stroller/wheelchair (with assistance) friendly for most of the walk. This trail offers spectacular views, geological oddities, rich birdlife, and marine mammals. Great for families with children. \r\n\r\nAccessibility: The trail surface is paved and typically at least three feet wide. The grade is mostly gentle (all estimated 5% or less except for steep 10% sections at about 0.4 and 0.5 miles when going counterclockwise). Some of the viewpoints require staircases for access.",
+    "route_distance": "1.1 km",
+    "time_needed": "19 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/21900258/large_8370681be4d2a2832594c30f514de83f.jpg"
+  },
+  "#85": {
+    "id": 85,
+    "name": "Long Bay - Okura Track",
+    "location": "Long Bay Regional Park",
+    "description": "no description",
+    "route_distance": "8.4 km",
+    "time_needed": "2 h 39 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMjE4MjkyNTEvN2U1ZDI2MWZkOTI2MmQ5NzIxODQyZmI0MGYzYjgyZGUuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#86": {
+    "id": 86,
+    "name": "Gertrude Saddle Route",
+    "location": "Fiordland National Park",
+    "description": "Homer Saddle to Getrude Saddle Traverse, also know as the McPherson - Talbot Traverse is an extreme hike, only suited for experienced back-country hikers with navigational and technical skills. This is not to be taken lightly. \r\nThe route starts at the Homer Tunnel car park, (closed during Winter months due to avalanches). There is no set trail for the Homer Saddle scramble, so just head on up for approximately 45 minutes to an hour, until you reach the saddle. Here, you will be rewarded with views of both sides of the Homer Tunnel. Traverse right, along the ridge until you reach Talbot's Ladder. Here, minor rock climbing is required. A harness, rope and helmet are essentials for safety. Once over Talbot's Ladder, veer to the right, staying on the ridge, heading towards Mt McPherson. Traverse across the snowfields, with an optional stop at Mount Talbot. Boots, crampons and ice axe highly recommended. Descend down the glacier towards Gertrude Saddle, finishing the hike at the Gertrude Saddle car park.",
+    "route_distance": "8.2 km",
+    "time_needed": "3 h 29 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMjIxNzg5MDgvMzg0OWZkZThiZTYzZDc1NjkzMmI4NjhjYWY1ZWI4NWMuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#87": {
+    "id": 87,
+    "name": "The Pinnacles Track",
+    "location": "Coromandel Forest Park",
+    "description": "This is one of the most popular overnight walks with epic sunset and sunrises but can be also done as a day walk. It leads to the Pinnacles summit via the Pinnacles Hut ( the largest Doc hut in the country) and offers a stunning 360-degree view of the Coromandel Peninsula. There is a nice view of the Billygoat Falls (180m high) from the Billygoat Landing. Lots of stairs to get to the top and then climbing up metal ladders - take care when doing this rocky and slippery part. Access from Kauaeranga Road end (unsealed road). \r\n\r\nThe Pinnacles Hut must be booked online in advance. https://www.doc.govt.nz/parks-and-recreation/places-to-go/coromandel/places/coromandel-forest-park/things-to-do/pinnacles-hut/\r\nCampsite at the trailhead.",
+    "route_distance": "14.2 km",
+    "time_needed": "5 h 15 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMjAwMTQ5NzYvY2UzYTgxZjk4ZWMwZWQyMmI3OGJkZjExNTc5ODkyYTguanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#88": {
+    "id": 88,
+    "name": "Lake Alta Track",
+    "location": "Remarkables Conservation Area",
+    "description": "Hike to picturesque glacial Lake Alta. The track begins behind Remarkables skifield buildings and follows a ski road to the top of the Alta charlift. Cairns will lead you from there, through the alpine wetlands, to the lake.",
+    "route_distance": "3.4 km",
+    "time_needed": "1 h 18 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMTk5NzUzMTgvZjc3ZTk3MjQ0NTQ0ZTU4YTg4NWI1ODdhMjQ2NmQ0YzAuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#89": {
+    "id": 89,
+    "name": "Ben Lomond Track via Skyline Gondola",
+    "location": "Queenstown, Otago, New Zealand",
+    "description": "The Skyline Gondola base station is situated at the top of Brecon Street. You can take a ride up (cost $44 NZD per Adult), where you will find a nice restaurant, bathroom, and water fountain. From there, follow the signs to the Ben Lomond Trail Summit. The trail is well-marked, and mainly in the open space, so you can see where the trail is going up ahead. The slope is going up gently to the Ben Lomond Saddle, and the last part to the summit is the most challenging part. The last hour to the summit is rocky and above the tree line with no shade. Be sure to take enough water and sunscreen. It's quite windy and chilly, even in the summer so go prepared. The last mile gets very steep but it's worth it! Views from the top are some of the best in Queenstown. You might even get lucky and be visited by a Kea at the top. Please don't feed the Kea birds. The only downside is how busy it gets with hikers. It's recommended to go early in the morning. \r\n\r\nhttps://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/queenstown-area/things-to-do/ben-lomond-track/",
+    "route_distance": "10.6 km",
+    "time_needed": "4 h 54 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMjAxNjU4MTkvYTFjOTk3N2I5YWRkNzdhOGQ4YzRhOGRjMmE5N2RmYTcuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#90": {
+    "id": 90,
+    "name": "Sam Summers via Mount Crichton Loop Track",
+    "location": "Queenstown, Otago, New Zealand",
+    "description": "First, this trail is definitely on the harder end of moderate. It’s breathtakingly beautiful and so worth the effort. There’s a lot of steep uphills, but it pays off with a beautiful view of the lakes. Spectacular scenery on the way up, and good amount of shade. The cabin is also awesome to see near the top. Walk behind the cabin and you’ll see the bridge. This is definitely a worthwhile walk to do in the Queenstown area!\r\n\r\nhttps://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/queenstown-area/things-to-do/mt-crichton-loop-track/",
+    "route_distance": "7.6 km",
+    "time_needed": "2 h 36 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMjQ2Mzk5MzQvZGQ2MDg0MmU4YjVlOWFiZDg1MjgxZDUwYzUyNDBiNGIuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#91": {
+    "id": 91,
+    "name": "Cape Brett Track",
+    "location": "Hikurangi, Northland, New Zealand",
+    "description": "This is a popular overnight hike to the head of the Cape Brett Peninsula with steep cliffs and stunning coastal views.  It's a long hike with a mix of steep inclines and declines and plateau areas. (the last 4km past the lookout are the steepest but most beautiful).\r\nThere is a basic hut past the halfway point for a lunch or snack break, viewpoints of the bay give a nice little break between the walks. On sunny days, most of the hike is covered by the canopy of trees so it is well shaded until the last few km as it begins to wrap around the last few bends and over a ridge. You can take a side-track (1 hr return) down to Deep Water Cove, where you can swim and relax on the beach. \r\n\r\nThe hut is situated with views of the lighthouse above and looks out to the rugged rocks and ocean below. Bring a towel and swimmers on sunny days there’s a wonderful safe swimming spot just below the hut, easy, paved concrete access into the secluded little cove.\r\n\r\nAll trampers are required to pay a track maintenance fee ($40) and a fee ($15 per night) to use the Cape Brett Hut. \r\nhttps://www.doc.govt.nz/parks-and-recreation/places-to-go/northland/places/cape-brett-and-whangamumu-area/things-to-do/cape-brett-hut/\r\n\r\nThe hike can be made shorter by catching a boat to Deep Water Cove which is 2.5 hours from the end of the Cape. Water taxis are available if needed.",
+    "route_distance": "30.3 km",
+    "time_needed": "11 h 38 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/24709286/large_03e68e8bed905d8e3a3316f5ef657b6a.jpg"
+  },
+  "#92": {
+    "id": 92,
+    "name": "Bealey Spur Track",
+    "location": "Craigieburn Forest Park",
+    "description": "This alpine track is situated near the Arthur’s Pass village and is very popular since it doesn’t go above the bush line and it’s not as steep as most of the other trails in the area. It starts from the car park off SH73 and ends at the Bealey Spur Hut. This track is pretty much gradual uphill the whole way up and suitable for fit hikers who are well equipped. There are lots of tree roots projecting across the track with rocky places which add to the atmosphere of the track. You will be rewarded with fabulous views of the Waimakariri River valley and surrounding mountains.",
+    "route_distance": "13.4 km",
+    "time_needed": "4 h 46 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMjUyOTg0NDgvZmU5MjRmZDE5ZmI1MGM0YWQwN2NhZDBmYjBiOGJhZjYuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#93": {
+    "id": 93,
+    "name": "Rapaki Track",
+    "location": "Mount Vernon Farm Park",
+    "description": "This is a great ‘workout’ style walk on the Port Hills with great views over Lyttelton Harbour at the top. The track is popular with walkers, runners, and mountain bikers. You can return the same way or do a loop walk by returning via Huntsbury Track. Parking is available on the street or at Hansen Park or Fifield.",
+    "route_distance": "6.9 km",
+    "time_needed": "2 h 20 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/42759386/large_d1db38f1f3c539660aa8424210fa0fb2.jpg"
+  },
+  "#94": {
+    "id": 94,
+    "name": "Karangahake Windows Walk",
+    "location": "Kaimai Mamaku Conservation Park",
+    "description": "A short and easy walk along the Karangahake gorge through the remains of the gold mine. Beautiful river with suspension bridges, and a lot of caves with glow worms. Tranquil scenery and fun tunnels to walk through. Remember to bring a light for the tunnels, kids will love it!",
+    "route_distance": "2.3 km",
+    "time_needed": "48 m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/24691702/large_d9d3913980fd027055a9e467dfe3b38c.jpg"
+  },
+  "#95": {
+    "id": 95,
+    "name": "Godley Head Walkway and Taylors Mistake loop",
+    "location": "Godley Head Farm Park Reserve",
+    "description": "This is a beautiful coastal loop along the edge of Pegasus Bay with dramatic views. On a clear day, you can get a view of the Kaikoura mountains. It’s a relatively easy walk with not many steep sections.  \r\nTaking plenty of water on a hot day is recommended - there is not a lot of shade along the way.",
+    "route_distance": "9.3 km",
+    "time_needed": "3 h 4 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvNDI5NTE2MTQvNmVkMjU0N2Q3ZjU0OWY5ZDhhYWJkZDM0OWQ0NjUwZTUuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#96": {
+    "id": 96,
+    "name": "Slip, Pipeline, and Beveridge Track Loop",
+    "location": "Waitakere Ranges Regional Park",
+    "description": "This walk begins at the Arataki Visitor Centre. Take the Slip Track winds downhill until it reaches Pipeline Track. Return on the Beverage Track. You'll pass a beautiful kauri tree and several water pipelines.",
+    "route_distance": "6.1 km",
+    "time_needed": "2 h",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvNDE2NzU3NTcvYTY2NTMzMjFkYjcyMDcwN2ZmMjgxMGNlZTAyMTcxZGUuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#97": {
+    "id": 97,
+    "name": "Mangemangeroa Reserve Track",
+    "location": "Howick, Auckland, New Zealand",
+    "description": "no description",
+    "route_distance": "13.7 km",
+    "time_needed": "4 h 11 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMzkzODQ4OTEvYTI1ZjE1OGY0NDFkOThkYTU2MWQyZTQ0NjY0YjYxZWMuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#98": {
+    "id": 98,
+    "name": "Abel Tasman Great Walk: Takapou to Marahau",
+    "location": "Abel Tasman National Park",
+    "description": "The easiest and most popular of the Great Walks, this hike still provides a challenge that is well worth it. There are no peaks on this hike but there is still a lot of elevation gain, and with a pack, this hike will still be challenging. The months of February and April are slightly quieter than the busiest periods, yet still offer an ideal temperature to be on the coast. The hike is well travelled and has signage but can be muddy at times. You will need to consult a tide chart as Onetahuti beach and Awaroa estuary are only passable at low tide. Allow 5 days to hike this trail. This trail can be traversed in either direction.\r\n\r\nGreat Walks huts have bunk beds (being a sleeping bag), heaters, and bathroom facilities (no hot water). You will need to provide your own bedding, and all cooking supplies and stoves. You should also bring a headland to be safe. There are no showers. \r\nNew Zealand rate\r\n$38 (1 October – 30 April) per adult per night; 17 years and under free (booking required). \r\n$32 (1 May – 30 September) per adult per night; 17 years and under free (booking required).\r\nInternational rate\r\n $75 (1 October – 30 April) per person per night for all ages (booking required).\r\n $32 (1 May – 30 September) per adult per night; 17 years and under free (booking required).\r\n\r\nGreat Walks campsites have toilets, water, and picnic areas.\r\nNew Zealand rate\r\n$15 per adult per night; 17 years and under free (booking required).\r\nInternational rate\r\n$30 (1 October – 30 April) per person per night for all ages\r\n(booking required).\r\n $15 (1 May – 30 September) per adult per night, 17 years and under free (booking required).",
+    "route_distance": "66.5 km",
+    "time_needed": "Multi-day",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMjAxODc2MTMvMjE2NWM5N2RhMWEzZTBkMGZhYTRhMTIyZDk2MTg1ODIuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#99": {
+    "id": 99,
+    "name": "Paekakariki Escarpment Track",
+    "location": "Paekakariki, Wellington, New Zealand",
+    "description": "Hike from Pukerua Bay to Paekakariki many many stairs two swing bridges lots of narrow cliff top trails. Not for the faint hearted. Pub at the end at paekakariki is a welcome finish point.",
+    "route_distance": "9.8 km",
+    "time_needed": "3 h 16 m",
+    "photo": "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMjAwMjQyNzAvN2VjYzBmMGMwZWI5OTE1YWNmZDE4NWRjZTQ0ZTkxMzYuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjo1MDAsImhlaWdodCI6NTAwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0="
+  },
+  "#100": {
+    "id": 100,
+    "name": "Blue Spring via Te Waihou Walkway from Leslie Road Trailhead",
+    "location": "Putaruru, Waikato, New Zealand",
+    "description": "The Blue Spring - Te Waihou Walkway is an easy and mostly flat walk. The Waihou River runs along the path pretty much the whole way. There is a stunning little area around the water wheel. Beautiful blue/green water in the area is the clearest and purest in all of New Zealand. It takes you less than ten minutes from the carpark to The Blue Spring, but you can continue walking to enjoy the beautiful scenery along the track and return the same way.",
+    "route_distance": "4.7 km",
+    "time_needed": "1 h 26m",
+    "photo": "https://cdn-assets.alltrails.com/uploads/photo/image/22178176/large_3b56a81ba564f6aa325d65fbe75956d9.jpg"
+  }
+}
