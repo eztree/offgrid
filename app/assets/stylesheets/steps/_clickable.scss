@@ -24,13 +24,14 @@
 }
 
 .clickable.active {
-  color: #096432;
+  color: #586249;
   background-color: #f7f7f7;
-  border: 2px solid #096432;
+  border: 2px solid #586249;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; 
 }
 
 .clickable.active i {
-  color: #096432;
+  color: #586249;
 }
 
 .iconbox {
@@ -59,7 +60,7 @@
 }
 
 .contact-name {
-  font-size: 15px;
+  font-size: 20px;
   font-weight: bold;
 }
 
