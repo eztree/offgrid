@@ -10,6 +10,12 @@
   font-size: 1.5rem;
 }
 
+#button-nav {
+  position: absolute;
+  bottom: 30px;
+  right: 10px;
+}
+
 .side-text {
   margin: 3rem;
   font-size: 2.5rem;
@@ -25,7 +31,7 @@
   font-size: 1rem;
   font-style: italic;
   position: absolute;
-  bottom: 9px;
+  bottom: 15px;
 }
 
 .link-style {

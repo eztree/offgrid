@@ -1,16 +1,18 @@
 <div class="position-absolute banner-text">
-    <div class="head text-white text-center mb-3">Go out exploring, get home safe</div>
-      <div class="content text-white text-center mb-4">Tell us where you want to hike next and we will take care of the details</div>
-      <div class="d-flex justify-content-center my-3">
+    <div class="head text-white text-center mb-3 font-weight-bold">Go out exploring, get home safe</div>
+      <div class="content text-white text-center mb-4">Tell us where you want to hike next and we'll take care of the details</div>
+      <div class="d-flex justify-content-center form-group my-3">
         <%= form_tag trails_path, method: :get do %>
-          <div class="form-inline d-flex justify-content-between">
+          <div class="d-flex justify-content-between">
             <%= text_field_tag :location,
               params[:location],
               class: "form-control",
-              placeholder: "Location",
-              size: "69"
+              placeholder: "Explore a place",
+              size: "52"
             %>
-            <%= submit_tag "Submit", class: "btn btn-success text-white" %>
+            <%= button_tag(type: "submit", class: "btn btn-success text-white") do %>
+                <i class="fa fa-search"></i>
+            <% end %>
           </div>
         <% end %>
       </div>

@@ -23,9 +23,9 @@ class MessagesController < ApplicationController
   def process_sms(params)
     message_words = params["Body"].split
     case message_words.first.downcase
-    when "start"
+    when "TRIPSTART"
       start_trip(params)
-    when "return"
+    when "RETURN"
       return_trip(params)
     else
       return "Command Not Recognized"
@@ -34,7 +34,7 @@ class MessagesController < ApplicationController
 
   def start_trip(params)
     sender = User.find_by(phone_no: params["From"])
-    trip = Trip.find_by(start_date: Date.today, user: sender, status: "upcoming")
+    trip = Trip.find_by(user: sender, status: "upcoming")
     unless trip.nil?
       trip.status = "ongoing"
       if trip.save!
@@ -50,7 +50,7 @@ class MessagesController < ApplicationController
 
   def return_trip(params)
     sender = User.find_by(phone_no: params["From"])
-    trip = Trip.find_by(start_date: Date.today, user: sender, status: "ongoing")
+    trip = Trip.find_by(user: sender, status: "ongoing")
     unless trip.nil?
     trip.status = "return"
       if trip.save

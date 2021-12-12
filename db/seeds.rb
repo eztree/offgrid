@@ -25,14 +25,19 @@ def seeding_checkpoints
   checkpoints_json = JSON.parse(serialized_checkpoint)
 
   Trail.all.each_with_index do |trail, index|
-    key = "##{index + 1}"
-    previous_checkpoint = nil
-    checkpoint = Checkpoint.new(checkpoints_json[key])
-    checkpoint[:elevation] = 0
-    checkpoint.previous_checkpoint = previous_checkpoint unless previous_checkpoint.nil?
-
-    checkpoint.trail = trail
-    checkpoint.save
+    if index > 1
+      key = "##{index - 1}"
+      previous_checkpoint = nil
+      checkpoint = Checkpoint.new(
+        name: checkpoints_json[key]["name"],
+        longitude: checkpoints_json[key]["longitude"],
+        latitude: checkpoints_json[key]["latitude"],
+        elevation: 0
+      )
+      checkpoint.previous_checkpoint = previous_checkpoint unless previous_checkpoint.nil?
+      checkpoint.trail = trail
+      checkpoint.save
+    end
   end
 end
 
@@ -187,6 +192,14 @@ def seeding_manual_routes
     )
   puts "Temp user created! ✅"
 end
+
+def seeding_trail_difficulty
+  difficulty = %w[easy medium hard]
+  Trail.all.each do |trail|
+    trail.tag_list.add(difficulty.sample)
+    trail.save
+  end
+end
 # =============== End of methods section ===============
 
 # Start of seeding
@@ -221,7 +234,7 @@ trip = Trip.create!(
   emergency_contact: EmergencyContact.first,
   release_date_time: DateTime.new(Date.today.year, Date.today.month, Date.today.day + 2, 9)
 )
-file = URI.open('https://source.unsplash.com/1920x1080/?avatar')
+file = URI.open('https://source.unsplash.com/400x400/?person')
 puts "Attaching photo to trip"
 trip.photo.attach(io: file, filename: "#{trip.trail.name}_photo.jpg", content_type: "image/jpg")
 
@@ -247,6 +260,8 @@ end
 puts "adding checkpoints to trails"
 seeding_checkpoints
 puts "Trails created!"
+seeding_trail_difficulty
+puts "Tagging trail difficulty"
 
 # method for Item seeding
 
