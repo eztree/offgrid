@@ -229,7 +229,7 @@ trip = Trip.create!(
   emergency_contact: EmergencyContact.first,
   release_date_time: DateTime.new(Date.today.year, Date.today.month, Date.today.day + 2, 9)
 )
-file = URI.open('https://source.unsplash.com/1920x1080/?avatar')
+file = URI.open('https://source.unsplash.com/400x400/?person')
 puts "Attaching photo to trip"
 trip.photo.attach(io: file, filename: "#{trip.trail.name}_photo.jpg", content_type: "image/jpg")
 
