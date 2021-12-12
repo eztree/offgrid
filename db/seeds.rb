@@ -27,7 +27,7 @@ def seeding_checkpoints
   Trail.all.each_with_index do |trail, index|
     key = "##{index + 1}"
     previous_checkpoint = nil
-    checkpoint = Checkpoint.new(checkpoints_json[key])
+    checkpoint = Checkpoint.new(checkpoints_json[key.to_sym])
     checkpoint[:elevation] = 0
     checkpoint.previous_checkpoint = previous_checkpoint unless previous_checkpoint.nil?
 
@@ -187,6 +187,14 @@ def seeding_manual_routes
     )
   puts "Temp user created! ✅"
 end
+
+def seeding_trail_difficulty
+  difficulty = %w[easy medium hard]
+  Trail.all.each do |trail|
+    trail.tag_list.add(difficulty.sample)
+    trail.save
+  end
+end
 # =============== End of methods section ===============
 
 # Start of seeding
@@ -247,6 +255,8 @@ end
 puts "adding checkpoints to trails"
 seeding_checkpoints
 puts "Trails created!"
+seeding_trail_difficulty
+puts "Tagging trail difficulty"
 
 # method for Item seeding
 
