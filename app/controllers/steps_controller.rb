@@ -131,7 +131,7 @@ class StepsController < ApplicationController
   end
 
   def user_email_check(user_params)
-    true if User.where(email: user_params[:email])
+    User.where(email: user_params[:email]).present?
   end
 
   def find_user
