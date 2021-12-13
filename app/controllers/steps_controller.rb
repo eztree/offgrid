@@ -53,6 +53,11 @@ class StepsController < ApplicationController
         redirect_to wizard_path
         return
       end
+      if user_email_check(params[:user])
+        flash[:notice] = "Email has been taken"
+        redirect_to wizard_path
+        return
+      end
       @user = User.create(user_params)
       sign_in @user
       redirect_to next_wizard_path
@@ -123,6 +128,10 @@ class StepsController < ApplicationController
       return false if value.empty?
     end
     return true
+  end
+
+  def user_email_check(user_params)
+    true if User.where(email: user_params[:email])
   end
 
   def find_user
