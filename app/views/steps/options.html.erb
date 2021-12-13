@@ -26,7 +26,11 @@
         <% end %>
 
         <div class="progress-container">
-          <div class="progress" id="progress"></div>
+          <% if current_user.nil? %>
+            <div class="progress" id="progress" style="width: 33.3333%;"></div>
+          <% else %>
+            <div class="progress" id="progress" style="width: 50%;"></div>
+          <% end %>
           <div class="circle active"></div>
           <div class="circle active"></div>
           <div class="circle"></div>
