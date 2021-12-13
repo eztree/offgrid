@@ -49,12 +49,15 @@
   color: white;
 }
 
+#desktop-weather {
+  height: auto;
+}
+
 .status-wrapper {
-  font-family: Arial;
-  margin-top: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 30px;
 	max-width: 100%;
 	width: 350px;
 }

@@ -40,18 +40,18 @@
         </div>
       </div>
       <div>
-        <div class="h5 mt-1"><%= @current_trip.start_date.strftime("%e %b, %Y") %> - <%= @current_trip.end_date.strftime("%e %b, %Y") %></div>
-        <div>Time needed: <%= @current_trip.trail.time_needed %></div>
+        <div class="h5 mt-1"><%= @current_trip.start_date.strftime("%e %b, %Y") %> - <%= @current_trip.end_date.strftime("%e %b, %Y") %> |
+        Time needed: <%= @current_trip.trail.time_needed %></div>
       </div>
     </div>
     <div style="min-height: 360px; width:39%;">
-      <div class="p-3" style="margin-bottom:10px; min-height: 175px; width:100%; background:white;">
+      <div class="p-3" id="desktop-weather" style="margin-bottom:10px; min-height: 175px; width:100%; background:white;">
         <h3>Weather</h3>
         <div class="d-flex flex-row justify-content-around">
           <%= render "weather_card", trip: @current_trip, trip_dates: @trip_dates %>
         </div>
       </div>
-      <div class="p-3" style="height: 45vh; width:100%; background:white;">
+      <div class="p-3" style="width:100%; background:white;">
         <h3>Status</h3>
         <%= render "status_bar", trip: @current_trip %>
       </div>
