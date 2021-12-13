@@ -8,7 +8,7 @@ class TrailsController < ApplicationController
         order: :distance,
         latitude: "checkpoints.latitude",
         longitude: "checkpoints.longitude")
-        .uniq { |trail| trail.id }
+        .uniq { |trail| trail.id }.sort_by(&:id)
     else
       @trails = Trail.includes(:checkpoints)
     end
