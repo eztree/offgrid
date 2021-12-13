@@ -3,6 +3,7 @@ class Trip < ApplicationRecord
   belongs_to :trail
   belongs_to :emergency_contact
   has_many :checklists, dependent: :destroy
+  has_many :items, through: :checklists
   has_many :checkpoints, through: :trail
   has_one_attached :photo
 

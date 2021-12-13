@@ -5,11 +5,21 @@
     name="<%= item.checklist_id %>"
     value="<%= item.checklist_id %>"
     <%= item.checklist_status && "checked" %>
+    style="background:black;"
   >
-  <label for="<%=item.checklist_id%>"> <%=item.name%></label>
+  <label for="<%=item.checklist_id%>">
+    <%=item.name%>
+  </label>
   <% item.tag_list[1..].each do |tag| %>
     <% if tag != "required" && tag != "food" %>
-    <span class="badge badge-pill <% if tag === "optional"%> badge-secondary <% else %> badge-primary <% end %>"><%= tag %></span>
+    <span class="badge badge-pill
+      <% if tag === "optional" || item.checklist_status %>
+        badge-secondary
+      <% else %>
+        badge-primary
+      <% end %>">
+      <%= tag %>
+    </span>
     <% end %>
   <% end %>
 </div>

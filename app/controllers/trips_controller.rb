@@ -1,6 +1,7 @@
 class TripsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :new, :create ]
 
+  CATEGORY_ITEMS = %w[backpack_gear kitchen_tools food water clothes_footwear navigation first_aid hygiene]
   def index
     @trips = policy_scope(Trip)
     authorize @trips
@@ -27,24 +28,23 @@ class TripsController < ApplicationController
     else
       @trip_days = (@trip.end_date - @trip.start_date).to_i + 1
       @trip_dates = @trip.checkpoints.map { |point| point.trip_date(@trip) }
-      @category_items = %w[backpack_gear kitchen_tools food water clothes_footwear navigation first_aid hygiene]
+      @category_items = CATEGORY_ITEMS
 
       @markers = []
       @elevation_arr = []
-      @checklists = @trip.checklists
 
       checkpoints_data = @trip.trail.checkpoints_coordinates
 
-      @coordinateString = ""
+      @coordinate_string = ""
       checkpoints_data.each do |checkpoint|
         @markers << {
           lat: checkpoint[:lat],
           lng: checkpoint[:lng],
           info_window: render_to_string(partial: "trails/checkpoint_info_window", locals: { checkpoint: checkpoint })
         }
-        @coordinateString += "#{checkpoint[:lng]},#{checkpoint[:lat]};"
+        @coordinate_string += "#{checkpoint[:lng]},#{checkpoint[:lat]};"
       end
-      @coordinateString = @coordinateString.chop
+      @coordinate_string = @coordinate_string.chop
 
       checkpoints = @trip.trail.checkpoints
       checkpoints.each_with_index do |checkpoint, index|
@@ -63,6 +63,8 @@ class TripsController < ApplicationController
       @breakfast_arr = populate_meal_arr(@trip.items.tagged_with("breakfast"))
       @meal_arr = populate_meal_arr(@trip.items.tagged_with("lunch_dinner"))
     end
+
+    @check_category_hash = check_item_category(@trip)
     authorize @trip
   end
 
@@ -78,6 +80,18 @@ class TripsController < ApplicationController
   end
 
   private
+
+  def check_item_category(trip)
+    check_category_hash = {}
+    CATEGORY_ITEMS.each do |category_item|
+      check = true
+      Item.by_tag_name(category_item, trip).each do |item_asc|
+        check = false unless item_asc.checklist_status
+      end
+      check_category_hash[category_item.to_sym] = check
+    end
+    check_category_hash
+  end
 
   def populate_meal_arr(array)
     arr = []
