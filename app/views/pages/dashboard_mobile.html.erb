@@ -30,19 +30,29 @@
     </div>
 
     <div class="d-flex flex-column p-3" style="background:#e1e4d5;">
-      <div class="rounded-lg mt-2 px-3 py-2 dashboard-box">
-        <h2 class="mobile-sub-header"><%= link_to @current_trip.trail.name, user_trip_path(current_user, @current_trip), class:"text-black", style:"text-decoration:none;" %></h2>
-
-          <div id="map"
-            class="map-with-route"
-            style="width: 100%; height: 15vh;"
-            data-markers="<%= @markers.to_json %>"
-            data-coordinate-string="<%= @coordinateString %>"
-            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      <div class="card">
+        <% @current_trip.trail.photo_url.nil? ? image_url = "https://media.timeout.com/images/105666541/750/562/image.jpg" : image_url = @current_trip.trail.photo_url %>
+          <div class="rounded card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('<%= image_url %>'); height: 20vh; background-position: center; background-size: cover; background-repeat: no-repeat;">
           </div>
-          <div class="mobile-text"><%= @current_trip.start_date.strftime("%e %b, %Y") %> - <%= @current_trip.end_date.strftime("%e %b, %Y") %></div>
-          <div class="mobile-text">Time needed: <%= @current_trip.trail.time_needed %></div>
-          <div class="mobile-text">The status stuff is here</div>
+          <div class="d-flex flex-column justify-content-end card-img-overlay">
+            <h3 class="card-title"><%= link_to @current_trip.trail.name, user_trip_path(current_user, @current_trip), class:"text-white font-weight-bold", style:"text-decoration:none;" %></h3>
+            <p class="card-title text-white" style="font-variant: small-caps;"><%= @current_trip.trail.location %></p>
+            <div class="ratings">
+              <i class="fa fa-star rating-color"></i>
+              <i class="fa fa-star rating-color"></i>
+              <i class="fa fa-star rating-color"></i>
+              <i class="fa fa-star rating-color"></i>
+              <i class="fa fa-star"></i>
+            </div>
+          </div>
+        </div>
+      <div class="dashboard-box p-2" style="height: 25vh;">
+        <div class="mobile-text"><%= @current_trip.start_date.strftime("%e %b, %Y") %> - <%= @current_trip.end_date.strftime("%e %b, %Y") %></div>
+        <div class="mobile-text">Length: <%= @current_trip.trail.route_distance %> • Est: <%= @current_trip.trail.time_needed %></div>
+        <hr>
+        <div class="mobile-text">
+          STATUS STUFF GOES HERE
+        </div>
       </div>
       <div class="dashboard-box mt-2" style="height: 15vh;">
         <div class="p-3" style="height: 15vh;">
