@@ -1,2 +1,59 @@
-<h1>Hi it works</h1>
-<div class="container">IT REALLY WORKS!!</div>
+<section id="banner" class="d-flex justify-content-center align-items-center" style="height:23vh; background-image: url('<%=asset_url('japan_alps_bg.jpg')%>'); background-repeat: no-repeat; background-size:cover; background-position: center; box-shadow: inset 0 0 0 1000px rgba(0,0,0,.35);">
+
+<%# Search bar is here %>
+  <div class="d-flex flex-column mt-5">
+  <h1 class="banner-text">Welcome back, <%= @current_user.first_name? ? @current_user.first_name : "pal!" %></h1>
+    <div class="d-flex justify-content-center form-group">
+      <%= form_tag trails_path, method: :get do %>
+        <div class="d-flex justify-content-between">
+          <%= text_field_tag :location,
+            params[:location],
+            class: "form-control",
+            placeholder: "Go somewhere",
+            size: "20"
+          %>
+          <%= button_tag(type: "submit", class: "btn btn-success text-white") do %>
+              <i class="fa fa-search"></i>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<section id="mobile-upcoming">
+  <% if @current_trip.nil? %>
+    <div class="container">Create a new trip!</div>
+  <% else %>
+    <div class="container">
+      <h2 class="mobile-header">Upcoming</h2>
+    </div>
+
+    <div class="d-flex flex-column p-3" style="background:#e1e4d5;">
+      <div class="rounded-lg mt-2 px-3 py-2 dashboard-box">
+        <h2 class="mobile-sub-header"><%= link_to @current_trip.trail.name, user_trip_path(current_user, @current_trip), class:"text-black", style:"text-decoration:none;" %></h2>
+
+          <div id="map"
+            class="map-with-route"
+            style="width: 100%; height: 15vh;"
+            data-markers="<%= @markers.to_json %>"
+            data-coordinate-string="<%= @coordinateString %>"
+            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+          <div class="mobile-text"><%= @current_trip.start_date.strftime("%e %b, %Y") %> - <%= @current_trip.end_date.strftime("%e %b, %Y") %></div>
+          <div class="mobile-text">Time needed: <%= @current_trip.trail.time_needed %></div>
+          <div class="mobile-text">The status stuff is here</div>
+      </div>
+      <div class="dashboard-box mt-2" style="height: 15vh;">
+        <div class="p-3" style="height: 15vh;">
+          <h2 class="mobile-sub-header">Weather</h2>
+          <div class="container px-0">
+            <%= render "weather_card", trip: @current_trip, trip_dates: @trip_dates %>
+          </div>
+        </div>
+      </div> 
+
+      
+    </div>
+  <% end %>
+</section>

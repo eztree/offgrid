@@ -1,0 +1,61 @@
+.banner-text {
+  font-weight: bold;
+  font-size: 1.7rem;
+  color: white;
+  text-align: center;
+  transform: none;
+}
+
+.mobile-header {
+  font-weight: bold;
+  font-size: 1.4rem;
+  color: black;
+  transform: none;
+  width: 90
+}
+
+.mobile-sub-header {
+  font-weight: bold;
+  font-size: 1rem;
+  color: black;
+  transform: none;
+}
+
+.mobile-text {
+  font-size: 0.8rem;
+}
+
+#mobile-upcoming {
+  background: floralwhite;
+  min-height: 75vh;
+  padding: 0.7rem;
+}
+
+.dashboard-box {
+  background-color: white;
+}
+
+#forecast .dashboard-card-body {
+  text-align: center;
+  flex: 1 1 auto;
+  min-height: 1px;
+}
+
+#forecast .w-card .mobile-title {
+  font-size: 0.4rem;
+  font-weight: bold;
+}
+
+#forecast .w-card .mobile-icon {
+  margin: 5px 0 5px;
+  width: 30px;
+}
+
+#forecast .w-card .mobile-wx {
+  font-size: 0.4rem;
+}
+
+#forecast .w-card .mobile-temps {
+  font-size: 0.4rem;
+  font-weight: bold;
+}
