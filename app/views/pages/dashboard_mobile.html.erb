@@ -32,26 +32,19 @@
     <div class="d-flex flex-column p-3" style="background:#e1e4d5;">
       <div class="card">
         <% @current_trip.trail.photo_url.nil? ? image_url = "https://media.timeout.com/images/105666541/750/562/image.jpg" : image_url = @current_trip.trail.photo_url %>
-          <div class="rounded card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('<%= image_url %>'); height: 20vh; background-position: center; background-size: cover; background-repeat: no-repeat;">
+          <div style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('<%= image_url %>'); height: 20vh; background-position: center; background-size: cover; background-repeat: no-repeat;">
           </div>
-          <div class="d-flex flex-column justify-content-end card-img-overlay">
-            <h3 class="card-title"><%= link_to @current_trip.trail.name, user_trip_path(current_user, @current_trip), class:"text-white font-weight-bold", style:"text-decoration:none;" %></h3>
-            <p class="card-title text-white" style="font-variant: small-caps;"><%= @current_trip.trail.location %></p>
-            <div class="ratings">
-              <i class="fa fa-star rating-color"></i>
-              <i class="fa fa-star rating-color"></i>
-              <i class="fa fa-star rating-color"></i>
-              <i class="fa fa-star rating-color"></i>
-              <i class="fa fa-star"></i>
-            </div>
+          <div class="d-flex flex-column justify-content-end mobile-img-overlay">
+            <div style="font-size: 1.5rem;"><%= link_to @current_trip.trail.name, user_trip_path(current_user, @current_trip), class:"text-white font-weight-bold", style:"text-decoration:none;" %></div>
+            <div class="text-white" style="font-variant: small-caps;"><%= @current_trip.trail.location %></div>
+            <div class="text-white" style="font-size: 0.7rem;">Length: <%= @current_trip.trail.route_distance %> • Est: <%= @current_trip.trail.time_needed %></div>
           </div>
         </div>
-      <div class="dashboard-box p-2" style="height: 25vh;">
-        <div class="mobile-text"><%= @current_trip.start_date.strftime("%e %b, %Y") %> - <%= @current_trip.end_date.strftime("%e %b, %Y") %></div>
-        <div class="mobile-text">Length: <%= @current_trip.trail.route_distance %> • Est: <%= @current_trip.trail.time_needed %></div>
+      <div class="dashboard-box px-3 py-2" style="height: 25vh;">
+          <div class="mobile-sub-header"><%= @current_trip.start_date.strftime("%e %b, %Y") %> - <%= @current_trip.end_date.strftime("%e %b, %Y") %></div>
         <hr>
         <div class="mobile-text">
-          STATUS STUFF GOES HERE
+          <%= render "status_bar", trip: @current_trip %>
         </div>
       </div>
       <div class="dashboard-box mt-2" style="height: 15vh;">

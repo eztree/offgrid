@@ -1,36 +1,78 @@
 <div class="container d-flex justify-content-center">
-   <div class="status-wrapper">
-      <%# check if checklist is all checked ->  if @current_trip.checklists.all? {|checklist| checklist.checked }  %>
-      <div class="status-item completed">
-        <div class="step-counter">1</div>
-        <div class="step-name text-center">Complete your checklist</div>
+  <%# All steps are complete %>
+  <% if @current_trip.checklists.all? { |checklist| checklist.checked && @current_trip.last_seen_photo.present? } %>
+    <div class="status-wrapper">
+      <div class="status-item mx-1">
+        <div class="step-counter completed">
+          <i class="fas fa-check" style="color:darkcyan;"></i>
+        </div>
+        <div class="step-name text-center">Checklist</div>
       </div>
-      <%# check if photo does not exist -> @current_trip.last_seen_photo.empty? %>
+      <div class="status-item mx-1">
+        <div class="step-counter completed">
+          <i class="fas fa-check" style="color:darkcyan;"></i>
+        </div>
+        <div class="step-name text-center">'Last seen' photo</div>
+      </div>
       <div class="status-item active">
-        <div class="step-counter">2</div>
-        <div class="step-name text-center">Take your 'last seen' photo</div>
-      </div>
-      <%# check if 1st & 2nd step completed -> @current_trip.checklists.all? {|checklist| checklist.checked } &&  @current_trip.last_seen_photo.present? %>
-      <div class="status-item ">
-        <div class="step-counter">3</div>
-        <div class="step-name text-center">You're set!</div>
-        <%# <div class="step-name text-center">You not ready</div> %>
+        <div class="step-counter completed">
+          <i class="fas fa-check" style="color:darkcyan;"></i>
+        </div>
+        <div class="step-name text-center">All done!</div>
       </div>
     </div>
-</div>
-<div class="container d-flex justify-content-center">
-  <%# check if checklist not all checked %>
-  <div class="btn btn-info px-5 m-2 rounded-lg">
-    <%= link_to do %>
-      <i class="fas fa-tasks"></i> Checklist
+  </div>
+  <div class="container d-flex justify-content-center">
+    <%= link_to "#", class: "btn btn-success px-2" do %>
+      All ready!
     <% end %>
   </div>
+  <%# Only checklist is done %>
+  <% elsif @current_trip.checklists.all? { |checklist| checklist.checked } %>
+    <div class="status-wrapper">
+      <div class="status-item mx-1">
+        <div class="step-counter completed">
+          <i class="fas fa-check" style="color:darkcyan;"></i>
+        </div>
+        <div class="step-name text-center">Checklist</div>
+      </div>
+      <div class="status-item active mx-1">
+        <div class="step-counter">2</div>
+        <div class="step-name text-center">'Last seen' photo</div>
+      </div>
+      <div class="status-item">
+        <div class="step-counter">3</div>
+        <div class="step-name text-center">Almost done!</div>
+      </div>
+    </div>
+  </div>
+    <div class="container d-flex justify-content-center">
+      <%= link_to "#", class: "btn btn-success px-2" do %>
+        <i class="fas fa-camera"></i> Take photo
+      <% end %>
+    </div>
+  <%# No tasks are completed %>
+  <% else %>
+    <div class="status-wrapper">
+      <div class="status-item active mx-1">
+        <div class="step-counter active">
+          1
+        </div>
+        <div class="step-name text-center">Checklist</div>
+      </div>
+      <div class="status-item mx-1">
+        <div class="step-counter">2</div>
+        <div class="step-name text-center">'Last seen' photo</div>
+      </div>
+      <div class="status-item">
+        <div class="step-counter">3</div>
+        <div class="step-name text-center">Keep packing!</div>
+      </div>
+    </div>
+  </div>
+  <div class="container d-flex justify-content-center">
+    <%= link_to user_trip_path(current_user, @current_trip), class: "btn btn-success px-2" do %>
+      <i class="fas fa-tasks"></i>Checklist
+    <% end %>
+  <% end %>
 
-  <%# check if photo does not exist %>
-  <%# <div class="btn btn-info px-5 m-2 rounded-lg"> %>
-    <%#= link_to do %>
-      <%# <i class="fas fa-camera"></i> Take photo %>
-    <%# end %>
-  <%# </div> %>
-
-</div>
