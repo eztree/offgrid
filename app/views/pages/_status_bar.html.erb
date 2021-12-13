@@ -10,26 +10,27 @@
         <div class="step-counter">2</div>
         <div class="step-name text-center">Take your 'last seen' photo</div>
       </div>
-      <%# check if itinerary has been exported -> how to check? %>
+      <%# check if 1st & 2nd step completed -> @current_trip.checklists.all? {|checklist| checklist.checked } &&  @current_trip.last_seen_photo.present? %>
       <div class="status-item ">
         <div class="step-counter">3</div>
-        <div class="step-name text-center">Export your itinerary</div>
+        <div class="step-name text-center">You're set!</div>
+        <%# <div class="step-name text-center">You not ready</div> %>
       </div>
     </div>
 </div>
 <div class="container d-flex justify-content-center">
   <%# check if checklist not all checked %>
-  <div class="btn btn-info px-5">
-    <%= link_to do %><i class="fas fa-tasks"></i><% end %>
+  <div class="btn btn-info px-5 m-2 rounded-lg">
+    <%= link_to do %>
+      <i class="fas fa-tasks"></i> Checklist
+    <% end %>
   </div>
 
   <%# check if photo does not exist %>
-  <div class="btn btn-info px-5">
-    <%= link_to do %><i class="fas fa-camera"></i><% end %>
-  </div>
+  <%# <div class="btn btn-info px-5 m-2 rounded-lg"> %>
+    <%#= link_to do %>
+      <%# <i class="fas fa-camera"></i> Take photo %>
+    <%# end %>
+  <%# </div> %>
 
-  <%# check if itinerary has been exported -> how to check? %>
-  <div class="btn btn-info px-5">
-    <%= link_to do %><i class="far fa-file-alt"></i><% end %>
-  </div>
 </div>
