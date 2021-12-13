@@ -1,15 +1,19 @@
 <div class="col-lg-8 mx-auto p-3 py-md-5 bg-white">
-  <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
+  <header class="d-flex align-items-center border-bottom mb-2">
     <h1>Your trip to <%= @trip.trail.name %></h1>
     <p>Date : <%= @trip.start_date %> - <%= @trip.end_date %></p>
     <p>Distance : <%= @trip.trail.route_distance %> | Time : <%= @trip.trail.time_needed %></p>
   </header>
-  <main class="border p-2">
-    <%= image_tag "https://i.imgur.com/2SJ0bUz.png" %>
-    <%= image_tag "https://i.imgur.com/0hzaJDR.png" %>
-    <%= image_tag "https://i.imgur.com/24VDu8e.png" %>
+  <main class="pt-2">
+    <div class="container">
+      <%= image_tag "https://i.imgur.com/2SJ0bUz.png", class: "img" %>
+      <%= image_tag "https://i.imgur.com/0hzaJDR.png", class: "img" %>
+      <%= image_tag "https://i.imgur.com/24VDu8e.png", class: "img" %>
+    </div>
   </main>
-  <footer class="pt-5 my-5 text-muted border-top">
-    PDF generated at <%= Time.zone.now %> | Created by offgrid · © 2021
+  <footer class="mt-2 text-muted border-top">
+    <p class="pt-5">
+      PDF generated at <%= Time.zone.now %> | Created by offgrid · © 2021
+    </p>
   </footer>
 </div>
