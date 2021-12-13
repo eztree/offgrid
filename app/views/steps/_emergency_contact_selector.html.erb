@@ -11,8 +11,15 @@
     </label>
   <% end %>
 
-<div id="button-nav">
-  <%= link_to "Go back", previous_wizard_path, class: "btn btn-dark mr-2" %>
-  <%= form.submit "Submit", class: "btn btn-success ml-1" %>
-  <% end %>
-</div>
+  <div class="progress-container">
+    <div class="progress" id="progress"></div>
+    <div class="circle active"></div>
+    <div class="circle active"></div>
+    <div class="circle active"></div>
+  </div>
+
+
+  <div id="button-next">
+    <%= form.submit "Submit", class: "btn btn-success ml-1" %>
+    <% end %>
+  </div>
