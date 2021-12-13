@@ -1,13 +1,15 @@
 <!doctype html>
 <html>
   <head>
-    <meta charset='utf-8' />
-    <%= wicked_pdf_stylesheet_link_tag "application" %>
-    <%= wicked_pdf_javascript_include_tag "pdf" %>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <%= javascript_include_tag "http://code.jquery.com/jquery-1.10.0.min.js" %>
+    <%= javascript_include_tag "http://code.jquery.com/ui/1.10.3/jquery-ui.min.js" %>
+    <%= wicked_pdf_stylesheet_link_tag "pdf" %>
+    <%= wicked_pdf_javascript_pack_tag ("application") %>
   </head>
   <body>
-    <div id="header">
-      <%= wicked_pdf_image_tag 'offgrid_logo.svg' %>
+    <div id="image">
+    <%#= wicked_pdf_image_tag 'offgrid_logo.svg' %>
     </div>
     <div id="content">
       <%= yield %>

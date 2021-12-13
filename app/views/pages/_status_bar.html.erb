@@ -1,0 +1,78 @@
+<div class="container d-flex justify-content-center">
+  <%# All steps are complete %>
+  <% if @current_trip.checklists.all? { |checklist| checklist.checked && @current_trip.last_seen_photo.present? } %>
+    <div class="status-wrapper">
+      <div class="status-item mx-1">
+        <div class="step-counter completed">
+          <i class="fas fa-check" style="color:darkcyan;"></i>
+        </div>
+        <div class="step-name text-center">Checklist</div>
+      </div>
+      <div class="status-item mx-1">
+        <div class="step-counter completed">
+          <i class="fas fa-check" style="color:darkcyan;"></i>
+        </div>
+        <div class="step-name text-center">'Last seen' photo</div>
+      </div>
+      <div class="status-item active">
+        <div class="step-counter completed">
+          <i class="fas fa-check" style="color:darkcyan;"></i>
+        </div>
+        <div class="step-name text-center">All done!</div>
+      </div>
+    </div>
+  </div>
+  <div class="container d-flex justify-content-center">
+    <%= link_to "#", class: "btn btn-success px-2" do %>
+      All ready!
+    <% end %>
+  </div>
+  <%# Only checklist is done %>
+  <% elsif @current_trip.checklists.all? { |checklist| checklist.checked } %>
+    <div class="status-wrapper">
+      <div class="status-item mx-1">
+        <div class="step-counter completed">
+          <i class="fas fa-check" style="color:darkcyan;"></i>
+        </div>
+        <div class="step-name text-center">Checklist</div>
+      </div>
+      <div class="status-item active mx-1">
+        <div class="step-counter">2</div>
+        <div class="step-name text-center">'Last seen' photo</div>
+      </div>
+      <div class="status-item">
+        <div class="step-counter">3</div>
+        <div class="step-name text-center">Almost done!</div>
+      </div>
+    </div>
+  </div>
+    <div class="container d-flex justify-content-center">
+      <%= link_to "#", class: "btn btn-success px-2" do %>
+        <i class="fas fa-camera"></i> Take photo
+      <% end %>
+    </div>
+  <%# No tasks are completed %>
+  <% else %>
+    <div class="status-wrapper">
+      <div class="status-item active mx-1">
+        <div class="step-counter active">
+          1
+        </div>
+        <div class="step-name text-center">Checklist</div>
+      </div>
+      <div class="status-item mx-1">
+        <div class="step-counter">2</div>
+        <div class="step-name text-center">'Last seen' photo</div>
+      </div>
+      <div class="status-item">
+        <div class="step-counter">3</div>
+        <div class="step-name text-center">Keep packing!</div>
+      </div>
+    </div>
+  </div>
+  <div class="container d-flex justify-content-center">
+    <%= link_to user_trip_path(current_user, @current_trip), class: "btn btn-success px-2" do %>
+      <i class="fas fa-tasks"></i>Checklist
+    <% end %>
+  <% end %>
+

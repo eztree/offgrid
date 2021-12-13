@@ -23,6 +23,17 @@ class TripsController < ApplicationController
   def show
     # condition to check if export button was pressed
     @trip = Trip.find(params[:id])
+
+    @trip_days = (@trip.end_date - @trip.start_date).to_i + 1
+    @trip_dates = @trip.checkpoints.map { |point| point.trip_date(@trip) }
+    @category_items = %w[backpack_gear kitchen_tools food water clothes_footwear navigation first_aid hygiene]
+
+    @markers = []
+    @elevation_arr = []
+    @checklists = @trip.checklists
+    @breakfast_arr = populate_meal_arr(@trip.items.tagged_with("breakfast"))
+    @meal_arr = populate_meal_arr(@trip.items.tagged_with("lunch_dinner"))
+
     if params[:format].present?
       export_pdf(@trip)
     else
@@ -55,20 +66,15 @@ class TripsController < ApplicationController
         else
           @elevation_arr << ["checkpoint#{index}", checkpoint.elevation]
         end
-        max = @elevation_arr.max { |a, b| a[1] <=> b[1] }
-        @max_no = (max[1] + 50).to_s
-        min = @elevation_arr.min { |a, b| a[1] <=> b[1] }
-        @min_no = (min[1] - 10 ).to_s
-      end
-      @breakfast_arr = populate_meal_arr(@trip.items.tagged_with("breakfast"))
-      @meal_arr = populate_meal_arr(@trip.items.tagged_with("lunch_dinner"))
-    end
+      max = @elevation_arr.max { |a, b| a[1] <=> b[1] }
+      @max_no = (max[1] + 50).to_s
+      min = @elevation_arr.min { |a, b| a[1] <=> b[1] }
+      @min_no = (min[1] - 10 ).to_s
+   end
 
     @check_category_hash = check_item_category(@trip)
     authorize @trip
   end
-
-
 
   def update
     @trip = Trip.find(params[:id])
@@ -116,9 +122,11 @@ class TripsController < ApplicationController
         layout: 'layouts/pdf.html.erb'
       )
     )
-    send_data(pdf,
+    send_data(
+      pdf,
       filename: "#{trip.trail.name}_#{trip.start_date}.pdf",
       type: 'application/pdf',
-      disposition: 'inline')
+      disposition: 'inline'
+    )
   end
 end

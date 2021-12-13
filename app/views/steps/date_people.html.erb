@@ -16,10 +16,17 @@
           <%= form.number_field :no_of_people, in: 1..100, class: "col-sm-8" %>
         </div>
       </div>
-
-      <div id="button-nav">
-          <%= link_to "Go back", trails_path, class: "btn btn-dark mr-2" %>
-          <%= form.submit "Next", class: "btn btn-success ml-1" %>
+        <div class="progress-container">
+          <div class="progress" id="progress"></div>
+          <div class="circle active"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <% if current_user.nil? %>
+            <div class="circle"></div>
+          <% end %>
+        </div>
+      <div id="button-next">
+          <%= form.submit "Next", class: "btn btn-success" %>
       </div>
       <% end %>
     </div>

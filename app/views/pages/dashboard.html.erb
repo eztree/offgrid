@@ -3,23 +3,27 @@
 <%# Search bar is here %>
   <div class="d-flex flex-column justify-content-center my-3">
   <h1 class="text-white text-center font-weight-bold mb-4">Welcome back, <%= @current_user.first_name? ? @current_user.first_name : "pal!" %></h1>
-    <%= form_tag trails_path, method: :get do %>
-      <div class="form-inline d-flex justify-content-between">
-        <%= text_field_tag :location,
-          params[:location],
-          class: "form-control",
-          placeholder: "Search a location",
-          size: "69"
-        %>
-        <%= submit_tag "Submit", class: "btn btn-success text-white" %>
-      </div>
-    <% end %>
+    <div class="d-flex justify-content-center form-group my-3">
+      <%= form_tag trails_path, method: :get do %>
+        <div class="d-flex justify-content-between">
+          <%= text_field_tag :location,
+            params[:location],
+            class: "form-control",
+            placeholder: "Go somewhere",
+            size: "52"
+          %>
+          <%= button_tag(type: "submit", class: "btn btn-success text-white") do %>
+              <i class="fa fa-search"></i>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </section>
 
 <% unless @current_trip.nil? %>
 <section id="upcoming">
-  <h2 class="h1">Upcoming</h2>
+  <h2 class="h1 font-weight-bold">Upcoming</h2>
   <div class="d-flex p-4 rounded-lg justify-content-between" style="background:#e1e4d5;">
     <div class="rounded-lg p-3 position-relative" style="min-height: 360px; width:60%; background:white;">
 
@@ -36,19 +40,20 @@
         </div>
       </div>
       <div>
-        <div class="h5 mt-1"><%= @current_trip.start_date.strftime("%e %b, %Y") %> - <%= @current_trip.end_date.strftime("%e %b, %Y") %></div>
-        <div>Time needed: <%= @current_trip.trail.time_needed %></div>
+        <div class="h5 mt-1"><%= @current_trip.start_date.strftime("%e %b, %Y") %> - <%= @current_trip.end_date.strftime("%e %b, %Y") %> |
+        Time needed: <%= @current_trip.trail.time_needed %></div>
       </div>
     </div>
     <div style="min-height: 360px; width:39%;">
-      <div class="p-3" style="margin-bottom:10px; min-height: 175px; width:100%; background:white;">
+      <div class="p-3" id="desktop-weather" style="margin-bottom:10px; min-height: 175px; width:100%; background:white;">
         <h3>Weather</h3>
         <div class="d-flex flex-row justify-content-around">
           <%= render "weather_card", trip: @current_trip, trip_dates: @trip_dates %>
         </div>
       </div>
-      <div class="p-3" style="height: 175px; width:100%; background:white;">
+      <div class="p-3" style="width:100%; background:white;">
         <h3>Status</h3>
+        <%= render "status_bar", trip: @current_trip %>
       </div>
     </div>
   </div>
@@ -56,20 +61,34 @@
 <% end %>
 
 <section id="recommended">
-  <h2 class="h1">Recommended for you</h2>
+  <h2 class="h1 font-weight-bold">Recommended for you</h2>
   <p>A list of routes selected specially for you - based on your profile and past adventures.</p>
-  <%= render "section_end",trails: @trails %>
+  <%= render "section_end", trails: @trails %>
 </section>
 
 
 <section id="learning" class="text-white">
-  <h2 class="h1">Keep learning</h2>
+  <h2 class="h1 font-weight-bold">Keep learning</h2>
   <p >Go from clueless to acclimated with these guides</p>
 
-  <div class="d-flex justify-content-center">
-    <div class="circle-card">Choosing a backpack</div>
-    <div class="circle-card">Food in the Backcountry</div>
-    <div class="circle-card">Light Out.<br>Tents Up.</div>
-    <div class="circle-card">Water</div>
-  </div>
+
+    <div class="d-flex card-container justify-content-around">
+      <div class="rounded-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/eztree/Sandbox/master/app/assets/images/backpacking.jfif)">
+        <p class="card-title">Choosing a backpack</p>
+      </div>
+
+          <div class="rounded-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/eztree/Sandbox/master/app/assets/images/tenting.jfif)">
+        <p class="card-title">Food in the Backcountry</p>
+      </div>
+
+          <div class="rounded-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/eztree/Sandbox/master/app/assets/images/eating-camp.jfif)">
+        <p class="card-title">Lights Out,<br>Tents Up</p>
+      </div>
+
+          <div class="rounded-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/eztree/Sandbox/master/app/assets/images/water.jfif)">
+        <p class="card-title">Water</p>
+      </div>
+    </div>
+
 </section>
+<%= render 'shared/footer'%>

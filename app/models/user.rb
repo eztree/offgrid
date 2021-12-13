@@ -8,13 +8,12 @@ class User < ApplicationRecord
   has_many :emergency_contacts, dependent: :destroy
   has_many :checklists, through: :trips
 
-  validates :email, presence: true
+  validates :email, presence: true, if: :active?
   validates :password, presence: true, length: { minimum: 6 }
-  validates :first_name, presence: true
-  validates :last_name, presence: true
+  validates :first_name, presence: true, if: :active?
+  validates :last_name, presence: true, if: :active?
 
   def active?
     active == true
   end
-
 end

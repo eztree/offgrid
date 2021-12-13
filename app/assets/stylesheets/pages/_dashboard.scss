@@ -1,5 +1,5 @@
 #upcoming {
-  background: floralwhite;
+  background: #fffaf0;
   min-height: 50vh;
   padding: 4rem;
 }
@@ -17,17 +17,23 @@
   text-align: center;
 }
 
-.circle-card {
+.rounded-card {
+  background-size: cover;
+  background-position: center;
   width: 240px;
   height: 240px;
   border-radius: 50%;
-  background-color: red;
+  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.35);
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 12px 24px;
   font-size: 1.5rem;
+  font-weight: bold;
   padding: 16px;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  transition: transform ease-in 0.2s;
 }
 
 .status {
@@ -41,4 +47,88 @@
   border-radius: 5px;
   background-color: $green;
   color: white;
+}
+
+#desktop-weather {
+  height: auto;
+}
+
+.status-wrapper {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+	max-width: 100%;
+	width: 350px;
+}
+
+.status-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+}
+
+.status-item::before {
+  position: absolute;
+  content: "";
+  border-bottom: 2px solid #ccc;
+  width: 100%;
+  top: 10px;
+  left: -50%;
+  z-index: 2;
+}
+
+.status-item::after {
+  position: absolute;
+  content: "";
+  border-bottom: 2px solid #ccc;
+  width: 100%;
+  top: 10px;
+  left: 50%;
+  z-index: 2;
+}
+
+.status-item .step-counter {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid #dbdbdb;
+  border-radius: 50%;
+  background: #efefef;
+  margin-bottom: 6px;
+}
+
+.status-item.active {
+  font-weight: bold;
+}
+
+.status-item.completed .step-counter {
+  background-color: #2f4f4f;
+}
+
+.status-item.completed::after {
+  position: absolute;
+  content: "";
+  border-bottom: 2px solid #2f4f4f;
+  width: 100%;
+  top: 20px;
+  left: 50%;
+  z-index: 3;
+}
+
+.status-item:first-child::before {
+  content: none;
+}
+.status-item:last-child::after {
+  content: none;
 }

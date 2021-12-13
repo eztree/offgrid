@@ -1,0 +1,62 @@
+<section id="banner" class="d-flex justify-content-center align-items-center" style="height:23vh; background-image: url('<%=asset_url('japan_alps_bg.jpg')%>'); background-repeat: no-repeat; background-size:cover; background-position: center; box-shadow: inset 0 0 0 1000px rgba(0,0,0,.35);">
+
+<%# Search bar is here %>
+  <div class="d-flex flex-column mt-5">
+  <h1 id="mobile-banner-text">Welcome back, <%= @current_user.first_name? ? @current_user.first_name : "pal!" %></h1>
+    <div class="d-flex justify-content-center form-group">
+      <%= form_tag trails_path, method: :get do %>
+        <div class="d-flex justify-content-between">
+          <%= text_field_tag :location,
+            params[:location],
+            class: "form-control",
+            placeholder: "Go somewhere",
+            size: "20"
+          %>
+          <%= button_tag(type: "submit", class: "btn btn-success text-white") do %>
+              <i class="fa fa-search"></i>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<section id="mobile-upcoming">
+  <% if @current_trip.nil? %>
+    <div class="container">Create a new trip!</div>
+  <% else %>
+    <div class="container">
+      <h2 class="mobile-header">Upcoming</h2>
+    </div>
+
+    <div class="d-flex flex-column p-3" style="background:#e1e4d5;">
+      <div class="card">
+        <% @current_trip.trail.photo_url.nil? ? image_url = "https://media.timeout.com/images/105666541/750/562/image.jpg" : image_url = @current_trip.trail.photo_url %>
+          <div style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('<%= image_url %>'); height: 20vh; background-position: center; background-size: cover; background-repeat: no-repeat;">
+          </div>
+          <div class="d-flex flex-column justify-content-end mobile-img-overlay">
+            <div style="font-size: 1.5rem;"><%= link_to @current_trip.trail.name, user_trip_path(current_user, @current_trip), class:"text-white font-weight-bold", style:"text-decoration:none;" %></div>
+            <div class="text-white" style="font-variant: small-caps;"><%= @current_trip.trail.location %></div>
+            <div class="text-white" style="font-size: 0.7rem;">Length: <%= @current_trip.trail.route_distance %> • Est: <%= @current_trip.trail.time_needed %></div>
+          </div>
+        </div>
+      <div class="dashboard-box px-3 py-2" style="height: 25vh;">
+          <div class="mobile-sub-header"><%= @current_trip.start_date.strftime("%e %b, %Y") %> - <%= @current_trip.end_date.strftime("%e %b, %Y") %></div>
+        <hr>
+        <div class="mobile-text">
+          <%= render "status_bar", trip: @current_trip %>
+        </div>
+      </div>
+      <div class="dashboard-box mt-2" style="height: 15vh;">
+        <div class="p-3" style="height: 15vh;">
+          <h2 class="mobile-sub-header">Weather</h2>
+          <div class="container px-0">
+            <%= render "weather_card", trip: @current_trip, trip_dates: @trip_dates %>
+          </div>
+        </div>
+      </div> 
+
+      
+    </div>
+  <% end %>
+</section>

@@ -25,8 +25,8 @@ def seeding_checkpoints
   checkpoints_json = JSON.parse(serialized_checkpoint)
 
   Trail.all.each_with_index do |trail, index|
-    if index > 1
-      key = "##{index - 1}"
+    if index > 3
+      key = "##{index - 3}"
       previous_checkpoint = nil
       checkpoint = Checkpoint.new(
         name: checkpoints_json[key]["name"],
@@ -147,8 +147,8 @@ def seeding_manual_routes
   mueller_checks = {
     point_0: ["Kea Point Trailhead", -43.71875, 170.0926, 773],
     point_1: ["Mueller Hut", -43.721064, 170.064537, 1805],
-    point_3: ["Mount Ollivier", -43.725504, 170.064457, 1883],
-    point_5: ["Kea Point Trailhead", -43.71875, 170.0926, 773],
+    point_2: ["Mount Ollivier", -43.725504, 170.064457, 1883],
+    point_3: ["Kea Point Trailhead", -43.71875, 170.0926, 773],
   }
 
   previous_checkpoint = nil
@@ -169,6 +169,77 @@ def seeding_manual_routes
   end
 
   puts "Mueller done ✅"
+
+  puts "Sunrise Track 🌄"
+  sunrise = Trail.create!(
+    name: "Sunrise Track",
+    description: "This well-graded track is a great overnight tramp for families with children and new trampers - it passes through changing forest types to the open tops, with great views of the Hawke’s Bay plains and excellent sunrises from the hut.",
+    location: "Ruahine Forest Park",
+    time_needed: "2D1N",
+    route_distance: "10.4km"
+  )
+
+  puts "Creating checkpoints for Sunrise Track 🚩"
+  sunrise_checks = {
+    point_0: ["North Block Road End", -39.795726884963834, 176.2023274641028, 604],
+    point_1: ["Sunrise Hut", -39.78629590330388, 176.16816685221022, 1280],
+    point_2: ["North Block Road End", -39.795726884963834, 176.2023274641028, 604],
+  }
+
+  previous_checkpoint = nil
+  sunrise_checks.each do |key, value|
+    checkpoint = Checkpoint.new(
+      name: value[0],
+      latitude: value[1],
+      longitude: value[2],
+      elevation: value[3]
+    )
+
+    checkpoint.previous_checkpoint = previous_checkpoint unless previous_checkpoint.nil?
+
+    checkpoint.trail = sunrise
+    checkpoint.save!
+
+    previous_checkpoint = checkpoint
+  end
+
+  puts "Sunrise done ✅"
+
+  puts "Mount Somers Track 🐑"
+  somers = Trail.create!(
+    name: "Mount Somers Track: Woolshed Creek Hut",
+    description: "The Mount Somers Track provides a number of options, including for kids, for an overnight tramp with impressive rock formations, historic mines and stunning views. It links the popular Pinnacles and Woolshed Creek huts.",
+    location: "Hakatere Conservation Park/Mount Somers area",
+    time_needed: "2D1N",
+    route_distance: "22.8km"
+  )
+
+  puts "Creating checkpoints for Mount Somers Track 🚩"
+  somers_checks = {
+    point_0: ["Sharplin Falls Car Park", -43.62450371804988, 171.41831992902678, 580],
+    point_1: ["Woolshed Creek Hut", -43.598776043809785, 171.32613777532666, 828],
+    point_2: ["Sharplin Falls Car Park", -43.62450371804988, 171.41831992902678, 580],
+  }
+
+  previous_checkpoint = nil
+  somers_checks.each do |key, value|
+    checkpoint = Checkpoint.new(
+      name: value[0],
+      latitude: value[1],
+      longitude: value[2],
+      elevation: value[3]
+    )
+
+    checkpoint.previous_checkpoint = previous_checkpoint unless previous_checkpoint.nil?
+
+    checkpoint.trail = somers
+    checkpoint.save!
+
+    previous_checkpoint = checkpoint
+  end
+
+  puts "Mount Somers Track done ✅"
+
   puts "End of manual trails 👌"
 
   # Creating a static user instance
@@ -191,6 +262,17 @@ def seeding_manual_routes
       active: "false"
     )
   puts "Temp user created! ✅"
+
+  puts "Creating an admin user... 🤓"
+  User.create!(
+      first_name: "Administrator",
+      last_name: "Offgrid",
+      email: "admin@offgrid.com",
+      password: ENV['ADMIN_ACCOUNT_PASSWORD'],
+      active: "true",
+      admin: true
+    )
+  puts "Admin user created! ✅"
 end
 
 def seeding_trail_difficulty
@@ -254,7 +336,8 @@ trail_seed.each do |trail|
     description: trail["description"],
     location: trail["location"],
     time_needed: trail["time_needed"],
-    route_distance: trail["route_distance"]
+    route_distance: trail["route_distance"],
+    photo_url: trail["photo"]
   )
 end
 puts "adding checkpoints to trails"
