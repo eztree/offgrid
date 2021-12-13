@@ -1,6 +1,7 @@
 class TripsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :new, :create ]
 
+  CATEGORY_ITEMS = %w[backpack_gear kitchen_tools food water clothes_footwear navigation first_aid hygiene]
   def index
     @trips = policy_scope(Trip)
     authorize @trips
@@ -35,35 +36,43 @@ class TripsController < ApplicationController
 
     if params[:format].present?
       export_pdf(@trip)
-    end
+    else
+      @trip_days = (@trip.end_date - @trip.start_date).to_i + 1
+      @trip_dates = @trip.checkpoints.map { |point| point.trip_date(@trip) }
+      @category_items = CATEGORY_ITEMS
 
-    checkpoints_data = @trip.trail.checkpoints_coordinates
+      @markers = []
+      @elevation_arr = []
 
-    @coordinateString = ""
-    checkpoints_data.each do |checkpoint|
-      @markers << {
-        lat: checkpoint[:lat],
-        lng: checkpoint[:lng],
-        info_window: render_to_string(partial: "trails/checkpoint_info_window", locals: { checkpoint: checkpoint })
-      }
-      @coordinateString += "#{checkpoint[:lng]},#{checkpoint[:lat]};"
-    end
-    @coordinateString = @coordinateString.chop
+      checkpoints_data = @trip.trail.checkpoints_coordinates
 
-    checkpoints = @trip.trail.checkpoints
-    checkpoints.each_with_index do |checkpoint, index|
-      if index === 0
-        @elevation_arr << ["start", checkpoint.elevation]
-      elsif index === checkpoints.count - 1
-        @elevation_arr << ["end", checkpoint.elevation]
-      else
-        @elevation_arr << ["checkpoint#{index}", checkpoint.elevation]
+      @coordinate_string = ""
+      checkpoints_data.each do |checkpoint|
+        @markers << {
+          lat: checkpoint[:lat],
+          lng: checkpoint[:lng],
+          info_window: render_to_string(partial: "trails/checkpoint_info_window", locals: { checkpoint: checkpoint })
+        }
+        @coordinate_string += "#{checkpoint[:lng]},#{checkpoint[:lat]};"
       end
+      @coordinate_string = @coordinate_string.chop
+
+      checkpoints = @trip.trail.checkpoints
+      checkpoints.each_with_index do |checkpoint, index|
+        if index === 0
+          @elevation_arr << ["start", checkpoint.elevation]
+        elsif index === checkpoints.count - 1
+          @elevation_arr << ["end", checkpoint.elevation]
+        else
+          @elevation_arr << ["checkpoint#{index}", checkpoint.elevation]
+        end
       max = @elevation_arr.max { |a, b| a[1] <=> b[1] }
       @max_no = (max[1] + 50).to_s
       min = @elevation_arr.min { |a, b| a[1] <=> b[1] }
       @min_no = (min[1] - 10 ).to_s
-    end
+   end
+
+    @check_category_hash = check_item_category(@trip)
     authorize @trip
   end
 
@@ -77,6 +86,18 @@ class TripsController < ApplicationController
   end
 
   private
+
+  def check_item_category(trip)
+    check_category_hash = {}
+    CATEGORY_ITEMS.each do |category_item|
+      check = true
+      Item.by_tag_name(category_item, trip).each do |item_asc|
+        check = false unless item_asc.checklist_status
+      end
+      check_category_hash[category_item.to_sym] = check
+    end
+    check_category_hash
+  end
 
   def populate_meal_arr(array)
     arr = []

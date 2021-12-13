@@ -1,17 +1,29 @@
 class ChecklistsController < ApplicationController
+  CATEGORY_ITEMS = %w[backpack_gear kitchen_tools food water clothes_footwear navigation first_aid hygiene]
   def update
     # raise
     @checklist = Checklist.find(params[:id])
+    authorize @checklist
     @checklist.checked = !@checklist.checked
-    # @checklist.update!(checklist_params)
     @checklist.save
-    respond_to do |format|
-      # format.json { redirect_to trips_path }
-      # format.html { "respondeeed"}
-      format.text { "response" }
+
+    check = true
+    category = @checklist.item.tag_list.intersection(CATEGORY_ITEMS)
+    trip = @checklist.trip
+    Item.by_tag_name(category[0], trip).each do |item_asc|
+      check = false unless item_asc.checklist_status
     end
 
-    authorize @checklist
+    if @checklist.save
+      render json: {
+        response: 'OK',
+        checklist: @checklist,
+        item: @checklist.item,
+        tag_lists: @checklist.item.tag_list[1..] - ["food", "required"],
+        category: category[0],
+        check: check
+      }, status: 200
+    end
   end
 
   private

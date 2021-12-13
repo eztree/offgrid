@@ -3,8 +3,8 @@ class Trip < ApplicationRecord
   belongs_to :trail
   belongs_to :emergency_contact
   has_many :checklists, dependent: :destroy
-  has_many :checkpoints, through: :trail
   has_many :items, through: :checklists
+  has_many :checkpoints, through: :trail
   has_one_attached :photo
 
   has_many :emergency_contacts, through: :user
@@ -18,5 +18,4 @@ class Trip < ApplicationRecord
   validates :last_seen_photo, presence: false
   validates :release_date_time, presence: true, on: :update
   validates :emergency_contact, presence: false
-
 end
