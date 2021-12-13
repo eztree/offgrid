@@ -22,9 +22,16 @@
         <i class="fa fa-star rating-color"></i>
         <i class="fa fa-star"></i>
       </div>
+      <p class="mb-0"><small>Length: <%= trail.route_distance %> • Est: <%= trail.time_needed %></small></p>
+      <hr class="my-2">
       <div class="d-flex justify-content-between align-items-center">
-        <p class="mb-0"><small>Length: <%= trail.route_distance %> • Est: <%= trail.time_needed %></small></p>
         <%= link_to "View Details", trail_path(trail), class:"btn btn-success" %>
+        <div>
+          <label id="trail_submit_label_<%= trail.id %>" class="my-auto mx-2 btn btn-success disabled trail-submit-label" for="trail_<%= trail.id %>" style="display: block;">
+            Plan A Trip Here
+          </label>
+          <button id= "trail_submit_button_<%= trail.id %>" class="btn btn-success mx-2 trail-submit-button" type="submit" style="display: none;">Plan A Trip Here</button>
+        </div>
       </div>
     </div>
   </div>
