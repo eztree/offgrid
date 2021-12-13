@@ -13,7 +13,8 @@
 </div>
 
 <div class="card mb-3">
-  <div class="rounded card-img" style="background-image: url('https://media.timeout.com/images/105666541/750/562/image.jpg'); background-position: center; height: 40vh; width:100%;">
+<% @trail.photo_url.nil? ? image_url = "https://media.timeout.com/images/105666541/750/562/image.jpg" : image_url = @trail.photo_url %>
+  <div class="rounded card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('<%= image_url %>'); height: 40vh; background-position: center; background-size: cover; background-repeat: no-repeat;">
   </div>
   <div class="d-flex flex-column justify-content-end card-img-overlay mx-2">
     <h3 class="card-title text-white"><strong><%= @trail.name %></strong></h3>
