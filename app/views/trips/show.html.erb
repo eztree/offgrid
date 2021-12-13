@@ -59,36 +59,27 @@
       <div class="bg-white shadow-sm p-3 my-3">
         <div class="h4">Checklist</div>
         <div class="accordion" id="accordionChecklist">
-          <% @category_items.each_with_index do |item, index| %>
+          <% @category_items.each_with_index do |category, index| %>
             <div class="card">
-              <div class="card-header" id="heading<%=item%>">
+              <div class="card-header" id="heading<%=category%>">
                 <h2 class="mb-0">
-                  <button class="btn btn-link btn-block text-left text-black" type="button" data-toggle="collapse" data-target="#collapse<%=item%>" aria-expanded="true" aria-controls="collapse<%=index%>">
-                    <%= item %>
+                  <button class="btn btn-link btn-block text-left text-black" type="button" data-toggle="collapse" data-target="#collapse<%=category%>" aria-expanded="true" aria-controls="collapse<%=index%>">
+                    <%= category %>
                   </button>
                 </h2>
               </div>
-              <div id="collapse<%=item%>" class="collapse <% if index===0%>show<% end %>" aria-labelledby="heading<%=item%>" data-parent="#accordionChecklist">
+              <div id="collapse<%=category%>" class="collapse <% if index===0%>show<% end %>" aria-labelledby="heading<%=category%>" data-parent="#accordionChecklist">
+                <%# /* CONTROLLER START */ %>
                 <div class="card-body" data-controller="checklist">
-                <% checklist_arr = [] %>
-                  <% @checklists.each do |checklist| %>
-                    <% checklist_arr << checklist if checklist.item.tag_list.include?(item)  %>
-                  <% end %>
-                  <% checklist_arr.sort.each do |checklist|%>
-                    <div class="pl-5" >
-                        <input  data-action="change->checklist#inputCheckbox" data-checklist-target="input" type="checkbox" id="<%=checklist.id%>" data-checklist-id="<%=checklist.id%>" name="<%= checklist.id %>" value="<%= checklist.id %>"
-                          <% if checklist.checked? %>
-                            checked
-                          <% end %>
-                          >
-                          <label for="<%=checklist.id%>"> <%=checklist.item.name%></label>
-                          <% checklist.item.tag_list[1..].each do |tag| %>
-                        <% if tag != "required" && tag != "food" %>
-                          <span class="badge badge-pill <% if tag === "optional"%> badge-secondary <% else %> badge-primary <% end %>"><%= tag %></span>
-                        <% end %>
-                      <% end %>
-                    </div>
-                  <% end %>
+                  <%# UNDONE CHECKLIST %>
+                  <div class="border-bottom mb-2" data-checklist-target="undone">
+                    <%= render Item.unchecked_by_tag_name(category, @trip) %>
+                  </div>
+
+                  <%# DONE CHECKLIST %>
+                  <div class="mt-2 text-dark" data-checklist-target="done">
+                    <%= render Item.checked_by_tag_name(category, @trip) %>
+                  </div>
                 </div>
               </div>
             </div>

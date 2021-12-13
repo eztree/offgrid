@@ -1,0 +1,15 @@
+<div class="pl-5">
+  <input data-action="change->checklist#inputCheckbox"
+    data-checklist-target="input" type="checkbox" id="<%=item.checklist_id%>"
+    data-checklist-id="<%=item.checklist_id%>"
+    name="<%= item.checklist_id %>"
+    value="<%= item.checklist_id %>"
+    <%= item.checklist_status && "checked" %>
+  >
+  <label for="<%=item.checklist_id%>"> <%=item.name%></label>
+  <% item.tag_list[1..].each do |tag| %>
+    <% if tag != "required" && tag != "food" %>
+    <span class="badge badge-pill <% if tag === "optional"%> badge-secondary <% else %> badge-primary <% end %>"><%= tag %></span>
+    <% end %>
+  <% end %>
+</div>
