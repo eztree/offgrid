@@ -262,6 +262,17 @@ def seeding_manual_routes
       active: "false"
     )
   puts "Temp user created! ✅"
+
+  puts "Creating an admin user... 🤓"
+  User.create!(
+      first_name: "Administrator",
+      last_name: "Offgrid",
+      email: "admin@offgrid.com",
+      password: ENV['ADMIN_ACCOUNT_PASSWORD'],
+      active: "true",
+      admin: true
+    )
+  puts "Admin user created! ✅"
 end
 
 def seeding_trail_difficulty
