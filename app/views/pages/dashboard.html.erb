@@ -51,8 +51,9 @@
           <%= render "weather_card", trip: @current_trip, trip_dates: @trip_dates %>
         </div>
       </div>
-      <div class="p-3" style="height: 175px; width:100%; background:white;">
+      <div class="p-3" style="height: 45vh; width:100%; background:white;">
         <h3>Status</h3>
+        <%= render "status_bar", trip: @current_trip %>
       </div>
     </div>
   </div>
