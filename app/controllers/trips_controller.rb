@@ -101,9 +101,11 @@ class TripsController < ApplicationController
         layout: 'layouts/pdf.html.erb'
       )
     )
-    send_data(pdf,
+    send_data(
+      pdf,
       filename: "#{trip.trail.name}_#{trip.start_date}.pdf",
       type: 'application/pdf',
-      disposition: 'inline')
+      disposition: 'inline'
+    )
   end
 end
