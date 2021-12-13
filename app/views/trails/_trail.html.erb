@@ -9,7 +9,8 @@
        required>
 <label class="btn btn-light my-2 py-2" for="trail_<%= trail.id %>" style="width: 90%;">
   <div class="card container-fluid p-0 my-0">
-    <div class="rounded d-flex justify-content-end align-items-end" style="background-image: url('https://media.timeout.com/images/105666541/750/562/image.jpg'); background-position: center; height: 144px; width:100%;">
+  <% trail.photo_url.nil? ? image_url = "https://media.timeout.com/images/105666541/750/562/image.jpg" : image_url = trail.photo_url %>
+    <div class="rounded d-flex justify-content-end align-items-end" style="background-image: url('<%= image_url %>'); height: 144px; width:100%; background-position: center; background-size: cover; background-repeat: no-repeat;">
       <div class="badge badge-pill m-1 <% if trail.tag_list[0] === "easy"%>badge-success<% elsif trail.tag_list[0] === "medium"%>badge-warning<% else %>badge-danger<% end %>"><%= trail.tag_list[0] %></div>
     </div>
     <div class="card-body text-left p-2">

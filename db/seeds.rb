@@ -23,7 +23,7 @@ def seeding_checkpoints
   filepath = File.join(__dir__, 'data/parsed_location.json')
   serialized_checkpoint = File.read(filepath)
   checkpoints_json = JSON.parse(serialized_checkpoint)
-  
+
   Trail.all.each_with_index do |trail, index|
     if index > 3
       key = "##{index - 3}"
@@ -325,7 +325,8 @@ trail_seed.each do |trail|
     description: trail["description"],
     location: trail["location"],
     time_needed: trail["time_needed"],
-    route_distance: trail["route_distance"]
+    route_distance: trail["route_distance"],
+    photo_url: trail["photo"]
   )
 end
 puts "adding checkpoints to trails"
