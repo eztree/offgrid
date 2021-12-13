@@ -26,7 +26,7 @@ def seeding_checkpoints
   
   Trail.all.each_with_index do |trail, index|
     if index > 3
-      key = "##{index - 1}"
+      key = "##{index - 3}"
       previous_checkpoint = nil
       checkpoint = Checkpoint.new(
         name: checkpoints_json[key]["name"],
