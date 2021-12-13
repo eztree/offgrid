@@ -7,7 +7,7 @@
        value="<%= trail.id %>"
        autocomplete="off"
        required>
-<label class="btn btn-light my-2 py-2" for="trail_<%= trail.id %>" style="width: 90%;">
+<label class="btn btn-light my-2 py-2" for="trail_<%= trail.id %>" style="width: 100%;">
   <div class="card container-fluid p-0 my-0">
   <% trail.photo_url.nil? ? image_url = "https://media.timeout.com/images/105666541/750/562/image.jpg" : image_url = trail.photo_url %>
     <div class="rounded d-flex justify-content-end align-items-end" style="background-image: url('<%= image_url %>'); height: 144px; width:100%; background-position: center; background-size: cover; background-repeat: no-repeat;">
@@ -26,12 +26,14 @@
       <p class="mb-0"><small>Length: <%= trail.route_distance %> • Est: <%= trail.time_needed %></small></p>
       <hr class="my-2">
       <div class="d-flex justify-content-between align-items-center">
-        <%= link_to "View Details", trail_path(trail), class:"btn btn-success" %>
+        <%= link_to "View Details", trail_path(trail), class:"btn btn-info" %>
         <div>
           <label id="trail_submit_label_<%= trail.id %>" class="my-auto mx-2 btn btn-success disabled trail-submit-label" for="trail_<%= trail.id %>" style="display: block;">
             Plan A Trip Here
           </label>
-          <button id= "trail_submit_button_<%= trail.id %>" class="btn btn-success mx-2 trail-submit-button" type="submit" style="display: none;">Plan A Trip Here</button>
+          <button id= "trail_submit_button_<%= trail.id %>" class="btn btn-success mx-2 trail-submit-button" type="submit" style="display: none;">
+            Plan A Trip Here
+          </button>
         </div>
       </div>
     </div>
