@@ -22,51 +22,50 @@ class TripsController < ApplicationController
   def show
     # condition to check if export button was pressed
     @trip = Trip.find(params[:id])
+
+    @trip_days = (@trip.end_date - @trip.start_date).to_i + 1
+    @trip_dates = @trip.checkpoints.map { |point| point.trip_date(@trip) }
+    @category_items = %w[backpack_gear kitchen_tools food water clothes_footwear navigation first_aid hygiene]
+
+    @markers = []
+    @elevation_arr = []
+    @checklists = @trip.checklists
+    @breakfast_arr = populate_meal_arr(@trip.items.tagged_with("breakfast"))
+    @meal_arr = populate_meal_arr(@trip.items.tagged_with("lunch_dinner"))
+
     if params[:format].present?
       export_pdf(@trip)
-    else
-      @trip_days = (@trip.end_date - @trip.start_date).to_i + 1
-      @trip_dates = @trip.checkpoints.map { |point| point.trip_date(@trip) }
-      @category_items = %w[backpack_gear kitchen_tools food water clothes_footwear navigation first_aid hygiene]
+    end
 
-      @markers = []
-      @elevation_arr = []
-      @checklists = @trip.checklists
+    checkpoints_data = @trip.trail.checkpoints_coordinates
 
-      checkpoints_data = @trip.trail.checkpoints_coordinates
+    @coordinateString = ""
+    checkpoints_data.each do |checkpoint|
+      @markers << {
+        lat: checkpoint[:lat],
+        lng: checkpoint[:lng],
+        info_window: render_to_string(partial: "trails/checkpoint_info_window", locals: { checkpoint: checkpoint })
+      }
+      @coordinateString += "#{checkpoint[:lng]},#{checkpoint[:lat]};"
+    end
+    @coordinateString = @coordinateString.chop
 
-      @coordinateString = ""
-      checkpoints_data.each do |checkpoint|
-        @markers << {
-          lat: checkpoint[:lat],
-          lng: checkpoint[:lng],
-          info_window: render_to_string(partial: "trails/checkpoint_info_window", locals: { checkpoint: checkpoint })
-        }
-        @coordinateString += "#{checkpoint[:lng]},#{checkpoint[:lat]};"
+    checkpoints = @trip.trail.checkpoints
+    checkpoints.each_with_index do |checkpoint, index|
+      if index === 0
+        @elevation_arr << ["start", checkpoint.elevation]
+      elsif index === checkpoints.count - 1
+        @elevation_arr << ["end", checkpoint.elevation]
+      else
+        @elevation_arr << ["checkpoint#{index}", checkpoint.elevation]
       end
-      @coordinateString = @coordinateString.chop
-
-      checkpoints = @trip.trail.checkpoints
-      checkpoints.each_with_index do |checkpoint, index|
-        if index === 0
-          @elevation_arr << ["start", checkpoint.elevation]
-        elsif index === checkpoints.count - 1
-          @elevation_arr << ["end", checkpoint.elevation]
-        else
-          @elevation_arr << ["checkpoint#{index}", checkpoint.elevation]
-        end
-        max = @elevation_arr.max { |a, b| a[1] <=> b[1] }
-        @max_no = (max[1] + 50).to_s
-        min = @elevation_arr.min { |a, b| a[1] <=> b[1] }
-        @min_no = (min[1] - 10 ).to_s
-      end
-      @breakfast_arr = populate_meal_arr(@trip.items.tagged_with("breakfast"))
-      @meal_arr = populate_meal_arr(@trip.items.tagged_with("lunch_dinner"))
+      max = @elevation_arr.max { |a, b| a[1] <=> b[1] }
+      @max_no = (max[1] + 50).to_s
+      min = @elevation_arr.min { |a, b| a[1] <=> b[1] }
+      @min_no = (min[1] - 10 ).to_s
     end
     authorize @trip
   end
-
-
 
   def update
     @trip = Trip.find(params[:id])
