@@ -46,6 +46,8 @@ gem 'wicked'
 
 gem 'wicked_pdf'
 
+gem 'device_detector'
+
 group :production do
   gem 'wkhtmltopdf-heroku', '2.12.6.0'
 end

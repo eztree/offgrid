@@ -91,6 +91,7 @@ GEM
     concurrent-ruby (1.1.9)
     connection_pool (2.2.5)
     crass (1.0.6)
+    device_detector (1.0.6)
     devise (4.8.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -312,6 +313,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   chartkick
   cloudinary (~> 1.16.0)
+  device_detector
   devise
   dotenv-rails
   font-awesome-sass
