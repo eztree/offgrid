@@ -84,6 +84,29 @@ const displayTrailSelect = (trail, map) => {
   }
 };
 
+const disableAllTrailSelectSubmits = () => {
+  const labels = document.querySelectorAll(".trail-submit-label")
+  const buttons = document.querySelectorAll(".trail-submit-button");
+  labels.forEach( label => {
+    label.style.display = "block";
+  });
+  buttons.forEach(button => {
+		button.style.display = "none";
+	});
+}
+
+const enableTrailSelectSubmit = (trail) => {
+  const label = document.querySelector(
+    `#trail_submit_label_${trail.value}`
+  );
+  label.style.display = "none";
+
+  const button = document.querySelector(
+		`#trail_submit_button_${trail.value}`
+	);
+	button.style.display = "block";
+};
+
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
     const popup = new mapboxgl.Popup().setHTML(marker.info_window); // add this
@@ -118,6 +141,8 @@ const initTrailSelects = (map) => {
     trail.onclick = function () {
       removeAllMarkers();
       displayTrailSelect(trail, map);
+      disableAllTrailSelectSubmits();
+      enableTrailSelectSubmit(trail);
     };
   });
 };

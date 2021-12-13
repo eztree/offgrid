@@ -1,12 +1,10 @@
 <div class="container-fluid p-0" style="background-color: white; max-width:97vw;">
   <div class="row" style="background-color: white;">
         <form class="col-sm-12 col-lg-4 py-3" action="<%= new_trip_path(@trip) %>">
-          <div class="pb-2 mb-3" style="background-color: white; position: sticky; top: 5vh; z-index: 1; width:100%; padding-top: 4vh;">
+          <div class="mb-3" style="background-color: white; position: sticky; top: 5vh; z-index: 1; width:100%; padding-top: 4vh;">
             <h2 class="text-center font-weight-bold"><%= @trails.length %> trails <%= @trails.length > 0 ? params[:location] && params[:location] != "" ? "in " + params[:location].titlecase : "in the world" : "found" %></h2>
             <p class="text-center">Explore and find your next hike from the trails below</p>
-            <div class="d-flex flex-row justify-content-end px-3">
-              <button class="btn btn-success mx-2" type="submit">Select</button>
-            </div>
+            <hr>
           </div>
           <div class="text-center" style="padding: 20px 0; z-index: -1">
             <%= render @trails %>
