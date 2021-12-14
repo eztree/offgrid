@@ -29,7 +29,6 @@ class TripsController < ApplicationController
     @checklists = @trip.checklists
     @breakfast_arr = populate_meal_arr(@trip.items.tagged_with("breakfast"))
     @meal_arr = populate_meal_arr(@trip.items.tagged_with("lunch_dinner"))
-
     # FOR MAPBOX
     if params[:format].present?
       export_pdf(@trip)
