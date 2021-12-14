@@ -40,4 +40,8 @@ clickables.forEach((button) => {
   });
 });
 
+const upload = document.querySelector(".edit_trip").onchange = function () {
+  document.querySelector(".edit_trip").submit();
+}
+
 import "controllers"

@@ -1,6 +1,6 @@
 <div class="container d-flex justify-content-center">
   <%# All steps are complete %>
-  <% if @current_trip.checklists.all? { |checklist| checklist.checked && @current_trip.last_seen_photo.present? } %>
+  <% if @current_trip.checklists.all? { |checklist| checklist.checked } && @current_trip.last_seen_photo  %>
     <div class="status-wrapper">
       <div class="status-item mx-1">
         <div class="step-counter completed">
@@ -47,9 +47,13 @@
     </div>
   </div>
     <div class="container d-flex justify-content-center">
-      <%= link_to "#", class: "btn btn-success px-2" do %>
-        <i class="fas fa-camera"></i> Take photo
-      <% end %>
+      <div id="trip_last_photo" >
+        <%= simple_form_for(@current_trip, method: :patch, url: trip_path(@current_trip, upload: :photo)) do |f| %>
+          <div class="border p-3 bg-white">
+            <div><%= f.input :last_seen_photo, as: :file, input_html: { multiple: false } %></div>
+          </div>
+        <% end %>
+      </div>
     </div>
   <%# No tasks are completed %>
   <% else %>
@@ -75,4 +79,3 @@
       <i class="fas fa-tasks"></i>Checklist
     <% end %>
   <% end %>
-

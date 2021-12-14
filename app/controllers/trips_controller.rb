@@ -81,6 +81,14 @@ class TripsController < ApplicationController
 
   def update
     @trip = Trip.find(params[:id])
+    if params[:upload].present?
+      @trip.last_seen_photo = 'uploaded'
+      @trip.save
+      redirect_to request.referer
+      authorize @trip
+      return
+    end
+
     @trip.update(last_photo: Date.today)
     @trip.update!(trip_params)
     authorize @trip
@@ -107,7 +115,7 @@ class TripsController < ApplicationController
   def check_useragent
     user_agent = request.user_agent
     client = DeviceDetector.new(user_agent)
-    
+
     redirect_to checklist_mobile_path if client.device_type == 'smartphone'
   end
 
