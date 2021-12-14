@@ -96,9 +96,11 @@ class StepsController < ApplicationController
         session.delete(:trip)
         session.delete(:trail_id)
         NotifyUserTripStartDayJob
-        .set(wait_until: @trip.start_date.to_datetime).perform_later(@trip.id)
+          .set(wait_until: @trip.start_date.to_datetime)
+          .perform_later(@trip.id)
         NotifyEmergencyContactsTripLastDayJob
-        .set(wait_until: @trip.end_date.to_datetime).perform_later(@trip.id)
+          .set(wait_until: @trip.end_date.to_datetime)
+          .perform_later(@trip.id)
       end
     end
   end
@@ -117,7 +119,7 @@ class StepsController < ApplicationController
 
   def user_params
     params.require(:user)
-          .permit(:first_name, :last_name, :email, :password)
+          .permit(:first_name, :last_name, :email, :password, :phone_no)
   end
 
   def user_password_check(user_params)

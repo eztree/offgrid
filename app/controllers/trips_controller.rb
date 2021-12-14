@@ -74,7 +74,6 @@ class TripsController < ApplicationController
       @min_no = (min[1] - 10 ).to_s
     end
     # END
-
     @check_category_hash = check_item_category(@trip)
     authorize @trip
   end
