@@ -16,6 +16,6 @@ class Trip < ApplicationRecord
   validates :cooking, presence: false, on: :update
   validates :camping, presence: false, on: :update
   validates :last_seen_photo, presence: false
-  validates :release_date_time, presence: true, on: :update
+  validates :release_date_time, presence: false
   validates :emergency_contact, presence: false
 end

@@ -47,7 +47,7 @@ export default class extends Controller {
           : `${data.item.name}`;
 
         const input = `
-          <div class="pl-5">
+          <div class="checklist-box-padding">
             <input data-action="change->checklist#inputCheckbox"
               data-checklist-target="input" type="checkbox" id="${data.checklist.id}"
               data-checklist-id="${data.checklist.id}"
@@ -66,7 +66,7 @@ export default class extends Controller {
 
         const checklistElement = document
           .getElementById(`${data.checklist.id}`)
-          .closest(".pl-5");
+          .closest(".checklist-box-padding");
 
         const checklistCompleteSection =
           document.getElementById("checklist-complete");

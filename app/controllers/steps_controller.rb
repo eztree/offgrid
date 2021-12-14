@@ -92,12 +92,15 @@ class StepsController < ApplicationController
       if @trip.save
         assign_checklist(@trip)
         redirect_to user_trip_path(id: @trip.id, user_id: @user)
+        flash[:notice] = "Your trip has been created!"
         session.delete(:trip)
         session.delete(:trail_id)
         NotifyUserTripStartDayJob
-        .set(wait_until: @trip.start_date.to_datetime).perform_later(@trip.id)
+          .set(wait_until: @trip.start_date.to_datetime)
+          .perform_later(@trip.id)
         NotifyEmergencyContactsTripLastDayJob
-        .set(wait_until: @trip.end_date.to_datetime).perform_later(@trip.id)
+          .set(wait_until: @trip.end_date.to_datetime)
+          .perform_later(@trip.id)
       end
     end
   end
@@ -116,7 +119,7 @@ class StepsController < ApplicationController
 
   def user_params
     params.require(:user)
-          .permit(:first_name, :last_name, :email, :password)
+          .permit(:first_name, :last_name, :email, :password, :phone_no)
   end
 
   def user_password_check(user_params)
@@ -142,7 +145,7 @@ class StepsController < ApplicationController
     start_date = trip.start_date
     time_req = trip.trail.time_needed
     time_req = time_req.split(/D/).first.to_i
-    @end_date = start_date + time_req
+    @end_date = start_date + time_req - 1
   end
 
   def assign_checklist(trip)

@@ -1,5 +1,7 @@
 class TripsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :new, :create ]
+  skip_before_action :authenticate_user!, only: [ :new, :create, :checklist_mobile ]
+
+  before_action :check_useragent, only: [ :show ]
 
   CATEGORY_ITEMS = %w[backpack_gear kitchen_tools food water clothes_footwear navigation first_aid hygiene]
   def index
@@ -71,18 +73,48 @@ class TripsController < ApplicationController
       @min_no = (min[1] - 10 ).to_s
     end
     # END
-
     @check_category_hash = check_item_category(@trip)
     authorize @trip
   end
 
   def update
     @trip = Trip.find(params[:id])
+    if params[:upload].present?
+      @trip.last_seen_photo = 'uploaded'
+      @trip.save
+      redirect_to request.referer
+      authorize @trip
+      return
+    end
+
     @trip.update(last_photo: Date.today)
     @trip.update!(trip_params)
     authorize @trip
 
     redirect_to user_trip_path(current_user, @trip)
+  end
+
+  def checklist_mobile
+    @user = current_user
+    @trip = Trip.find(params[:id])
+    @trip_days = (@trip.end_date - @trip.start_date).to_i + 1
+    @trip_dates = @trip.checkpoints.map { |point| point.trip_date(@trip) }
+    @category_items = %w[backpack_gear kitchen_tools food water clothes_footwear navigation first_aid hygiene]
+
+    @checklists = @trip.checklists
+    @breakfast_arr = populate_meal_arr(@trip.items.tagged_with("breakfast"))
+    @meal_arr = populate_meal_arr(@trip.items.tagged_with("lunch_dinner"))
+
+    @check_category_hash = check_item_category(@trip)
+
+    authorize @trip
+    end
+
+  def check_useragent
+    user_agent = request.user_agent
+    client = DeviceDetector.new(user_agent)
+
+    redirect_to checklist_mobile_path if client.device_type == 'smartphone'
   end
 
   private

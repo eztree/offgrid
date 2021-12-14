@@ -41,13 +41,12 @@
           </div>
         </div>
       <div class="dashboard-box px-3 py-2" style="height: 25vh;">
-          <div class="mobile-sub-header"><%= @current_trip.start_date.strftime("%e %b, %Y") %> - <%= @current_trip.end_date.strftime("%e %b, %Y") %></div>
+        <div class="mobile-sub-header"><%= @current_trip.start_date.strftime("%e %b, %Y") %> - <%= @current_trip.end_date.strftime("%e %b, %Y") %></div>
         <hr>
-        <div class="mobile-text">
-          <%= render "status_bar", trip: @current_trip %>
+        <%= render "status_bar", trip: @current_trip %>
+          <hr>
         </div>
-      </div>
-      <div class="dashboard-box mt-2" style="height: 15vh;">
+      <div class="dashboard-box mt-2">
         <div class="p-3" style="height: 15vh;">
           <h2 class="mobile-sub-header">Weather</h2>
           <div class="container px-0">
@@ -55,8 +54,6 @@
           </div>
         </div>
       </div> 
-
-      
     </div>
   <% end %>
 </section>
