@@ -209,7 +209,7 @@ def seeding_manual_routes
   somers = Trail.create!(
     name: "Mount Somers Track: Woolshed Creek Hut",
     description: "The Mount Somers Track provides a number of options, including for kids, for an overnight tramp with impressive rock formations, historic mines and stunning views. It links the popular Pinnacles and Woolshed Creek huts.",
-    location: "Hakatere Conservation Park/Mount Somers area",
+    location: "Hakatere Conservation Park",
     time_needed: "2D1N",
     route_distance: "22.8km"
   )
