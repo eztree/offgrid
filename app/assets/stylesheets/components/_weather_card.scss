@@ -38,13 +38,29 @@
   width: 3.5rem;
 }
 
+.card .w-card .icon {
+  margin: 10px 0 5px;
+  width: 5rem;
+}
+
 #forecast .w-card .wx {
+  font-size: 0.8rem;
+}
+
+.w-card .wx {
   font-size: 0.8rem;
 }
 
 #forecast .w-card .temps span {
   color: #666;
   font-size: 0.7rem;
+  font-weight: bold;
+  padding-right: 6px;
+}
+
+.card .w-card .temps span {
+  color: #666;
+  font-size: 0.8rem;
   font-weight: bold;
   padding-right: 6px;
 }
