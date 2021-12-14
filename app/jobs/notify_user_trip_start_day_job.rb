@@ -4,7 +4,6 @@ class NotifyUserTripStartDayJob < ApplicationJob
   def perform(trip_id)
     # Find Trip
     trip = Trip.find(trip_id)
-    puts trip
 
     # change status to "ongoing"
     trip.status = "ongoing"
