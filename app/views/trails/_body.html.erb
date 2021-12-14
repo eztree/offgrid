@@ -53,47 +53,7 @@
     <hr>
 
     <section>
-      <div>
-        <div class="review">
-          <div class="d-flex review-avatar align-items-center">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class:"avatar", style:"width: 64px;"%>
-            <div class="review-header">
-              <p class="font-weight-bold my-0 mx-2">Sebatian Saunier</p>
-              <div class="ratings mx-2">
-                <i class="fa fa-star rating-color"></i>
-                <i class="fa fa-star rating-color"></i>
-                <i class="fa fa-star rating-color"></i>
-                <i class="fa fa-star rating-color"></i>
-                <i class="fa fa-star"></i>
-                <small>November 16, 2021</small>
-              </div>
-            </div>
-          </div>
-            <div class="review-body mx-2 py-2">
-              <p>It was a pleasant hike! Would totally go again!</p>
-            </div>
-        </div>
-
-        <div class="review">
-          <div class="d-flex review-avatar align-items-center">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/sufiansuni", class:"avatar", style:"width: 64px;"%>
-            <div class="review-header">
-              <p class="font-weight-bold my-0 mx-2">Sufian Suni</p>
-              <div class="ratings mx-2">
-                <i class="fa fa-star rating-color"></i>
-                <i class="fa fa-star rating-color"></i>
-                <i class="fa fa-star rating-color"></i>
-                <i class="fa fa-star rating-color"></i>
-                <i class="fa fa-star"></i>
-                <small>September 16, 2021</small>
-              </div>
-            </div>
-          </div>
-            <div class="review-body mx-2 py-2">
-              <p>Really enjoyed the scenery here! Definitely great for photographers!</p>
-            </div>
-        </div>
-      </div>
+      <%= render "reviews" %>
     </section>
   </div>
 
