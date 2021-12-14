@@ -41,12 +41,12 @@ class MessagesController < ApplicationController
         NotifyEmergencyContactsUserReturnJob
           .set(wait: 5.second)
           .perform_later(trip.id)
-        return "Welcome back! Hope your trip at #{trip.trail.location} was great!"
+        return "OffGrid - Welcome back! Hope your trip at #{trip.trail.location} was great!"
       else
-        return "There was an error returning from your trip."
+        return "OffGrid - There was an error returning from your trip."
       end
     else
-      return "You have no trips to return from."
+      return "OffGrid - You have no trips to return from."
     end
   end
 end
