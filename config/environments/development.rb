@@ -76,4 +76,5 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   config.hosts << /[a-z0-9-]+\.ngrok\.io/
+  config.hosts << /[a-z0-9\-]+\.loca\.lt/
 end
