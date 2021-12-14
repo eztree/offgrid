@@ -31,7 +31,7 @@ const initAerisWeather = async () => {
 
     const responses = await Promise.all(requests.map((req) => req.get()));
     let count = 0;
-    responses.forEach((response) => {
+    responses.forEach((response, index) => {
       count += 1;
       let period = response.data[0].periods[0];
       let date = new Date(period.dateTimeISO);
@@ -47,7 +47,10 @@ const initAerisWeather = async () => {
         html = `
           <div class="w-card">
             <div class="dashboard-card-body">
-              <p class="mobile-title">${aeris.utils.dates.format(date, "eeee")}</p>
+              <p class="mobile-title">${aeris.utils.dates.format(
+                date,
+                "eeee"
+              )}</p>
               <p><img class="mobile-icon" src="${icon}"></p>
               <p class="mobile-wx">${weather}</p>
               <p class="mobile-temps"><span>${maxTempC}°C / ${minTempC}°C</span></p>
@@ -68,6 +71,8 @@ const initAerisWeather = async () => {
       } else {
         const breakfast_arr = JSON.parse(target.dataset.breakfast);
         const meal_arr = JSON.parse(target.dataset.meal);
+        const checkpoint_arr = JSON.parse(target.dataset.checkpointsName);
+        console.log(checkpoint_arr);
         html = `
             <div class="card">
               <div class="card-header" id="heading${count}">
@@ -78,6 +83,13 @@ const initAerisWeather = async () => {
                 </h2>
               </div>
               <div id="collapse${count}" class="collapse" aria-labelledby="heading${count}" data-parent="#accordionDay">
+                <div class = "p-2">
+                  <div>Travelling from <strong>${
+                    checkpoint_arr[index]
+                  }</strong> to <strong>${
+          checkpoint_arr[index + 1]
+        }</strong> today</div>
+                </div>
                 <div class="d-flex">
                   <div class="card rounded-lg p-2 d-flex flex-column justify-content-center align-items-center text-center">
                     <div class="card-body">

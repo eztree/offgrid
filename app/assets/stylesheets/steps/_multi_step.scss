@@ -1,5 +1,38 @@
-#sidebar-bg {
+#date-people-bg {
   background: darkslategray;
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), image-url('datepeople.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  height: 100vh;
+  padding: 4rem;
+}
+#options-bg {
+  background: darkslategray;
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), image-url('camping.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: 75%;
+  height: 100vh;
+  padding: 4rem;
+}
+#signup-bg {
+  background: darkslategray;
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), image-url('signup.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: 53%;
+  background-position-y: 40%;
+  height: 100vh;
+  padding: 4rem;
+}
+#emergency-bg {
+  background: darkslategray;
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), image-url('emergency.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: 45%;
   height: 100vh;
   padding: 4rem;
 }
@@ -37,7 +70,6 @@
 .link-style {
   text-decoration: underline;
   color: #ffffff;
-  background-color: #cfcbc8;
 }
 
 .link-style:hover {

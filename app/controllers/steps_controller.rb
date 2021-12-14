@@ -92,6 +92,7 @@ class StepsController < ApplicationController
       if @trip.save
         assign_checklist(@trip)
         redirect_to user_trip_path(id: @trip.id, user_id: @user)
+        flash[:notice] = "Your trip has been created!"
         session.delete(:trip)
         session.delete(:trail_id)
         NotifyUserTripStartDayJob
@@ -144,7 +145,7 @@ class StepsController < ApplicationController
     start_date = trip.start_date
     time_req = trip.trail.time_needed
     time_req = time_req.split(/D/).first.to_i
-    @end_date = start_date + time_req
+    @end_date = start_date + time_req - 1
   end
 
   def assign_checklist(trip)

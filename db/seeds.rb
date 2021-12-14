@@ -306,7 +306,7 @@ trip = Trip.create!(
   trail: Trail.first,
   user: User.first,
   start_date: Date.today,
-  end_date: Date.today + 2,
+  end_date: Date.today + 3,
   no_of_people: 1,
   status: status[0],
   cooking: true,

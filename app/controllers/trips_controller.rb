@@ -1,5 +1,7 @@
 class TripsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :new, :create ]
+  skip_before_action :authenticate_user!, only: [ :new, :create, :checklist_mobile ]
+
+  before_action :check_useragent, only: [ :show ]
 
   CATEGORY_ITEMS = %w[backpack_gear kitchen_tools food water clothes_footwear navigation first_aid hygiene]
   def index
@@ -23,27 +25,23 @@ class TripsController < ApplicationController
   def show
     # condition to check if export button was pressed
     @trip = Trip.find(params[:id])
-
     @trip_days = (@trip.end_date - @trip.start_date).to_i + 1
     @trip_dates = @trip.checkpoints.map { |point| point.trip_date(@trip) }
-    @category_items = %w[backpack_gear kitchen_tools food water clothes_footwear navigation first_aid hygiene]
-
-    @markers = []
-    @elevation_arr = []
+    @category_items = CATEGORY_ITEMS
     @checklists = @trip.checklists
     @breakfast_arr = populate_meal_arr(@trip.items.tagged_with("breakfast"))
     @meal_arr = populate_meal_arr(@trip.items.tagged_with("lunch_dinner"))
 
+    # FOR MAPBOX
     if params[:format].present?
       export_pdf(@trip)
     else
       @trip_days = (@trip.end_date - @trip.start_date).to_i + 1
       @trip_dates = @trip.checkpoints.map { |point| point.trip_date(@trip) }
-      @category_items = CATEGORY_ITEMS
 
       @markers = []
       @elevation_arr = []
-
+      @checkpoint_name_arr = []
       checkpoints_data = @trip.trail.checkpoints_coordinates
 
       @coordinate_string = ""
@@ -56,9 +54,12 @@ class TripsController < ApplicationController
         @coordinate_string += "#{checkpoint[:lng]},#{checkpoint[:lat]};"
       end
       @coordinate_string = @coordinate_string.chop
+      # END
 
+      # FOR CHARTKICK
       checkpoints = @trip.trail.checkpoints
       checkpoints.each_with_index do |checkpoint, index|
+        @checkpoint_name_arr << checkpoint.name
         if index === 0
           @elevation_arr << ["start", checkpoint.elevation]
         elsif index === checkpoints.count - 1
@@ -66,13 +67,14 @@ class TripsController < ApplicationController
         else
           @elevation_arr << ["checkpoint#{index}", checkpoint.elevation]
         end
-        max = @elevation_arr.max { |a, b| a[1] <=> b[1] }
-        @max_no = (max[1] + 50).to_s
-        min = @elevation_arr.min { |a, b| a[1] <=> b[1] }
-        @min_no = (min[1] - 10 ).to_s
-        @check_category_hash = check_item_category(@trip)
       end
+      max = @elevation_arr.max { |a, b| a[1] <=> b[1] }
+      @max_no = (max[1] + 50).to_s
+      min = @elevation_arr.min { |a, b| a[1] <=> b[1] }
+      @min_no = (min[1] - 10 ).to_s
     end
+    # END
+    @check_category_hash = check_item_category(@trip)
     authorize @trip
   end
 
@@ -83,6 +85,29 @@ class TripsController < ApplicationController
     authorize @trip
 
     redirect_to user_trip_path(current_user, @trip)
+  end
+
+  def checklist_mobile
+    @user = current_user
+    @trip = Trip.find(params[:id])
+    @trip_days = (@trip.end_date - @trip.start_date).to_i + 1
+    @trip_dates = @trip.checkpoints.map { |point| point.trip_date(@trip) }
+    @category_items = %w[backpack_gear kitchen_tools food water clothes_footwear navigation first_aid hygiene]
+
+    @checklists = @trip.checklists
+    @breakfast_arr = populate_meal_arr(@trip.items.tagged_with("breakfast"))
+    @meal_arr = populate_meal_arr(@trip.items.tagged_with("lunch_dinner"))
+
+    @check_category_hash = check_item_category(@trip)
+
+    authorize @trip
+    end
+
+  def check_useragent
+    user_agent = request.user_agent
+    client = DeviceDetector.new(user_agent)
+    
+    redirect_to checklist_mobile_path if client.device_type == 'smartphone'
   end
 
   private

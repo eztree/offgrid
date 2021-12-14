@@ -1,5 +1,5 @@
 <div class="row w-100">
-  <div class="col-6 text-white d-flex flex-column justify-content-center" id="sidebar-bg">
+  <div class="col-6 text-white d-flex flex-column justify-content-center" id="date-people-bg">
     <h2 class="side-text text-left font-weight-bold">Let's get started!</h2>
     <h4 class="side-text-sub text-left font-weight-italic">Tell us a little more about your trip and we'll customise an itinerary - just for you.</h4>
   </div>
@@ -9,11 +9,11 @@
       <%= form_for @trip, url: wizard_path, method: :put, local: true do |form| %>
         <div class="form-group row">
           <%= form.label :start_date, "Start date", class: "col-sm-4 col-form-label font-weight-bold" %>
-          <%= form.date_field :start_date, class: "col-sm-8" %>
+          <%= form.date_field :start_date, class: "col-sm-8", min: Date.today, value: Date.today  %>
         </div>
         <div class="form-group row mt-5">
           <%= form.label :no_of_people, "People", class: "col-sm-4 col-form-label font-weight-bold" %>
-          <%= form.number_field :no_of_people, in: 1..100, class: "col-sm-8" %>
+          <%= form.number_field :no_of_people, in: 1..10, class: "col-sm-8", value: 1 %>
         </div>
       </div>
         <div class="progress-container">

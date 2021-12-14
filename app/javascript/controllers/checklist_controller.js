@@ -21,7 +21,7 @@ export default class extends Controller {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         // debugger;
         const isChecked = data.checklist.checked ? "checked" : "";
         const badgeListsUnchecked = data.tag_lists
@@ -44,7 +44,7 @@ export default class extends Controller {
           : badgeListsUnchecked;
 
         const input = `
-          <div class="pl-5">
+          <div class="checklist-box-padding">
             <input data-action="change->checklist#inputCheckbox"
               data-checklist-target="input" type="checkbox" id="${data.checklist.id}"
               data-checklist-id="${data.checklist.id}"
@@ -63,7 +63,7 @@ export default class extends Controller {
 
         const checklistElement = document
           .getElementById(`${data.checklist.id}`)
-          .closest(".pl-5");
+          .closest(".checklist-box-padding");
 
         const checklistCard = document.getElementById(`${data.category}`);
         const checklistCardChild = document.getElementById(
@@ -71,20 +71,20 @@ export default class extends Controller {
         );
 
         if (data.checklist.checked) {
-          console.log("remove from this list");
-          console.log("insert adjacent to the done list");
+          // console.log("remove from this list");
+          // console.log("insert adjacent to the done list");
           checklistElement.remove();
           this.doneTarget.insertAdjacentHTML("beforeend", input);
 
           if (data.check == true) {
             checklistCard.insertAdjacentHTML("beforeend", input_icon);
             checklistCard.style.color = "green";
-            console.log("add icon");
+            // console.log("add icon");
           } else {
             if (checklistCardChild != undefined) {
               checklistCard.style.color = "black";
               checklistCard.removeChild(checklistCardChild);
-              console.log("remove icon");
+              // console.log("remove icon");
             }
           }
         } else {
@@ -92,7 +92,7 @@ export default class extends Controller {
           checklistElement.remove();
           this.undoneTarget.insertAdjacentHTML("beforeend", input);
           if (checklistCardChild != undefined) {
-            console.log("remove icon");
+            // console.log("remove icon");
             checklistCard.style.color = "black";
             checklistCard.removeChild(checklistCardChild);
           }

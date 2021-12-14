@@ -1,8 +1,8 @@
 <div class="row w-100">
-  <div class="col-6 text-white d-flex flex-column justify-content-center" id="sidebar-bg">
+  <div class="col-6 text-white d-flex flex-column justify-content-center" id="emergency-bg">
     <h2 class="side-text text-left font-weight-bold mt-5">Set your emergency contact</h2>
     <h4 class="side-text-sub text-left font-weight-italic">Assign a person who will receive your trip details if you don’t report back as safe by the end of your hike.</h2>
-    <p class="side-text-footer text-left">Learn more about emergency contacts <%= link_to 'here', '#', class: "link-style px-1 rounded" %>.</p>
+    <p class="side-text-footer text-left">Learn more about emergency contacts <%= link_to 'here', '#', class: "link-style" %>.</p>
   </div>
 
   <% if current_user.emergency_contacts.present? %>
