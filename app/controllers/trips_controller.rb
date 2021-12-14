@@ -95,6 +95,12 @@ class TripsController < ApplicationController
     @trip_dates = @trip.checkpoints.map { |point| point.trip_date(@trip) }
     @category_items = %w[backpack_gear kitchen_tools food water clothes_footwear navigation first_aid hygiene]
 
+    @checklists = @trip.checklists
+    @breakfast_arr = populate_meal_arr(@trip.items.tagged_with("breakfast"))
+    @meal_arr = populate_meal_arr(@trip.items.tagged_with("lunch_dinner"))
+
+    @check_category_hash = check_item_category(@trip)
+
     authorize @trip
     end
 
