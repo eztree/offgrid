@@ -49,7 +49,7 @@ const initAerisWeather = async () => {
             <div class="dashboard-card-body">
               <p class="mobile-title">${aeris.utils.dates.format(
                 date,
-                "eeee"
+                "eee"
               )}</p>
               <p><img class="mobile-icon" src="${icon}"></p>
               <p class="mobile-wx">${weather}</p>
@@ -60,8 +60,8 @@ const initAerisWeather = async () => {
       } else if (window.location.pathname.includes("dashboard")) {
         html = `
           <div class="w-card">
-            <div class="dashboard-card-body">
-              <p class="title">${aeris.utils.dates.format(date, "eeee")}</p>
+            <div class="card-body">
+              <p class="title">${aeris.utils.dates.format(date, "eee")}</p>
               <p><img class="icon" src="${icon}"></p>
               <p class="wx">${weather}</p>
               <p class="temps"><span>${maxTempC}°C / ${minTempC}°C</span></p>
