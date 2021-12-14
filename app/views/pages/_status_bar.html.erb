@@ -1,6 +1,6 @@
 <div class="container d-flex justify-content-center">
   <%# All steps are complete %>
-  <% if @current_trip.checklists.all? { |checklist| checklist.checked } && @current_trip.last_seen_photo.present? %>
+  <% if @current_trip.checklists.all? { |checklist| checklist.checked } && @current_trip.last_seen_photo %>
     <div class="status-wrapper">
       <div class="status-item mx-1">
         <div class="step-counter completed">
