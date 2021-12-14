@@ -34,7 +34,6 @@ const initAerisWeather = async () => {
     responses.forEach((response, index) => {
       count += 1;
       let period = response.data[0].periods[0];
-      console.log(period);
       let date = new Date(period.dateTimeISO);
       let icon = `https://raw.githubusercontent.com/eztree/Sandbox/master/app/assets/images/weather/${
         period.icon || "na.png"
