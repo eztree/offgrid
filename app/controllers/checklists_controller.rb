@@ -13,15 +13,18 @@ class ChecklistsController < ApplicationController
     Item.by_tag_name(category[0], trip).each do |item_asc|
       check = false unless item_asc.checklist_status
     end
+    check_all = trip.checklists.all?(&:checked)
 
     if @checklist.save
       render json: {
         response: 'OK',
         checklist: @checklist,
+        trip: @checklist.trip,
         item: @checklist.item,
         tag_lists: @checklist.item.tag_list[1..] - ["food", "required"],
         category: category[0],
-        check: check
+        check: check,
+        check_all: check_all
       }, status: 200
     end
   end

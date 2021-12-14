@@ -149,9 +149,84 @@ class StepsController < ApplicationController
   end
 
   def assign_checklist(trip)
-    items = Item.tagged_with("required")
-    items.each do |item|
-      Checklist.create(trip: trip, checked: false, item: item)
+    items = Item.tagged_with(["food"], exclude: true)
+
+    items_breakfast = Item.tagged_with("breakfast")
+    items_breakfast_uncooked = Item.tagged_with("breakfast").tagged_with(["cooking"], exclude:true)
+
+    items_lunch_dinner = Item.tagged_with("lunch_dinner") # if cooking = true
+    items_lunch_dinner_uncooked = Item.tagged_with("lunch_dinner").tagged_with(["cooking"], exclude:true) # if cooking = false
+
+    items_no_camping_no_cooking = Item.tagged_with(["camping, food, kitchen_tools"], exclude: true)
+    items_utensils = Item.tagged_with(["utensils"])
+    items_no_camping = Item.tagged_with(["camping, food"], exclude: true) # if camping = false
+    items_no_cooking = Item.tagged_with(["kitchen_tools, food"], exclude: true) # if camping = false
+
+
+    trip_days = (trip.end_date - trip.start_date).to_i + 1
+    #items
+    # camping false #cooking true
+    if !trip.camping && trip.cooking
+      # add items except for camping, food tags
+      items_no_camping.each do |item|
+        Checklist.create(trip: trip, checked: false, item: item)
+      end
+      # cooking
+      items_breakfast.sample(trip_days).each do |item|
+        Checklist.create(trip: trip, checked: false, item: item)
+      end
+      items_lunch_dinner.sample(trip_days * 2).each do |item|
+        Checklist.create(trip: trip, checked: false, item: item)
+      end
+    # camping false #cooking false
+    elsif !trip.camping && !trip.cooking
+      # add items except for camping, food, kitchen_tools tags
+      items_no_camping_no_cooking.each do |item|
+        Checklist.create(trip: trip, checked: false, item: item)
+      end
+
+      # add utensils
+      items_utensils.each do |item|
+        Checklist.create(trip: trip, checked: false, item: item)
+      end
+
+      # not cooking
+      items_breakfast_uncooked.sample(trip_days).each do |item|
+        Checklist.create(trip: trip, checked: false, item: item)
+      end
+      items_lunch_dinner_uncooked.sample(trip_days * 2).each do |item|
+        Checklist.create(trip: trip, checked: false, item: item)
+      end
+    # camping true #cooking false
+    elsif trip.camping && !trip.cooking
+      items_no_cooking.each do |item|
+        Checklist.create(trip: trip, checked: false, item: item)
+      end
+
+      # add utensils
+      items_utensils.each do |item|
+        Checklist.create(trip: trip, checked: false, item: item)
+      end
+
+      # not cooking
+      items_breakfast_uncooked.sample(trip_days).each do |item|
+        Checklist.create(trip: trip, checked: false, item: item)
+      end
+      items_lunch_dinner_uncooked.sample(trip_days * 2).each do |item|
+        Checklist.create(trip: trip, checked: false, item: item)
+      end
+    # camping true #cooking true
+    else
+      items.each do |item|
+        Checklist.create(trip: trip, checked: false, item: item)
+      end
+      # cooking
+      items_breakfast.sample(trip_days).each do |item|
+        Checklist.create(trip: trip, checked: false, item: item)
+      end
+      items_lunch_dinner.sample(trip_days * 2).each do |item|
+        Checklist.create(trip: trip, checked: false, item: item)
+      end
     end
   end
 end
