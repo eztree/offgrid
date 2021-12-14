@@ -13,7 +13,7 @@
   </main>
   <footer class="mt-2 text-muted border-top">
     <p class="pt-5">
-      PDF generated at <%= Time.zone.now %> | Created by offgrid · © 2021
+      PDF generated at <%= (Time.zone.now + 8.hours).strftime(" %e %b, %I %M %P")  %> | Created by offgrid · © 2021
     </p>
   </footer>
 </div>
