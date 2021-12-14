@@ -40,8 +40,18 @@ clickables.forEach((button) => {
   });
 });
 
-const upload = document.querySelector(".edit_trip").onchange = function () {
-  document.querySelector(".edit_trip").submit();
-}
+const img_form = document.querySelector('.edit_trip');
 
+if (img_form) {
+  const upload_btn = document.querySelector('#upload-btn');
+  const submit_btn = document.querySelector('#submit-btn');
+  img_form.addEventListener('input', (e) => {
+    submit_btn.innerText = 'Submit photo';
+    submit_btn.disabled = false;
+    submit_btn.classList.remove('disabled')
+    submit_btn.classList.add('btn-success');
+    upload_btn.classList.remove('btn-outline-primary');
+    upload_btn.classList.add('btn-success');
+  });
+};
 import "controllers"
