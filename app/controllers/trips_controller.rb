@@ -66,13 +66,13 @@ class TripsController < ApplicationController
         else
           @elevation_arr << ["checkpoint#{index}", checkpoint.elevation]
         end
-      max = @elevation_arr.max { |a, b| a[1] <=> b[1] }
-      @max_no = (max[1] + 50).to_s
-      min = @elevation_arr.min { |a, b| a[1] <=> b[1] }
-      @min_no = (min[1] - 10 ).to_s
-   end
-
-    @check_category_hash = check_item_category(@trip)
+        max = @elevation_arr.max { |a, b| a[1] <=> b[1] }
+        @max_no = (max[1] + 50).to_s
+        min = @elevation_arr.min { |a, b| a[1] <=> b[1] }
+        @min_no = (min[1] - 10 ).to_s
+        @check_category_hash = check_item_category(@trip)
+      end
+    end
     authorize @trip
   end
 
