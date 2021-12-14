@@ -14,7 +14,7 @@ class NotifyUserTripStartDayJob < ApplicationJob
         receiver: trip.user.phone_no
       ).call
     else
-      puts "There was an error updating the trip."
+      puts "OffGrid - There was an error updating the trip."
     end
   end
 end
