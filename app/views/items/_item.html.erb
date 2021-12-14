@@ -8,9 +8,13 @@
     style="background:black;"
   >
   <label for="<%=item.checklist_id%>">
+    <% if item.tag_list.include?("food") || item.tag_list.include?("water")%>
+      <%= item.trip_people %>x <%=item.name%>
+    <% else %>
     <%=item.name%>
+    <% end %>
   </label>
-  <% item.tag_list[1..].each do |tag| %>
+  <% item.tag_list.each do |tag| %>
     <% if tag != "required" && tag != "food" %>
     <span class="badge badge-pill
       <% if tag === "optional" || item.checklist_status %>

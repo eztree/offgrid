@@ -26,10 +26,7 @@
   <h2 class="h1 font-weight-bold">Upcoming</h2>
   <div class="d-flex p-4 rounded-lg justify-content-between" style="background:#e1e4d5;">
     <div class="rounded-lg p-3 position-relative" style="min-height: 360px; width:60%; background:white;">
-
-      <div class="position-absolute status"><%= @current_trip.status %></div>
       <h2><%= link_to @current_trip.trail.name, user_trip_path(current_user, @current_trip), class:"text-black",style:"text-decoration:none;" %><span class="ml-3 badge badge-pill <% if @current_trip.trail.tag_list[0] === "easy"%>badge-success<% elsif @current_trip.trail.tag_list[0] === "medium"%>badge-warning<% else %>badge-danger<% end %> "><%= @current_trip.trail.tag_list[0] %></span></h2>
-
       <div style="width:100%; min-height:70%;">
         <div id="map"
           class="map-with-route"

@@ -49,7 +49,7 @@ const initAerisWeather = async () => {
             <div class="dashboard-card-body">
               <p class="mobile-title">${aeris.utils.dates.format(
                 date,
-                "eeee"
+                "eee"
               )}</p>
               <p><img class="mobile-icon" src="${icon}"></p>
               <p class="mobile-wx">${weather}</p>
@@ -60,8 +60,8 @@ const initAerisWeather = async () => {
       } else if (window.location.pathname.includes("dashboard")) {
         html = `
           <div class="w-card">
-            <div class="dashboard-card-body">
-              <p class="title">${aeris.utils.dates.format(date, "eeee")}</p>
+            <div class="card-body">
+              <p class="title">${aeris.utils.dates.format(date, "eee")}</p>
               <p><img class="icon" src="${icon}"></p>
               <p class="wx">${weather}</p>
               <p class="temps"><span>${maxTempC}°C / ${minTempC}°C</span></p>
@@ -78,62 +78,56 @@ const initAerisWeather = async () => {
               <div class="card-header" id="heading${count}">
                 <h2 class="mb-0">
                   <button class="btn btn-link btn-block text-left text-black" type="button" data-toggle="collapse" data-target="#collapse${count}" aria-expanded="true" aria-controls="collapse${count}">
-                    Day ${count} - ${date.toDateString()}
+                    Day ${count} – ${date.toDateString()}
                   </button>
                 </h2>
               </div>
               <div id="collapse${count}" class="collapse" aria-labelledby="heading${count}" data-parent="#accordionDay">
-                <div class = "p-2">
-                  <div>Travelling from <strong>${
-                    checkpoint_arr[index]
-                  }</strong> to <strong>${
-          checkpoint_arr[index + 1]
-        }</strong> today</div>
+                <div class="p-2">
+                  <div>You'll be hiking from <strong>${checkpoint_arr[index]}</strong> to <strong>${checkpoint_arr[index + 1]}</strong> today.</div>
                 </div>
                 <div class="d-flex">
-                  <div class="card rounded-lg p-2 d-flex flex-column justify-content-center align-items-center text-center">
-                    <div class="card-body">
-                      <p><img class="icon" src="${icon}" style="height:50px;"></p>
+                  <div class="w-card p-3 text-center" style="border-right: 1px solid rgba(0,0,0,0.125); border-top: 1px solid rgba(0,0,0,0.125);">
+                    <div class="card-body mx-4">
+                      <p><img class="icon" src="${icon}"></p>
                       <p class="wx">${weather}</p>
-                      <p class="temps"><span>High:</span>${maxTempC}°C <span>Low:</span>${minTempC}°C</p>
+                      <p class="temps"><span>${maxTempC}°C / ${minTempC}°C</span></p>
                     </div>
                   </div>
-                  <div>
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th scope="col">Meal</th>
-                          <th scope="col">Food</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row">Breakfast</th>
-                          <td>${
-                            breakfast_arr[
-                              Math.floor(Math.random() * breakfast_arr.length)
-                            ]
-                          }</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">Lunch</th>
-                          <td>${
-                            meal_arr[
-                              Math.floor(Math.random() * meal_arr.length)
-                            ]
-                          }</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">Dinner</th>
-                          <td>${
-                            meal_arr[
-                              Math.floor(Math.random() * meal_arr.length)
-                            ]
-                          }</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Meal</th>
+                        <th scope="col">Food</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">Breakfast</th>
+                        <td>${
+                          breakfast_arr[
+                            Math.floor(Math.random() * breakfast_arr.length)
+                          ]
+                        }</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Lunch</th>
+                        <td>${
+                          meal_arr[
+                            Math.floor(Math.random() * meal_arr.length)
+                          ]
+                        }</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Dinner</th>
+                        <td>${
+                          meal_arr[
+                            Math.floor(Math.random() * meal_arr.length)
+                          ]
+                        }</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>`;

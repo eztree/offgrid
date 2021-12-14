@@ -30,15 +30,13 @@ import { initAerisWeather } from "../plugins/init_aerisweather";
 document.addEventListener("turbolinks:load", () => {
   initMapbox();
   initAerisWeather();
-})
+  const clickables = document.querySelectorAll('.clickable');
 
-const clickables = document.querySelectorAll('.clickable');
-
-clickables.forEach((button) => {
-  button.addEventListener('click', (event) => {
-    event.currentTarget.classList.toggle('active');
+  clickables.forEach((button) => {
+    button.addEventListener('click', (event) => {
+      event.currentTarget.classList.toggle('active');
+    });
   });
-});
 
 const img_form = document.querySelector('.edit_trip');
 
@@ -54,4 +52,5 @@ if (img_form) {
     upload_btn.classList.add('btn-success');
   });
 };
+
 import "controllers"

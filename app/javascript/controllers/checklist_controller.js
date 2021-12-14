@@ -21,7 +21,6 @@ export default class extends Controller {
     )
       .then((response) => response.json())
       .then((data) => {
-        // console.log(data);
         // debugger;
         const isChecked = data.checklist.checked ? "checked" : "";
         const badgeListsUnchecked = data.tag_lists
@@ -43,6 +42,10 @@ export default class extends Controller {
           ? badgeListsChecked
           : badgeListsUnchecked;
 
+        const isFood = data.item.tag_list.includes("food")
+          ? `${data.trip.no_of_people}x ${data.item.name}`
+          : `${data.item.name}`;
+
         const input = `
           <div class="checklist-box-padding">
             <input data-action="change->checklist#inputCheckbox"
@@ -53,7 +56,7 @@ export default class extends Controller {
               ${isChecked}
             >
             <label for="${data.checklist.id}">
-              ${data.item.name}
+              ${isFood}
             </label>
             ${isCheckedBadgeLists}
           </div>
@@ -65,34 +68,36 @@ export default class extends Controller {
           .getElementById(`${data.checklist.id}`)
           .closest(".checklist-box-padding");
 
+        const checklistCompleteSection =
+          document.getElementById("checklist-complete");
         const checklistCard = document.getElementById(`${data.category}`);
         const checklistCardChild = document.getElementById(
           `${data.category}-icon`
         );
 
+        const isCheckListCompleted = data.check_all
+          ? (checklistCompleteSection.innerHTML = `<div class="mr-2"><i class="fas fa-check-circle" style="color:darkcyan;"></i> Checklist completed!</div>`)
+          : (checklistCompleteSection.innerHTML = `<div class="mr-2"><i class="fas fa-exclamation-circle" style="color:firebrick;"></i> Checklist is not complete!</div>`);
         if (data.checklist.checked) {
-          // console.log("remove from this list");
-          // console.log("insert adjacent to the done list");
           checklistElement.remove();
           this.doneTarget.insertAdjacentHTML("beforeend", input);
+
+          isCheckListCompleted;
 
           if (data.check == true) {
             checklistCard.insertAdjacentHTML("beforeend", input_icon);
             checklistCard.style.color = "green";
-            // console.log("add icon");
           } else {
             if (checklistCardChild != undefined) {
               checklistCard.style.color = "black";
               checklistCard.removeChild(checklistCardChild);
-              // console.log("remove icon");
             }
           }
         } else {
-          console.log("the opposite");
           checklistElement.remove();
           this.undoneTarget.insertAdjacentHTML("beforeend", input);
+          isCheckListCompleted;
           if (checklistCardChild != undefined) {
-            // console.log("remove icon");
             checklistCard.style.color = "black";
             checklistCard.removeChild(checklistCardChild);
           }

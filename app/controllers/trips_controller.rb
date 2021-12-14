@@ -1,7 +1,7 @@
 class TripsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :new, :create, :checklist_mobile ]
 
-  before_action :check_useragent, only: [ :show ]
+  # before_action :check_useragent, only: [ :show ]
 
   CATEGORY_ITEMS = %w[backpack_gear kitchen_tools food water clothes_footwear navigation first_aid hygiene]
   def index
@@ -31,11 +31,11 @@ class TripsController < ApplicationController
     @checklists = @trip.checklists
     @breakfast_arr = populate_meal_arr(@trip.items.tagged_with("breakfast"))
     @meal_arr = populate_meal_arr(@trip.items.tagged_with("lunch_dinner"))
-
     # FOR MAPBOX
     if params[:format].present?
       export_pdf(@trip)
     else
+      check_useragent()
       @trip_days = (@trip.end_date - @trip.start_date).to_i + 1
       @trip_dates = @trip.checkpoints.map { |point| point.trip_date(@trip) }
 
@@ -109,7 +109,7 @@ class TripsController < ApplicationController
     @check_category_hash = check_item_category(@trip)
 
     authorize @trip
-    end
+  end
 
   def check_useragent
     user_agent = request.user_agent
