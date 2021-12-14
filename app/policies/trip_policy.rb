@@ -16,4 +16,8 @@ class TripPolicy < ApplicationPolicy
   def update?
     record.user == user
   end
+
+  def checklist_mobile?
+    record.user == user
+  end
 end
