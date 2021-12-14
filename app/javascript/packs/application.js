@@ -30,18 +30,21 @@ import { initAerisWeather } from "../plugins/init_aerisweather";
 document.addEventListener("turbolinks:load", () => {
   initMapbox();
   initAerisWeather();
-})
+  const clickables = document.querySelectorAll('.clickable');
 
-const clickables = document.querySelectorAll('.clickable');
-
-clickables.forEach((button) => {
-  button.addEventListener('click', (event) => {
-    event.currentTarget.classList.toggle('active');
+  clickables.forEach((button) => {
+    button.addEventListener('click', (event) => {
+      event.currentTarget.classList.toggle('active');
+    });
   });
-});
 
-const upload = document.querySelector(".edit_trip").onchange = function () {
-  document.querySelector(".edit_trip").submit();
-}
+  const editTrip = document.querySelector(".edit_trip")
+
+  if (editTrip) {
+    const upload = editTrip.onchange = function () {
+      editTrip.submit();
+    }
+  }
+})
 
 import "controllers"
