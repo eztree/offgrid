@@ -7,7 +7,7 @@
        value="<%= trail.id %>"
        autocomplete="off"
        required>
-<label class="btn btn-light my-2 py-2" for="trail_<%= trail.id %>" style="width: 100%;">
+<label class="btn card-btn my-2 py-2" for="trail_<%= trail.id %>" style="width: 100%;">
   <div class="card container-fluid p-0 my-0">
   <% trail.photo_url.nil? ? image_url = "https://media.timeout.com/images/105666541/750/562/image.jpg" : image_url = trail.photo_url %>
     <div class="rounded d-flex justify-content-end align-items-end" style="background-image: url('<%= image_url %>'); height: 144px; width:100%; background-position: center; background-size: cover; background-repeat: no-repeat;">
