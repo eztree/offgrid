@@ -169,7 +169,6 @@ export default class extends Controller {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         // INITIALIZE VARIABLE
         const isCategoryChecked = data.check ? "checked" : "";
         const isCategoryCheckedText = data.check
@@ -187,6 +186,8 @@ export default class extends Controller {
         const checklistCompleteSection =
           document.getElementById("checklist-complete");
 
+        const doneElement = document.getElementById("done");
+        const undoneElement = document.getElementById("undone");
         // INPUT
 
         const input_category = `
@@ -230,7 +231,7 @@ export default class extends Controller {
         }
 
         data.checklists.forEach((checklist) => {
-          console.log(checklist.checklist_id);
+          // debugger;
           const checklistElement = document
             .getElementById(`${checklist.checklist_id}`)
             .closest(".checklist-box-padding");
@@ -258,11 +259,9 @@ export default class extends Controller {
               </div>
             `;
           checklistElement.remove();
-
           const isDone = data.check
             ? this.doneTarget.insertAdjacentHTML("beforeend", input)
             : this.undoneTarget.insertAdjacentHTML("beforeend", input);
-
           isDone;
         });
       });

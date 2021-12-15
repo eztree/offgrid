@@ -54,7 +54,7 @@
               </div>
               <div class="border-top mt-3">
               <div class='mt-3'>
-                <div class="d-flex justify-content-start mb-2 checklist-complete">
+                <div class="d-flex justify-content-start mb-2" id="checklist-complete">
                   <% if @trip.checklists.all?(&:checked) %>
                     <div class="mr-2"><i class="fas fa-check-circle" style="color:darkcyan;"></i> Checklist completed!</div>
                   <% else %>
