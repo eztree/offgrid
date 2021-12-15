@@ -21,7 +21,6 @@ export default class extends Controller {
     )
       .then((response) => response.json())
       .then((data) => {
-        // debugger;
         const isChecked = data.checklist.checked ? "checked" : "";
         const badgeListsUnchecked = data.tag_lists
           .map((tag) => {
