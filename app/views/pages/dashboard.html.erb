@@ -58,34 +58,33 @@
 <% end %>
 
 <section id="recommended">
-  <h2 class="h1 font-weight-bold">Recommended for you</h2>
-  <p>A list of routes selected specially for you - based on your profile and past adventures.</p>
-  <%= render "section_end", trails: @trails %>
+  <div>
+    <h2 class="font-weight-bold ml-4">Recommended for you</h2>
+    <p class='mb-0 ml-4'>A list of routes selected specially for you - based on your profile and past adventures.</p>
+    <%= render "section_end", trails: @trails %>
+  </div>
 </section>
 
 
 <section id="learning" class="text-white">
-  <h2 class="h1 font-weight-bold">Keep learning</h2>
-  <p >Go from clueless to acclimated with these guides</p>
-
-
+  <div class="container-lg">
+    <h2 class="h1 font-weight-bold">Keep learning</h2>
+    <p >Go from clueless to acclimated with these guides</p>
     <div class="d-flex card-container justify-content-around">
       <div class="rounded-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/eztree/Sandbox/master/app/assets/images/backpacking.jfif)">
         <p class="card-title">Choosing a backpack</p>
       </div>
-
-          <div class="rounded-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/eztree/Sandbox/master/app/assets/images/tenting.jfif)">
+      <div class="rounded-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/eztree/Sandbox/master/app/assets/images/tenting.jfif)">
         <p class="card-title">Food in the Backcountry</p>
       </div>
-
-          <div class="rounded-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/eztree/Sandbox/master/app/assets/images/eating-camp.jfif)">
+      <div class="rounded-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/eztree/Sandbox/master/app/assets/images/eating-camp.jfif)">
         <p class="card-title">Lights Out,<br>Tents Up</p>
       </div>
-
-          <div class="rounded-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/eztree/Sandbox/master/app/assets/images/water.jfif)">
+      <div class="rounded-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/eztree/Sandbox/master/app/assets/images/water.jfif)">
         <p class="card-title">Water</p>
       </div>
     </div>
+  </div>
 
 </section>
 <%= render 'shared/footer'%>

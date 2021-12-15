@@ -219,7 +219,8 @@ def seeding_manual_routes
     description: "Routeburn Track is a 32.2 kilometer heavily trafficked point-to-point trail located near Glenorchy, Otago, New Zealand that features a lake and is rated as difficult. The trail offers a number of activity options and is best used from October until May.",
     location: "Fiordland National Park",
     time_needed: "4D3N",
-    route_distance: "33km"
+    route_distance: "33km",
+    photo_url: "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMTQ2NDIxODcvN2RjZGJhMTk0ZDI2Yjg4YTM0YWFlMmExZWRkZGQ1NTMuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjoyMDQ4LCJoZWlnaHQiOjIwNDgsImZpdCI6Imluc2lkZSJ9LCJyb3RhdGUiOm51bGwsImpwZWciOnsidHJlbGxpc1F1YW50aXNhdGlvbiI6dHJ1ZSwib3ZlcnNob290RGVyaW5naW5nIjp0cnVlLCJvcHRpbWlzZVNjYW5zIjp0cnVlLCJxdWFudGlzYXRpb25UYWJsZSI6M319fQ=="
   )
 
   puts "Creating checkpoints for Routeburn 🚩"
@@ -257,7 +258,8 @@ def seeding_manual_routes
     description: "Mount Ollivier Summit via Mueller Hut Route is a 11.6 kilometer moderately trafficked out and back trail located near Mount Cook Village, Canterbury, New Zealand that features a great forest setting and is only recommended for very experienced adventurers. The trail offers a number of activity options.",
     location: "Aoraki/Mount Cook National Park",
     time_needed: "3D2N",
-    route_distance: "11.6km"
+    route_distance: "11.6km",
+    photo_url: "https://cdn-assets.alltrails.com/uploads/photo/image/20352078/extra_large_0feaf75812e5dd34de16aa52e348c7e0.jpg"
   )
 
   puts "Creating checkpoints for Mueller 🚩"
@@ -294,7 +296,8 @@ def seeding_manual_routes
     description: "This well-graded track is a great overnight tramp for families with children and new trampers - it passes through changing forest types to the open tops, with great views of the Hawke’s Bay plains and excellent sunrises from the hut.",
     location: "Ruahine Forest Park",
     time_needed: "2D1N",
-    route_distance: "10.4km"
+    route_distance: "10.4km",
+    photo_url: "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMjkwNTYzMDUvOTZhOTQ2NTkzNTFjNTFhMzdlMDViYTVjZGFlOTA1ZjEuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjoyMDQ4LCJoZWlnaHQiOjIwNDgsImZpdCI6Imluc2lkZSJ9LCJyb3RhdGUiOm51bGwsImpwZWciOnsidHJlbGxpc1F1YW50aXNhdGlvbiI6dHJ1ZSwib3ZlcnNob290RGVyaW5naW5nIjp0cnVlLCJvcHRpbWlzZVNjYW5zIjp0cnVlLCJxdWFudGlzYXRpb25UYWJsZSI6M319fQ=="
   )
 
   puts "Creating checkpoints for Sunrise Track 🚩"
@@ -330,7 +333,8 @@ def seeding_manual_routes
     description: "The Mount Somers Track provides a number of options, including for kids, for an overnight tramp with impressive rock formations, historic mines and stunning views. It links the popular Pinnacles and Woolshed Creek huts.",
     location: "Hakatere Conservation Park",
     time_needed: "2D1N",
-    route_distance: "22.8km"
+    route_distance: "22.8km",
+    photo_url: "https://cdn-assets.alltrails.com/uploads/photo/image/24464687/extra_large_c02bd0b3164f6140694e08084ae1dfde.jpg"
   )
 
   puts "Creating checkpoints for Mount Somers Track 🚩"
