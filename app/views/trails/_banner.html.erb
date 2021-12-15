@@ -1,22 +1,6 @@
-<div class="d-flex flex-row align-items-center justify-content-end py-3">
-  <%= form_tag root_path, class: "form-inline pt-2 pr-2", method: :get do %>
-  <div class="form-group">
-    <%= text_field_tag :location,
-        params[:location],
-        class: "form-control",
-        placeholder: "Search another location",
-        size: "27"
-    %>
-    <%= button_tag(type: "submit", class: "btn btn-success text-white") do %>
-        <i class="fa fa-search"></i>
-    <% end %>
-  </div>
-  <% end %>
-</div>
-
 <div class="card mb-3">
-<% @trail.photo_url.nil? ? image_url = "https://media.timeout.com/images/105666541/750/562/image.jpg" : image_url = @trail.photo_url %>
-  <div class="rounded card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('<%= image_url %>'); height: 40vh; background-position: center; background-size: cover; background-repeat: no-repeat;">
+  <% @trail.photo_url.nil? ? image_url = "https://media.timeout.com/images/105666541/750/562/image.jpg" : image_url = @trail.photo_url %>
+  <div class="rounded card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('<%= image_url %>'); height: 45vh; background-position: center; background-size: cover; background-repeat: no-repeat;">
   </div>
   <div class="d-flex flex-column justify-content-end card-img-overlay mx-2" style="line-height: 0.5;">
     <h3 class="card-title text-white"><strong><%= @trail.name %></strong></h3>

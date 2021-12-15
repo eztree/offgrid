@@ -22,9 +22,12 @@ class Trail < ApplicationRecord
     coordinates[:lng]
   end
 
-  def elevation
-    checkpoints_array = checkpoints.to_a
-    
+  def elevation_gain
+    "#{rand(1000..1500)}m"
+  end
+
+  def elevation_loss
+    "#{rand(600..1000)}m"
   end
 
   def checkpoints_coordinates

@@ -7,7 +7,9 @@
       </div>
       <div class="d-flex justify-content-end">
         <section>
-          <%= link_to 'Share', user_trip_path(@trip, format: :pdf), class: "btn btn-success", target: :_blank %></div>
+          <%= link_to user_trip_path(@trip, format: :pdf), class: "btn btn-success rounded-pill", target: :_blank do %>
+            <i class="fas fa-download"></i> Export
+          <% end %>
       </div>
     </div>
   </div>
@@ -65,7 +67,7 @@
                   <% if @trip.photo.present? %>
                     <div class=""><i class="fas fa-check-circle" style="color:darkcyan;"></i> Photo uploaded! </div>
                   <% else %>
-                    <div class=""><i class="fas fa-exclamation-circle" style="color:firebrick;"></i> Please upload a photo !</div>
+                    <div class=""><i class="fas fa-exclamation-circle" style="color:firebrick;"></i> Please upload a photo!</div>
                   <% end %>
                 </div>
               </div>
@@ -163,11 +165,11 @@
               </div>
               <div class="text-center">
                 <i class="fas fa-level-up-alt"></i>
-              <p>(Elevation gain)</p>
+              <p><%= @trip.trail.elevation_gain %></p>
               </div>
               <div class="text-center">
                 <i class="fas fa-level-down-alt"></i>
-                <p>(Elevation loss)</p>
+                <p><%= @trip.trail.elevation_loss %></p>
               </div>
             </div>
           </div>
@@ -184,25 +186,23 @@
                     <%= cl_image_tag (@trip.photo.key), class:"rounded-lg", style: "width:100%;object-fit:contain;", crop: :fill %>
                   </div>
                   <div class="p-2 rounded shadow" style="width:50%; font-size:1rem;background-color:#f8ffe2;">
-                    <div class="mb-2 h5">Looking good!</div>
+                    <div class="mb-2 h5">Looking good! ✨</div>
                     <div>This photo was taken on: </div>
                     <div><%= @trip.last_photo.strftime("%e %b, %Y") %> at <%= @trip.last_photo.strftime("%l:%M %P") %></div>
                   </div>
                 </div>
               <% else %>
-                <div class="p-2 shadow" style="background:floralwhite;">
-                  <div class = "h5">Please attach a photo</div>
-                    <%= simple_form_for([current_user, @trip], method: :patch, url: trip_path(@trip)) do |f| %>
-                      <%= f.input :photo, class: 'invisible fixed-top form-label', as: :file, input_html: { multiple: false } %>
-                      <div class="d-flex justify-content-center">
-                        <label for="trip_photo" class="btn btn-outline-success m-0 mr-1" id='upload-btn'><i class="fas fa-camera"></i></label>
-                        <button type="submit" class="btn btn-primary disabled" id='submit-btn' disabled>
-                        Upload photo
-                         </button>
-                      </div>
-                      <p id='helper-text' class='invisible text-center m-0'>no photo</p>
-                    <% end %>
-                </div>
+                <p>Get ready for your pre-trip close up!</p>
+                  <%= simple_form_for([current_user, @trip], method: :patch, url: trip_path(@trip)) do |f| %>
+                    <%= f.input :photo, class: 'invisible fixed-top form-label', as: :file, input_html: { multiple: false } %>
+                    <div class="d-flex justify-content-center">
+                      <label for="trip_photo" class="btn btn-outline-dark m-0 mr-1 rounded-pill" id='upload-btn'><i class="fas fa-camera"></i></label>
+                      <button type="submit" class="btn btn-success disabled rounded-pill" id='submit-btn' disabled>
+                      Upload photo
+                        </button>
+                    </div>
+                    <p id='helper-text' class='invisible text-center m-0'>No photo</p>
+                  <% end %>
               <% end %>
           </div>
         </div>
