@@ -117,6 +117,41 @@ class TripsController < ApplicationController
     redirect_to checklist_mobile_path if client.device_type == 'smartphone'
   end
 
+  def update_checklists
+    # initialize variables
+    trip = Trip.find(params[:id])
+    check = params[:check] === "true"
+    category = params[:category]
+
+    # uncheck or check all items
+    trip.checklists.each do |checklist|
+      if checklist.item.tag_list.include?(category)
+        # raise
+        if check
+          checklist.checked = false
+        else
+          checklist.checked = true
+        end
+      checklist.save
+      end
+    end
+    # check if all trips are checked
+    check_all = trip.checklists.all?(&:checked)
+
+    # json response to checklist_controller.js
+    render json: {
+      response: 'OK',
+      checklists: Item.by_tag_name(category, trip),
+      trip: trip,
+      check: !check,
+      category: category,
+      # item: @checklist.item,
+      # tag_lists: @checklist.item.tag_list[1..] - ["food", "required"],
+      check_all: check_all
+    }, status: 200
+    authorize trip
+  end
+
   private
 
   def check_item_category(trip)
