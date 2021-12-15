@@ -77,10 +77,16 @@ const displayTrailSelect = (trail, map) => {
       .then((response) => response.json())
       .then((data) => {
         drawRoute(data, map);
-        fitMapToCoordinatesArray(map, data.routes[0].geometry.coordinates);
+        setTimeout(
+					fitMapToCoordinatesArray(map, data.routes[0].geometry.coordinates),
+					1000
+				);
       });
   } else if (checkpoints.length > 0) {
-    fitMapToMarkers(map, checkpoints);
+    setTimeout(
+      fitMapToMarkers(map, checkpoints),
+      1000
+    );
   }
 };
 
@@ -124,7 +130,7 @@ const addMarkersToMap = (map, markers) => {
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
   markers.forEach((marker) => bounds.extend([marker.lng, marker.lat]));
-  map.fitBounds(bounds, { padding: 80, maxZoom: 15, duration: 3000 });
+  map.fitBounds(bounds, { padding: 90, maxZoom: 15, duration: 3000 });
 };
 
 const fitMapToCoordinatesArray = (map, array) => {
@@ -132,7 +138,7 @@ const fitMapToCoordinatesArray = (map, array) => {
   array.forEach((coordinates) =>
     bounds.extend([coordinates[0], coordinates[1]])
   );
-  map.fitBounds(bounds, { padding: 80, maxZoom: 15, duration: 3000 });
+  map.fitBounds(bounds, { padding: 90, maxZoom: 14, duration: 3000 });
 };
 
 const initTrailSelects = (map) => {
@@ -181,18 +187,24 @@ const initMapbox = () => {
       "top-right"
     );
 
-    if (mapElement.classList.contains("map-with-route")) {
-      fetch(
-        `https://api.mapbox.com/directions/v5/mapbox/walking/${mapElement.dataset.coordinateString}?geometries=geojson&access_token=${mapboxgl.accessToken}`
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          drawRoute(data, map);
-          fitMapToCoordinatesArray(map, data.routes[0].geometry.coordinates);
-        });
-    } else {
-      fitMapToMarkers(map, markers);
-    }
+    if (
+			mapElement.classList.contains("map-with-route") &&
+			(mapElement.dataset.coordinateString.split(";").length > 1)
+		) {
+			fetch(
+				`https://api.mapbox.com/directions/v5/mapbox/walking/${mapElement.dataset.coordinateString}?geometries=geojson&access_token=${mapboxgl.accessToken}`
+			)
+				.then((response) => response.json())
+				.then((data) => {
+					drawRoute(data, map);
+					setTimeout(
+						fitMapToCoordinatesArray(map, data.routes[0].geometry.coordinates),
+						1000
+					);
+				});
+		} else {
+			setTimeout(fitMapToMarkers(map, markers), 1000);
+		}
   }
 };
 
