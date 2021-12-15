@@ -10,11 +10,11 @@ class NotifyUserTripStartDayJob < ApplicationJob
     if trip.save
       # message to the user
       TwilioTextMessenger.new(
-        message: "OffGrid - Your trip to #{trip.trail.location} (#{trip.trail.name}) is today! Remember to reply RETURN to this number once you're back! #{trip.emergency_contact.name} will be notified of your return too!",
+        message: "Offgrid - Your trip to #{trip.trail.location} (#{trip.trail.name}) is today! Remember to reply RETURN to this number once you're back! #{trip.emergency_contact.name} will be notified of your return too!",
         receiver: trip.user.phone_no
       ).call
     else
-      puts "OffGrid - There was an error updating the trip."
+      puts "Offgrid - There was an error updating the trip."
     end
   end
 end
