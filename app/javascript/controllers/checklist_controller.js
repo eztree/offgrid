@@ -22,24 +22,10 @@ export default class extends Controller {
       .then((response) => response.json())
       .then((data) => {
         const isChecked = data.checklist.checked ? "checked" : "";
-        const badgeListsUnchecked = data.tag_lists
-          .map((tag) => {
-            const label =
-              tag === "optional" ? "badge-secondary" : "badge-primary";
-            return `<span class="badge badge-pill ${label}">${tag}</span>`;
-          })
-          .join("\n");
 
-        const badgeListsChecked = data.tag_lists
-          .map((tag) => {
-            const label = "badge-secondary";
-            return `<span class="badge badge-pill ${label}">${tag}</span>`;
-          })
-          .join("\n");
-
-        const isCheckedBadgeLists = data.checklist.checked
-          ? badgeListsChecked
-          : badgeListsUnchecked;
+        const badgeListsChecked = data.tag_lists.includes("optional")
+          ? `<span class="badge badge-pill badge-secondary">optional</span>`
+          : "";
 
         const isFood = data.item.tag_list.includes("food")
           ? `${data.trip.no_of_people}x ${data.item.name}`
@@ -58,7 +44,7 @@ export default class extends Controller {
             <label for="${data.checklist.id}">
               ${isFood}
             </label>
-            ${isCheckedBadgeLists}
+            ${badgeListsChecked}
           </div>
         `;
 
