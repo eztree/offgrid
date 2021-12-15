@@ -25,7 +25,7 @@
 <section id="upcoming">
   <div class="d-flex p-2 justify-content-between" style="background-color: #fff; border-radius: 8px;">
     <div class="white-card position-relative" style="width:60%; border-right: 1px solid #e8e8e8;">
-      <h2 class="font-weight-bold">Up next: <%= link_to @current_trip.trail.name, user_trip_path(current_user, @current_trip), class:"text-black",style:"text-decoration:none;" %></h2>
+      <h2 class="font-weight-bold"><span class="">Up next: <%= link_to @current_trip.trail.name, user_trip_path(current_user, @current_trip), class:"text-black", style:"text-decoration:none;" %></span></h2>
       <div style="width:100%; min-height:70%;">
         <div id="map"
           class="map-with-route"
@@ -36,20 +36,20 @@
         </div>
       </div>
       <div>
-        <div class="h5 mt-1"><%= @current_trip.start_date.strftime("%e %b, %Y") %> - <%= @current_trip.end_date.strftime("%e %b, %Y") %></div>
+        <div class="h5 mt-2 font-weight-bold"><%= @current_trip.start_date.strftime("%e %b, %Y") %> - <%= @current_trip.end_date.strftime("%e %b, %Y") %></div>
         <div>Length: <%= @current_trip.trail.route_distance %> • Est: <%= @current_trip.trail.time_needed %></div>
       </div>
     </div>
     <div style="min-height: 360px; width:39%;">
       <div class="white-card" id="desktop-weather" style="width:100%;">
-        <h3 class="font-weight-bold">Weather</h3>
+        <h3 class="font-weight-bold"><span class="">Weather</span></h3>
         <div class="d-flex flex-row justify-content-around">
           <%= render "weather_card", trip: @current_trip, trip_dates: @trip_dates %>
         </div>
       </div>
         <hr>
       <div class="white-card" style="width:100%;">
-        <h3 class="font-weight-bold">Status</h3>
+        <h3 class="font-weight-bold"><span class="">Status</span></h3>
         <%= render "status_bar", trip: @current_trip %>
       </div>
     </div>
