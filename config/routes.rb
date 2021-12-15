@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "/dashboard", to: "pages#dashboard"
   get "/dashboard/mobile", to: "pages#dashboard_mobile"
   get "/users/:user_id/trips/:id/checklist_mobile", to: "trips#checklist_mobile", as: "checklist_mobile"
+  patch "/trips/:id/:category/:check", to: "trips#update_checklists"
 
   resources :users, only: [:show] do
     resources :emergency_contacts, only: [:create]
