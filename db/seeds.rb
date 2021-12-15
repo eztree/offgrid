@@ -216,7 +216,7 @@ def seeding_manual_routes
   puts "Creating the manual trails 🛤"
   puts "Routeburn Track 🥾"
   routeburn = Trail.create!(
-    id: 0,
+    # id: 0,
     name: "Routeburn Track",
     description: "Routeburn Track is a 32.2 kilometer heavily trafficked point-to-point trail located near Glenorchy, Otago, New Zealand that features a lake and is rated as difficult. The trail offers a number of activity options and is best used from October until May.",
     location: "Fiordland National Park",
@@ -255,7 +255,7 @@ def seeding_manual_routes
 
   puts "Mount Ollivier Summit via Mueller Hut 🥾"
   mueller = Trail.create!(
-    id: 1,
+    # id: 1,
     name: "Mount Ollivier Summit via Mueller Hut Route",
     description: "Mount Ollivier Summit via Mueller Hut Route is a 11.6 kilometer moderately trafficked out and back trail located near Mount Cook Village, Canterbury, New Zealand that features a great forest setting and is only recommended for very experienced adventurers. The trail offers a number of activity options.",
     location: "Aoraki/Mount Cook National Park",
@@ -293,7 +293,7 @@ def seeding_manual_routes
 
   puts "Sunrise Track 🌄"
   sunrise = Trail.create!(
-    id: 3,
+    # id: 3,
     name: "Sunrise Track",
     description: "This well-graded track is a great overnight tramp for families with children and new trampers - it passes through changing forest types to the open tops, with great views of the Hawke’s Bay plains and excellent sunrises from the hut.",
     location: "Ruahine Forest Park",
@@ -330,7 +330,7 @@ def seeding_manual_routes
 
   puts "Mount Somers Track 🐑"
   somers = Trail.create!(
-    id: 4,
+    # id: 4,
     name: "Mount Somers Track: Woolshed Creek Hut",
     description: "The Mount Somers Track provides a number of options, including for kids, for an overnight tramp with impressive rock formations, historic mines and stunning views. It links the popular Pinnacles and Woolshed Creek huts.",
     location: "Hakatere Conservation Park",
@@ -432,7 +432,7 @@ trip = Trip.create!(
   cooking: false,
   camping: true,
   last_seen_photo: "",
-  last_photo: Date.today,
+  last_photo: DateTime.now + 8.hours,
   emergency_contact: EmergencyContact.first,
   release_date_time: DateTime.new(Date.today.year, Date.today.month, Date.today.day + 2, 9)
 )
