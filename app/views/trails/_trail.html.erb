@@ -8,7 +8,7 @@
        autocomplete="off"
        required>
 <label class="btn card-btn my-2 py-2" for="trail_<%= trail.id %>" style="width: 100%;">
-  <div class="card container-fluid p-0 my-0">
+  <div class="card container-fluid p-0 my-0" style="border: 0px solid;">
   <% trail.photo_url.nil? ? image_url = "https://media.timeout.com/images/105666541/750/562/image.jpg" : image_url = trail.photo_url %>
     <div class="rounded d-flex justify-content-end align-items-end" style="background-image: url('<%= image_url %>'); height: 144px; width:100%; background-position: center; background-size: cover; background-repeat: no-repeat;">
       <div class="badge badge-pill m-1 <% if trail.tag_list[0] === "easy"%>badge-success<% elsif trail.tag_list[0] === "medium"%>badge-warning<% else %>badge-danger<% end %>"><%= trail.tag_list[0] %></div>
@@ -23,16 +23,15 @@
         <i class="fa fa-star rating-color"></i>
         <i class="fa fa-star"></i>
       </div>
-      <p class="mb-0"><small>Length: <%= trail.route_distance %> • Est: <%= trail.time_needed %></small></p>
-      <hr class="my-2">
+      <p class="mb-2"><small>Length: <%= trail.route_distance %> • Est: <%= trail.time_needed %></small></p>
       <div class="d-flex justify-content-between align-items-center">
         <%= link_to "View details", trail_path(trail), class:"btn btn-secondary rounded-pill" %>
         <div>
           <label id="trail_submit_label_<%= trail.id %>" class="my-auto mx-2 btn btn-success disabled trail-submit-label rounded-pill" for="trail_<%= trail.id %>" style="display: block;">
-            Hike here
+            Hike here <i class="fas fa-arrow-right"></i>
           </label>
           <button id= "trail_submit_button_<%= trail.id %>" class="btn btn-success mx-2 trail-submit-button rounded-pill" type="submit" style="display: none;">
-            Hike here
+            Hike here <i class="fas fa-arrow-right"></i>
           </button>
         </div>
       </div>
