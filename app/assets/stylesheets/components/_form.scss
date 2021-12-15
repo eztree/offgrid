@@ -9,5 +9,6 @@ input[type="radio"].emergency:checked + label{
   background-color: #f7f7f7;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 10px; border: 1px solid #586249;
+  transform: none;
   font-size: 40px;
 }
