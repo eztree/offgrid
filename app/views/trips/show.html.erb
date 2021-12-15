@@ -1,54 +1,79 @@
 <div class="pt-5 mt-4"></div>
-  <div class="d-flex justify-content-between px-5">
-    <div class="h1"><%= @trip.trail.name %><span class="ml-3 badge badge-pill <% if @trip.trail.tag_list[0] === "easy"%>badge-success<% elsif @trip.trail.tag_list[0] === "medium"%>badge-warning<% else %>badge-danger<% end %> "><%= @trip.trail.tag_list[0] %></span></div>
-    <div class="d-flex justify-content-end">
-      <section><%= link_to 'Share', user_trip_path(@trip, format: :pdf), class: "btn btn-success", target: :_blank %></div>
+  <div class='container-lg'>
+    <div class="d-flex justify-content-between px-5">
+      <div class="d-flex">
+        <h2><%= @trip.trail.name %></h2>
+        <p style="border-radius: 50px;" class="m-2 px-1 pt-2 badge <% if @trip.trail.tag_list[0] === "easy"%>badge-success<% elsif @trip.trail.tag_list[0] === "medium"%>badge-warning<% else %>badge-danger<% end %> "><%= @trip.trail.tag_list[0] %></p>
+      </div>
+      <div class="d-flex justify-content-end">
+        <section>
+          <%= link_to 'Share', user_trip_path(@trip, format: :pdf), class: "btn btn-success", target: :_blank %></div>
+      </div>
     </div>
   </div>
-
-  <div class="px-5 pb-5 mx-5" style="background-color:#e1e4d5;">
-    <section class="row p-3 py-1" id="checklist-complete">
-      <% if @trip.checklists.all?(&:checked) %>
-        <div class="mr-2"><i class="fas fa-check-circle" style="color:darkcyan;"></i> Checklist completed!</div>
-      <% else %>
-        <div class="mr-2"><i class="fas fa-exclamation-circle" style="color:firebrick;"></i> Checklist is not complete!</div>
-      <% end %>
-    </section>
+  <div class='container-lg'>
+  <div class="p-2 mx-5" style="background-color:#e1e4d5;">
     <div class="row">
-      <section class="col-7">
+      <section class="col-7 pr-0">
         <div class="bg-white shadow-sm p-3">
           <div class="h4"><%= @trip.start_date.strftime("%e %b, %Y") %> - <%= @trip.end_date.strftime("%e %b, %Y") %></div>
           <div class="mb-3"><%= @trip.trail.time_needed %> TRIP FOR <%= @trip.no_of_people %> <%= "adult".pluralize(@trip.no_of_people).upcase %> IN <%= @trip.trail.location.upcase %>.</div>
           <div class="row">
             <div class="col-6">
-              <div class="d-flex align-items-center mb-2 h5">
-                <div class="mr-3">
-                  <% if @trip.camping %>
-                    <i class="fas fa-check-circle" style="color:darkcyan;"></i>
-                  <% else %>
-                    <i class="fas fa-times-circle" style="color:tomato;"></i>
-                  <% end %>
+              <div class="mb-3">
+                <div class="d-flex justify-content-start mb-2">
+                  <div class="mr-3">
+                    <% if @trip.camping %>
+                      <div class="d-flex justify-content-start">
+                        <p class="my-2"><i class="fas fa-campground" style="color:darkcyan;"></i></p>
+                        <p class='font-weight-bold my-2' style="color:darkcyan;">I will be sleeping in a tent</p>
+                      </div>
+                    <% else %>
+                      <div class="d-flex justify-content-start">
+                        <p class="my-2"><i class="fas fa-ban" style="color:darkred;"></i></p>
+                        <p class='font-weight-bold my-2' style="color:darkred;">I will be sleeping in a tent</p>
+                      </div>
+                    <% end %>
+                  </div>
                 </div>
-                <div>
-                  I will be sleeping in a tent
+                <div class="d-flex justify-content-start mb-2">
+                  <div class="mr-3">
+                    <% if @trip.cooking %>
+                      <div class="d-flex justify-content-start">
+                        <p class="my-2"><i class="fab fa-gripfire" style="color:darkcyan;"></i></p>
+                        <p class='font-weight-bold my-2' style="color:darkcyan;">I will be cooking my own food</p>
+                      </div>
+                    <% else %>
+                      <div class="d-flex justify-content-start">
+                        <p class="my-2"><i class="fas fa-ban" style="color:darkred;"></i></p>
+                        <p class='font-weight-bold my-2' style="color:darkred;">I will be cooking my own food</p>
+                      </div>
+                    <% end %>
+                  </div>
                 </div>
               </div>
-              <div class="d-flex align-items-center h5">
-                <div class="mr-3">
-                  <% if @trip.cooking %>
-                    <i class="fas fa-check-circle" style="color:darkcyan;"></i>
+              <div class="border-top mt-3">
+              <div class='mt-3'>
+                <div class="d-flex justify-content-start mb-2 checklist-complete">
+                  <% if @trip.checklists.all?(&:checked) %>
+                    <div class="mr-2"><i class="fas fa-check-circle" style="color:darkcyan;"></i> Checklist completed!</div>
                   <% else %>
-                    <i class="fas fa-times-circle" style="color:tomato;"></i>
+                    <div class="mr-2"><i class="fas fa-exclamation-circle" style="color:firebrick;"></i> Checklist is not complete!</div>
                   <% end %>
                 </div>
-                <div>
-                  I will be cooking my own food
+                <div class="d-flex justify-content-start mb-2" >
+                  <% if @trip.photo.present? %>
+                    <div class=""><i class="fas fa-check-circle" style="color:darkcyan;"></i> Photo uploaded! </div>
+                  <% else %>
+                    <div class=""><i class="fas fa-exclamation-circle" style="color:firebrick;"></i> Please upload a photo !</div>
+                  <% end %>
                 </div>
+              </div>
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-6 pl-0 pr-2">
               <div class="warning p-2 rounded-lg">
-                <div class="h5 mt-2"></i> Emergency contact</div>
+                <div class="h5"></i> Emergency contact</div>
                 <div class="pl-2"><%= @trip.emergency_contact.name %></div>
                 <div class="pl-2"><%= @trip.emergency_contact.email %></div>
                 <div class="pl-2"><%= @trip.emergency_contact.phone_no %></div>
@@ -57,13 +82,13 @@
             </div>
           </div>
         </div>
-        <div class="bg-white shadow-sm p-3 my-3">
+        <div class="bg-white shadow-sm p-3 my-2">
           <div class="h4">Day Plan and Conditions</div>
           <div class="accordion" id="accordionDay">
             <%= render "trip_weather_card", trip: @trip, trip_dates: [@trip_dates], trip_days: @trip_days, breakfast: @breakfast_arr, meal: @meal_arr, checkpoint_arr: @checkpoint_name_arr %>
           </div>
         </div>
-        <div class="bg-white shadow-sm p-3 my-3">
+        <div class="bg-white shadow-sm p-3 my-2">
           <div class="h4">Checklist</div>
           <div class="accordion" id="accordionChecklist">
             <% @category_items.each_with_index do |category, index| %>
@@ -98,7 +123,7 @@
         </div>
       </section>
       <div class="col-5">
-        <div class="bg-white shadow-sm mb-3">
+        <div class="bg-white shadow-sm mb-2">
           <div id="map"
             class="map-with-route"
             style="width: 100%; height: 50vh;"
@@ -131,15 +156,10 @@
           </div>
 
         </div>
-        <div class="bg-white shadow-sm p-3 my-3">
+        <div class="bg-white shadow-sm p-3 my-1">
           <div>
             <div class="d-flex justify-content-start align-items-center">
-             <h4>Last seen</h4>
-              <% if @trip.photo.present? %>
-                <div class="ml-2"><i class="fas fa-check-circle" style="color:darkcyan;"></i> Photo uploaded! </div>
-              <% else %>
-                <div class="ml-2"><i class="fas fa-exclamation-circle" style="color:firebrick;"></i> Please upload a photo !</div>
-              <% end %>
+             <h4>Your photo</h4>
             </div>
               <% if @trip.photo.present? %>
                 <div class="d-flex justify-content-between">
@@ -170,6 +190,7 @@
           </div>
         </div>
       </div>
+  </div>
     </div>
   </div>
 </div>
