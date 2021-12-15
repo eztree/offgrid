@@ -25,19 +25,17 @@ def seeding_checkpoints
   checkpoints_json = JSON.parse(serialized_checkpoint)
 
   Trail.all.each_with_index do |trail, index|
-    if index > 3
-      key = "##{index - 3}"
-      previous_checkpoint = nil
-      checkpoint = Checkpoint.new(
-        name: checkpoints_json[key]["name"],
-        longitude: checkpoints_json[key]["longitude"],
-        latitude: checkpoints_json[key]["latitude"],
-        elevation: 0
-      )
-      checkpoint.previous_checkpoint = previous_checkpoint unless previous_checkpoint.nil?
-      checkpoint.trail = trail
-      checkpoint.save
-    end
+    key = "##{index + 1}"
+    previous_checkpoint = nil
+    checkpoint = Checkpoint.new(
+      name: checkpoints_json[key]["name"],
+      longitude: checkpoints_json[key]["longitude"],
+      latitude: checkpoints_json[key]["latitude"],
+      elevation: 0
+    )
+    checkpoint.previous_checkpoint = previous_checkpoint unless previous_checkpoint.nil?
+    checkpoint.trail = trail
+    checkpoint.save
   end
 end
 
@@ -178,10 +176,45 @@ def seeding_emergency_contacts
   puts "Second emergency contact created ☑"
 end
 
+def users
+  # Creating a static user instance
+  puts "Creating our first user.. 🧔"
+  User.create!(
+      first_name: "Geetha",
+      last_name: "Bheema",
+      email: "geebee@gmail.com",
+      password: "password",
+      active: "true"
+    )
+  puts "Standard user Geetha created! ✅"
+
+  puts "Creating a temp user... 😬"
+  User.create!(
+      first_name: "Alicia",
+      last_name: "Keys",
+      email: "placeholder@email.com",
+      password: "placeholder",
+      active: "false"
+    )
+  puts "Temp user created! ✅"
+
+  puts "Creating an admin user... 🤓"
+  User.create!(
+      first_name: "Administrator",
+      last_name: "Offgrid",
+      email: "admin@offgrid.com",
+      password: ENV['ADMIN_ACCOUNT_PASSWORD'],
+      active: "true",
+      admin: true
+    )
+  puts "Admin user created! ✅"
+end
+
 def seeding_manual_routes
   puts "Creating the manual trails 🛤"
   puts "Routeburn Track 🥾"
   routeburn = Trail.create!(
+    id: 0,
     name: "Routeburn Track",
     description: "Routeburn Track is a 32.2 kilometer heavily trafficked point-to-point trail located near Glenorchy, Otago, New Zealand that features a lake and is rated as difficult. The trail offers a number of activity options and is best used from October until May.",
     location: "Fiordland National Park",
@@ -219,6 +252,7 @@ def seeding_manual_routes
 
   puts "Mount Ollivier Summit via Mueller Hut 🥾"
   mueller = Trail.create!(
+    id: 1,
     name: "Mount Ollivier Summit via Mueller Hut Route",
     description: "Mount Ollivier Summit via Mueller Hut Route is a 11.6 kilometer moderately trafficked out and back trail located near Mount Cook Village, Canterbury, New Zealand that features a great forest setting and is only recommended for very experienced adventurers. The trail offers a number of activity options.",
     location: "Aoraki/Mount Cook National Park",
@@ -255,6 +289,7 @@ def seeding_manual_routes
 
   puts "Sunrise Track 🌄"
   sunrise = Trail.create!(
+    id: 3,
     name: "Sunrise Track",
     description: "This well-graded track is a great overnight tramp for families with children and new trampers - it passes through changing forest types to the open tops, with great views of the Hawke’s Bay plains and excellent sunrises from the hut.",
     location: "Ruahine Forest Park",
@@ -290,6 +325,7 @@ def seeding_manual_routes
 
   puts "Mount Somers Track 🐑"
   somers = Trail.create!(
+    id: 4,
     name: "Mount Somers Track: Woolshed Creek Hut",
     description: "The Mount Somers Track provides a number of options, including for kids, for an overnight tramp with impressive rock formations, historic mines and stunning views. It links the popular Pinnacles and Woolshed Creek huts.",
     location: "Hakatere Conservation Park",
@@ -324,38 +360,6 @@ def seeding_manual_routes
   puts "Mount Somers Track done ✅"
 
   puts "End of manual trails 👌"
-
-  # Creating a static user instance
-  puts "Creating our first user.. 🧔"
-  User.create!(
-      first_name: "Geetha",
-      last_name: "Bheema",
-      email: "geebee@gmail.com",
-      password: "password",
-      active: "true"
-    )
-  puts "Standard user Geetha created! ✅"
-
-  puts "Creating a temp user... 😬"
-  User.create!(
-      first_name: "Alicia",
-      last_name: "Keys",
-      email: "placeholder@email.com",
-      password: "placeholder",
-      active: "false"
-    )
-  puts "Temp user created! ✅"
-
-  puts "Creating an admin user... 🤓"
-  User.create!(
-      first_name: "Administrator",
-      last_name: "Offgrid",
-      email: "admin@offgrid.com",
-      password: ENV['ADMIN_ACCOUNT_PASSWORD'],
-      active: "true",
-      admin: true
-    )
-  puts "Admin user created! ✅"
 end
 
 def seeding_trail_difficulty
@@ -377,10 +381,32 @@ User.destroy_all
 Item.destroy_all
 EmergencyContact.destroy_all
 puts "Deleted!"
-# =============== static data ===============
-seeding_manual_routes
+
+users
+trail_seed = seeding_trails
+# Creating instance models here
+puts "creating trails.."
+trail_seed.each do |trail|
+  Trail.create!(
+    name: trail["name"],
+    description: trail["description"],
+    location: trail["location"],
+    time_needed: trail["time_needed"],
+    route_distance: trail["route_distance"],
+    photo_url: trail["photo"]
+  )
+end
+puts "adding checkpoints to trails"
+seeding_checkpoints
+puts "Trails created!"
+seeding_trail_difficulty
+puts "Tagging trail difficulty"
 seeding_emergency_contacts
-# =============== end of static data ===============
+
+# extracting from json files
+puts "extracting information from json files.."
+
+puts "infomation extracted!"
 
 # Creating the first trip for first user
 puts "Booking a trip for our first user 📑"
@@ -405,30 +431,10 @@ trip.photo.attach(io: file, filename: "#{trip.trail.name}_photo.jpg", content_ty
 
 puts "Trip has been booked!"
 
+# =============== static data ===============
+seeding_manual_routes
+# =============== end of static data ===============
 
-# extracting from json files
-puts "extracting information from json files.."
-trail_seed = seeding_trails
-
-puts "infomation extracted!"
-
-# Creating instance models here
-puts "creating trails.."
-trail_seed.each do |trail|
-  Trail.create!(
-    name: trail["name"],
-    description: trail["description"],
-    location: trail["location"],
-    time_needed: trail["time_needed"],
-    route_distance: trail["route_distance"],
-    photo_url: trail["photo"]
-  )
-end
-puts "adding checkpoints to trails"
-seeding_checkpoints
-puts "Trails created!"
-seeding_trail_difficulty
-puts "Tagging trail difficulty"
 
 # method for Item seeding
 
