@@ -77,16 +77,10 @@ const displayTrailSelect = (trail, map) => {
       .then((response) => response.json())
       .then((data) => {
         drawRoute(data, map);
-        setTimeout(
-					fitMapToCoordinatesArray(map, data.routes[0].geometry.coordinates),
-					1000
-				);
+        setTimeout( fitMapToCoordinatesArray(map, data.routes[0].geometry.coordinates), 1000);
       });
   } else if (checkpoints.length > 0) {
-    setTimeout(
-      fitMapToMarkers(map, checkpoints),
-      1000
-    );
+      setTimeout(fitMapToMarkers(map, checkpoints), 1000);
   }
 };
 
@@ -197,13 +191,10 @@ const initMapbox = () => {
 				.then((response) => response.json())
 				.then((data) => {
 					drawRoute(data, map);
-					setTimeout(
-						fitMapToCoordinatesArray(map, data.routes[0].geometry.coordinates),
-						1000
-					);
+					setTimeout(fitMapToCoordinatesArray(map, data.routes[0].geometry.coordinates), 1000);
 				});
 		} else {
-			setTimeout(fitMapToMarkers(map, markers), 1000);
+			  setTimeout(fitMapToMarkers(map, markers), 1000);
 		}
   }
 };
