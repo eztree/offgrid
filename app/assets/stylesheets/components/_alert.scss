@@ -4,3 +4,21 @@
   right: 16px;
   z-index: 1000;
 }
+
+.show-alert {
+  position: relative;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.show-alert-warning {
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+}
+
+.show-light-warning {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}

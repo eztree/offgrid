@@ -1,0 +1,24 @@
+<div class="d-flex">
+  <div class="d-flex justify-content-start my-2 mr-2" id="checklist-complete">
+    <% if @trip.checklists.all?(&:checked) %>
+      <div class="show-alert show-light-warning" role="alert">
+        <i class="fas fa-check-circle" style="color:darkcyan;"></i> Checklist completed!
+      </div>
+    <% else %>
+      <div class="show-alert show-alert-warning" role="alert">
+        <i class="fas fa-exclamation-circle" style="color:firebrick;"></i> Checklist is not complete!
+      </div>
+    <% end %>
+  </div>
+  <div class="d-flex justify-content-start my-2 mr-2">
+    <% if @trip.photo.present? %>
+      <div class="show-alert show-light-warning" role="alert">
+        <i class="fas fa-check-circle" style="color:darkcyan;"></i> Photo uploaded!
+      </div>
+    <% else %>
+      <div class="show-alert show-alert-warning" role="alert">
+        <i class="fas fa-exclamation-circle" style="color:firebrick;"></i> Please upload a photo!
+      </div>
+    <% end %>
+  </div>
+</div>
