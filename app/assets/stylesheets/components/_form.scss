@@ -1,6 +1,7 @@
 input[type="radio"]:checked+label{
-  transform: scale(1.02) translateX(50px);
+  transform: translateX(50px);
   position: relative;
+  box-shadow: 2px 2px 10px 4px rgba(111,111,111,0.4);
   z-index: 1;
 }
 
@@ -8,5 +9,6 @@ input[type="radio"].emergency:checked + label{
   background-color: #f7f7f7;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 10px; border: 1px solid #586249;
+  transform: none;
   font-size: 40px;
 }

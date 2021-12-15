@@ -21,7 +21,7 @@
     </div>
   </div>
   <div class="container d-flex justify-content-center">
-    <%= link_to trip_path(@current_trip, format: :pdf), class: "btn btn-success", target: :_blank do %>
+    <%= link_to trip_path(@current_trip, format: :pdf), class: "btn btn-success rounded-pill", target: :_blank do %>
       <i class="fas fa-download"></i> Export
     <% end %>
   <%# Only checklist is done %>
@@ -49,8 +49,8 @@
         <%= simple_form_for(@current_trip, method: :patch, url: trip_path(@current_trip, upload: :photo)) do |f| %>
               <input id="file" class="invisible fixed-top form-label" type="file" id="last_seen_photo" name="last_seen_photo">
             <div class="d-flex justify-content-center">
-              <label for="file" class="btn btn-outline-success m-0 mr-1" id='upload-btn'><i class="fas fa-camera"></i></label>
-              <button type="submit" class="btn btn-primary disabled" id='submit-btn' disabled>
+              <label for="file" class="btn btn-outline-success m-0 mr-1 rounded-pill" id='upload-btn'><i class="fas fa-camera"></i></label>
+              <button type="submit" class="btn btn-primary disabled rounded-pill" id='submit-btn' disabled>
                 Upload photo
               </button>
             </div>
@@ -78,7 +78,7 @@
     </div>
   </div>
   <div class="container d-flex justify-content-center">
-    <%= link_to user_trip_path(current_user, @current_trip), class: "btn btn-success px-2" do %>
+    <%= link_to user_trip_path(current_user, @current_trip), class: "btn btn-success rounded-pill px-2" do %>
       <i class="fas fa-tasks"></i> Checklist
     <% end %>
   <% end %>

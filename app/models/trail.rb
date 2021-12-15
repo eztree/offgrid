@@ -22,6 +22,11 @@ class Trail < ApplicationRecord
     coordinates[:lng]
   end
 
+  def elevation
+    checkpoints_array = checkpoints.to_a
+    
+  end
+
   def checkpoints_coordinates
     checkpoints_array = checkpoints.to_a
     checkpoints_array.map do |checkpoint|
