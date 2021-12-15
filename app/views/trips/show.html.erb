@@ -1,214 +1,194 @@
-<div class="pt-5 mt-4"></div>
-  <div class='container-lg'>
-    <div class="d-flex justify-content-between px-5">
-      <div class="d-flex">
-        <h2><%= @trip.trail.name %></h2>
-        <p style="border-radius: 50px;" class="m-2 px-1 pt-2 badge <% if @trip.trail.tag_list[0] === "easy"%>badge-success<% elsif @trip.trail.tag_list[0] === "medium"%>badge-warning<% else %>badge-danger<% end %> "><%= @trip.trail.tag_list[0] %></p>
+<div class="p-2 mx-5">
+
+<div class='container-lg' style="margin-top:6rem;">
+  <div class="d-flex justify-content-between align-items-center p-2" style="background-color:#e1e4d5; border-top-left-radius: 14px; border-top-right-radius: 14px;">
+    <div class="d-flex">
+      <h3 class="font-weight-bold pt-2 pl-2"><%= @current_user.first_name %>'s hike at <%= @trip.trail.name %></h3>
+      <p class="m-2 p-2 rounded-pill badge <% if @trip.trail.tag_list[0] === "easy"%>badge-success<% elsif @trip.trail.tag_list[0] === "medium"%>badge-warning<% else %>badge-danger<% end %> "><%= @trip.trail.tag_list[0] %></p>
+    </div>
+    <div class="d-flex justify-content-end">
+        <%= link_to user_trip_path(@trip, format: :pdf), class: "btn btn-success rounded-pill", target: :_blank do %>
+          <i class="fas fa-download"></i> Export
+        <% end %>
+    </div>
+  </div>
+  <div class="mb-5" style="background-color:#fff; border-bottom-left-radius:14px; border-bottom-right-radius:14px;">
+  <div class="row p-2">
+    <section class="col-7 pr-0">
+      <div class="pt-3 px-3">
+        <h5 class="font-weight-bold"><%= @trip.start_date.strftime("%e %b, %Y") %> - <%= @trip.end_date.strftime("%e %b, %Y") %></h5>
+        <div><%= @trip.trail.time_needed.upcase %> TRIP FOR <%= @trip.no_of_people %> <%= "adult".pluralize(@trip.no_of_people).upcase %> IN <%= @trip.trail.location.upcase %>.</div>
+          <%= render "status" %>
+        <div class="row">
+          <div class="col-6">
+            <div class="d-flex justify-content-start mb-2">
+              <div class="mr-3">
+                <% if @trip.camping %>
+                  <div class="d-flex justify-content-start">
+                    <p class="my-2 mr-2"><i class="fas fa-campground" style="color:darkcyan;"></i></p>
+                    <p class='my-2' style="color:darkcyan;">I will be sleeping in a tent</p>
+                  </div>
+                <% else %>
+                  <div class="d-flex justify-content-start">
+                    <p class="my-2 mr-2"><i class="fas fa-ban" style="color:darkred;"></i></p>
+                    <p class='my-2' style="color:darkred;">I will be sleeping in a tent</p>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+            <div class="d-flex justify-content-start mb-2">
+              <div class="mr-3">
+                <% if @trip.cooking %>
+                  <div class="d-flex justify-content-start">
+                    <p class="my-2 mr-2"><i class="fab fa-gripfire" style="color:darkcyan;"></i></p>
+                    <p class='my-2' style="color:darkcyan;">I will be cooking my own food</p>
+                  </div>
+                <% else %>
+                  <div class="d-flex justify-content-start">
+                    <p class="my-2 mr-2"><i class="fas fa-ban" style="color:darkred;"></i></p>
+                    <p class='my-2' style="color:darkred;">I will be cooking my own food</p>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="d-flex justify-content-end">
-        <section>
-          <%= link_to user_trip_path(@trip, format: :pdf), class: "btn btn-success rounded-pill", target: :_blank do %>
-            <i class="fas fa-download"></i> Export
+      <hr>
+      <div class="p-3 my-2">
+        <h5>Day Plan and Conditions</h5>
+        <div class="accordion" id="accordionDay">
+          <%= render "trip_weather_card", trip: @trip, trip_dates: [@trip_dates], trip_days: @trip_days, breakfast: @breakfast_arr, meal: @meal_arr, checkpoint_arr: @checkpoint_name_arr %>
+        </div>
+      </div>
+        <hr>
+      <div class="p-3 my-2">
+        <h5>Checklist</h5>
+        <div class="accordion" id="accordionChecklist">
+          <% @category_items.each_with_index do |category, index| %>
+            <div class="card">
+              <div class="card-header" id="heading<%=category%>">
+                <button class="btn btn-link btn-block text-left text-black" type="button" data-toggle="collapse" data-target="#collapse<%=category%>" aria-expanded="true" aria-controls="collapse<%=index%>" style="text-decoration:none;">
+                  <div data-checklist-target="category" id="<%=category%>" <% if @check_category_hash[category.to_sym] %>style="color:green;"<% end %>>
+                    <%= image_tag "icons/#{category}.png", style:"height:32px;", class:"mr-2" %>
+                    <%= category.titleize %>
+                    <% if @check_category_hash[category.to_sym] %> <span id="<%=category%>-icon" style="font-size:1.5rem;"> <i class="far fa-check-circle"></i></span> <% end %>
+                  </div>
+                </button>
+              </div>
+              <div id="collapse<%=category%>" class="collapse <% if index===0%>show<% end %>" aria-labelledby="heading<%=category%>" data-parent="#accordionChecklist">
+                <%# /* CONTROLLER START */ %>
+                <div class="card-body" id="category-card-body" data-controller="checklist">
+                  <%# CATEGORY CHECKLIST %>
+                  <div class="category-div">
+                      <input data-action="change->checklist#inputCheckboxAll"
+                        data-checklist-target="completed" type="checkbox" id="category-<%=category%>"
+                        data-trip-id="<%=@trip.id%>"
+                        data-category-name="<%=category%>"
+                        data-category-check="<%=@check_category_hash[category.to_sym]%>"
+                        name="category-<%=category%>"
+                        value="category-<%=category%>"
+                        <%= @check_category_hash[category.to_sym] && "checked" %>
+                      >
+                    <label for="category-<%=category%>">
+                      <% if @check_category_hash[category.to_sym] %>
+                        Uncheck all!
+                      <% else %>
+                        Check all!
+                      <% end %>
+                    </label>
+                  </div>
+                  <%# UNDONE CHECKLIST %>
+                  <div class="border-bottom mb-2" data-checklist-target="undone">
+                    <%= render Item.unchecked_by_tag_name(category, @trip) %>
+                  </div>
+                  <%# DONE CHECKLIST %>
+                  <div class="mt-2 text-muted" data-checklist-target="done">
+                    <%= render Item.checked_by_tag_name(category, @trip) %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </section>
+    <div class="col-5">
+      <div class="mb-2">
+        <div id="map"
+          class="map-with-route"
+          style="width: 100%; height: 50vh;"
+          data-markers="<%= @markers.to_json %>"
+          data-coordinate-string="<%= @coordinate_string %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+        <div class="mt-3">
+          <div>
+            <%= line_chart @elevation_arr, colors: ["#337ab7", "#ffffff"],  ytitle: "Elevation",min: @min_no.to_s, max: @max_no, height: "180px";%>
+          </div>
+          <div class="d-flex justify-content-around px-3 py-2">
+            <div class="text-center">
+              <i class="fas fa-hiking"></i>
+              <p><%= @trip.trail.route_distance %></p>
+            </div>
+            <div class="text-center">
+              <i class="far fa-clock"></i>
+              <p><%= @trip.trail.time_needed %></p>
+            </div>
+            <div class="text-center">
+              <i class="fas fa-level-up-alt"></i>
+            <p><%= @trip.trail.elevation_gain %></p>
+            </div>
+            <div class="text-center">
+              <i class="fas fa-level-down-alt"></i>
+              <p><%= @trip.trail.elevation_loss %></p>
+            </div>
+          </div>
+        </div>
+      <hr>
+      </div>
+
+      <div class="warning p-3" style="border-radius:10px;">
+        <h5>Emergency contact</h5>
+        <div class="pl-2"><%= @trip.emergency_contact.name %></div>
+        <div class="pl-2"><%= @trip.emergency_contact.email %></div>
+        <div class="pl-2"><%= @trip.emergency_contact.phone_no %></div>
+        <div class="pl-2 mt-2"> <em>Alert will be sent on </em><strong><%= @trip.end_date.strftime("%e %b, %I %P") %>.</strong></div>
+      </div>
+      <hr>
+
+      <div class="p-3 my-1">
+        <div class="d-flex justify-content-start align-items-center">
+          <h5>'Last seen' photo</h5>
+        </div>
+          <% if @trip.photo.present? %>
+            <div class="d-flex justify-content-between">
+              <div class="shadow-sm" style="width:45%;" >
+                <%= cl_image_tag (@trip.photo.key), style: "width:100%;object-fit:contain; border-radius:10px;", crop: :fill %>
+              </div>
+              <div class="p-3 rounded shadow" style="width:50%; font-size:1rem;background-color:#f8ffe2;">
+                <h6 class="mb-2"><i class="highlight">Looking good! ✨</i></h6>
+                <div>This photo was taken on: </div>
+                <div class="font-weight-bold"><%= @trip.last_photo.strftime("%e %b, %I %P") %>.</div>
+              </div>
+            </div>
+          <% else %>
+            <p>Get ready for your pre-trip close up!</p>
+              <%= simple_form_for([current_user, @trip], method: :patch, url: trip_path(@trip)) do |f| %>
+                <%= f.input :photo, class: 'invisible fixed-top form-label', as: :file, input_html: { multiple: false } %>
+                <div class="d-flex justify-content-center">
+                  <label for="trip_photo" class="btn btn-outline-dark m-0 mr-1 rounded-pill" id='upload-btn'><i class="fas fa-camera"></i></label>
+                  <button type="submit" class="btn btn-success disabled rounded-pill" id='submit-btn' disabled>
+                  Upload photo
+                    </button>
+                </div>
+                <p id='helper-text' class='invisible text-center m-0'>No photo</p>
+              <% end %>
           <% end %>
       </div>
     </div>
-  </div>
-  <div class='container-lg'>
-  <div class="p-2 mx-5" style="background-color:#e1e4d5;">
-    <div class="row">
-      <section class="col-7 pr-0">
-        <div class="bg-white shadow-sm p-3">
-          <div class="h4"><%= @trip.start_date.strftime("%e %b, %Y") %> - <%= @trip.end_date.strftime("%e %b, %Y") %></div>
-          <div class="mb-3"><%= @trip.trail.time_needed %> TRIP FOR <%= @trip.no_of_people %> <%= "adult".pluralize(@trip.no_of_people).upcase %> IN <%= @trip.trail.location.upcase %>.</div>
-          <div class="row">
-            <div class="col-6">
-              <div class="mb-3">
-                <div class="d-flex justify-content-start mb-2">
-                  <div class="mr-3">
-                    <% if @trip.camping %>
-                      <div class="d-flex justify-content-start">
-                        <p class="my-2"><i class="fas fa-campground" style="color:darkcyan;"></i></p>
-                        <p class='font-weight-bold my-2' style="color:darkcyan;">I will be sleeping in a tent</p>
-                      </div>
-                    <% else %>
-                      <div class="d-flex justify-content-start">
-                        <p class="my-2"><i class="fas fa-ban" style="color:darkred;"></i></p>
-                        <p class='font-weight-bold my-2' style="color:darkred;">I will be sleeping in a tent</p>
-                      </div>
-                    <% end %>
-                  </div>
-                </div>
-                <div class="d-flex justify-content-start mb-2">
-                  <div class="mr-3">
-                    <% if @trip.cooking %>
-                      <div class="d-flex justify-content-start">
-                        <p class="my-2"><i class="fab fa-gripfire" style="color:darkcyan;"></i></p>
-                        <p class='font-weight-bold my-2' style="color:darkcyan;">I will be cooking my own food</p>
-                      </div>
-                    <% else %>
-                      <div class="d-flex justify-content-start">
-                        <p class="my-2"><i class="fas fa-ban" style="color:darkred;"></i></p>
-                        <p class='font-weight-bold my-2' style="color:darkred;">I will be cooking my own food</p>
-                      </div>
-                    <% end %>
-                  </div>
-                </div>
-              </div>
-              <div class="border-top mt-3">
-              <div class='mt-3'>
-                <div class="d-flex justify-content-start mb-2" id="checklist-complete">
-                  <% if @trip.checklists.all?(&:checked) %>
-                    <div class="mr-2"><i class="fas fa-check-circle" style="color:darkcyan;"></i> Checklist completed!</div>
-                  <% else %>
-                    <div class="mr-2"><i class="fas fa-exclamation-circle" style="color:firebrick;"></i> Checklist is not complete!</div>
-                  <% end %>
-                </div>
-                <div class="d-flex justify-content-start mb-2" >
-                  <% if @trip.photo.present? %>
-                    <div class=""><i class="fas fa-check-circle" style="color:darkcyan;"></i> Photo uploaded! </div>
-                  <% else %>
-                    <div class=""><i class="fas fa-exclamation-circle" style="color:firebrick;"></i> Please upload a photo!</div>
-                  <% end %>
-                </div>
-              </div>
-              </div>
-            </div>
-            <div class="col-6 pl-0 pr-2">
-              <div class="warning p-2 rounded-lg">
-                <div class="h5"></i> Emergency contact</div>
-                <div class="pl-2"><%= @trip.emergency_contact.name %></div>
-                <div class="pl-2"><%= @trip.emergency_contact.email %></div>
-                <div class="pl-2"><%= @trip.emergency_contact.phone_no %></div>
-                <div class="pl-2 mt-2"> <em>Alert will be sent on </em><strong><%= @trip.end_date.strftime("%e %b, %I %P") %></strong></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="bg-white shadow-sm p-3 my-2">
-          <div class="h4">Day Plan and Conditions</div>
-          <div class="accordion" id="accordionDay">
-            <%= render "trip_weather_card", trip: @trip, trip_dates: [@trip_dates], trip_days: @trip_days, breakfast: @breakfast_arr, meal: @meal_arr, checkpoint_arr: @checkpoint_name_arr %>
-          </div>
-        </div>
-        <div class="bg-white shadow-sm p-3 my-2">
-          <div class="h4">Checklist</div>
-          <div class="accordion" id="accordionChecklist">
-            <% @category_items.each_with_index do |category, index| %>
-              <div class="card">
-                <div class="card-header" id="heading<%=category%>">
-                  <button class="btn btn-link btn-block text-left text-black" type="button" data-toggle="collapse" data-target="#collapse<%=category%>" aria-expanded="true" aria-controls="collapse<%=index%>" style="text-decoration:none;">
-                    <div data-checklist-target="category" id="<%=category%>" <% if @check_category_hash[category.to_sym] %>style="color:green;"<% end %>>
-                      <%= image_tag "icons/#{category}.png", style:"height:32px;", class:"mr-2" %>
-                      <%= category.titleize %>
-                      <% if @check_category_hash[category.to_sym] %> <span id="<%=category%>-icon" style="font-size:1.5rem;"> <i class="far fa-check-circle"></i></span> <% end %>
-                    </div>
-                  </button>
-                </div>
-                <div id="collapse<%=category%>" class="collapse <% if index===0%>show<% end %>" aria-labelledby="heading<%=category%>" data-parent="#accordionChecklist">
-                  <%# /* CONTROLLER START */ %>
-                  <div class="card-body" id="category-card-body" data-controller="checklist">
-                    <%# CATEGORY CHECKLIST %>
-                    <div class="category-div">
-                       <input data-action="change->checklist#inputCheckboxAll"
-                          data-checklist-target="completed" type="checkbox" id="category-<%=category%>"
-                          data-trip-id="<%=@trip.id%>"
-                          data-category-name="<%=category%>"
-                          data-category-check="<%=@check_category_hash[category.to_sym]%>"
-                          name="category-<%=category%>"
-                          value="category-<%=category%>"
-                          <%= @check_category_hash[category.to_sym] && "checked" %>
-                        >
-                      <label for="category-<%=category%>">
-                        <% if @check_category_hash[category.to_sym] %>
-                          Uncheck all!
-                        <% else %>
-                          Check all!
-                        <% end %>
-                      </label>
-                    </div>
-                    <%# UNDONE CHECKLIST %>
-                    <div class="border-bottom mb-2" data-checklist-target="undone">
-                      <%= render Item.unchecked_by_tag_name(category, @trip) %>
-                    </div>
-                    <%# DONE CHECKLIST %>
-                    <div class="mt-2 text-muted" data-checklist-target="done">
-                      <%= render Item.checked_by_tag_name(category, @trip) %>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      </section>
-      <div class="col-5">
-        <div class="bg-white shadow-sm mb-2">
-          <div id="map"
-            class="map-with-route"
-            style="width: 100%; height: 50vh;"
-            data-markers="<%= @markers.to_json %>"
-            data-coordinate-string="<%= @coordinate_string %>"
-            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-          </div>
-          <div class="mt-3 p-3">
-            <div>
-              <%= line_chart @elevation_arr, colors: ["#337ab7", "#ffffff"],  ytitle: "Elevation",min: @min_no.to_s, max: @max_no, height: "180px";%>
-            </div>
-            <div class="d-flex justify-content-around px-3 py-2">
-              <div class="text-center">
-                <i class="fas fa-hiking"></i>
-                <p><%= @trip.trail.route_distance %></p>
-              </div>
-              <div class="text-center">
-                <i class="far fa-clock"></i>
-                <p><%= @trip.trail.time_needed %></p>
-              </div>
-              <div class="text-center">
-                <i class="fas fa-level-up-alt"></i>
-              <p><%= @trip.trail.elevation_gain %></p>
-              </div>
-              <div class="text-center">
-                <i class="fas fa-level-down-alt"></i>
-                <p><%= @trip.trail.elevation_loss %></p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <div class="bg-white shadow-sm p-3 my-1">
-          <div>
-            <div class="d-flex justify-content-start align-items-center">
-             <h4>Your photo</h4>
-            </div>
-              <% if @trip.photo.present? %>
-                <div class="d-flex justify-content-between">
-                  <div class="shadow-sm" style="width:45%;" >
-                    <%= cl_image_tag (@trip.photo.key), class:"rounded-lg", style: "width:100%;object-fit:contain;", crop: :fill %>
-                  </div>
-                  <div class="p-2 rounded shadow" style="width:50%; font-size:1rem;background-color:#f8ffe2;">
-                    <div class="mb-2 h5">Looking good! ✨</div>
-                    <div>This photo was taken on: </div>
-                    <div><%= @trip.last_photo.strftime("%e %b, %Y") %> at <%= @trip.last_photo.strftime("%l:%M %P") %></div>
-                  </div>
-                </div>
-              <% else %>
-                <p>Get ready for your pre-trip close up!</p>
-                  <%= simple_form_for([current_user, @trip], method: :patch, url: trip_path(@trip)) do |f| %>
-                    <%= f.input :photo, class: 'invisible fixed-top form-label', as: :file, input_html: { multiple: false } %>
-                    <div class="d-flex justify-content-center">
-                      <label for="trip_photo" class="btn btn-outline-dark m-0 mr-1 rounded-pill" id='upload-btn'><i class="fas fa-camera"></i></label>
-                      <button type="submit" class="btn btn-success disabled rounded-pill" id='submit-btn' disabled>
-                      Upload photo
-                        </button>
-                    </div>
-                    <p id='helper-text' class='invisible text-center m-0'>No photo</p>
-                  <% end %>
-              <% end %>
-          </div>
-        </div>
-      </div>
-  </div>
-    </div>
+</div>
   </div>
 </div>
-<%= render 'shared/footer'%>
+  </div>
+
