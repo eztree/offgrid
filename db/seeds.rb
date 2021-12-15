@@ -25,17 +25,19 @@ def seeding_checkpoints
   checkpoints_json = JSON.parse(serialized_checkpoint)
 
   Trail.all.each_with_index do |trail, index|
-    key = "##{index + 1}"
-    previous_checkpoint = nil
-    checkpoint = Checkpoint.new(
+    if index > 3
+      key = "##{index - 3}"
+      previous_checkpoint = nil
+      checkpoint = Checkpoint.new(
       name: checkpoints_json[key]["name"],
       longitude: checkpoints_json[key]["longitude"],
       latitude: checkpoints_json[key]["latitude"],
       elevation: 0
-    )
-    checkpoint.previous_checkpoint = previous_checkpoint unless previous_checkpoint.nil?
-    checkpoint.trail = trail
-    checkpoint.save
+      )
+      checkpoint.previous_checkpoint = previous_checkpoint unless previous_checkpoint.nil?
+      checkpoint.trail = trail
+      checkpoint.save
+    end
   end
 end
 
@@ -176,7 +178,7 @@ def seeding_emergency_contacts
   puts "Second emergency contact created ☑"
 end
 
-def users
+def seeding_users
   # Creating a static user instance
   puts "Creating our first user.. 🧔"
   User.create!(
@@ -386,7 +388,10 @@ Item.destroy_all
 EmergencyContact.destroy_all
 puts "Deleted!"
 
-users
+# =============== static data ===============
+seeding_manual_routes
+# =============== end of static data ===============
+
 trail_seed = seeding_trails
 # Creating instance models here
 puts "creating trails.."
@@ -405,6 +410,8 @@ seeding_checkpoints
 puts "Trails created!"
 seeding_trail_difficulty
 puts "Tagging trail difficulty"
+
+seeding_users
 seeding_emergency_contacts
 
 # extracting from json files
@@ -434,11 +441,6 @@ puts "Attaching photo to trip"
 trip.photo.attach(io: file, filename: "#{trip.trail.name}_photo.jpg", content_type: "image/jpg")
 
 puts "Trip has been booked!"
-
-# =============== static data ===============
-seeding_manual_routes
-# =============== end of static data ===============
-
 
 # method for Item seeding
 
