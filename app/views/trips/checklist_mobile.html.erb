@@ -4,12 +4,18 @@
     <div class="h4 font-weight-bold">Checklist</div>
     <div style="font-size: 1rem;">For your <%= @trip.start_date.strftime("%e %b, %Y") %> - <%= @trip.end_date.strftime("%e %b, %Y") %> hike at <%= @trip.trail.location %>.</div>
     <hr>
-
+    <div class="d-flex justify-content-start mb-2" id="checklist-complete">
+      <% if @trip.checklists.all?(&:checked) %>
+        <div class="mr-2"><i class="fas fa-check-circle" style="color:darkcyan;"></i> Checklist completed!</div>
+      <% else %>
+        <div class="mr-2"><i class="fas fa-exclamation-circle" style="color:firebrick;"></i> Checklist is not complete!</div>
+      <% end %>
+    </div>
     <div class="accordion" id="accordionChecklist">
       <% @category_items.each_with_index do |category, index| %>
         <div class="card">
           <div id="heading<%=category%>" style="border-bottom: 1px solid #000;">
-            <h2 class="mb-0">
+
               <button class="btn btn-link btn-block text-left text-black" type="button" data-toggle="collapse" data-target="#collapse<%=category%>" aria-expanded="true" aria-controls="collapse<%=index%>" style="text-decoration:none;">
                 <div data-checklist-target="category" id="<%=category%>" <% if @check_category_hash[category.to_sym] %>style="color:green;"<% end %>>
                   <%= image_tag "icons/#{category}.png", style:"height:32px;", class:"mr-2" %>
@@ -17,18 +23,37 @@
                   <% if @check_category_hash[category.to_sym] %> <span id="<%=category%>-icon" style="font-size:1.5rem;"> <i class="far fa-check-circle"></i></span> <% end %>
                 </div>
               </button>
-            </h2>
           </div>
           <div id="collapse<%=category%>" class="collapse <% if index===0%>show<% end %>" aria-labelledby="heading<%=category%>" data-parent="#accordionChecklist">
             <%# /* CONTROLLER START */ %>
-            <div class="mobile-card-body" data-controller="checklist">
-              <%# UNDONE CHECKLIST %>
-              <div class="border-bottom mb-2" data-checklist-target="undone">
-                <%= render Item.unchecked_by_tag_name(category, @trip) %>
-              </div>
-              <%# DONE CHECKLIST %>
-              <div class="mt-2 text-muted" data-checklist-target="done">
-                <%= render Item.checked_by_tag_name(category, @trip) %>
+            <div data-controller="checklist">
+              <div class="mobile-card-body" data-controller="checklist">
+                <div class="category-div">
+                  <input data-action="change->checklist#inputCheckboxAll"
+                    data-checklist-target="completed" type="checkbox" id="category-<%=category%>"
+                    data-trip-id="<%=@trip.id%>"
+                    data-category-name="<%=category%>"
+                    data-category-check="<%=@check_category_hash[category.to_sym]%>"
+                    name="category-<%=category%>"
+                    value="category-<%=category%>"
+                    <%= @check_category_hash[category.to_sym] && "checked" %>
+                  >
+                  <label for="category-<%=category%>">
+                    <% if @check_category_hash[category.to_sym] %>
+                      Uncheck all!
+                    <% else %>
+                      Check all!
+                    <% end %>
+                  </label>
+                </div>
+                <%# UNDONE CHECKLIST %>
+                <div class="border-bottom mb-2" data-checklist-target="undone" id="undone">
+                  <%= render Item.unchecked_by_tag_name(category, @trip) %>
+                </div>
+                <%# DONE CHECKLIST %>
+                <div class="mt-2 text-muted" data-checklist-target="done" id="done">
+                  <%= render Item.checked_by_tag_name(category, @trip) %>
+                </div>
               </div>
             </div>
           </div>
