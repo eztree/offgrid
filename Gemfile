@@ -48,6 +48,8 @@ gem 'wicked_pdf'
 
 gem 'device_detector'
 
+gem 'serviceworker-rails'
+
 group :production do
   gem 'wkhtmltopdf-heroku', '2.12.6.0'
 end
