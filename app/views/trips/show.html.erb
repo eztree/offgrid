@@ -133,8 +133,14 @@
         </div>
         <div class="bg-white shadow-sm p-3 my-3">
           <div>
-            <div class="h4">Last seen</div>
-
+            <div class="d-flex justify-content-start align-items-center">
+             <h4>Last seen</h4>
+              <% if @trip.photo.present? %>
+                <div class="ml-2"><i class="fas fa-check-circle" style="color:darkcyan;"></i> Photo uploaded! </div>
+              <% else %>
+                <div class="ml-2"><i class="fas fa-exclamation-circle" style="color:firebrick;"></i> Please upload a photo !</div>
+              <% end %>
+            </div>
               <% if @trip.photo.present? %>
                 <div class="d-flex justify-content-between">
                   <div class="shadow-sm" style="width:45%;" >
@@ -149,12 +155,16 @@
               <% else %>
                 <div class="p-2 shadow" style="background:floralwhite;">
                   <div class = "h5">Please attach a photo</div>
-                  <%= simple_form_for([current_user, @trip], method: :patch, url: trip_path(@trip)) do |f| %>
-                    <div class="border p-3 bg-white">
-                      <div><%= f.input :photo, as: :file, input_html: { multiple: false } %></div>
-                      <div><%= f.button :submit, "Upload Photo", class:"btn btn-success"%></div>
-                    </div>
-                  <% end %>
+                    <%= simple_form_for([current_user, @trip], method: :patch, url: trip_path(@trip)) do |f| %>
+                      <%= f.input :photo, class: 'invisible fixed-top form-label', as: :file, input_html: { multiple: false } %>
+                      <div class="d-flex justify-content-center">
+                        <label for="trip_photo" class="btn btn-outline-success m-0 mr-1" id='upload-btn'><i class="fas fa-camera"></i></label>
+                        <button type="submit" class="btn btn-primary disabled" id='submit-btn' disabled>
+                        Upload photo
+                         </button>
+                      </div>
+                      <p id='helper-text' class='invisible text-center m-0'>no photo</p>
+                    <% end %>
                 </div>
               <% end %>
           </div>
