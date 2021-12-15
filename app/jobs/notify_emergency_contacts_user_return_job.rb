@@ -5,7 +5,7 @@ class NotifyEmergencyContactsUserReturnJob < ApplicationJob
     trip = Trip.find(trip_id)
     trip_user = trip.user
     TwilioTextMessenger.new(
-      message: "OffGrid - #{trip_user.first_name} #{trip_user.last_name} has returned safely from his/her trip at #{trip.trail.location}.",
+      message: "Offgrid - #{trip_user.first_name} #{trip_user.last_name} has returned safely from his/her trip at #{trip.trail.location}.",
       receiver: trip.emergency_contact.phone_no
     ).call
   end

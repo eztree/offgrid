@@ -81,8 +81,7 @@ class TripsController < ApplicationController
   def update
     @trip = Trip.find(params[:id])
     if params[:upload].present?
-      @trip.last_seen_photo = 'uploaded'
-      @trip.save
+      @trip.update(last_seen_photo: Date.today)
       redirect_to request.referer
       authorize @trip
       return

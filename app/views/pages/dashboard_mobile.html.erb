@@ -36,7 +36,7 @@
           </div>
           <div class="d-flex flex-column justify-content-end mobile-img-overlay">
             <div style="font-size: 1.5rem;"><%= link_to @current_trip.trail.name, user_trip_path(current_user, @current_trip), class:"text-white font-weight-bold", style:"text-decoration:none;" %></div>
-            <div class="text-white" style="font-variant: small-caps;"><%= @current_trip.trail.location %></div>
+            <div class="text-white"><%= @current_trip.trail.location %></div>
             <div class="text-white" style="font-size: 0.7rem;">Length: <%= @current_trip.trail.route_distance %> • Est: <%= @current_trip.trail.time_needed %></div>
           </div>
         </div>

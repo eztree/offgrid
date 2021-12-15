@@ -1,13 +1,18 @@
 #upcoming {
-  background: #fffaf0;
-  min-height: 50vh;
-  padding: 4rem;
+  background-color: #f3f2ef;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  padding-left: 8rem;
+  padding-right: 8rem;
 }
 
 #recommended {
-  background: white;
+  background: #e1e4d5;
   min-height: 50vh;
-  padding: 4rem;
+  padding-left: 8rem;
+  padding-right: 8rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 #learning {
@@ -131,4 +136,12 @@
 }
 .status-item:last-child::after {
   content: none;
+}
+
+.highlight {
+  background: linear-gradient(120deg, #ffe607 0%, #ffe607 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 40%;
+  background-position: 0 90%;
+  transform: skew(-15deg);
 }

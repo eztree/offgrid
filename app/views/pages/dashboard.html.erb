@@ -23,10 +23,9 @@
 
 <% unless @current_trip.nil? %>
 <section id="upcoming">
-  <h2 class="h1 font-weight-bold">Upcoming</h2>
-  <div class="d-flex p-4 rounded-lg justify-content-between" style="background:#e1e4d5;">
-    <div class="rounded-lg p-3 position-relative" style="min-height: 360px; width:60%; background:white;">
-      <h2><%= link_to @current_trip.trail.name, user_trip_path(current_user, @current_trip), class:"text-black",style:"text-decoration:none;" %><span class="ml-3 badge badge-pill <% if @current_trip.trail.tag_list[0] === "easy"%>badge-success<% elsif @current_trip.trail.tag_list[0] === "medium"%>badge-warning<% else %>badge-danger<% end %> "><%= @current_trip.trail.tag_list[0] %></span></h2>
+  <div class="d-flex p-2 justify-content-between" style="background-color: #fff; border-radius: 8px;">
+    <div class="white-card position-relative" style="width:60%; border-right: 1px solid #e8e8e8;">
+      <h2 class="font-weight-bold"><span class="">Up next: <%= link_to @current_trip.trail.name, user_trip_path(current_user, @current_trip), class:"text-black", style:"text-decoration:none;" %></span></h2>
       <div style="width:100%; min-height:70%;">
         <div id="map"
           class="map-with-route"
@@ -37,19 +36,20 @@
         </div>
       </div>
       <div>
-        <div class="h5 mt-1"><%= @current_trip.start_date.strftime("%e %b, %Y") %> - <%= @current_trip.end_date.strftime("%e %b, %Y") %> |
-        Time needed: <%= @current_trip.trail.time_needed %></div>
+        <div class="h5 mt-2 font-weight-bold"><%= @current_trip.start_date.strftime("%e %b, %Y") %> - <%= @current_trip.end_date.strftime("%e %b, %Y") %></div>
+        <div>Length: <%= @current_trip.trail.route_distance %> • Est: <%= @current_trip.trail.time_needed %></div>
       </div>
     </div>
     <div style="min-height: 360px; width:39%;">
-      <div class="p-3" id="desktop-weather" style="margin-bottom:10px; min-height: 175px; width:100%; background:white;">
-        <h3>Weather</h3>
+      <div class="white-card" id="desktop-weather" style="width:100%;">
+        <h3 class="font-weight-bold"><span class="">Weather</span></h3>
         <div class="d-flex flex-row justify-content-around">
           <%= render "weather_card", trip: @current_trip, trip_dates: @trip_dates %>
         </div>
       </div>
-      <div class="p-3" style="width:100%; background:white;">
-        <h3>Status</h3>
+        <hr>
+      <div class="white-card" style="width:100%;">
+        <h3 class="font-weight-bold"><span class="">Status</span></h3>
         <%= render "status_bar", trip: @current_trip %>
       </div>
     </div>
@@ -58,34 +58,33 @@
 <% end %>
 
 <section id="recommended">
-  <h2 class="h1 font-weight-bold">Recommended for you</h2>
-  <p>A list of routes selected specially for you - based on your profile and past adventures.</p>
-  <%= render "section_end", trails: @trails %>
+  <div>
+    <h2 class="font-weight-bold ml-4">Recommended for you</h2>
+    <p class='mb-0 ml-4'>A list of routes selected specially for you - based on your profile and past adventures.</p>
+    <%= render "section_end", trails: @trails %>
+  </div>
 </section>
 
 
 <section id="learning" class="text-white">
-  <h2 class="h1 font-weight-bold">Keep learning</h2>
-  <p >Go from clueless to acclimated with these guides</p>
-
-
+  <div class="container-lg">
+    <h2 class="h1 font-weight-bold">Keep learning</h2>
+    <p >Go from clueless to acclimated with these guides</p>
     <div class="d-flex card-container justify-content-around">
       <div class="rounded-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/eztree/Sandbox/master/app/assets/images/backpacking.jfif)">
         <p class="card-title">Choosing a backpack</p>
       </div>
-
-          <div class="rounded-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/eztree/Sandbox/master/app/assets/images/tenting.jfif)">
+      <div class="rounded-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/eztree/Sandbox/master/app/assets/images/tenting.jfif)">
         <p class="card-title">Food in the Backcountry</p>
       </div>
-
-          <div class="rounded-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/eztree/Sandbox/master/app/assets/images/eating-camp.jfif)">
+      <div class="rounded-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/eztree/Sandbox/master/app/assets/images/eating-camp.jfif)">
         <p class="card-title">Lights Out,<br>Tents Up</p>
       </div>
-
-          <div class="rounded-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/eztree/Sandbox/master/app/assets/images/water.jfif)">
+      <div class="rounded-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/eztree/Sandbox/master/app/assets/images/water.jfif)">
         <p class="card-title">Water</p>
       </div>
     </div>
+  </div>
 
 </section>
 <%= render 'shared/footer'%>
