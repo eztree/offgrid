@@ -3,7 +3,7 @@
     "not_cooking": {
       "breakfast": [
         "Overnight oats (1 cup)",
-        "Trailtopia instant oatmeal mix - Cinammon Apple",
+        "Trailtopia instant oatmeal mix",
         "Nutella sandwich",
         "PB&J sandwich",
         "Granola with powdered milk"
@@ -14,33 +14,33 @@
         "SPAM sandwich",
         "Dry salami, cheese and crackers",
         "Nut butter honey tortillas",
-        "Dried hummus with olive oil and pretzel chips",
+        "Dried hummus with pretzel chips",
         "Herbed tomato cous cous salad",
-        "Near East Roasted Garlic and Olive Oil",
-        "Cous Cous with mayo and salmon",
-        "Instant mashed potatoes with jerky and cheese"
+        "NearEast roasted garlic and olive",
+        "Cous cous with mayo and salmon",
+        "Instant mash with jerky and cheese"
       ],
       "dessert": ["Chocolate bar", "Dried fruit", "Instant cold brew"],
       "snacks": ["Bagel", "Crackers", "Beef jerky", "Energy gummies", "M&Ms"]
     },
     "cooking": {
       "breakfast": [
-        "Patagonia Provisions Hot Cereal - Raspberry",
-        "Peak Refuel Mountain - Berry Granola",
+        "Patagonia Provisions Hot Cereal",
+        "Peak Refuel - Berry Granola",
         "Coconut chia oatmeal",
         "Fruit and cream porridge",
         "Oatmeal pancakes"
       ],
       "lunch_dinner": [
-        "Tacos with instant beans and seasoning",
+        "Tacos with instant beans",
         "Instant rice",
         "Curry",
         "Backpacker's Pantry - Pad Thai",
-        "Backpacker's Pantry - Three Cheese Mac & Cheese",
+        "Backpacker's Pantry - Mac & Cheese",
         "Fernweh - Mushroom Pot Pie",
         "Peak ReFuel - Chicken Rice",
         "Instant ramen",
-        "GOOD-TO-GO - Dehydrated risotto"
+        "GTG - Dehydrated risotto"
       ],
       "dessert": ["Coffee", "Tea", "Hot chocolate"]
     }
