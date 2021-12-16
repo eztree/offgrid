@@ -34,6 +34,9 @@
         <% @current_trip.trail.photo_url.nil? ? image_url = "https://media.timeout.com/images/105666541/750/562/image.jpg" : image_url = @current_trip.trail.photo_url %>
           <div style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('<%= image_url %>'); height: 20vh; background-position: center; background-size: cover; background-repeat: no-repeat;">
           </div>
+              <div class="rounded d-flex justify-content-end align-items-end" style="background-image: url('<%= image_url %>'); height: 144px; width:100%; background-position: center; background-size: cover; background-repeat: no-repeat;">
+      <div class="badge badge-pill m-1 <% if trail.tag_list[0] === "easy"%>badge-success<% elsif trail.tag_list[0] === "medium"%>badge-warning<% else %>badge-danger<% end %>"><%= trail.tag_list[0] %></div>
+    </div>
           <div class="d-flex flex-column justify-content-end mobile-img-overlay">
             <div style="font-size: 1.5rem;"><%= link_to @current_trip.trail.name, user_trip_path(current_user, @current_trip), class:"text-white font-weight-bold", style:"text-decoration:none;" %></div>
             <div class="text-white"><%= @current_trip.trail.location %></div>
