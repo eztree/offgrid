@@ -2,6 +2,13 @@
   <div class="col-6 text-white d-flex flex-column justify-content-center" id="signup-bg">
     <h2 class="side-text text-left font-weight-bold">Hold up! Time to sign up</h2>
     <h4 class="side-text-sub text-left font-weight-italic">Your details will be used to keep you safe.</h2>
+    <div class="progress-container">
+      <div class="progress" id="progress" style="width: 67%"></div>
+      <div class="circle active"></div>
+      <div class="circle active"></div>
+      <div class="circle active"></div>
+      <div class="circle"></div>
+    </div>
   </div>
 
   <div class="col-6 container d-flex justify-content-center align-items-center" id="form-field">
@@ -34,13 +41,6 @@
       </div>
     </div>
 
-    <div class="progress-container">
-      <div class="progress" id="progress" style="width: 67%"></div>
-      <div class="circle active"></div>
-      <div class="circle active"></div>
-      <div class="circle active"></div>
-      <div class="circle"></div>
-    </div>
 
       <div id="button-next">
         <%= form.submit "Sign up", class: "btn btn-success ml-1 rounded-pill" %>

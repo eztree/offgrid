@@ -64,7 +64,7 @@ class StepsController < ApplicationController
       return
     when :emergency_contact
       if params[:emergency_contact].present?
-        unless params[:emergency_contact][:name] || params[:emergency_contact][:email] || params[:emergency_contact][:phone_no]
+        if params[:emergency_contact][:name].empty? || params[:emergency_contact][:email].empty? || params[:emergency_contact][:phone_no].empty?
           flash[:notice] = "Please fill in all fields"
           redirect_to wizard_path
           return

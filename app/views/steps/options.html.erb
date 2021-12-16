@@ -2,6 +2,19 @@
   <div class="col-6 text-white d-flex flex-column justify-content-center" id="options-bg">
     <h2 class="side-text text-left font-weight-bold">How will you eat and sleep on the hike?</h2>
     <h4 class="side-text-sub text-left font-weight-italic">This will affect your packing list!</h4>
+    <div class="progress-container">
+    <% if current_user.nil? %>
+      <div class="progress" id="progress" style="width: 33.3333%;"></div>
+    <% else %>
+      <div class="progress" id="progress" style="width: 50%;"></div>
+    <% end %>
+      <div class="circle active"></div>
+      <div class="circle active"></div>
+      <div class="circle"></div>
+    <% if current_user.nil? %>
+      <div class="circle"></div>
+    <% end %>
+  </div>
   </div>
 
   <div class="col-6 container d-flex justify-content-center align-items-center" id="form-field">
@@ -25,19 +38,6 @@
           </div>
         <% end %>
 
-        <div class="progress-container">
-          <% if current_user.nil? %>
-            <div class="progress" id="progress" style="width: 33.3333%;"></div>
-          <% else %>
-            <div class="progress" id="progress" style="width: 50%;"></div>
-          <% end %>
-          <div class="circle active"></div>
-          <div class="circle active"></div>
-          <div class="circle"></div>
-          <% if current_user.nil? %>
-            <div class="circle"></div>
-          <% end %>
-        </div>
 
         <div id="button-next">
           <%= form.submit "Next", class: "btn btn-success rounded-pill" %>
