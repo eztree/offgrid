@@ -87,7 +87,7 @@ class TripsController < ApplicationController
       return
     end
 
-    @trip.update(last_photo: Date.today)
+    @trip.update(last_photo: DateTime.now + 8.hours)
     @trip.update!(trip_params)
     authorize @trip
 

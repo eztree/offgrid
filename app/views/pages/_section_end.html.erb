@@ -23,7 +23,7 @@
     <!--First slide-->
         <div class="carousel-item active">
           <% trails.first(4).each do |trail| %>
-            <div class="col-md-3" style="float:left">
+            <div id="home-carousell-card" class="col-md-3" style="float:left">
               <div class="card mb-2 position-relative shadow-sm" style="overflow:hidden; border:0; height:300px">
                   <% trail.photo_url.nil? ? image_url = "https://media.timeout.com/images/105666541/750/562/image.jpg" : image_url = trail.photo_url %>
                   <%= image_tag image_url, style:"object-fit:cover;", height:"50%", alt: "Trail" %>

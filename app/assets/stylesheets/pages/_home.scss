@@ -1,4 +1,13 @@
 // Specific CSS for your home-page
+#home-carousell-card {
+  transition: transform ease-in 0.2s;
+}
+
+.carousel-item #home-carousell-card:hover {
+  transform: scale(1.01);
+  // box-shadow: 1px 1px 20px rgba(255, 255, 255, 0.3);
+}
+
 .grayscale {
   filter: grayscale(0%);
   transition: ease-in 0.4s;
@@ -43,24 +52,3 @@
   margin-top: 1rem;
   position: relative;
 }
-
-// .card-container {
-//   .card-category::after {
-//     content: "";
-//     position: absolute;
-//     height: 8px;
-//     width: 100%;
-//     background: linear-gradient(
-//       to right,
-//       $olivegreen,
-//       $olivegreen,
-//       rgba(4, 170, 109, 0)
-//     );
-//     bottom: 0;
-//     left: 0;
-//     transform: scaleX(0);
-//     transition: transform 0.3s ease-in;
-//     transform-origin: left;
-//     outline: 3px solid red;
-//   }
-// }

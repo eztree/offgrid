@@ -196,7 +196,7 @@
               <div class="p-3 rounded shadow" style="width:50%; font-size:1rem;background-color:#f8ffe2;">
                 <h6 class="mb-2"><i class="highlight">Looking good! ✨</i></h6>
                 <div>This photo was taken on: </div>
-                <div class="font-weight-bold"><%= @trip.last_photo.strftime("%e %b, %l:%M%p") %>.</div>
+                <div class="font-weight-bold"><%= (@trip.photo.created_at + 8.hours).strftime("%e %b, %l:%M%p") %>.</div>
               </div>
             </div>
           <% else %>
