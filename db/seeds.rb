@@ -256,8 +256,8 @@ def seeding_manual_routes
   puts "Mount Ollivier Summit via Mueller Hut 🥾"
   mueller = Trail.create!(
     # id: 1,
-    name: "Mount Ollivier Summit via Mueller Hut Route",
-    description: "Mount Ollivier Summit via Mueller Hut Route is a 11.6 kilometer moderately trafficked out and back trail located near Mount Cook Village, Canterbury, New Zealand that features a great forest setting and is only recommended for very experienced adventurers. The trail offers a number of activity options.",
+    name: "Mount Ollivier Summit via Xenicus Peak",
+    description: "Mount Ollivier Summit via Mueller Hut Route cuts through Xenicus Peak. It is a 11.6 kilometer moderately trafficked out and back trail located near Mount Cook Village, Canterbury, New Zealand that features a great forest setting and is only recommended for very experienced adventurers. The trail offers a number of activity options.",
     location: "Aoraki/Mount Cook National Park",
     time_needed: "3D2N",
     route_distance: "11.6km",
@@ -295,7 +295,7 @@ def seeding_manual_routes
   sunrise = Trail.create!(
     # id: 3,
     name: "Sunrise Track",
-    description: "This well-graded track is a great overnight tramp for families with children and new trampers - it passes through changing forest types to the open tops, with great views of the Hawke’s Bay plains and excellent sunrises from the hut.",
+    description: "This well-graded track is a great overnight tramp for families with children and new trampers - it passes through changing forest types to the open tops, with great views of the Hawke's Bay plains and excellent sunrises from the hut.",
     location: "Ruahine Forest Park",
     time_needed: "2D1N",
     route_distance: "10.4km",

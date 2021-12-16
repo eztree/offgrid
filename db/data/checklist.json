@@ -5,7 +5,7 @@
         "40-60L Backpack with raincover",
         "Backpacking tent",
         "Sleeping bag",
-        "Headlamp / Flashlight (with extra batteries)"
+        "Headlamp / Flashlights"
       ],
       "optional": ["Sleeping pad", "Hiking poles"]
     },
@@ -31,13 +31,13 @@
     "water": {
       "required": [
         "Water bottle or hydration bladder",
-        "Water filter/purifier or chemical treatment"
+        "Water filter or chemical treatment"
       ]
     },
     "clothes_footwear": {
       "required": [
         "Moisture-wicking undergarments",
-        "Moisture-wicking t-shirt (Merino wool or polyester)",
+        "Moisture-wicking t-shirt",
         "Quick-drying pants/shorts",
         "Long-sleeve shirt (for sun, bugs)",
         "Lightweight fleece or jacket",
@@ -56,12 +56,12 @@
       "optional": ["Sandals (camp shoes)", "Gaiters", "Bandana or buff"]
     },
     "navigation": {
-      "required": ["compass", "watch", "map"]
+      "required": ["Compass", "Watch", "Map"]
     },
     "first_aid": {
       "required": [
         "Whistle",
-        "Lighter/matches (in waterproof container)",
+        "Lighter/matches",
         "Emergency shelter",
         "Fire starter",
         "First-aid kit/supplies"
@@ -71,7 +71,7 @@
       "required": [
         "Toothbrush and toothpaste",
         "Sanitation towel",
-        "Toilet paper/wipes and sealable bag",
+        "Toilet paper/wipes in sealable bag",
         "Sunglasses",
         "Sunscreen",
         "Lip balm",
