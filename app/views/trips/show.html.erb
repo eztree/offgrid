@@ -56,14 +56,14 @@
       </div>
       <hr>
       <div class="p-3 my-2">
-        <h5>Day Plan and Conditions</h5>
+        <h5><i class="fas fa-cloud-sun-rain"></i> Day Plan and Conditions</h5>
         <div class="accordion" id="accordionDay">
           <%= render "trip_weather_card", trip: @trip, trip_dates: [@trip_dates], trip_days: @trip_days, breakfast: @breakfast_arr, meal: @meal_arr, checkpoint_arr: @checkpoint_name_arr %>
         </div>
       </div>
         <hr>
       <div class="p-3 my-2">
-        <h5>Checklist</h5>
+        <h5><i class="fas fa-tasks"></i> Checklist</h5>
         <div class="accordion" id="accordionChecklist">
           <% @category_items.each_with_index do |category, index| %>
             <div class="card">
@@ -149,7 +149,7 @@
       </div>
 
       <div class="warning p-3" style="border-radius:10px;">
-        <h5>Emergency contact</h5>
+        <h5><i class="fas fa-exclamation-triangle"></i> Emergency contact</h5>
         <div class="pl-2"><%= @trip.emergency_contact.name %></div>
         <div class="pl-2"><%= @trip.emergency_contact.email %></div>
         <div class="pl-2"><%= @trip.emergency_contact.phone_no %></div>
@@ -159,7 +159,7 @@
 
       <div class="p-3 my-1">
         <div class="d-flex justify-content-start align-items-center">
-          <h5>'Last seen' photo</h5>
+          <h5><i class="fas fa-camera"></i> 'Last seen' photo</h5>
         </div>
           <% if @trip.photo.present? %>
             <div class="d-flex justify-content-between">
@@ -191,4 +191,3 @@
   </div>
 </div>
   </div>
-

@@ -92,8 +92,12 @@ export default class extends Controller {
         // Queryselectors END
         // Add green tick icon at header
         const isCheckListCompleted = data.check_all
-          ? (checklistCompleteSection.innerHTML = `<div class="mr-2"><i class="fas fa-check-circle" style="color:darkcyan;"></i> Checklist completed!</div>`)
-          : (checklistCompleteSection.innerHTML = `<div class="mr-2"><i class="fas fa-exclamation-circle" style="color:firebrick;"></i> Checklist is not complete!</div>`);
+          ? (checklistCompleteSection.innerHTML = `<div class="show-alert show-light-warning" role="alert">
+        <i class="fas fa-check-circle" style="color:darkcyan;"></i> Checklist completed!
+      </div>`)
+          : (checklistCompleteSection.innerHTML = `<div class="show-alert show-alert-warning" role="alert">
+        <i class="fas fa-exclamation-circle" style="color:firebrick;"></i> Checklist is not complete!
+      </div>`);
         // if single checkbox ticked
         if (data.checklist.checked) {
           checklistElement.remove();
@@ -192,8 +196,12 @@ export default class extends Controller {
           `;
 
         const isCheckListCompleted = data.check_all
-          ? (checklistCompleteSection.innerHTML = `<div class="mr-2"><i class="fas fa-check-circle" style="color:darkcyan;"></i> Checklist completed!</div>`)
-          : (checklistCompleteSection.innerHTML = `<div class="mr-2"><i class="fas fa-exclamation-circle" style="color:firebrick;"></i> Checklist is not complete!</div>`);
+          ? (checklistCompleteSection.innerHTML = `<div class="show-alert show-light-warning" role="alert">
+        <i class="fas fa-check-circle" style="color:darkcyan;"></i> Checklist completed!
+      </div>`)
+          : (checklistCompleteSection.innerHTML = `<div class="show-alert show-alert-warning" role="alert">
+        <i class="fas fa-exclamation-circle" style="color:firebrick;"></i> Checklist is not complete!
+      </div>`);
 
         const input_icon = `<span id="${data.category}-icon" style="font-size:1.5rem;"> <i class="far fa-check-circle"></i></span>`;
         // LOGIC
