@@ -47,8 +47,11 @@
     <div class="container d-flex justify-content-center">
       <div id="trip_last_photo">
         <%= simple_form_for(@current_trip, method: :patch, url: trip_path(@current_trip, upload: :photo)) do |f| %>
+          <div class='d-flex justify-content-center img-wrapper'>
+            <img class="invisible form-img" id="status-bar-img" src="#"/>
+          </div>
               <input id="file" class="invisible fixed-top form-label" type="file" id="last_seen_photo" name="last_seen_photo">
-            <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center mt-2">
               <label for="file" class="btn btn-outline-dark m-0 mr-1 rounded-pill" id='upload-btn'><i class="fas fa-camera"></i></label>
               <button type="submit" class="btn btn-success disabled rounded-pill" id='submit-btn' disabled>
                 Upload photo
