@@ -12,3 +12,86 @@ input[type="radio"].emergency:checked + label{
   transform: none;
   font-size: 40px;
 }
+
+input[type="text"].homepage {
+  color: black;
+  background-color: #fff;
+  border: 1px solid #597183;
+  border-bottom-left-radius: 8px;
+  border-top-left-radius: 8px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+input[type="text"].multi-step {
+  color: black;
+  background-color: #fff;
+  border: 1px solid #597183;
+  border-radius: 8px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(70,104,16,0.4);
+}
+
+input[type="date"] {
+  color: black;
+  background-color: #fff;
+  border: 1px solid #597183;
+  border-radius: 8px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+input[type="date"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(70,104,16,0.4);
+}
+
+input[type="number"] {
+  color: black;
+  background-color: #fff;
+  border: 1px solid #597183;
+  border-radius: 8px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+input[type="number"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(70,104,16,0.4);
+}
+
+input[type="password"].multi-step {
+  color: black;
+  background-color: #fff;
+  border: 1px solid #597183;
+  border-radius: 8px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+
+input[type="password"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(70,104,16,0.4);
+}
+
+input[type="password_confirmation"].multi-step {
+  color: black;
+  background-color: #fff;
+  border: 1px solid #597183;
+  border-radius: 8px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+
+input[type="password_confirmation"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(70,104,16,0.4);
+}
