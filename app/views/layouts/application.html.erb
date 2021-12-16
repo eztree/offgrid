@@ -17,8 +17,12 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
-    <%= yield %>
+    <% if params[:controller] == "steps" %>
+      <%= yield %>
+    <% else %>
+      <%= render 'shared/navbar' %>
+      <%= render 'shared/flashes' %>
+      <%= yield %>
+    <% end %>
   </body>
 </html>
