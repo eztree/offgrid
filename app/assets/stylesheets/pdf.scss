@@ -1,7 +1,10 @@
 .img {
-  width: 500px;
-  height: 200px;
+  width: 80%;
 };
+.map {
+  height: 1200px;
+  width: auto;
+}
 .border-bottom {
   border-bottom: 4px solid gray;
 };
@@ -25,4 +28,10 @@
 };
 .container {
   margin-left: 200px;
+}
+.alwaysbreak {
+  page-break-before: always;
+}
+.map-container {
+  margin-left: 150px
 }
