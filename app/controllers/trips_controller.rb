@@ -61,11 +61,11 @@ class TripsController < ApplicationController
       checkpoints.each_with_index do |checkpoint, index|
         @checkpoint_name_arr << checkpoint.name
         if index === 0
-          @elevation_arr << ["start", checkpoint.elevation]
+          @elevation_arr << ["Start", checkpoint.elevation]
         elsif index === checkpoints.count - 1
-          @elevation_arr << ["end", checkpoint.elevation]
+          @elevation_arr << ["End", checkpoint.elevation]
         else
-          @elevation_arr << ["checkpoint#{index}", checkpoint.elevation]
+          @elevation_arr << [checkpoint.name.truncate_words(2, omission: ''), checkpoint.elevation]
         end
       end
       max = @elevation_arr.max { |a, b| a[1] <=> b[1] }
