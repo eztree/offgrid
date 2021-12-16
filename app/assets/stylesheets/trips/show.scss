@@ -18,3 +18,17 @@
   color: transparent;
 
 }
+.img-wrapper {
+  #status-bar-img {
+    width: 100%
+  };
+}
+.img-active{
+  margin: 0 auto;
+  height: 100px;
+  width: 100px;
+  overflow: hidden;
+  text-align: center;
+  border: 2px solid #ccc;
+  border-radius: 100%;
+}

@@ -42,8 +42,11 @@ document.addEventListener("turbolinks:load", () => {
   if (img_form) {
     const submit_btn = document.querySelector('#submit-btn');
     const helper_label = document.querySelector('#helper-text')
+    const img_preview = document.querySelector('.form-img')
+    const img_wrapper = document.querySelector('.img-wrapper')
 
     img_form.addEventListener('input', (e) => {
+      let img = e.target.files[0];
       submit_btn.innerText = 'Submit photo';
       submit_btn.disabled = false;
       submit_btn.classList.remove('disabled')
@@ -52,6 +55,14 @@ document.addEventListener("turbolinks:load", () => {
       helper_label.classList.remove('invisible');
       helper_label.classList.add('visible');
       helper_label.textContent = "File uploaded!"
+
+      img_preview.classList.remove('invisible');
+      img_preview.classList.add('visible');
+      console.log(img_wrapper);
+      if (img_wrapper) {
+        img_wrapper.classList.add('img-active');
+      }
+      img_preview.src = URL.createObjectURL(img)
     });
   };
 });
