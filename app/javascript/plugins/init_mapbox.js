@@ -60,7 +60,9 @@ const displayTrailSelect = (trail, map) => {
     const popup = new mapboxgl.Popup().setHTML(
       `<p class="font-weight-bold mt-2 mb-0">${checkpoint.name}</p>`
     );
-    const markerObject = new mapboxgl.Marker();
+    const markerObject = new mapboxgl.Marker({
+      color: "tomato",
+    });
     markerObject
       .setLngLat([checkpoint.lng, checkpoint.lat])
       .setPopup(popup)
@@ -77,41 +79,42 @@ const displayTrailSelect = (trail, map) => {
       .then((response) => response.json())
       .then((data) => {
         drawRoute(data, map);
-        setTimeout( fitMapToCoordinatesArray(map, data.routes[0].geometry.coordinates), 1000);
+        setTimeout(
+          fitMapToCoordinatesArray(map, data.routes[0].geometry.coordinates),
+          1000
+        );
       });
   } else if (checkpoints.length > 0) {
-      setTimeout(fitMapToMarkers(map, checkpoints), 1000);
+    setTimeout(fitMapToMarkers(map, checkpoints), 1000);
   }
 };
 
 const disableAllTrailSelectSubmits = () => {
-  const labels = document.querySelectorAll(".trail-submit-label")
+  const labels = document.querySelectorAll(".trail-submit-label");
   const buttons = document.querySelectorAll(".trail-submit-button");
-  labels.forEach( label => {
+  labels.forEach((label) => {
     label.style.display = "block";
   });
-  buttons.forEach(button => {
-		button.style.display = "none";
-	});
-}
+  buttons.forEach((button) => {
+    button.style.display = "none";
+  });
+};
 
 const enableTrailSelectSubmit = (trail) => {
-  const label = document.querySelector(
-    `#trail_submit_label_${trail.value}`
-  );
+  const label = document.querySelector(`#trail_submit_label_${trail.value}`);
   label.style.display = "none";
 
-  const button = document.querySelector(
-		`#trail_submit_button_${trail.value}`
-	);
-	button.style.display = "block";
+  const button = document.querySelector(`#trail_submit_button_${trail.value}`);
+  button.style.display = "block";
 };
 
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
     const popup = new mapboxgl.Popup().setHTML(marker.info_window); // add this
 
-    const markerObject = new mapboxgl.Marker();
+    const markerObject = new mapboxgl.Marker({
+      color: "tomato",
+    });
     markerObject
       .setLngLat([marker.lng, marker.lat])
       .setPopup(popup) // add this
@@ -182,20 +185,23 @@ const initMapbox = () => {
     );
 
     if (
-			mapElement.classList.contains("map-with-route") &&
-			(mapElement.dataset.coordinateString.split(";").length > 1)
-		) {
-			fetch(
-				`https://api.mapbox.com/directions/v5/mapbox/walking/${mapElement.dataset.coordinateString}?geometries=geojson&access_token=${mapboxgl.accessToken}`
-			)
-				.then((response) => response.json())
-				.then((data) => {
-					drawRoute(data, map);
-					setTimeout(fitMapToCoordinatesArray(map, data.routes[0].geometry.coordinates), 1000);
-				});
-		} else {
-			  setTimeout(fitMapToMarkers(map, markers), 1000);
-		}
+      mapElement.classList.contains("map-with-route") &&
+      mapElement.dataset.coordinateString.split(";").length > 1
+    ) {
+      fetch(
+        `https://api.mapbox.com/directions/v5/mapbox/walking/${mapElement.dataset.coordinateString}?geometries=geojson&access_token=${mapboxgl.accessToken}`
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          drawRoute(data, map);
+          setTimeout(
+            fitMapToCoordinatesArray(map, data.routes[0].geometry.coordinates),
+            1000
+          );
+        });
+    } else {
+      setTimeout(fitMapToMarkers(map, markers), 1000);
+    }
   }
 };
 
