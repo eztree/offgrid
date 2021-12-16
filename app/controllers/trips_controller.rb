@@ -145,6 +145,8 @@ class TripsController < ApplicationController
       trip: trip,
       check: !check,
       category: category,
+      checklist_count: Item.by_tag_name(category, trip).size,
+      done_checklist_count: Item.checked_by_tag_name(category, trip).size,
       # item: @checklist.item,
       # tag_lists: @checklist.item.tag_list[1..] - ["food", "required"],
       check_all: check_all

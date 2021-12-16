@@ -24,6 +24,8 @@ class ChecklistsController < ApplicationController
         tag_lists: @checklist.item.tag_list[1..] - ["food", "required"],
         category: category[0],
         check: check,
+        checklist_count: Item.by_tag_name(category[0], trip).size,
+        done_checklist_count: Item.checked_by_tag_name(category[0], trip).size,
         check_all: check_all
       }, status: 200
     end

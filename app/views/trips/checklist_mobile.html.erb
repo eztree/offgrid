@@ -21,17 +21,36 @@
           <div id="heading<%=category%>" style="border-bottom: 1px solid #000;">
 
               <button class="btn btn-link btn-block text-left text-black" type="button" data-toggle="collapse" data-target="#collapse<%=category%>" aria-expanded="true" aria-controls="collapse<%=index%>" style="text-decoration:none;">
-                <div data-checklist-target="category" id="<%=category%>" <% if @check_category_hash[category.to_sym] %>style="color:green;"<% end %>>
-                  <%= image_tag "icons/#{category}.png", style:"height:32px;", class:"mr-2" %>
-                  <%= category.titleize %>
-                  <% if @check_category_hash[category.to_sym] %> <span id="<%=category%>-icon" style="font-size:1.5rem;"> <i class="far fa-check-circle"></i></span> <% end %>
-                </div>
+                <div data-checklist-target="category" id="<%=category%>">
+                    <% if @check_category_hash[category.to_sym] %>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                          <%= image_tag "icons/#{category}.png", style:"height:32px;", class:"mr-2" %>
+                          <%= category.titleize %>
+                        </div>
+                        <div id="<%= category %>-check-icon">
+                          <i class="fas fa-check-circle" style="color:darkcyan;"></i>
+                        </div>
+                      </div>
+                    <% else %>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                          <%= image_tag "icons/#{category}.png", style:"height:32px;", class:"mr-2" %>
+                          <%= category.titleize %>
+                        </div>
+                        <div id="<%= category %>-check-icon">
+                          <%= Item.checked_by_tag_name(category, @trip).size %> / <%= Item.by_tag_name(category, @trip).size %>
+                          <i class="fas fa-exclamation-circle" style="color:#cc3300;"></i>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
               </button>
           </div>
           <div id="collapse<%=category%>" class="collapse <% if index===0%>show<% end %>" aria-labelledby="heading<%=category%>" data-parent="#accordionChecklist">
             <%# /* CONTROLLER START */ %>
             <div data-controller="checklist">
-              <div class="mobile-card-body" data-controller="checklist">
+              <div class="mobile-card-body ml-3" data-controller="checklist">
                 <div class="category-div">
                   <input data-action="change->checklist#inputCheckboxAll"
                     data-checklist-target="completed" type="checkbox" id="category-<%=category%>"
