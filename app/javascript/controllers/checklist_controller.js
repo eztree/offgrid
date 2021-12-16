@@ -21,6 +21,7 @@ export default class extends Controller {
     )
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         const isChecked = data.checklist.checked ? "checked" : "";
 
         const badgeListsChecked = data.tag_lists.includes("optional")
@@ -53,7 +54,9 @@ export default class extends Controller {
           ? "Uncheck all!"
           : "Check all!";
 
-        const input_icon = `<span id="${data.category}-icon" style="font-size:1.5rem;"> <i class="far fa-check-circle"></i></span>`;
+        const input_icon = `<i class="fas fa-check-circle" style="color:darkcyan;"></i>`;
+        const input_icon_false = `${data.done_checklist_count} / ${data.checklist_count}
+                          <i class="fas fa-exclamation-circle" style="color:#cc3300;"></i>`;
 
         const input_category = `
           <input data-action="change->checklist#inputCheckboxAll"
@@ -86,18 +89,18 @@ export default class extends Controller {
         const checklistCardChild = document.getElementById(
           `${data.category}-icon`
         );
+
+        const checklistCardCheckIcon = document.getElementById(
+          `${data.category}-check-icon`
+        );
         // const checklistCategory = document.getElementById(
         //   `category-${data.category}`
         // );
         // Queryselectors END
         // Add green tick icon at header
         const isCheckListCompleted = data.check_all
-          ? (checklistCompleteSection.innerHTML = `<div class="show-alert show-light-warning" role="alert">
-        <i class="fas fa-check-circle" style="color:darkcyan;"></i> Checklist completed!
-      </div>`)
-          : (checklistCompleteSection.innerHTML = `<div class="show-alert show-alert-warning" role="alert">
-        <i class="fas fa-exclamation-circle" style="color:firebrick;"></i> Checklist is not complete!
-      </div>`);
+          ? (checklistCompleteSection.innerHTML = `<div class="mr-2"><i class="fas fa-check-circle" style="color:darkcyan;"></i> Checklist completed!</div>`)
+          : (checklistCompleteSection.innerHTML = `<div class="mr-2"><i class="fas fa-exclamation-circle" style="color:firebrick;"></i> Checklist is not complete!</div>`);
         // if single checkbox ticked
         if (data.checklist.checked) {
           checklistElement.remove();
@@ -107,18 +110,19 @@ export default class extends Controller {
 
           // if all checkbox are ticked
           if (data.check) {
-            checklistCard.insertAdjacentHTML("beforeend", input_icon);
-            checklistCard.style.color = "green";
+            checklistCardCheckIcon.innerHTML = "";
+            checklistCardCheckIcon.insertAdjacentHTML("beforeend", input_icon);
             checklistCategoryElement.innerHTML = "";
             checklistCategoryElement.insertAdjacentHTML(
               "beforeend",
               input_category
             );
           } else {
-            if (checklistCardChild != undefined) {
-              checklistCard.style.color = "black";
-              checklistCard.removeChild(checklistCardChild);
-            }
+            checklistCardCheckIcon.innerHTML = "";
+            checklistCardCheckIcon.insertAdjacentHTML(
+              "beforeend",
+              input_icon_false
+            );
           }
         } else {
           checklistElement.remove();
@@ -129,13 +133,20 @@ export default class extends Controller {
             "beforeend",
             input_category
           );
-          if (checklistCardChild != undefined) {
-            checklistCard.style.color = "black";
-            checklistCard.removeChild(checklistCardChild);
-          }
-          if (data.checked == false) {
-            checklistCategoryElement.remove();
-          }
+          checklistCardCheckIcon.innerHTML = "";
+          checklistCardCheckIcon.insertAdjacentHTML(
+            "beforeend",
+            input_icon_false
+          );
+
+          // if (data.checked == false) {
+          //   checklistCategoryElement.remove();
+          //   checklistCardCheckIcon.innerHTML = "";
+          //   checklistCardCheckIcon.insertAdjacentHTML(
+          //     "beforeend",
+          //     input_icon_false
+          //   );
+          // }
         }
         // Add green tick icon at header END
         // Change category checkbox
@@ -159,6 +170,7 @@ export default class extends Controller {
     })
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         // INITIALIZE VARIABLE
         const isCategoryChecked = data.check ? "checked" : "";
         const isCategoryCheckedText = data.check
@@ -172,6 +184,9 @@ export default class extends Controller {
         const checklistCard = document.getElementById(`${data.category}`);
         const checklistCardChild = document.getElementById(
           `${data.category}-icon`
+        );
+        const checklistCardCheckIcon = document.getElementById(
+          `${data.category}-check-icon`
         );
         const checklistCompleteSection =
           document.getElementById("checklist-complete");
@@ -196,14 +211,12 @@ export default class extends Controller {
           `;
 
         const isCheckListCompleted = data.check_all
-          ? (checklistCompleteSection.innerHTML = `<div class="show-alert show-light-warning" role="alert">
-        <i class="fas fa-check-circle" style="color:darkcyan;"></i> Checklist completed!
-      </div>`)
-          : (checklistCompleteSection.innerHTML = `<div class="show-alert show-alert-warning" role="alert">
-        <i class="fas fa-exclamation-circle" style="color:firebrick;"></i> Checklist is not complete!
-      </div>`);
+          ? (checklistCompleteSection.innerHTML = `<div class="mr-2"><i class="fas fa-check-circle" style="color:darkcyan;"></i> Checklist completed!</div>`)
+          : (checklistCompleteSection.innerHTML = `<div class="mr-2"><i class="fas fa-exclamation-circle" style="color:firebrick;"></i> Checklist is not complete!</div>`);
 
-        const input_icon = `<span id="${data.category}-icon" style="font-size:1.5rem;"> <i class="far fa-check-circle"></i></span>`;
+        const input_icon = `<i class="fas fa-check-circle" style="color:darkcyan;"></i>`;
+        const input_icon_false = `${data.done_checklist_count} / ${data.checklist_count}
+                          <i class="fas fa-exclamation-circle" style="color:#cc3300;"></i>`;
         // LOGIC
         // change category checkbox
         checklistCategoryElement.innerHTML = "";
@@ -215,13 +228,14 @@ export default class extends Controller {
         isCheckListCompleted;
         // checklist completed status at category header
         if (data.check) {
-          checklistCard.insertAdjacentHTML("beforeend", input_icon);
-          checklistCard.style.color = "green";
+          checklistCardCheckIcon.innerHTML = "";
+          checklistCardCheckIcon.insertAdjacentHTML("beforeend", input_icon);
         } else {
-          if (checklistCardChild != undefined) {
-            checklistCard.style.color = "black";
-            checklistCard.removeChild(checklistCardChild);
-          }
+          checklistCardCheckIcon.innerHTML = "";
+          checklistCardCheckIcon.insertAdjacentHTML(
+            "beforeend",
+            input_icon_false
+          );
         }
 
         data.checklists.forEach((checklist) => {

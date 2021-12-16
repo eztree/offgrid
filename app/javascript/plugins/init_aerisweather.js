@@ -72,19 +72,23 @@ const initAerisWeather = async () => {
         const breakfast_arr = JSON.parse(target.dataset.breakfast);
         const meal_arr = JSON.parse(target.dataset.meal);
         const checkpoint_arr = JSON.parse(target.dataset.checkpointsName);
-        console.log(checkpoint_arr);
+        const isFirst = count == 1 ? "show" : "";
         html = `
             <div class="card">
               <div class="card-header" id="heading${count}">
                 <h2 class="mb-0">
                   <button class="btn btn-link btn-block text-left text-black" type="button" data-toggle="collapse" data-target="#collapse${count}" aria-expanded="true" aria-controls="collapse${count}">
-                    Day ${count} – ${date.toDateString()}
+                    <div>Day ${count} – ${date.toDateString()}</div>
                   </button>
                 </h2>
               </div>
-              <div id="collapse${count}" class="collapse" aria-labelledby="heading${count}" data-parent="#accordionDay">
+              <div id="collapse${count}" class="collapse ${isFirst}" aria-labelledby="heading${count}" data-parent="#accordionDay">
                 <div class="p-2">
-                  <div>You'll be hiking from <strong>${checkpoint_arr[index]}</strong> to <strong>${checkpoint_arr[index + 1]}</strong> today.</div>
+                  <div style="text:decoration:none">You'll be hiking from <strong>${
+                    checkpoint_arr[index]
+                  }</strong> to <strong>${
+          checkpoint_arr[index + 1]
+        }</strong> today.</div>
                 </div>
                 <div class="d-flex">
                   <div class="w-card p-3 text-center" style="border-right: 1px solid rgba(0,0,0,0.125); border-top: 1px solid rgba(0,0,0,0.125);">
@@ -113,17 +117,13 @@ const initAerisWeather = async () => {
                       <tr>
                         <th scope="row">Lunch</th>
                         <td>${
-                          meal_arr[
-                            Math.floor(Math.random() * meal_arr.length)
-                          ]
+                          meal_arr[Math.floor(Math.random() * meal_arr.length)]
                         }</td>
                       </tr>
                       <tr>
                         <th scope="row">Dinner</th>
                         <td>${
-                          meal_arr[
-                            Math.floor(Math.random() * meal_arr.length)
-                          ]
+                          meal_arr[Math.floor(Math.random() * meal_arr.length)]
                         }</td>
                       </tr>
                     </tbody>
