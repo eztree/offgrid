@@ -23,7 +23,14 @@
 
 <section id="mobile-upcoming">
   <% if @current_trip.nil? %>
-    <div class="container">Create a new trip!</div>
+    <div class="container">
+      <h2 class="mobile-header">Create a new trip!</h2>
+      <div class="d-flex flex-column">
+        <p>Fortune favours the brave...</p>
+        <%= image_tag "https://s10.gifyu.com/images/wilsonlake.gif", class:"rounded text-center", style:"width: 90%;" %>
+        <p class="mt-2">What are you waiting for?</p>
+      </div>
+    </div>
   <% else %>
     <div class="container">
       <h2 class="mobile-header">Upcoming</h2>
