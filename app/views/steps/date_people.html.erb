@@ -1,7 +1,7 @@
-<div class="row w-100">
-  <div class="col-6 text-white d-flex flex-column justify-content-center" id="date-people-bg">
-    <h2 class="side-text text-left font-weight-bold pb-5">Let's get started!</h2>
-    <h4 class="side-text-sub text-left font-weight-italic pb-5">Tell us a little more about your trip and we'll customise an itinerary - just for you.</h4>
+<div class="container-mstep">
+  <div class="content-left" id="date-people-bg">
+    <h2 class="side-text">Let's get started!</h2>
+    <h4 class="side-text-sub">Tell us a little more about your trip and we'll customise an itinerary - just for you.</h4>
     <div class="progress-container">
       <div class="progress" id="progress"></div>
       <div class="circle active"></div>
@@ -13,8 +13,8 @@
     </div>
   </div>
 
-  <div class="col-6 d-flex flex-column justify-content-center" id="form-field">
-    <div class="container mt-5">
+  <div class="content-right" id="form-field">
+    <div class="container-form">
       <%= form_for @trip, url: wizard_path, method: :put, local: true do |form| %>
         <div class="form-group row">
           <%= form.label :start_date, "Start date", class: "col-sm-4 col-form-label font-weight-bold text-right" %>
